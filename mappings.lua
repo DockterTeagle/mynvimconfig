@@ -18,7 +18,7 @@ M.dap = {
       "<cmd> DapContinue <CR>",
       "Start or continue the debugger"
     },
-    {
+    -- {
       ["<leader>dus"] = {
         function ()
           local widgets = require('dap.ui.widgets');
@@ -27,7 +27,6 @@ M.dap = {
         end,
         "Open debugging sidebar"
       }
-    }
   }
 }
 M.crates = {
@@ -38,6 +37,6 @@ M.crates = {
       end,
       "update crates"
     }
-  }
+  },
 }
 return M
