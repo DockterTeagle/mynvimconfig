@@ -1,4 +1,4 @@
-local helpers = require("LuaSnip.helper-functions")
+local helpers = require("custom.LuaSnip.helper-functions")
 return {
    
 }
