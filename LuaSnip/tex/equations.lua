@@ -3,17 +3,20 @@ return {
   helpers.s({trig=";a",snippetType="autosnippet"},
     {
       helpers.t("\\alpha"),
-    }
+    },
+    {condition = helpers.tex_utils.in_mathzone}
   ),
   helpers.s({trig=";b",snippetType="autosnippet"},
     {
       helpers.t("\\beta"),
-    }
+    },
+    {condition = helpers.tex_utils.in_mathzone}
   ),
   helpers.s({trig=";g",snippetType="autosnippet"},
     {
       helpers.t("\\gamma"),
-    }
+    },
+    {condition = helpers.tex_utils.in_mathzone}
   ),
 
 }

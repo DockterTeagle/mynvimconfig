@@ -27,9 +27,6 @@ tex_utils.in_env = function(name)  -- generic environment detection
     return (is_inside[1] > 0 and is_inside[2] > 0)
 end
 -- A few concrete environments---adapt as needed
-tex_utils.in_equation = function()  -- equation environment detection
-    return tex_utils.in_env('equation')
-end
 tex_utils.in_itemize = function()  -- itemize environment detection
     return tex_utils.in_env('itemize')
 end

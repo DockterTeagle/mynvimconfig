@@ -38,9 +38,12 @@ local plugins = {
         },
       }
       vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_imaps_enabled = 0
     end,
-  },  {
-     "rafamadriz/friendly-snippets", enabled = false
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    enabled = false,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -133,6 +136,30 @@ local plugins = {
     config = function(_,opts)
       require('rust-tools').setup(opts)
     end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ignore_install = {"latex"},
+      ensure_installed = {
+        -- defaults 
+        "vim",
+        "lua",
+
+        -- web dev 
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+        "json",
+        -- "vue", "svelte",
+
+       -- low level
+        "c",
+        "zig"
+      },
+    },
   },
 }
 return plugins
