@@ -38,7 +38,16 @@ tex_utils.in_tikz = function()  -- TikZ picture environment detection
 end
 
 M.tex_utils = tex_utils
-
+M.ls = ls 
+M.s = s 
+M.sn = sn 
+M.t = t 
+M.i = i 
+M.f = f 
+M.d = d 
+M.fmt = fmt
+M.fmta = fmta
+M.rep = rep
 function M.get_visual(args, parent)
   if (#parent.snippet.env.LS_SELECT_RAW > 0) then
     return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
