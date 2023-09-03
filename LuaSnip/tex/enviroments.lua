@@ -1,6 +1,6 @@
 local helpers = require("custom.LuaSnip.helper-functions")
 return {
-  helpers.s({trig="beg",snippetType="autosnippet"},
+  helpers.s({trig="env",snippetType="autosnippet"},
     helpers.fmta(
       [[\begin{<>}
       <>
@@ -87,5 +87,4 @@ return {
     ),
   {condition=helpers.line_begin}
   ),
-  -- helpers.s({})
 }

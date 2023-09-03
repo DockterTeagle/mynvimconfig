@@ -39,7 +39,9 @@ local plugins = {
       }
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_imaps_enabled = 0
-      
+      vim.cmd[[if !exists("g:vim_window_id")
+          let g:vim_window_id = system("xdotool getactivewindow")
+          endif]]  
     end,
   },
   {

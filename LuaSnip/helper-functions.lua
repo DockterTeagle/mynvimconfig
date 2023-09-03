@@ -34,7 +34,9 @@ end
 tex_utils.in_tikz = function()  -- TikZ picture environment detection
     return tex_utils.in_env('tikzpicture')
 end
-
+tex_utils.in_enumerate = function ()
+  return tex_utils.in_env('enumerate')
+end
 M.tex_utils = tex_utils
 M.ls = ls 
 M.s = s 
