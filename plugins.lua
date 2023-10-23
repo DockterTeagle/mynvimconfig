@@ -41,7 +41,7 @@ local plugins = {
       vim.g.vimtex_imaps_enabled = 0
       vim.cmd[[if !exists("g:vim_window_id")
           let g:vim_window_id = system("xdotool getactivewindow")
-          endif]]  
+          endif]]
     end,
   },
   {
@@ -49,24 +49,14 @@ local plugins = {
     enabled = false,
   },
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        names = false
+      }
+    }
   },
-  {
+    {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -88,14 +78,16 @@ local plugins = {
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
     },
     config = function(_, opts)
       local path ="~/.local/share/nvim/mason/packages/debugpy/venv/bin/python" 
       require("dap-python").setup(path)
+      require("core.utils").load_mappings("dap-python")
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -164,5 +156,24 @@ local plugins = {
       },
     },
   },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end
+  },
+
 }
 return plugins

@@ -38,13 +38,13 @@ tex_utils.in_enumerate = function ()
   return tex_utils.in_env('enumerate')
 end
 M.tex_utils = tex_utils
-M.ls = ls 
-M.s = s 
-M.sn = sn 
-M.t = t 
-M.i = i 
-M.f = f 
-M.d = d 
+M.ls = ls
+M.s = s
+M.sn = sn
+M.t = t
+M.i = i
+M.f = f
+M.d = d
 M.fmt = fmt
 M.fmta = fmta
 M.rep = rep
