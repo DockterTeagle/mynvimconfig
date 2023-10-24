@@ -1,3 +1,15 @@
+-- local on_attach = require("plugins.configs.lspconfig").on_attach
+-- local capabilities = require("plugins.configs.lspconfig").capabilities
+-- local lspconfig = require "lspconfig"
+-- local util = require "lspconfig/util"
+-- local servers = { "html", "cssls", "tsserver", "clangd", "dartls", "nil_ls", "pyright" }
+--
+-- for _, lsp in ipairs(servers) do
+--   lspconfig[lsp].setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   }
+-- end 
 local base = require("plugins.configs.lspconfig")
 local on_attach = base.on_attach
 local capabilities = base.capabilities
@@ -15,3 +27,8 @@ lspconfig.pyright.setup({
   capabilities = capabilities,
   filetypes = {"python"},
 })
+-- lspconfig.black.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes={"python"}
+-- })
