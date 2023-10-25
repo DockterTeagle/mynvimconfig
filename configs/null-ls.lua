@@ -7,12 +7,12 @@ local b = require("null-ls").builtins
   local sources = {
   -- Code actions
   b.code_actions.gitsigns,
-  b.code_actions.eslint_d,
+  -- b.code_actions.eslint_d,
   -- Completion
   b.completion.luasnip,
 
   -- diagnostics
-  b.diagnostics.cpplint,
+  -- b.diagnostics.cpplint,
   -- b.diagnostics.clj_kondo,
   -- b.diagnostics.eslint_d,
   -- b.diagnostics.flake8,

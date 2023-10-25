@@ -49,7 +49,7 @@ local plugins = {
   },
   {
     "lervag/vimtex",
-    lazy = false,
+    ft = "tex",
     init = function()
       vim.g.vimtex_compiler_latexmk = {
         options = {
@@ -122,7 +122,7 @@ local plugins = {
   {
     "williamboman/mason.nvim",
     event = "VeryLazy",
-    opts = overrides,
+    opts = overrides.mason,
   },
   {
     "simrat39/rust-tools.nvim",
@@ -137,27 +137,7 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ignore_install = {"latex"},
-      ensure_installed = {
-        -- defaults 
-        "vim",
-        "lua",
-
-        -- web dev 
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "tsx",
-        "json",
-        -- "vue", "svelte",
-
-       -- low level
-        "c",
-        "zig"
-      },
-    },
+    opts = overrides.treesitter,
   },
 
   {
