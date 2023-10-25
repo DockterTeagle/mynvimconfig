@@ -1,3 +1,4 @@
+local overrides = require "custom.configs.overrides"
 local plugins = {
    {
     "christoomey/vim-tmux-navigator",
@@ -82,13 +83,9 @@ local plugins = {
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
-    },
-    opts = {
-      handlers = {}
-    },
+    config = function ()
+      require "custom.configs.external.mason-nvim-dap"
+    end
   },
   {
     "mfussenegger/nvim-dap",
@@ -124,18 +121,8 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "black",
-        "clangd",
-        "clang-format",
-        "codelldb",
-        "mypy",
-        "ruff",
-        "pyright",
-        "debugpy",
-      }
-    },
+    event = "VeryLazy",
+    opts = overrides,
   },
   {
     "simrat39/rust-tools.nvim",
@@ -151,7 +138,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      -- ignore_install = {"latex"},
+      ignore_install = {"latex"},
       ensure_installed = {
         -- defaults 
         "vim",
