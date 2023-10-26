@@ -5,6 +5,18 @@ local plugins = {
     lazy = false,
   },
   {
+    "charludo/projectmgr.nvim",
+    lazy = false,
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    lazy = false,
+    build = "make",
+  },
+  {
+    "junegunn/fzf",
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function()

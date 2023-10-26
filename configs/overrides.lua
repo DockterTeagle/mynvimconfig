@@ -9,6 +9,7 @@ M.mason = {
     "ruff",
     "pyright",
     "debugpy",
+    "deno",
   },
 }
 M.treesitter = {
