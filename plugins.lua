@@ -62,6 +62,7 @@ local plugins = {
   {
     "lervag/vimtex",
     ft = "tex",
+    lazy = false,
     init = function()
       vim.g.vimtex_compiler_latexmk = {
         options = {
