@@ -1,4 +1,5 @@
 local overrides = require "custom.configs.overrides"
+local cmp = require "cmp"
 local plugins = {
    {
     "christoomey/vim-tmux-navigator",
@@ -44,6 +45,13 @@ local plugins = {
     end,
   },
   {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = false,
+    config = function(_, opts)
+      require("nvim-dap-virtual-text").setup()
+    end
+  },
+  {
     "junegunn/fzf",
   },
   {
@@ -71,6 +79,10 @@ local plugins = {
     config = function (_,opts)
       local crates = require('crates')
       crates.setup(opts)
+       require('cmp').setup.buffer({
+        sources = { { name = "crates" }}
+      })
+      require("core.utils").load_mappings("crates")
       crates.show()
     end,
   },
@@ -78,8 +90,13 @@ local plugins = {
     "hrsh7th/nvim-cmp",
     opts = function()
       local M = require "plugins.configs.cmp"
-      table.insert(M.sources,{name="crates"})
-      return M
+      M.completion.completeopt = "menu,menuone,noselect"
+      M.mapping["<CR>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = false,
+      }
+      table.insert(M.sources, {name = "crates"})
+      return M 
     end
   },
   {
