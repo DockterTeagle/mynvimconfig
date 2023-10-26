@@ -39,8 +39,7 @@ local b = require("null-ls").builtins
   -- b.formatting.stylua,
   -- b.formatting.yamlfmt,
   -- b.formatting.zprint,
-  --
-
+  b.formatting.clang_format,
   }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {

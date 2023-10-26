@@ -17,7 +17,7 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    -- lazy = false,
+    lazy = false,
     build = "make",
   },
   {
@@ -37,7 +37,8 @@ local plugins = {
       }
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_imaps_enabled = 0
-      vim.cmd[[if !exists("g:vim_window_id")
+      vim.cmd[[
+      if !exists("g:vim_window_id")
           let g:vim_window_id = system("xdotool getactivewindow")
           endif]]
     end,
@@ -81,16 +82,8 @@ local plugins = {
       return M
     end
   },
-  -- {
-  --   "latex-lsp/texlab",
-  --   ft = "latex,"
-  -- },
   {
     "ludovicchabant/vim-gutentags",
-    lazy = false,
-  },
-  {
-    "neomake/neomake",
     lazy = false,
   },
   {
@@ -177,13 +170,5 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
-  -- {
-  --   "TimUntersberger/neogit",
-  --   event = "VeryLazy",
-  --   dependencies = {
-  --     "sindrets/diffview.nvim",
-  --   },
-  --   config = "custom.configs.external.neogit"
-  -- },
 }
 return plugins
