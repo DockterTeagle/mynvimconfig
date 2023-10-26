@@ -22,6 +22,13 @@ local b = require("null-ls").builtins
   -- b.diagnostics.shellcheck,
   b.diagnostics.ruff,
   b.diagnostics.mypy,
+  -- with({
+  --   extra_args = function()
+  --     local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+  --     return { "--python-executable", virtual .. "/bin/python3" }
+  --   end,
+  -- }),
+  b.diagnostics.vale,
 
   -- Formatters
   -- b.formatting.astyle,
