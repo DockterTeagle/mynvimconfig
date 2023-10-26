@@ -177,13 +177,13 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
-  {
-    "TimUntersberger/neogit",
-    event = "VeryLazy",
-    dependencies = {
-      "sindrets/diffview.nvim",
-    },
-    config = "custom.configs.external.neogit"
-  },
+  -- {
+  --   "TimUntersberger/neogit",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "sindrets/diffview.nvim",
+  --   },
+  --   config = "custom.configs.external.neogit"
+  -- },
 }
 return plugins
