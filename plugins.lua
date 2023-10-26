@@ -82,6 +82,10 @@ local plugins = {
     end,
   },
   {
+    "latex-lsp/texlab",
+    ft = "latex,"
+  },
+  {
     "rafamadriz/friendly-snippets",
     enabled = false,
   },
@@ -170,9 +174,7 @@ local plugins = {
     dependencies = {
       "sindrets/diffview.nvim",
     },
-    config = function()
-      require "custom.configs.external.neogit"
-    end,
+    config = "custom.configs.external.neogit"
   },
 }
 return plugins
