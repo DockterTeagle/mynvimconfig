@@ -213,7 +213,7 @@ local plugins = {
       for k, v in pairs(opts) do
         leap.opts[k] = v
       end
-      leap.add_default_mappings(true)
+      leap.add_default_mappings()
       vim.keymap.del({ "x", "o" }, "x")
       vim.keymap.del({ "x", "o" }, "X")
     end,
@@ -229,5 +229,16 @@ local plugins = {
       require "custom.configs.external.neogit"
     end,
   },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function ()
+      require "custom.configs.external.noice"
+    end
+  }
 }
 return plugins

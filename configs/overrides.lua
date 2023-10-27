@@ -23,8 +23,10 @@ M.treesitter = {
     "lua",
     "python",
     "markdown",
+    "markdown_inline",
     "bash",
     "nix",
+    "regex",
     -- web dev 
     "html",
     "css",
