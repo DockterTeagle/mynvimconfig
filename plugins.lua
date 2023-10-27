@@ -23,7 +23,6 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    lazy = false,
     build = "make",
   },
   {
@@ -51,7 +50,6 @@ local plugins = {
   },
   {
     "theHamsta/nvim-dap-virtual-text",
-    lazy = false,
     config = function(_, opts)
       require("nvim-dap-virtual-text").setup()
     end
@@ -111,9 +109,11 @@ local plugins = {
   {
     "rafamadriz/friendly-snippets",
     enabled = false,
+    event = "VeryLazy",
   },
   {
     "NvChad/nvim-colorizer.lua",
+    event = "VeryLazy",
     opts = {
       user_default_options = {
         names = false
@@ -127,15 +127,46 @@ local plugins = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
     },
+    opts = {
+      handlers =  {}
+    },
   },
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
+    dependencies = {
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-telescope/telescope-dap.nvim",
+      -- "jbyuki/one-small-step-for-vimkind",
+    },
     config = function(_, _)
       require("core.utils").load_mappings("dap")
+      local dap = require("dap")
+      dap.configurations.cpp = {
+        {
+        name = "Launch",
+        type = "cpp",
+        request = "launch",
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        env = function()
+          local variables = {}
+          for k, v in pairs(vim.fn.environ()) do
+            table.insert(variables, string.format("%s=%s", k, v))
+          end
+          return variables
+        end,
+        stopOnEntry = false,
+        args = {}
+      },
+    }
     end
   },
   {
     "mfussenegger/nvim-dap-python",
+    event = "VeryLazy",
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -157,6 +188,7 @@ local plugins = {
   {
     "rust-lang/rust.vim",
     ft = "rust",
+    event = "VeryLazy",
     init = function ()
       vim.g.rustfmt_autosave = 1
     end
@@ -168,6 +200,7 @@ local plugins = {
   },
   {
     "simrat39/rust-tools.nvim",
+    event = "VeryLazy",
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function ()
@@ -199,8 +232,6 @@ local plugins = {
     event = "VeryLazy",
   },
   {
-    -- "ggandor/lightspeed.nvim",
-    -- lazy=false,
     "ggandor/leap.nvim",
     enabled = true,
     keys = {
@@ -240,5 +271,15 @@ local plugins = {
       require "custom.configs.external.noice"
     end
   },
+  {
+    "ggandor/leap-spooky.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "ggandor/leap.nvim",
+    },
+    config = function ()
+      require('leap-spooky').setup{}
+    end
+  }
 }
 return plugins
