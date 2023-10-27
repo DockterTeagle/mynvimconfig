@@ -6,6 +6,13 @@ local plugins = {
     lazy = false,
   },
   {
+    "anuvyklack/pretty-fold.nvim",
+    lazy = false,
+    config = function ()
+      require("pretty-fold").setup()
+    end,
+  },
+  {
     "charludo/projectmgr.nvim",
     lazy = false,
   },
@@ -13,8 +20,6 @@ local plugins = {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
-    opts = {
-    },
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -56,6 +61,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
@@ -72,7 +78,6 @@ local plugins = {
       end
     end
   },
-
   {
     "saecki/crates.nvim",
     ft = {"rust","toml"},
@@ -96,7 +101,7 @@ local plugins = {
         select = false,
       }
       table.insert(M.sources, {name = "crates"})
-      return M 
+      return M
     end
   },
   {
@@ -118,9 +123,10 @@ local plugins = {
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
-    config = function ()
-      require "custom.configs.external.mason-nvim-dap"
-    end
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
   },
   {
     "mfussenegger/nvim-dap",
@@ -143,6 +149,7 @@ local plugins = {
   },
   {
     "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -185,6 +192,41 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+    end,
+  },
+  {
+    "tpope/vim-repeat",
+    event = "VeryLazy",
+  },
+  {
+    -- "ggandor/lightspeed.nvim",
+    -- lazy=false,
+    "ggandor/leap.nvim",
+    enabled = true,
+    keys = {
+      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    },
+    config = function(_, opts)
+      local leap = require("leap")
+      for k, v in pairs(opts) do
+        leap.opts[k] = v
+      end
+      leap.add_default_mappings(true)
+      vim.keymap.del({ "x", "o" }, "x")
+      vim.keymap.del({ "x", "o" }, "X")
+    end,
+
+    },
+ {
+    "TimUntersberger/neogit",
+    event = "VeryLazy",
+    dependencies = {
+      "sindrets/diffview.nvim",
+    },
+    config = function()
+      require "custom.configs.external.neogit"
     end,
   },
 }

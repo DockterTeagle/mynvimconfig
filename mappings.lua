@@ -38,6 +38,10 @@ M.dap_python = {
     }
   }
 }
+M.leap = {
+  plugin = true,
+  n ={}
+}
 M.crates = {
   n = {
     ["<leader>rcu"] = {

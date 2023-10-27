@@ -12,6 +12,7 @@ M.mason = {
     "deno",
     "vale",
     "rust-analyzer",
+    "texlab",
   },
 }
 M.treesitter = {
