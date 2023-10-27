@@ -239,6 +239,6 @@ local plugins = {
     config = function ()
       require "custom.configs.external.noice"
     end
-  }
+  },
 }
 return plugins
