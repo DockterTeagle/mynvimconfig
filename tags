@@ -34,7 +34,6 @@ dart	configs/external/mason-nvim-dap.lua	/^    dart = function(config)$/;"	f
 event_exited["dapui_config"]	plugins.lua	/^      dap.listeners.before.event_exited["dapui_config"] = function()$/;"	f	unknown:dap.listeners.before
 event_initialized["dapui_config"]	plugins.lua	/^      dap.listeners.after.event_initialized["dapui_config"] = function()$/;"	f	unknown:dap.listeners.after
 event_terminated["dapui_config"]	plugins.lua	/^      dap.listeners.before.event_terminated["dapui_config"] = function()$/;"	f	unknown:dap.listeners.before
-extra_args	configs/null-ls.lua	/^    extra_args = function()$/;"	f
 f	LuaSnip/helper-functions.lua	/^local f = ls.function_node$/;"	f
 get_visual	LuaSnip/helper-functions.lua	/^function M.get_visual(args, parent)$/;"	f	unknown:M
 helpers	LuaSnip/python/enviroments.lua	/^local helpers = require("custom.LuaSnip.helper-functions")$/;"	f
