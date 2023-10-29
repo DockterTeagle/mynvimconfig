@@ -57,9 +57,6 @@ local plugins = {
     end
   },
   {
-    "junegunn/fzf",
-  },
-  {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",

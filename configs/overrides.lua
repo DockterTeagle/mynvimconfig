@@ -11,7 +11,6 @@ M.mason = {
     "debugpy",
     "deno",
     "vale",
-    "rust-analyzer",
     "texlab",
     "bibtex-tidy",
   },

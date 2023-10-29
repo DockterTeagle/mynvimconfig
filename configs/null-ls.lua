@@ -7,8 +7,6 @@ local b = require("null-ls").builtins
   local sources = {
   -- Code actions
   b.code_actions.gitsigns,
-  -- Completion
-  b.completion.luasnip,
 
   -- diagnostics
   -- b.diagnostics.ruff,
@@ -21,7 +19,7 @@ local b = require("null-ls").builtins
   b.diagnostics.vale,
 
   -- Formatters
-  b.formatting.black,
+  -- b.formatting.black,
   b.formatting.bibtextidy,
   b.formatting.clang_format,
   }
