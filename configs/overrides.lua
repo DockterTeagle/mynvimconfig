@@ -13,6 +13,7 @@ M.mason = {
     "vale",
     "rust-analyzer",
     "texlab",
+    "bibtex-tidy",
   },
 }
 M.treesitter = {

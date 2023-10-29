@@ -33,6 +33,7 @@ local b = require("null-ls").builtins
   -- b.formatting.astyle,
   -- b.formatting.alejandra,
   b.formatting.black,
+  b.formatting.bibtextidy,
   -- b.formatting.dart_format,
   -- b.formatting.prettierd,
   -- b.formatting.rustfmt,
