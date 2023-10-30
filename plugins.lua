@@ -152,6 +152,28 @@ local plugins = {
     end,
   },
   {
+    'stevearc/conform.nvim',
+    dependencies = {
+      "mason.nvim"
+    },
+    lazy = true,
+    cmd = "ConformInfo",
+    opts = function ()
+      local opts = {
+        format = {
+          timeout_ms = 3000,
+          async = false,
+          quiet = false,
+        },
+        formatters_by_ft = {
+          lua= {"stylua"},
+          bib = {"bibtex-tidy"},
+        }
+        }
+     return opts
+    end
+  },
+  {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function ()

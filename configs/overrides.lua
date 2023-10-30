@@ -13,6 +13,7 @@ M.mason = {
     "vale",
     "texlab",
     "bibtex-tidy",
+    "stylua",
   },
 }
 M.treesitter = {
