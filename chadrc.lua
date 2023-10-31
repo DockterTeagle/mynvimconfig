@@ -6,7 +6,6 @@
     signature = {
       silent = true,
       disabled = false,
-
     },
   },
 }

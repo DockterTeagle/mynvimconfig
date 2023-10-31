@@ -20,7 +20,7 @@ local b = require("null-ls").builtins
 
   -- Formatters
   b.formatting.black,
-  b.formatting.bibtex_tidy,
+  -- b.formatting.bibtex_tidy,
   b.formatting.clang_format,
   }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -218,8 +218,6 @@ local plugins = {
     event = "VeryLazy",
   },
   {
-    -- "ggandor/lightspeed.nvim",
-    -- lazy=false,
     "ggandor/leap.nvim",
     enabled = true,
     keys = {
