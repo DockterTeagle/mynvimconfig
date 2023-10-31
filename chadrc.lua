@@ -1,7 +1,7 @@
----@type ChadrcConfig 
- local M = {}
- M.ui = {
-  theme = 'catppuccin',
+---@type ChadrcConfig
+local M = {}
+M.ui = {
+  theme = "catppuccin",
   lsp = {
     signature = {
       silent = true,
@@ -9,6 +9,6 @@
     },
   },
 }
- M.mappings =require "custom.mappings"
- M.plugins = "custom.plugins"
- return M
+M.mappings = require "custom.mappings"
+M.plugins = "custom.plugins"
+return M

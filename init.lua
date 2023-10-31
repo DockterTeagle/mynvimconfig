@@ -1,13 +1,13 @@
 local enable_providers = {
-      "python3_provider",
-      "node_provider",
-      -- and so on
-    }
-    for _, plugin in pairs(enable_providers) do
-      vim.g["loaded_" .. plugin] = nil
-      vim.cmd("runtime " .. plugin)
-    end
-vim.cmd[[
+  "python3_provider",
+  "node_provider",
+  -- and so on
+}
+for _, plugin in pairs(enable_providers) do
+  vim.g["loaded_" .. plugin] = nil
+  vim.cmd("runtime " .. plugin)
+end
+vim.cmd [[
 " Use Tab to expand and jump through snippets
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
 smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'

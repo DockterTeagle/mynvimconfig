@@ -3,26 +3,37 @@ if not present then
   return
 end
 local b = require("null-ls").builtins
-
-  local sources = {
+local d = b.diagnostics
+local m = require("null-ls").methods
+local c = b.code_actions
+local f = b.formatting
+local sources = {
   -- Code actions
-  b.code_actions.gitsigns,
+  c.gitsigns,
 
   -- diagnostics
-  b.diagnostics.ruff,
-  b.diagnostics.mypy.with({
+  d.ruff.with {
+    method = m.DIAGNOSTICS_ON_SAVE,
     extra_args = function()
-      local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+      local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
       return { "--python-executable", virtual .. "/bin/python3" }
     end,
-  }),
-  b.diagnostics.vale,
+  },
+  d.mypy.with {
+    method = m.DIAGNOSTICS_ON_SAVE,
+    extra_args = function()
+      local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
+      return { "--python-executable", virtual .. "/bin/python3" }
+    end,
+  },
+  d.vale,
 
   -- Formatters
-  b.formatting.black,
+  f.black,
   -- b.formatting.bibtex_tidy,
-  b.formatting.clang_format,
-  }
+  f.clang_format,
+  f.stylua,
+}
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   debug = true,

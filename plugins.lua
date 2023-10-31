@@ -1,14 +1,14 @@
 local overrides = require "custom.configs.overrides"
 local cmp = require "cmp"
 local plugins = {
-   {
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
   {
     "anuvyklack/pretty-fold.nvim",
     lazy = false,
-    config = function ()
+    config = function()
       require("pretty-fold").setup()
     end,
   },
@@ -43,7 +43,7 @@ local plugins = {
       }
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_imaps_enabled = 0
-      vim.cmd[[
+      vim.cmd [[
       if !exists("g:vim_window_id")
           let g:vim_window_id = system("xdotool getactivewindow")
           endif]]
@@ -54,15 +54,15 @@ local plugins = {
     lazy = false,
     config = function(_, opts)
       require("nvim-dap-virtual-text").setup()
-    end
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
+      local dap = require "dap"
+      local dapui = require "dapui"
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -73,18 +73,18 @@ local plugins = {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-    end
+    end,
   },
   {
     "saecki/crates.nvim",
-    ft = {"rust","toml"},
-    config = function (_,opts)
-      local crates = require('crates')
+    ft = { "rust", "toml" },
+    config = function(_, opts)
+      local crates = require "crates"
       crates.setup(opts)
-       require('cmp').setup.buffer({
-        sources = { { name = "crates" }}
-      })
-      require("core.utils").load_mappings("crates")
+      require("cmp").setup.buffer {
+        sources = { { name = "crates" } },
+      }
+      require("core.utils").load_mappings "crates"
       crates.show()
     end,
   },
@@ -97,9 +97,9 @@ local plugins = {
         behavior = cmp.ConfirmBehavior.Insert,
         select = false,
       }
-      table.insert(M.sources, {name = "crates"})
+      table.insert(M.sources, { name = "crates" })
       return M
-    end
+    end,
   },
   {
     "ludovicchabant/vim-gutentags",
@@ -113,9 +113,9 @@ local plugins = {
     "NvChad/nvim-colorizer.lua",
     opts = {
       user_default_options = {
-        names = false
-      }
-    }
+        names = false,
+      },
+    },
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -128,8 +128,8 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function(_, _)
-      require("core.utils").load_mappings("dap")
-    end
+      require("core.utils").load_mappings "dap"
+    end,
   },
   {
     "mfussenegger/nvim-dap-python",
@@ -139,9 +139,9 @@ local plugins = {
       "rcarriga/nvim-dap-ui",
     },
     config = function(_, opts)
-      local path ="~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap_python")
+      require("core.utils").load_mappings "dap_python"
     end,
   },
   {
@@ -150,15 +150,18 @@ local plugins = {
     opts = function()
       return require "custom.configs.null-ls"
     end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
   },
   {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
     dependencies = {
-      "mason.nvim"
+      "mason.nvim",
     },
     lazy = true,
     cmd = "ConformInfo",
-    opts = function ()
+    opts = function()
       local opts = {
         format = {
           timeout_ms = 3000,
@@ -166,19 +169,19 @@ local plugins = {
           quiet = false,
         },
         formatters_by_ft = {
-          lua= {"stylua"},
-          bib = {"bibtex-tidy"},
-        }
-        }
-     return opts
-    end
+          lua = { "stylua" },
+          bib = { "bibtex-tidy" },
+        },
+      }
+      return opts
+    end,
   },
   {
     "rust-lang/rust.vim",
     ft = "rust",
-    init = function ()
+    init = function()
       vim.g.rustfmt_autosave = 1
-    end
+    end,
   },
   {
     "williamboman/mason.nvim",
@@ -189,11 +192,11 @@ local plugins = {
     "simrat39/rust-tools.nvim",
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
-    opts = function ()
+    opts = function()
       return require "custom.configs.rust-tools"
     end,
-    config = function(_,opts)
-      require('rust-tools').setup(opts)
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
     end,
   },
   {
@@ -226,7 +229,7 @@ local plugins = {
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function(_, opts)
-      local leap = require("leap")
+      local leap = require "leap"
       for k, v in pairs(opts) do
         leap.opts[k] = v
       end
@@ -234,9 +237,8 @@ local plugins = {
       vim.keymap.del({ "x", "o" }, "x")
       vim.keymap.del({ "x", "o" }, "X")
     end,
-
-    },
- {
+  },
+  {
     "TimUntersberger/neogit",
     event = "VeryLazy",
     dependencies = {
@@ -253,19 +255,19 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    config = function ()
+    config = function()
       require "custom.configs.external.noice"
-    end
+    end,
   },
   {
     "nvim-telescope/telescope-bibtex.nvim",
     ft = "bib",
     dependencies = {
-      "nvim-telescope/telescope.nvim"
+      "nvim-telescope/telescope.nvim",
     },
-    config = function ()
-      require"telescope".load_extension("bibtex")
-    end
+    config = function()
+      require("telescope").load_extension "bibtex"
+    end,
   },
 }
 

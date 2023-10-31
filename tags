@@ -24,12 +24,9 @@
 !_TAG_PROGRAM_VERSION	6.0.0	/35abbb13/
 callback	configs/null-ls.lua	/^        callback = function()$/;"	f
 codelldb	configs/external/mason-nvim-dap.lua	/^    codelldb = function(config)$/;"	f
-config	plugins.lua	/^    config = function ()$/;"	f
-config	plugins.lua	/^    config = function (_,opts)$/;"	f
 config	plugins.lua	/^    config = function()$/;"	f
 config	plugins.lua	/^    config = function(_, _)$/;"	f
 config	plugins.lua	/^    config = function(_, opts)$/;"	f
-config	plugins.lua	/^    config = function(_,opts)$/;"	f
 dart	configs/external/mason-nvim-dap.lua	/^    dart = function(config)$/;"	f
 event_exited["dapui_config"]	plugins.lua	/^      dap.listeners.before.event_exited["dapui_config"] = function()$/;"	f	unknown:dap.listeners.before
 event_initialized["dapui_config"]	plugins.lua	/^      dap.listeners.after.event_initialized["dapui_config"] = function()$/;"	f	unknown:dap.listeners.after
@@ -47,9 +44,7 @@ in_itemize	LuaSnip/helper-functions.lua	/^tex_utils.in_itemize = function()  -- 
 in_mathzone	LuaSnip/helper-functions.lua	/^tex_utils.in_mathzone = function()  -- math context detection$/;"	f	unknown:tex_utils
 in_text	LuaSnip/helper-functions.lua	/^tex_utils.in_text = function()$/;"	f	unknown:tex_utils
 in_tikz	LuaSnip/helper-functions.lua	/^tex_utils.in_tikz = function()  -- TikZ picture environment detection$/;"	f	unknown:tex_utils
-init	plugins.lua	/^    init = function ()$/;"	f
 init	plugins.lua	/^    init = function()$/;"	f
 on_attach	configs/null-ls.lua	/^  on_attach = function(client, bufnr)$/;"	f
-opts	plugins.lua	/^    opts = function ()$/;"	f
 opts	plugins.lua	/^    opts = function()$/;"	f
 python	configs/external/mason-nvim-dap.lua	/^    python = function(config)$/;"	f
