@@ -7,7 +7,7 @@ M.mason = {
     "codelldb",
     "mypy",
     "ruff",
-    "pyright",
+    -- "pyright",
     "debugpy",
     "deno",
     "vale",
@@ -18,8 +18,8 @@ M.mason = {
 }
 M.treesitter = {
 
-    ensure_installed = {
-    -- defaults 
+  ensure_installed = {
+    -- defaults
     "vim",
     "lua",
     "python",
@@ -28,7 +28,7 @@ M.treesitter = {
     "bash",
     "nix",
     "regex",
-    -- web dev 
+    -- web dev
     "html",
     "css",
     "javascript",
@@ -41,7 +41,7 @@ M.treesitter = {
     "toml",
     "yaml",
     "yuck",
-   -- low level
+    -- low level
     "c",
     "zig",
     "cpp",
