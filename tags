@@ -22,6 +22,7 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	6.0.0	/35abbb13/
+args	configs/null-ls.lua	/^    args = function(params)$/;"	f
 callback	configs/null-ls.lua	/^        callback = function()$/;"	f
 codelldb	configs/external/mason-nvim-dap.lua	/^    codelldb = function(config)$/;"	f
 config	plugins.lua	/^    config = function()$/;"	f
@@ -48,3 +49,4 @@ init	plugins.lua	/^    init = function()$/;"	f
 on_attach	configs/null-ls.lua	/^  on_attach = function(client, bufnr)$/;"	f
 opts	plugins.lua	/^    opts = function()$/;"	f
 python	configs/external/mason-nvim-dap.lua	/^    python = function(config)$/;"	f
+runtime_condition	configs/null-ls.lua	/^    runtime_condition = function(params)$/;"	f

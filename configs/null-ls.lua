@@ -35,10 +35,10 @@ local sources = {
         "--no-pretty",
         "--cache-fine-grained",
         "--sqlite-cache",
-        --'--shadow-file',
-        --params.bufname,
-        --params.temp_path,
-        --params.bufname,
+        "--shadow-file",
+        params.bufname,
+        params.temp_path,
+        params.bufname,
       }
       local t2 = vim.lsp.buf.list_workspace_folders()
       for _, v in ipairs(t2) do
@@ -55,10 +55,12 @@ local sources = {
         return true
       end
     end,
-    extra_args = function()
-      local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
-      return { "--python-executable", virtual .. "/bin/python3" }
-    end,
+
+    --so it turns out that I cant have my cake and eat it too I have to have it as either dmypy or have it read my corret configuration
+    -- extra_args = function()
+    --   local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
+    --   return { "--python-executable", virtual .. "/bin/python3" }
+    -- end,
   },
   d.vale,
 

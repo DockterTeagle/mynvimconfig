@@ -1,11 +1,15 @@
+vim.env.PYENV = "~/anaconda3/bin/python"
 local M = {}
 M.mason = {
+  name = "base",
+  packages = {
+    "python/mypy",
+  },
   ensure_installed = {
     "black",
     "clangd",
     "clang-format",
     "codelldb",
-    "mypy",
     "ruff",
     -- "pyright",
     "debugpy",
