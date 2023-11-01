@@ -1,11 +1,9 @@
+vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/LuaSnip"
 local enable_providers = {
   "python3_provider",
   "node_provider",
   -- and so on
-  "perl_provider",
-  "ruby_provider",
 }
-vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/LuaSnip"
 for _, plugin in pairs(enable_providers) do
   vim.g["loaded_" .. plugin] = nil
   vim.cmd("runtime " .. plugin)

@@ -1,2 +1,2 @@
-# mynvimconfig
-Based on NvChad
+# My NeoVim configuration
+Based on `NvChad`

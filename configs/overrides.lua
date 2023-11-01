@@ -23,6 +23,7 @@ M.mason = {
     "cpplint",
     "selene",
     "lua-language-server",
+    "mypy",
   },
 }
 M.treesitter = {

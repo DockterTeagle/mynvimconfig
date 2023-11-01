@@ -123,10 +123,10 @@ local plugins = {
     config = function()
       require "custom.configs.external.mason-nvim-dap"
     end,
-    -- dependencies = {
-    --   "williamboman/mason.nvim",
-    --   "mfussenegger/nvim-dap",
-    -- },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
   },
   {
     "mfussenegger/nvim-dap",

@@ -2,11 +2,8 @@
 local M = {}
 M.ui = {
   theme = "catppuccin",
-  lsp = {
-    signature = {
-      silent = true,
-      disabled = false,
-    },
+  nvdash = {
+    load_on_startup = true,
   },
 }
 M.mappings = require "custom.mappings"
