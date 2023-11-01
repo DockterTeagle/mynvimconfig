@@ -4,7 +4,7 @@ if not present then
 end
 local b = null_ls.builtins
 local d = b.diagnostics
-local m = null_ls.methods
+-- local m = null_ls.methods
 local c = b.code_actions
 local f = b.formatting
 local sources = {
