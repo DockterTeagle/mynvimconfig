@@ -1,0 +1,2 @@
+# mynvimconfig
+Based on NvChad
