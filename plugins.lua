@@ -241,14 +241,25 @@ local plugins = {
       vim.keymap.del({ "x", "o" }, "X")
     end,
   },
+  -- {
+  --   "TimUntersberger/neogit",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "sindrets/diffview.nvim",
+  --   },
+  --   config = function()
+  --     require "custom.configs.external.neogit"
+  --   end,
+  -- },
   {
-    "TimUntersberger/neogit",
-    event = "VeryLazy",
+    "kdheepak/lazygit.nvim",
+    lazy = false,
     dependencies = {
-      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
     },
     config = function()
-      require "custom.configs.external.neogit"
+      require("telescope").load_extension "lazygit"
     end,
   },
   {
