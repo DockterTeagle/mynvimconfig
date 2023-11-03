@@ -13,10 +13,6 @@ local plugins = {
     end,
   },
   {
-    "charludo/projectmgr.nvim",
-    lazy = false,
-  },
-  {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
@@ -241,19 +237,8 @@ local plugins = {
       vim.keymap.del({ "x", "o" }, "X")
     end,
   },
-  -- {
-  --   "TimUntersberger/neogit",
-  --   event = "VeryLazy",
-  --   dependencies = {
-  --     "sindrets/diffview.nvim",
-  --   },
-  --   config = function()
-  --     require "custom.configs.external.neogit"
-  --   end,
-  -- },
   {
     "kdheepak/lazygit.nvim",
-    lazy = false,
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
@@ -261,6 +246,7 @@ local plugins = {
     config = function()
       require("telescope").load_extension "lazygit"
     end,
+    cmd = "LazyGit",
   },
   {
     "folke/noice.nvim",
