@@ -6,6 +6,39 @@ local plugins = {
     lazy = false,
   },
   {
+    "andweeb/presence.nvim",
+  },
+  {
+    "edluffy/hologram.nvim",
+    config = function()
+      require("hologram").setup {
+        auto_display = true,
+      }
+    end,
+  },
+  -- this is here for later for when I can get discord to see what I am doing
+  -- {
+  --   "Chaitanyabsprip/present.nvim",
+  --   config = function()
+  --     require("present").setup()
+  --   end,
+  -- },
+  {
+    "gaborvecsei/usage-tracker.nvim",
+    cmd = "UsageTracker",
+    config = function()
+      require("usage-tracker").setup {
+        keep_eventlog_days = 14,
+        cleanup_freq_days = 7,
+        event_wait_period_in_sec = 5,
+        inactivity_threshold_in_min = 5,
+        inactivity_check_freq_in_sec = 5,
+        verbose = 0,
+        telemetry_endpoint = "", -- you'll need to start the restapi for this feature
+      }
+    end,
+  },
+  {
     "anuvyklack/pretty-fold.nvim",
     lazy = false,
     config = function()
@@ -15,7 +48,7 @@ local plugins = {
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false,
+    cmd = "Trouble",
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
