@@ -19,7 +19,7 @@ local sources = {
     end,
   },
   d.mypy.with {
-    prefer_local = "/home/christopher/anaconda3/bin",
+    prefer_local = "/home/christopher/miniconda3/bin",
     -- command = "dmypy",
     -- args = function(params)
     --   local t1 = {
