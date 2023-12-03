@@ -5,24 +5,6 @@ local plugins = {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
-  -- {
-  --   "andweeb/presence.nvim",
-  -- },
-  -- {
-  --   "edluffy/hologram.nvim",
-  --   config = function()
-  --     require("hologram").setup {
-  --       auto_display = true,
-  --     }
-  --   end,
-  -- },
-  -- this is here for later for when I can get discord to see what I am doing
-  -- {
-  --   "Chaitanyabsprip/present.nvim",
-  --   config = function()
-  --     require("present").setup()
-  --   end,
-  -- },
   {
     "anuvyklack/pretty-fold.nvim",
     lazy = false,
@@ -221,7 +203,6 @@ local plugins = {
     event = "VeryLazy",
     opts = overrides.treesitter,
   },
-
   {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
@@ -287,7 +268,6 @@ local plugins = {
       require("telescope").load_extension "bibtex"
     end,
   },
-}
 
 --note to self never install YouCompleteMe
 return plugins
