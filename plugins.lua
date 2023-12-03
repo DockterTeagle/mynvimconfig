@@ -22,6 +22,29 @@ local plugins = {
     lazy = false,
     build = "make",
   },
+  -- {
+  --   "lervag/vimtex",
+  --   ft = "tex",
+  --   lazy = false,
+  --   init = function()
+  --     vim.g.vimtex_compiler_latexmk = {
+  --       options = {
+  --         "-shell-escape",
+  --         "-verbose",
+  --         "-file-line-error",
+  --         "-interaction=nonstopmode",
+  --         "-synctex=1",
+  --         -- "-recorder"
+  --       },
+  --     }
+  --     vim.g.vimtex_view_method = "zathura"
+  --     vim.g.vimtex_imaps_enabled = 0
+  --     vim.cmd [[
+  --     if !exists("g:vim_window_id")
+  --         let g:vim_window_id = system("xdotool getactivewindow")
+  --         endif]]
+  --   end,
+  -- },
   {
     "theHamsta/nvim-dap-virtual-text",
     lazy = false,
