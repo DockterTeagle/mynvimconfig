@@ -18,14 +18,6 @@ local plugins = {
     cmd = "Trouble",
   },
   {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    cmd = "Telescope",
-    build = "make",
-    config = function()
-      require("telescope").load_extension "fzf"
-    end,
-  },
-  {
     "lervag/vimtex",
     ft = "tex",
     lazy = false,
