@@ -2,7 +2,7 @@
 local M = {}
 
 -- Be sure to explicitly define these LuaSnip node abbreviations!
-local ls = require("luasnip")
+local ls = require "luasnip"
 local s = ls.snippet
 local sn = ls.snippet_node
 local t = ls.text_node
@@ -14,28 +14,28 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 local tex_utils = {}
-tex_utils.in_mathzone = function()  -- math context detection
-  return vim.fn['vimtex#syntax#in_mathzone']() == 1
+tex_utils.in_mathzone = function() -- math context detection
+  return vim.fn["vimtex#syntax#in_mathzone"]() == 1
 end
 tex_utils.in_text = function()
   return not tex_utils.in_mathzone()
 end
-tex_utils.in_comment = function()  -- comment detection
-  return vim.fn['vimtex#syntax#in_comment']() == 1
+tex_utils.in_comment = function() -- comment detection
+  return vim.fn["vimtex#syntax#in_comment"]() == 1
 end
-tex_utils.in_env = function(name)  -- generic environment detection
-    local is_inside = vim.fn['vimtex#env#is_inside'](name)
-    return (is_inside[1] > 0 and is_inside[2] > 0)
+tex_utils.in_env = function(name) -- generic environment detection
+  local is_inside = vim.fn["vimtex#env#is_inside"](name)
+  return (is_inside[1] > 0 and is_inside[2] > 0)
 end
 -- A few concrete environments---adapt as needed
-tex_utils.in_itemize = function()  -- itemize environment detection
-    return tex_utils.in_env('itemize')
+tex_utils.in_itemize = function() -- itemize environment detection
+  return tex_utils.in_env "itemize"
 end
-tex_utils.in_tikz = function()  -- TikZ picture environment detection
-    return tex_utils.in_env('tikzpicture')
+tex_utils.in_tikz = function() -- TikZ picture environment detection
+  return tex_utils.in_env "tikzpicture"
 end
-tex_utils.in_enumerate = function ()
-  return tex_utils.in_env('enumerate')
+tex_utils.in_enumerate = function()
+  return tex_utils.in_env "enumerate"
 end
 M.tex_utils = tex_utils
 M.ls = ls
@@ -50,10 +50,11 @@ M.fmta = fmta
 M.rep = rep
 M.line_begin = line_begin
 function M.get_visual(args, parent)
-  if (#parent.snippet.env.LS_SELECT_RAW > 0) then
+  if #parent.snippet.env.LS_SELECT_RAW > 0 then
     return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
   else
-    return sn(nil, i(1, ''))
+    return sn(nil, i(1, ""))
   end
 end
+
 return M
