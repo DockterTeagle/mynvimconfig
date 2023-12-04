@@ -137,10 +137,10 @@ local plugins = {
       return M
     end,
   },
-  {
-    "ludovicchabant/vim-gutentags",
-    lazy = false,
-  },
+  -- {
+  --   "ludovicchabant/vim-gutentags",
+  --   lazy = false,
+  -- },
   {
     "rafamadriz/friendly-snippets",
     enabled = false,

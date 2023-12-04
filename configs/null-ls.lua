@@ -12,12 +12,7 @@ local sources = {
   c.gitsigns,
 
   -- diagnostics
-  d.ruff.with {
-    extra_args = function()
-      local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
-      return { "--python-executable", virtual .. "/bin/python3" }
-    end,
-  },
+  d.ruff,
   d.mypy.with {
     -- prefer_local = "/home/christopher/miniconda3/bin/mypy",
     -- command = "dmypy",

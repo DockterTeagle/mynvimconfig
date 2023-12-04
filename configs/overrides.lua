@@ -33,7 +33,6 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "bash",
-    "nix",
     "regex",
     "vimdoc",
     "gitignore",
