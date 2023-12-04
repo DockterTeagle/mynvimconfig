@@ -21,6 +21,7 @@ M.mason = {
     "cmake-language-server",
     "bash-language-server",
     "bash-debug-adapter",
+    "rust-analyzer",
   },
 }
 M.treesitter = {
