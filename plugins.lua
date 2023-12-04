@@ -240,6 +240,7 @@ local plugins = {
     },
     config = function()
       require "custom.configs.external.noice"
+      require("telescope").load_extension "noice"
     end,
   },
   --telescope extensions
