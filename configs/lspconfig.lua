@@ -4,6 +4,7 @@ if ok then
     return function() end
   end
 end
+--this was the command that fixed pyright being slow for me above
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
