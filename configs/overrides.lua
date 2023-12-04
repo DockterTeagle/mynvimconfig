@@ -22,7 +22,7 @@ M.mason = {
   },
 }
 M.treesitter = {
-  ignore_installed = { "latex" },
+  ignore_install = { "latex" },
   ensure_installed = {
     -- defaults
     "vim",
