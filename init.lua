@@ -7,8 +7,6 @@
 --   vim.g["loaded_" .. plugin] = nil
 --   vim.cmd("runtime " .. plugin)
 -- end
-vim.g.vscode_snippets_path = "~/.config/nvim/lua/custom/LuaSnip/"
-vim.g.snipmate_snippets_path = "~/.config/nvim/lua/custom/LuaSnip/"
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/LuaSnip"
 vim.cmd [[
 " Use Tab to expand and jump through snippets
