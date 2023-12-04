@@ -232,17 +232,6 @@ local plugins = {
     end,
   },
   {
-    "kdheepak/lazygit.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("telescope").load_extension "lazygit"
-    end,
-    cmd = "LazyGit",
-  },
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -262,6 +251,42 @@ local plugins = {
     config = function()
       require("telescope").load_extension "bibtex"
     end,
+  },
+  --telescope extensions
+  {
+    "nvim-telescope/telescope-media-files.nvim",
+    dependencies = {
+      "nvim-lua/popup.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("telescope").load_extension "media_files"
+    end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("telescope").load_extension "lazygit"
+    end,
+    cmd = "LazyGit",
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension "frecency"
+    end,
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
   },
 }
 --note to self never install YouCompleteMe
