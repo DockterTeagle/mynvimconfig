@@ -242,16 +242,6 @@ local plugins = {
       require "custom.configs.external.noice"
     end,
   },
-  {
-    "nvim-telescope/telescope-bibtex.nvim",
-    ft = "bib",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("telescope").load_extension "bibtex"
-    end,
-  },
   --telescope extensions
   {
     "nvim-telescope/telescope-media-files.nvim",
@@ -287,6 +277,16 @@ local plugins = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
+  },
+  {
+    "nvim-telescope/telescope-bibtex.nvim",
+    ft = "bib",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("telescope").load_extension "bibtex"
+    end,
   },
 }
 --note to self never install YouCompleteMe
