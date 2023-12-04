@@ -18,6 +18,9 @@ M.mason = {
     "mypy",
     "deno",
     "marksman",
+    "cmake-language-server",
+    "bash-language-server",
+    "bash-debug-adapter",
   },
 }
 M.treesitter = {
