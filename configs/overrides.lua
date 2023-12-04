@@ -30,6 +30,8 @@ M.treesitter = {
     "bash",
     "nix",
     "regex",
+    "vimdoc",
+    "gitignore",
     -- web dev
     "html",
     "css",
@@ -48,7 +50,6 @@ M.treesitter = {
     "zig",
     "cpp",
     "rust",
-    "vimdoc",
   },
 }
 return M
