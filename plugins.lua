@@ -24,7 +24,7 @@ local plugins = {
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
-    lazy = false,
+    ft = "markdown",
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
@@ -34,7 +34,7 @@ local plugins = {
   },
   {
     "charludo/projectmgr.nvim",
-    lazy = false, -- important!
+    cmd = "ProjectMgr",
     config = function()
       require("projectmgr").setup {
         autogit = {
