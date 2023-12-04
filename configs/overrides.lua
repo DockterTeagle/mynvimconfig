@@ -17,6 +17,7 @@ M.mason = {
     "lua-language-server",
     "mypy",
     "deno",
+    "marksman",
   },
 }
 M.treesitter = {
