@@ -16,6 +16,7 @@ M.mason = {
     "selene",
     "lua-language-server",
     "mypy",
+    "deno",
   },
 }
 M.treesitter = {

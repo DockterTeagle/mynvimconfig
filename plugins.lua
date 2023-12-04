@@ -1,6 +1,51 @@
 local overrides = require "custom.configs.overrides"
 local cmp = require "cmp"
 local plugins = {
+  --begin Rocky linux suggestions:
+  {
+    "toppair/peek.nvim",
+    build = "deno task --quiet build:fast",
+    keys = {
+      {
+        "<leader>op",
+        function()
+          local peek = require "peek"
+          if peek.is_open() then
+            peek.close()
+          else
+            peek.open()
+          end
+        end,
+        desc = "Peek (Markdown Preview)",
+      },
+    },
+    opts = { theme = "dark", app = "browser" },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
+    lazy = false,
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    init = function()
+      vim.g.mkdp_theme = "dark"
+    end,
+  },
+  {
+    "charludo/projectmgr.nvim",
+    lazy = false, -- important!
+    config = function()
+      require("projectmgr").setup {
+        autogit = {
+          enabled = true,
+          command = "git pull --ff-only > .git/fastforward.log 2>&1",
+        },
+        session = { enabled = true, file = ".git/Session.vim" },
+      }
+    end,
+  },
+  --end Rocky linux suggestions
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,

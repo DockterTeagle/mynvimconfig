@@ -39,6 +39,7 @@ M.dap_python = {
   },
 }
 M.crates = {
+  plugin = true,
   n = {
     ["<leader>rcu"] = {
       function()
@@ -46,6 +47,19 @@ M.crates = {
       end,
       "update crates",
     },
+  },
+}
+M.mdpreview = {
+  plugin = true,
+  n = {
+    ["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
+    ["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
+  },
+}
+M.projects = {
+  plugin = true,
+  n = {
+    ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
   },
 }
 return M
