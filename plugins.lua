@@ -343,6 +343,10 @@ local plugins = {
       require("telescope").load_extension "bibtex"
     end,
   },
+  -- {
+  --   "RRethy/vim-illuminate",
+  --   lazy = false,
+  -- },
 }
 --note to self never install YouCompleteMe
 return plugins
