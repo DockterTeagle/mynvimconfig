@@ -255,11 +255,12 @@ local plugins = {
     end,
   },
   {
-    "tpope/vim-repeat",
-    event = "VeryLazy",
-  },
-  {
     "ggandor/leap.nvim",
+    dependencies = {
+      "tpope/vim-repeat",
+      lazy = false,
+    },
+    lazy = false,
     enabled = true,
     keys = {
       { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
@@ -274,6 +275,14 @@ local plugins = {
       leap.add_default_mappings()
       vim.keymap.del({ "x", "o" }, "x")
       vim.keymap.del({ "x", "o" }, "X")
+    end,
+  },
+  {
+    "ggandor/leap-spooky.nvim",
+    dependencies = { "ggandor/leap.nvim" },
+    lazy = false,
+    config = function()
+      require("leap-spooky").setup()
     end,
   },
   {
