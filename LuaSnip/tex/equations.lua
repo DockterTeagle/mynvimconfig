@@ -12,4 +12,12 @@ return {
   helpers.s({ trig = ";m", snippetType = "autosnippet" }, {
     helpers.t "\\mu",
   }, { condition = helpers.tex_utils.in_mathzone }),
+  helpers.s(
+    { trig = "ff" },
+    helpers.fmta("\\frac{<>}{<>}", {
+      helpers.i(1),
+      helpers.i(2),
+    }),
+    { condition = helpers.tex_utils.in_mathzone } -- `condition` option passed in the snippet `opts` table
+  ),
 }
