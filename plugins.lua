@@ -35,15 +35,13 @@ local plugins = {
   {
     "charludo/projectmgr.nvim",
     cmd = "ProjectMgr",
-    config = function()
-      require("projectmgr").setup {
-        autogit = {
-          enabled = true,
-          command = "git pull --ff-only > .git/fastforward.log 2>&1",
-        },
-        session = { enabled = true, file = ".git/Session.vim" },
-      }
-    end,
+    opts = {
+      autogit = {
+        enabled = true,
+        command = "git pull --ff-only > .git/fastforward.log 2>&1",
+      },
+      session = { enabled = true, file = ".git/Session.vim" },
+    },
   },
   --end Rocky linux suggestions
   {
@@ -142,6 +140,15 @@ local plugins = {
     lazy = false,
   },
   {
+    "L3MON4D3/LuaSnip",
+    init = function()
+      return require("luasnip").config.set_config {
+        enable_autosnippets = true,
+        store_selection_keys = "<Tab>",
+      }
+    end,
+  },
+  {
     "rafamadriz/friendly-snippets",
     enabled = false,
   },
@@ -156,12 +163,12 @@ local plugins = {
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
-    config = function()
-      require "custom.configs.external.mason-nvim-dap"
-    end,
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
     },
   },
   {
@@ -183,16 +190,6 @@ local plugins = {
       require("core.utils").load_mappings "dap_python"
     end,
   },
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "custom.configs.null-ls"
-  --   end,
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  -- },
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
