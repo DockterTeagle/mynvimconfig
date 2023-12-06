@@ -252,9 +252,6 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
-    dependencies = {
-      "nvimtools/none-ls.nvim",
-    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
