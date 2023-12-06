@@ -143,6 +143,7 @@ local plugins = {
     "L3MON4D3/LuaSnip",
     version = "v2.1.1",
     build = "make install_jsregexp",
+    dependencies = {},
     init = function()
       return require("luasnip").config.set_config {
         enable_autosnippets = true,
@@ -209,6 +210,7 @@ local plugins = {
           bib = { "bibtex-tidy" },
           python = { "black" },
           cpp = { "clang_format" },
+          cmake = { "cmakelang" },
         },
         format_on_save = {
           timeout_ms = 3000,

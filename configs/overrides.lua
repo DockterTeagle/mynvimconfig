@@ -24,6 +24,7 @@ M.mason = {
     "rust-analyzer",
     "cmakelang",
     "cmakelint",
+    "vim-language-server",
   },
 }
 M.treesitter = {
