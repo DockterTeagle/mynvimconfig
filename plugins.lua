@@ -249,7 +249,7 @@ local plugins = {
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function()
-      return require "custom.configs.rust-tools"
+      return require "custom.configs.rustTools"
     end,
     config = function(_, opts)
       require("rust-tools").setup(opts)

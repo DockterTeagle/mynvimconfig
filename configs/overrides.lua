@@ -13,7 +13,6 @@ M.mason = {
     "bibtex-tidy",
     "stylua",
     "cpplint",
-    "selene",
     "lua-language-server",
     "mypy",
     "deno",
@@ -22,7 +21,6 @@ M.mason = {
     "bash-language-server",
     "bash-debug-adapter",
     "rust-analyzer",
-    "cmakelang",
     "cmakelint",
     "vim-language-server",
   },
@@ -59,13 +57,6 @@ M.telescope = {
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter",
-    },
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-    },
-    {
-      "nvim-telescope/telescope-bibtex.nvim",
     },
   },
 }
