@@ -141,6 +141,8 @@ local plugins = {
   },
   {
     "L3MON4D3/LuaSnip",
+    version = "v2.1.1",
+    build = "make install_jsregexp",
     init = function()
       return require("luasnip").config.set_config {
         enable_autosnippets = true,
