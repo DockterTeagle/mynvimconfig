@@ -271,7 +271,6 @@ local plugins = {
     "ggandor/leap.nvim",
     dependencies = {
       "tpope/vim-repeat",
-      event = "VeryLazy",
     },
     keys = {
       { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },

@@ -1,7 +1,7 @@
 local helpers = require "custom.LuaSnip.helper-functions"
 return {
   helpers.s(
-    { trig = "env", snippetType = "autosnippet" },
+    { trig = "env", snippetType = "autosnippet", dscr = "An autotriggering snippet that starts a generic enviroment" },
     helpers.fmta(
       [[\begin{<>}
       <>
@@ -15,7 +15,7 @@ return {
     { condition = helpers.line_begin }
   ),
   helpers.s(
-    { trig = "item", snippetType = "autosnippet" },
+    { trig = "item", snippetType = "autosnippet", dscr = "An autotriggering snippet that starts an itemize list" },
     helpers.fmta(
       [[
         \begin{itemize}

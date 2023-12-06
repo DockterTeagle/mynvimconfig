@@ -60,4 +60,9 @@ M.projects = {
     ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
   },
 }
+M.lazy_git = {
+  n = {
+    ["<leader>lg"] = { "<cmd> LazyGit<CR>", "Load Lazy Git" },
+  },
+}
 return M
