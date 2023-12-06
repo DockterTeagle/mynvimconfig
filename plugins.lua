@@ -67,7 +67,6 @@ local plugins = {
   },
   {
     "lervag/vimtex",
-    ft = { "tex", "bib" },
     event = "VeryLazy",
     init = function()
       vim.g.vimtex_compiler_latexmk = {
@@ -341,10 +340,6 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
   },
-  -- {
-  --   "RRethy/vim-illuminate",
-  --   lazy = false,
-  -- },
 }
 --note to self never install YouCompleteMe
 return plugins
