@@ -183,36 +183,43 @@ local plugins = {
       require("core.utils").load_mappings "dap_python"
     end,
   },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return require "custom.configs.null-ls"
+  --   end,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  -- },
   {
-    "nvimtools/none-ls.nvim",
+    "mfussenegger/nvim-lint",
     event = "VeryLazy",
-    opts = function()
-      return require "custom.configs.null-ls"
+    init = function()
+      return require "custom.configs.nvim-lint"
     end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
   },
   {
     "stevearc/conform.nvim",
-    dependencies = {
-      "mason.nvim",
-    },
-    lazy = true,
-    cmd = "ConformInfo",
+    event = { "BufWritePre" },
     opts = function()
       local opts = {
-        format = {
-          timeout_ms = 3000,
-          async = false,
-          quiet = false,
-        },
         formatters_by_ft = {
           lua = { "stylua" },
           bib = { "bibtex-tidy" },
+          python = { "black" },
+          cpp = { "clang_format" },
+        },
+        format_on_save = {
+          timeout_ms = 3000,
+          lsp_fallback = true,
         },
       }
       return opts
+    end,
+    init = function()
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
   },
   {
@@ -263,8 +270,8 @@ local plugins = {
     lazy = false,
     enabled = true,
     keys = {
-      { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function(_, opts)
@@ -287,6 +294,10 @@ local plugins = {
   },
   --telescope extensions
   {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
+  },
+  {
     "nvim-telescope/telescope-media-files.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
   },
@@ -308,10 +319,6 @@ local plugins = {
     config = function()
       require "custom.configs.external.noice"
     end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = overrides.telescope,
   },
   {
     "nvim-telescope/telescope-frecency.nvim",

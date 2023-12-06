@@ -53,6 +53,7 @@ M.telescope = {
     "frecency",
     "bibtex",
     "file_browser",
+    "lazygit",
   },
   dependencies = {
     {
