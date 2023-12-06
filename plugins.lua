@@ -285,6 +285,19 @@ local plugins = {
       require("leap-spooky").setup()
     end,
   },
+  --telescope extensions
+  {
+    "nvim-telescope/telescope-media-files.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = "LazyGit",
+  },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -294,37 +307,20 @@ local plugins = {
     },
     config = function()
       require "custom.configs.external.noice"
-      require("telescope").load_extension "noice"
-    end,
-  },
-  --telescope extensions
-  {
-    "nvim-telescope/telescope-media-files.nvim",
-    dependencies = {
-      "nvim-lua/popup.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("telescope").load_extension "media_files"
     end,
   },
   {
-    "kdheepak/lazygit.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("telescope").load_extension "lazygit"
-    end,
-    cmd = "LazyGit",
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension "frecency"
-    end,
+  },
+  {
+    "debugloop/telescope-undo.nvim",
+  },
+  {
+    "nvim-telescope/telescope-bibtex.nvim",
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
@@ -332,16 +328,6 @@ local plugins = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
-  },
-  {
-    "nvim-telescope/telescope-bibtex.nvim",
-    ft = "bib",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("telescope").load_extension "bibtex"
-    end,
   },
   -- {
   --   "RRethy/vim-illuminate",

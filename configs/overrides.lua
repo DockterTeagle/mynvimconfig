@@ -22,6 +22,8 @@ M.mason = {
     "bash-language-server",
     "bash-debug-adapter",
     "rust-analyzer",
+    "cmakelang",
+    "cmakelint",
   },
 }
 M.treesitter = {
@@ -41,6 +43,28 @@ M.treesitter = {
     "c",
     "cpp",
     "rust",
+  },
+}
+M.telescope = {
+  extensions_list = {
+    "fzf",
+    "noice",
+    "media_files",
+    "frecency",
+    "bibtex",
+    "file_browser",
+  },
+  dependencies = {
+    {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
+    {
+      "nvim-telescope/telescope-bibtex.nvim",
+    },
   },
 }
 return M
