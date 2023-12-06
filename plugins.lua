@@ -46,11 +46,16 @@ local plugins = {
   --end Rocky linux suggestions
   {
     "christoomey/vim-tmux-navigator",
-    lazy = false,
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNagiateRight",
+      "TmuxNavigateUp",
+      "TmuxNavigateDown",
+    },
   },
   {
     "anuvyklack/pretty-fold.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require("pretty-fold").setup()
     end,
@@ -63,7 +68,7 @@ local plugins = {
   {
     "lervag/vimtex",
     ft = { "tex", "bib" },
-    lazy = false,
+    event = "VeryLazy",
     init = function()
       vim.g.vimtex_compiler_latexmk = {
         options = {
@@ -85,14 +90,12 @@ local plugins = {
   },
   {
     "theHamsta/nvim-dap-virtual-text",
-    lazy = false,
     config = function(_, opts)
       require("nvim-dap-virtual-text").setup()
     end,
   },
   {
     "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
       local dap = require "dap"
@@ -137,7 +140,7 @@ local plugins = {
   },
   {
     "ludovicchabant/vim-gutentags",
-    lazy = false,
+    event = "VeryLazy",
   },
   {
     "L3MON4D3/LuaSnip",
@@ -165,7 +168,6 @@ local plugins = {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
@@ -241,7 +243,6 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    event = "VeryLazy",
     opts = overrides.mason,
   },
   {
@@ -262,7 +263,6 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
-    event = "VeryLazy",
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -272,10 +272,8 @@ local plugins = {
     "ggandor/leap.nvim",
     dependencies = {
       "tpope/vim-repeat",
-      lazy = false,
+      event = "VeryLazy",
     },
-    lazy = false,
-    enabled = true,
     keys = {
       { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
       { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
@@ -294,7 +292,7 @@ local plugins = {
   {
     "ggandor/leap-spooky.nvim",
     dependencies = { "ggandor/leap.nvim" },
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require("leap-spooky").setup()
     end,
