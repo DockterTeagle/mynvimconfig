@@ -73,7 +73,7 @@ local plugins = {
   },
   {
     "lervag/vimtex",
-    event = "VeryLazy",
+    lazy = false,
     init = function()
       vim.g.vimtex_compiler_latexmk = {
         options = {
@@ -301,6 +301,22 @@ local plugins = {
       require("leap-spooky").setup()
     end,
   },
+  {
+    "stevearc/dressing.nvim",
+    lazy = true,
+    init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.select = function(...)
+        require("lazy").load { plugins = { "dressing.nvim" } }
+        return vim.ui.select(...)
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.input = function(...)
+        require("lazy").load { plugins = { "dressing.nvim" } }
+        return vim.ui.input(...)
+      end
+    end,
+  },
   --telescope extensions
   {
     "nvim-telescope/telescope.nvim",
@@ -344,6 +360,10 @@ local plugins = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
   },
 }
 --note to self never install YouCompleteMe
