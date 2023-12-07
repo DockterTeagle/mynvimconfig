@@ -35,6 +35,7 @@ M.dap_python = {
       function()
         require("dap-python").test_method()
       end,
+      "Open debugging with python and test",
     },
   },
 }
