@@ -25,6 +25,9 @@ local plugins = {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
     ft = "markdown",
+    config = function()
+      require("core.utils").load_mappings "mdpreview"
+    end,
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
@@ -35,6 +38,9 @@ local plugins = {
   {
     "charludo/projectmgr.nvim",
     cmd = "ProjectMgr",
+    config = function()
+      require("core.utils").load_mappings "projects"
+    end,
     opts = {
       autogit = {
         enabled = true,
@@ -99,7 +105,7 @@ local plugins = {
   {
     "theHamsta/nvim-dap-virtual-text",
     cmd = "DapContinue",
-    config = function(_, opts)
+    config = function()
       require("nvim-dap-virtual-text").setup()
     end,
   },
@@ -187,7 +193,7 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
-    config = function(_, _)
+    config = function()
       require("core.utils").load_mappings "dap"
     end,
   },

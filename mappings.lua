@@ -51,6 +51,7 @@ M.crates = {
   },
 }
 M.mdpreview = {
+  plugin = true,
   n = {
     ["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
     ["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
