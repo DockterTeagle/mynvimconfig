@@ -45,6 +45,9 @@ local plugins = {
   },
   --end Rocky linux suggestions
   {
+    "folke/neodev.nvim",
+  },
+  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "TodoTrouble", "TodoTelescope" },
@@ -95,6 +98,7 @@ local plugins = {
   },
   {
     "theHamsta/nvim-dap-virtual-text",
+    cmd = "DapContinue",
     config = function(_, opts)
       require("nvim-dap-virtual-text").setup()
     end,
@@ -268,6 +272,9 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "folke/neodev.nvim",
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
