@@ -38,9 +38,9 @@ local plugins = {
   {
     "charludo/projectmgr.nvim",
     cmd = "ProjectMgr",
-    config = function()
-      require("core.utils").load_mappings "projects"
-    end,
+    -- config = function()
+    --   require("core.utils").load_mappings "projects"
+    -- end,
     opts = {
       autogit = {
         enabled = true,
@@ -61,12 +61,13 @@ local plugins = {
   },
   {
     "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNagiateRight",
-      "TmuxNavigateUp",
-      "TmuxNavigateDown",
-    },
+    event = "VeryLazy",
+    -- cmd = {
+    --   "TmuxNavigateLeft",
+    --   "TmuxNagiateRight",
+    --   "TmuxNavigateUp",
+    --   "TmuxNavigateDown",
+    -- },
   },
   {
     "anuvyklack/pretty-fold.nvim",
@@ -80,6 +81,9 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "Trouble",
   },
+  -- {
+  --   "jbyuki/one-small-step-for-vimkind",
+  -- },
   {
     "lervag/vimtex",
     lazy = false,
@@ -195,6 +199,38 @@ local plugins = {
     "mfussenegger/nvim-dap",
     config = function()
       require("core.utils").load_mappings "dap"
+      local dap = require "dap"
+      dap.configurations.sh = {
+        {
+          type = "bashdb",
+          request = "launch",
+          name = "Launch file",
+          showDebugOutput = true,
+          pathBashdb = vim.fn.stdpath "data" .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
+          pathBashdbLib = vim.fn.stdpath "data" .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
+          trace = true,
+          file = "${file}",
+          program = "${file}",
+          cwd = "${workspaceFolder}",
+          pathCat = "cat",
+          pathBash = "/bin/bash",
+          pathMkfifo = "mkfifo",
+          pathPkill = "pkill",
+          args = {},
+          env = {},
+          terminalKind = "integrated",
+        },
+      }
+      dap.configurations.lua = {
+        {
+          type = "nlua",
+          request = "attach",
+          name = "Attach to running Neovim instance",
+        },
+      }
+      dap.adapters.nlua = function(callback, config)
+        callback { type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }
+      end
     end,
   },
   {
@@ -211,6 +247,7 @@ local plugins = {
     end,
   },
   {
+    --TODO: Make lint happen on file open
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
     init = function()

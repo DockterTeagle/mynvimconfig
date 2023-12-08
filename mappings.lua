@@ -10,11 +10,19 @@ M.general = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
+    ["<leader>dtb"] = {
+      function()
+        require("dap").toggle_breapoint()
+      end,
       "Add breakpoint at line",
     },
-    ["<leader>dr"] = {
+    ["<leader>dsb"] = {
+      function()
+        require("dap").step_back()
+      end,
+      "Step back",
+    },
+    ["<leader>dc"] = {
       "<cmd> DapContinue <CR>",
       "Start or continue the debugger",
     },
@@ -25,6 +33,36 @@ M.dap = {
         sidebar.open()
       end,
       "Open debugging sidebar",
+    },
+    ["<leader>dC"] = {
+      function()
+        require("dap").run_to_cursor()
+      end,
+      "Run to cursor",
+    },
+    ["<leader>dd"] = {
+      function()
+        require("dap").disconnect()
+      end,
+      "disconnect from the session",
+    },
+    ["<leader>dss"] = {
+      function()
+        require("dap").session()
+      end,
+      "Get session",
+    },
+    ["<leader>dp"] = {
+      function()
+        require("dap").pause.toggle()
+      end,
+      "Pause",
+    },
+    ["<leader>dr"] = {
+      function()
+        require("dap").repl.toggle()
+      end,
+      "toggle Repl",
     },
   },
 }
