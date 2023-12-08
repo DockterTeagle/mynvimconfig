@@ -369,6 +369,12 @@ local plugins = {
     },
   },
   {
+    "nvim-telescope/telescope-dap.nvim",
+  },
+  {
+    "HUAHUAI23/telescope-dapzzzz",
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },

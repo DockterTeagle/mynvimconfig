@@ -53,6 +53,8 @@ M.telescope = {
     "bibtex",
     "file_browser",
     "lazygit",
+    "dap",
+    "i23",
   },
   dependencies = {
     {
