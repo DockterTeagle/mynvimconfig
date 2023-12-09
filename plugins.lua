@@ -240,7 +240,7 @@ local plugins = {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    config = function(_, opts)
+    config = function()
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
       require("core.utils").load_mappings "dap_python"
@@ -297,16 +297,31 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   ft = "rust",
+  --   dependencies = "neovim/nvim-lspconfig",
+  --   opts = function()
+  --     return require "custom.configs.rustTools"
+  --   end,
+  --   config = function(_, opts)
+  --     require("rust-tools").setup(opts)
+  --   end,
+  -- },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custom.configs.rustTools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
+    "mrcjkb/rustaceanvim",
+    version = "^3", -- Recommended
+    -- config = {
+    --   tools = {},
+    --   server = {
+    --     on_attach = function(client, bufnr) end,
+    --     settings = {
+    --       ["rust-analyzer"] = {},
+    --     },
+    --   },
+    --   dap = {},
+    -- },
+    ft = { "rust" },
   },
   {
     "nvim-treesitter/nvim-treesitter",
