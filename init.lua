@@ -8,6 +8,11 @@
 --   vim.cmd("runtime " .. plugin)
 -- end
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/LuaSnip"
+vim.keymap.set(
+  "n",
+  "<Leader><leader>s",
+  '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/custom/LuaSnip/"})<CR>'
+)
 vim.cmd [[
 " Use Tab to expand and jump through snippets
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 

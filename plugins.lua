@@ -168,7 +168,9 @@ local plugins = {
     dependencies = {},
     init = function()
       return require("luasnip").config.set_config {
+        history = true,
         enable_autosnippets = true,
+        updateevents = "TextChanged,TextChangedI",
         store_selection_keys = "<Tab>",
       }
     end,
@@ -436,6 +438,8 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 }
+
 --note to self never install YouCompleteMe
 return plugins
