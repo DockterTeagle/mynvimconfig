@@ -12,7 +12,7 @@ M.dap = {
   n = {
     ["<leader>dtb"] = {
       function()
-        require("dap").toggle_breapoint()
+        require("dap").toggle_breakpoint()
       end,
       "Add breakpoint at line",
     },
