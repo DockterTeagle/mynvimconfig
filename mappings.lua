@@ -96,7 +96,6 @@ M.dap_python = {
   },
 }
 M.luasnip = {
-  plugin = true,
   n = {
     ["<leader><leader>s"] = {
       function()

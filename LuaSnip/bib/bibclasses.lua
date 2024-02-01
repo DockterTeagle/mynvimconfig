@@ -1,7 +1,7 @@
 local helpers = require "custom.LuaSnip.helper-functions"
 return {
   helpers.s(
-    { trig = ";article", snippetType = "snippet", dscr = "the article class from biblatex" },
+    { trig = ";art", snippetType = "snippet", dscr = "the article class from biblatex" },
     helpers.fmta(
       [[
         @article{ <>,
@@ -20,11 +20,11 @@ return {
         helpers.i(5),
         helpers.i(6),
       }
-    ),
-    { condition = helpers.line_begin }
+    ) --,
+    -- { condition = helpers.line_begin }
   ),
   helpers.s(
-    { trig = ";book", snippetType = "snippet", dscr = "The book class from biblatex" },
+    { trig = ";boook", snippetType = "snippet", dscr = "The book class from biblatex" },
     helpers.fmta(
       [[
         @book{<>,
@@ -39,7 +39,7 @@ return {
         helpers.i(3),
         helpers.i(4),
       }
-    ),
-    { condition = helpers.tex_utils.line_begin }
+    )
+    -- { condition = helpers.tex_utils.line_begin }
   ),
 }
