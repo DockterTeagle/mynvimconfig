@@ -37,6 +37,13 @@ end
 tex_utils.in_enumerate = function()
   return tex_utils.in_env "enumerate"
 end
+tex_utils.get_visual = function(args, parent)
+  if #parent.snippet.env.LS_SELECT_RAW > 0 then
+    return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
+  else -- If LS_SELECT_RAW is empty, return a blank insert node
+    return sn(nil, i(1))
+  end
+end
 M.tex_utils = tex_utils
 M.ls = ls
 M.s = s
@@ -49,12 +56,4 @@ M.fmt = fmt
 M.fmta = fmta
 M.rep = rep
 M.line_begin = line_begin
-function M.get_visual(args, parent)
-  if #parent.snippet.env.LS_SELECT_RAW > 0 then
-    return sn(nil, i(1, parent.snippet.env.LS_SELECT_RAW))
-  else
-    return sn(nil, i(1, ""))
-  end
-end
-
 return M
