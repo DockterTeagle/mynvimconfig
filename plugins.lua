@@ -81,9 +81,10 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "Trouble",
   },
-  -- {
-  --   "jbyuki/one-small-step-for-vimkind",
-  -- },
+  {
+    "jbyuki/one-small-step-for-vimkind",
+    event = "VeryLazy",
+  },
   {
     "lervag/vimtex",
     lazy = false,
@@ -249,7 +250,6 @@ local plugins = {
     end,
   },
   {
-    --TODO: Make lint happen on file open
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
     init = function()
@@ -302,17 +302,6 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
-  -- {
-  --   "simrat39/rust-tools.nvim",
-  --   ft = "rust",
-  --   dependencies = "neovim/nvim-lspconfig",
-  --   opts = function()
-  --     return require "custom.configs.rustTools"
-  --   end,
-  --   config = function(_, opts)
-  --     require("rust-tools").setup(opts)
-  --   end,
-  -- },
   {
     "mrcjkb/rustaceanvim",
     version = "^3", -- Recommended
