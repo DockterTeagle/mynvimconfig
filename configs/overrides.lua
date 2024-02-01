@@ -29,7 +29,6 @@ M.mason = {
 M.treesitter = {
   ignore_install = { "tex" },
   ensure_installed = {
-    -- defaults
     "vim",
     "lua",
     "python",
@@ -39,7 +38,6 @@ M.treesitter = {
     "regex",
     "vimdoc",
     "gitignore",
-    -- low level
     "c",
     "cpp",
     "rust",

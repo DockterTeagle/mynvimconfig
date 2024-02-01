@@ -166,6 +166,9 @@ local plugins = {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
     dependencies = {},
+    config = function()
+      require("core.utils").load_mappings "luasnip"
+    end,
     init = function()
       return require("luasnip").config.set_config { --not the most elegant can probably make this a config part instead
         history = true,
