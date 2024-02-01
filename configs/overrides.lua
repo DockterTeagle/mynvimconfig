@@ -23,6 +23,7 @@ M.mason = {
     "rust-analyzer",
     "cmakelint",
     "vim-language-server",
+    "stylua",
   },
 }
 M.treesitter = {

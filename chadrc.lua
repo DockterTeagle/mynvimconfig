@@ -1,4 +1,4 @@
----@type ChadrcConfig
+---@class ChadrcConfig
 local M = {}
 M.ui = {
   theme = "catppuccin",
@@ -6,6 +6,6 @@ M.ui = {
     load_on_startup = true,
   },
 }
-M.mappings = require "custom.mappings"
-M.plugins = "custom.plugins"
+M.mappings = require "custom.mappings" --loads the mappings?
+M.plugins = "custom.plugins" --tells it where to look?
 return M

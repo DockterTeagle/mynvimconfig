@@ -95,6 +95,16 @@ M.dap_python = {
     },
   },
 }
+M.luasnip = {
+  n = {
+    ["<leader><leader>s"] = {
+      function()
+        require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/custom/LuaSnip/" }
+      end,
+      "reload LuaSnip snippets",
+    },
+  },
+}
 M.crates = {
   plugin = true,
   n = {

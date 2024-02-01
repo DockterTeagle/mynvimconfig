@@ -271,8 +271,19 @@ local plugins = {
   {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     opts = function()
       local opts = {
+        formatters = {
+          stylua = {
+            column_width = 120,
+            line_endings = "Unix",
+            indent_type = "Spaces",
+            indent_width = 2,
+            quote_style = "AutoPreferDouble",
+            call_parentheses = "None",
+          },
+        },
         formatters_by_ft = {
           lua = { "stylua" },
           bib = { "bibtex-tidy" },
@@ -281,7 +292,7 @@ local plugins = {
           cmake = { "cmakelang" },
         },
         format_on_save = {
-          timeout_ms = 3000,
+          timeout_ms = 500,
           lsp_fallback = true,
         },
       }
