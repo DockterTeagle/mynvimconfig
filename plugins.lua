@@ -258,7 +258,7 @@ local plugins = {
         python = { "ruff", "mypy" },
         cmake = { "cmakelint" },
       }
-      vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
+      vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter" }, {
         callback = function()
           local lint_status, lint = pcall(require, "lint")
           if lint_status then
