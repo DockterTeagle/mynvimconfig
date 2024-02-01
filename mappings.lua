@@ -22,6 +22,24 @@ M.dap = {
       end,
       "Step back",
     },
+    ["<leader>dsi"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "Step into function",
+    },
+    ["<leader>dso"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "Step over function",
+    },
+    ["<leader>dsO"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "Step out of function",
+    },
     ["<leader>dc"] = {
       "<cmd> DapContinue <CR>",
       "Start or continue the debugger",
@@ -52,13 +70,13 @@ M.dap = {
       end,
       "Get session",
     },
-    ["<leader>dp"] = {
+    ["<leader>dpt"] = {
       function()
         require("dap").pause.toggle()
       end,
       "Pause",
     },
-    ["<leader>dr"] = {
+    ["<leader>drt"] = {
       function()
         require("dap").repl.toggle()
       end,
