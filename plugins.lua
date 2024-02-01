@@ -38,9 +38,9 @@ local plugins = {
   {
     "charludo/projectmgr.nvim",
     cmd = "ProjectMgr",
-    -- config = function()
-    --   require("core.utils").load_mappings "projects"
-    -- end,
+    config = function()
+      require("core.utils").load_mappings "projects"
+    end,
     opts = {
       autogit = {
         enabled = true,
@@ -167,7 +167,7 @@ local plugins = {
     build = "make install_jsregexp",
     dependencies = {},
     init = function()
-      return require("luasnip").config.set_config {
+      return require("luasnip").config.set_config { --not the most elegant can probably make this a config part instead
         history = true,
         enable_autosnippets = true,
         updateevents = "TextChanged,TextChangedI",
@@ -258,9 +258,12 @@ local plugins = {
         python = { "ruff", "mypy" },
         cmake = { "cmakelint" },
       }
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+      vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
         callback = function()
-          require("lint").try_lint()
+          local lint_status, lint = pcall(require, "lint")
+          if lint_status then
+            lint.try_lint()
+          end
         end,
       })
     end,
