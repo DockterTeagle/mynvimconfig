@@ -99,7 +99,7 @@ M.luasnip = {
   n = {
     ["<leader><leader>s"] = {
       function()
-        require("luasnip.loaders.from_lua").load { paths = "~/.config/nvim/lua/custom/LuaSnip/" }
+        require("luasnip.loaders.from_lua").load { paths = vim.g.lua_snippets_path }
       end,
       "reload LuaSnip snippets",
     },
@@ -131,6 +131,30 @@ M.projects = {
 M.lazy_git = {
   n = {
     ["<leader>lg"] = { "<cmd> LazyGit<CR>", "Load Lazy Git" },
+  },
+}
+M.TodoComments = {
+  -- plugin = true,
+  n = {
+    ["<leader>tqf"] = { "<cmd> TodoQuickFix<CR>", "Call TodoQuickFix" },
+    ["<leader>tll"] = { "<cmd> TodoLocList<CR>" },
+    ["<leader>ttr"] = { "<cmd> TodoTrouble<CR>" },
+    ["<leader>tte"] = { "<cmd> TodoTelescope<CR>" },
+  },
+}
+M.peek = {
+  n = {
+    ["<leader>op"] = {
+      function()
+        local peek = require "peek"
+        if peek.is_open() then
+          peek.close()
+        else
+          peek.open()
+        end
+      end,
+      desc = "Peek (Markdown Preview)",
+    },
   },
 }
 return M

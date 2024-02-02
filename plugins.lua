@@ -5,20 +5,6 @@ local plugins = {
   {
     "toppair/peek.nvim",
     build = "deno task --quiet build:fast",
-    keys = {
-      {
-        "<leader>op",
-        function()
-          local peek = require "peek"
-          if peek.is_open() then
-            peek.close()
-          else
-            peek.open()
-          end
-        end,
-        desc = "Peek (Markdown Preview)",
-      },
-    },
     opts = { theme = "dark", app = "browser" },
   },
   {
@@ -54,20 +40,38 @@ local plugins = {
     "folke/neodev.nvim",
   },
   {
+    --TEST:
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    opts = {},
+    event = "VeryLazy",
+    opts = {
+      FIX = {
+        icon = " ", -- icon used for the sign, and in search results
+        color = "error", -- can be a hex color, or a named color (see below)
+        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+        -- signs = false, -- configure signs for some keywords individually
+      },
+      TODO = { icon = " ", color = "info" },
+      HACK = { icon = " ", color = "warning" },
+      WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+      PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+      TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+    },
+    --TODO: make the TEST icon not so small
+    --
+    -- config = function()
+    --   require("core.utils").load_mappings "TodoComments"
+    -- end,
   },
   {
     "christoomey/vim-tmux-navigator",
-    event = "VeryLazy",
-    -- cmd = {
-    --   "TmuxNavigateLeft",
-    --   "TmuxNagiateRight",
-    --   "TmuxNavigateUp",
-    --   "TmuxNavigateDown",
-    -- },
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNagiateRight",
+      "TmuxNavigateUp",
+      "TmuxNavigateDown",
+    },
   },
   {
     "anuvyklack/pretty-fold.nvim",
@@ -81,10 +85,11 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "Trouble",
   },
-  {
-    "jbyuki/one-small-step-for-vimkind",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "jbyuki/one-small-step-for-vimkind",
+  --   event = "VeryLazy",
+  -- },
+  -- TODO: Make this work as a DAP.
   {
     "lervag/vimtex",
     lazy = false,
@@ -101,10 +106,6 @@ local plugins = {
       }
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_imaps_enabled = 0
-      -- vim.cmd [[
-      -- if !exists("g:vim_window_id")
-      --     let g:vim_window_id = system("xdotool getactivewindow")
-      --     endif]]
     end,
   },
   {
@@ -160,17 +161,18 @@ local plugins = {
   },
   {
     "ludovicchabant/vim-gutentags",
-    event = "VeryLazy",
+    event = "InsertEnter",
   },
   {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
     dependencies = {},
     init = function()
-      return require("luasnip").config.set_config { --not the most elegant can probably make this a config part instead
+      local ls = require "luasnip"
+      ls.config.set_config { --not the most elegant can probably make this a config part instead
         history = true,
         enable_autosnippets = true,
-        updateevents = "TextChanged,TextChangedI",
+        update_events = "TextChanged,TextChangedI",
         store_selection_keys = "<Tab>",
       }
     end,
@@ -232,6 +234,7 @@ local plugins = {
       }
       dap.adapters.nlua = function(callback, config)
         callback { type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }
+        --TODO: This is the error causing dap to not load for nvim-lua
       end
     end,
   },
@@ -442,6 +445,5 @@ local plugins = {
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 }
-
 --note to self never install YouCompleteMe
 return plugins
