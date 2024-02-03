@@ -394,10 +394,10 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     opts = overrides.telescope,
   },
-  {
-    "nvim-telescope/telescope-media-files.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-  },
+  -- {
+  --   "nvim-telescope/telescope-media-files.nvim",
+  --   dependencies = { "nvim-telescope/telescope.nvim" },
+  -- },
   {
     "kdheepak/lazygit.nvim",
     dependencies = {
