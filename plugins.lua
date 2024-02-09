@@ -66,12 +66,13 @@ local plugins = {
   },
   {
     "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNagiateRight",
-      "TmuxNavigateUp",
-      "TmuxNavigateDown",
-    },
+    lazy = false,
+    -- cmd = {
+    --   "TmuxNavigateLeft",
+    --   "TmuxNagiateRight",
+    --   "TmuxNavigateUp",
+    --   "TmuxNavigateDown",
+    -- },
   },
   {
     "anuvyklack/pretty-fold.nvim",
@@ -118,6 +119,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy", --TODO: change this event
     dependencies = "mfussenegger/nvim-dap",
     config = function()
       local dap = require "dap"
@@ -192,6 +194,7 @@ local plugins = {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
@@ -261,7 +264,7 @@ local plugins = {
         python = { "ruff", "mypy" },
         cmake = { "cmakelint" },
       }
-      vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter" }, {
+      vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre" }, {
         callback = function()
           local lint_status, lint = pcall(require, "lint")
           if lint_status then
@@ -418,9 +421,9 @@ local plugins = {
       require "custom.configs.external.noice"
     end,
   },
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-  },
+  -- {
+  --   "nvim-telescope/telescope-frecency.nvim",
+  -- },
   {
     "debugloop/telescope-undo.nvim",
   },
@@ -445,6 +448,26 @@ local plugins = {
     opts = overrides.nvimtree,
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  {
+    "Zeioth/compiler.nvim",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    dependencies = {
+      {
+        "stevearc/overseer.nvim",
+        cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+        opts = {
+          task_list = {
+            direction = "bottom",
+            min_height = 25,
+            max_height = 25,
+            default_detail = 1,
+          },
+        },
+      },
+    },
+    ft = { "cpp", "c", "rust" },
+    opts = {},
+  },
 }
 --note to self never install YouCompleteMe
 return plugins

@@ -47,7 +47,7 @@ M.telescope = {
   extensions_list = {
     "fzf",
     "noice",
-    "frecency",
+    -- "frecency",
     "bibtex",
     "file_browser",
     "lazygit",
