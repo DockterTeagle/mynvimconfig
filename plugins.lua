@@ -1,6 +1,6 @@
 local overrides = require "custom.configs.overrides"
 local cmp = require "cmp"
-local TodoComments = require "custom.configs.folke.todo-comments"
+local folke = require "custom.configs.folke"
 local plugins = {
   --begin Rocky linux suggestions:
   -- {
@@ -44,7 +44,7 @@ local plugins = {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = TodoComments.todoComments,
+    opts = folke.todoComments,
     -- config = function()
     --   require("core.utils").load_mappings "TodoComments"
     -- end,
@@ -391,6 +391,7 @@ local plugins = {
     },
     cmd = "LazyGit",
   },
+  -- TODO: wait on the issue for NvChad and figure out what is wrong with noice.nvim and if it can be fixed
   -- {
   --   "folke/noice.nvim",
   --   enabled = false,
