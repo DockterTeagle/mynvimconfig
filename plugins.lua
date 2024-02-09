@@ -36,34 +36,34 @@ local plugins = {
   --   },
   -- },
   --end Rocky linux suggestions
-  {
-    "folke/neodev.nvim",
-  },
-  {
-    --TEST:
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "VeryLazy",
-    opts = {
-      FIX = {
-        icon = " ", -- icon used for the sign, and in search results
-        color = "error", -- can be a hex color, or a named color (see below)
-        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-        -- signs = false, -- configure signs for some keywords individually
-      },
-      TODO = { icon = " ", color = "info" },
-      HACK = { icon = " ", color = "warning" },
-      WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-      PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-      NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-      TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-    },
-    --TODO: make the TEST icon not so small
-    --
-    -- config = function()
-    --   require("core.utils").load_mappings "TodoComments"
-    -- end,
-  },
+  -- {
+  --   "folke/neodev.nvim",
+  -- },
+  -- {
+  --   --TEST:
+  --   "folke/todo-comments.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   event = "VeryLazy",
+  --   opts = {
+  --     FIX = {
+  --       icon = " ", -- icon used for the sign, and in search results
+  --       color = "error", -- can be a hex color, or a named color (see below)
+  --       alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+  --       -- signs = false, -- configure signs for some keywords individually
+  --     },
+  --     TODO = { icon = " ", color = "info" },
+  --     HACK = { icon = " ", color = "warning" },
+  --     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+  --     PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+  --     NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+  --     TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+  --   },
+  --   --TODO: make the TEST icon not so small
+  --   --
+  --   -- config = function()
+  --   --   require("core.utils").load_mappings "TodoComments"
+  --   -- end,
+  -- },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -76,6 +76,7 @@ local plugins = {
   },
   {
     "anuvyklack/pretty-fold.nvim",
+    enabled = false,
     event = "VeryLazy",
     config = function()
       require("pretty-fold").setup()
@@ -83,16 +84,19 @@ local plugins = {
   },
   {
     "folke/trouble.nvim",
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = "Trouble",
   },
-  -- {
-  --   "jbyuki/one-small-step-for-vimkind",
-  --   event = "VeryLazy",
-  -- },
+  {
+    "jbyuki/one-small-step-for-vimkind",
+    enabled = false,
+    event = "VeryLazy",
+  },
   -- TODO: Make this work as a DAP.
   {
     "lervag/vimtex",
+    enabled = false,
     lazy = false,
     init = function()
       vim.g.vimtex_compiler_latexmk = {
@@ -112,6 +116,7 @@ local plugins = {
   },
   {
     "theHamsta/nvim-dap-virtual-text",
+    enabled = false,
     cmd = "DapContinue",
     config = function()
       require("nvim-dap-virtual-text").setup()
@@ -119,6 +124,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
+    enabled = false,
     event = "VeryLazy", --TODO: change this event
     dependencies = "mfussenegger/nvim-dap",
     config = function()
@@ -138,6 +144,7 @@ local plugins = {
   },
   {
     "saecki/crates.nvim",
+    enabled = false,
     ft = { "rust", "toml" },
     config = function(_, opts)
       local crates = require "crates"
@@ -151,6 +158,7 @@ local plugins = {
   },
   {
     "hrsh7th/nvim-cmp",
+    enabled = false,
     opts = function()
       local M = require "plugins.configs.cmp"
       M.completion.completeopt = "menu,menuone,noselect"
@@ -164,10 +172,12 @@ local plugins = {
   },
   {
     "ludovicchabant/vim-gutentags",
+    enabled = false,
     event = "InsertEnter",
   },
   {
     "L3MON4D3/LuaSnip",
+    enabled = false,
     build = "make install_jsregexp",
     dependencies = {},
     init = function()
@@ -186,6 +196,7 @@ local plugins = {
   },
   {
     "NvChad/nvim-colorizer.lua",
+    enabled = false,
     opts = {
       user_default_options = {
         names = false,
@@ -194,6 +205,7 @@ local plugins = {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    enabled = false,
     event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
@@ -205,6 +217,7 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
+    enabled = false,
     config = function()
       require("core.utils").load_mappings "dap"
       local dap = require "dap"
@@ -244,6 +257,7 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap-python",
+    enabled = false,
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -257,6 +271,7 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-lint",
+    enabled = false,
     event = "VeryLazy",
     init = function()
       require("lint").linters_by_ft = {
@@ -276,6 +291,7 @@ local plugins = {
   },
   {
     "stevearc/conform.nvim",
+    enabled = false,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     opts = function()
@@ -310,6 +326,7 @@ local plugins = {
   },
   {
     "rust-lang/rust.vim",
+    enabled = false,
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
@@ -317,10 +334,12 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
+    enabled = false,
     opts = overrides.mason,
   },
   {
     "mrcjkb/rustaceanvim",
+    enabled = false,
     version = "^3", -- Recommended
     -- config = {
     --   tools = {},
@@ -341,6 +360,7 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
+    enabled = false,
     dependencies = {
       "folke/neodev.nvim",
     },
@@ -351,6 +371,7 @@ local plugins = {
   },
   {
     "ggandor/leap.nvim",
+    enabled = false,
     dependencies = {
       "tpope/vim-repeat",
     },
@@ -371,6 +392,7 @@ local plugins = {
   },
   {
     "ggandor/leap-spooky.nvim",
+    enabled = false,
     dependencies = { "ggandor/leap.nvim" },
     event = "VeryLazy",
     config = function()
@@ -379,6 +401,7 @@ local plugins = {
   },
   {
     "stevearc/dressing.nvim",
+    enabled = false,
     lazy = true,
     init = function()
       ---@diagnostic disable-next-line: duplicate-set-field
@@ -396,6 +419,7 @@ local plugins = {
   --telescope extensions
   {
     "nvim-telescope/telescope.nvim",
+    enabeld = false,
     opts = overrides.telescope,
   },
   -- {
@@ -404,14 +428,24 @@ local plugins = {
   -- },
   {
     "kdheepak/lazygit.nvim",
+    enabled = false,
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
     },
     cmd = "LazyGit",
   },
+  -- {
+  --   "nvim-lua/plenary.nvim",
+  --   enabled = false,
+  -- },
+  -- {
+  --   "NvChad/base46",
+  --   enabled = false,
+  -- },
   {
     "folke/noice.nvim",
+    enabled = false,
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -424,32 +458,33 @@ local plugins = {
   -- {
   --   "nvim-telescope/telescope-frecency.nvim",
   -- },
-  {
-    "debugloop/telescope-undo.nvim",
-  },
-  {
-    "nvim-telescope/telescope-bibtex.nvim",
-  },
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-  },
-  {
-    "nvim-telescope/telescope-dap.nvim",
-  },
-  {
-    "HUAHUAI23/telescope-dapzzzz",
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
-  },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  -- {
+  --   "debugloop/telescope-undo.nvim",
+  -- },
+  -- {
+  --   "nvim-telescope/telescope-bibtex.nvim",
+  -- },
+  -- {
+  --   "nvim-telescope/telescope-file-browser.nvim",
+  --   dependencies = {
+  --     "nvim-telescope/telescope.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --   },
+  -- },
+  -- {
+  --   "nvim-telescope/telescope-dap.nvim",
+  -- },
+  -- {
+  --   "HUAHUAI23/telescope-dapzzzz",
+  -- },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   opts = overrides.nvimtree,
+  -- },
+  -- { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "Zeioth/compiler.nvim",
+    enabled = false,
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
     dependencies = {
       {
