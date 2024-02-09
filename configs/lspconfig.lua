@@ -13,6 +13,7 @@ require("neodev").setup {
     types = true,
   },
 }
+-- require("noice").setup()
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
