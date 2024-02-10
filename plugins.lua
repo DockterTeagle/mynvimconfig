@@ -46,7 +46,7 @@ local plugins = {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = folke.todoComments,
     -- config = function()
-    --   require("core.utils").load_mappings "TodoComments"
+    -- require("core.utils").load_mappings "TodoComments"
     -- end,
   },
   {
@@ -173,7 +173,7 @@ local plugins = {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
+    ft = { "c", "cpp", "rust" },
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
@@ -229,8 +229,8 @@ local plugins = {
       "rcarriga/nvim-dap-ui",
     },
     config = function()
-      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
-      require("dap-python").setup(path)
+      --   local path = "~/miniconda3/pkgs/debugpy-1.6.7-py311h6a678d5_0/lib-"
+      --   require("dap-python").setup(path)
       require("core.utils").load_mappings "dap_python"
     end,
   },
@@ -375,7 +375,6 @@ local plugins = {
   --telescope extensions
   {
     "nvim-telescope/telescope.nvim",
-    enabeld = false,
     opts = overrides.telescope,
   },
   -- {
@@ -393,6 +392,7 @@ local plugins = {
   -- TODO: wait on the issue for NvChad and figure out what is wrong with noice.nvim and if it can be fixed
   {
     "folke/noice.nvim",
+    enabled = false,
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",

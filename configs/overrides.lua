@@ -7,7 +7,7 @@ M.mason = {
     "codelldb",
     "ruff",
     "pyright",
-    "debugpy",
+    -- "debugpy",
     "vale",
     "texlab",
     "bibtex-tidy",
