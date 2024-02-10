@@ -384,7 +384,6 @@ local plugins = {
   -- },
   {
     "kdheepak/lazygit.nvim",
-
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
@@ -392,18 +391,17 @@ local plugins = {
     cmd = "LazyGit",
   },
   -- TODO: wait on the issue for NvChad and figure out what is wrong with noice.nvim and if it can be fixed
-  -- {
-  --   "folke/noice.nvim",
-  --   enabled = false,
-  --   lazy = false,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "rcarriga/nvim-notify",
-  --   },
-  --   config = function()
-  --     require "custom.configs.folke.noice"
-  --   end,
-  -- },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require "custom.configs.Noice"
+    end,
+  },
   {
     "nvim-telescope/telescope-frecency.nvim",
   },
