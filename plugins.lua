@@ -399,7 +399,7 @@ local plugins = {
       "rcarriga/nvim-notify",
     },
     config = function()
-      require "custom.configs.Noice"
+      require "custom.configs.Folke.Noice"
     end,
   },
   -- {
