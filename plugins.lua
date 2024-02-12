@@ -229,8 +229,8 @@ local plugins = {
       "rcarriga/nvim-dap-ui",
     },
     config = function()
-      --   local path = "~/miniconda3/pkgs/debugpy-1.6.7-py311h6a678d5_0/lib-"
-      --   require("dap-python").setup(path)
+      local path = "~/.local/share/nvchad/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
       require("core.utils").load_mappings "dap_python"
     end,
   },
@@ -402,9 +402,9 @@ local plugins = {
       require "custom.configs.Noice"
     end,
   },
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-  },
+  -- {
+  --   "nvim-telescope/telescope-frecency.nvim",
+  -- },
   {
     "debugloop/telescope-undo.nvim",
   },
@@ -446,7 +446,6 @@ local plugins = {
         },
       },
     },
-    ft = { "cpp", "c", "rust" },
     opts = {},
   },
 }

@@ -8,7 +8,7 @@ for _, plugin in pairs(enable_providers) do
   vim.cmd("runtime " .. plugin)
 end
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/LuaSnip"
-vim.g.python3_host_prog = "/home/christopher/miniconda3/bin/python"
+-- vim.g.python3_host_prog = "/home/christopher/miniconda3/bin/python"
 vim.cmd [[
 " Use Tab to expand and jump through snippets
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
