@@ -143,7 +143,7 @@ local plugins = {
   },
   {
     "ludovicchabant/vim-gutentags",
-    event = "InsertEnter",
+    -- event = "InsertEnter",
   },
   {
     "L3MON4D3/LuaSnip",
@@ -400,7 +400,6 @@ local plugins = {
   -- TODO: wait on the issue for NvChad and figure out what is wrong with noice.nvim and if it can be fixed
   {
     "folke/noice.nvim",
-    enabled = false,
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -455,6 +454,15 @@ local plugins = {
       },
     },
     opts = {},
+  },
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    cmd = { "Oil" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    init = function()
+      require("core.utils").load_mappings "oil"
+    end,
   },
 }
 --note to self never install YouCompleteMe

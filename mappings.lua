@@ -159,4 +159,14 @@ M.peek = {
     },
   },
 }
+M.oil = {
+  plugin = true,
+  n = {
+    ["-"] = {
+      "<cmd>Oil<CR>",
+      "openOil",
+    },
+  },
+}
+
 return M
