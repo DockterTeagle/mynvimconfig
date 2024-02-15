@@ -229,6 +229,7 @@ local plugins = {
       "rcarriga/nvim-dap-ui",
     },
     config = function()
+      -- local path = "~/miniconda3/lib/python3.11/site-packages/debugpy"
       local path = "~/.local/share/nvchad/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
       require("core.utils").load_mappings "dap_python"
@@ -237,12 +238,19 @@ local plugins = {
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
-    init = function()
-      require("lint").linters_by_ft = {
+    config = function()
+      local Lint = require "lint"
+      Lint.linters_by_ft = {
         markdown = { "vale" },
         python = { "ruff", "mypy" },
         cmake = { "cmakelint" },
       }
+      -- Lint.linters.mypy = {
+      --   cmd = "~/miniconda3/bin/mypy",
+      -- }
+      -- Lint.linters.ruff = {
+      --   cmd = "~/miniconda3/bin/ruff",
+      -- }
       vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre" }, {
         callback = function()
           local lint_status, lint = pcall(require, "lint")
