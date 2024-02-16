@@ -46,7 +46,7 @@ M.treesitter = {
 M.telescope = {
   extensions_list = {
     "fzf",
-    -- "noice",
+    "noice",
     -- "frecency",
     "bibtex",
     "file_browser",

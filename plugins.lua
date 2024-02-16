@@ -98,7 +98,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-dap-ui",
-    event = "VeryLazy", --TODO: change this event
+    cmd = "DapContinue",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
       local dap = require "dap"
@@ -364,22 +364,6 @@ local plugins = {
       require("leap-spooky").setup()
     end,
   },
-  {
-    "stevearc/dressing.nvim",
-    lazy = true,
-    init = function()
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.select = function(...)
-        require("lazy").load { plugins = { "dressing.nvim" } }
-        return vim.ui.select(...)
-      end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.input = function(...)
-        require("lazy").load { plugins = { "dressing.nvim" } }
-        return vim.ui.input(...)
-      end
-    end,
-  },
   --telescope extensions
   {
     "nvim-telescope/telescope.nvim",
@@ -397,7 +381,6 @@ local plugins = {
     },
     cmd = "LazyGit",
   },
-  -- TODO: wait on the issue for NvChad and figure out what is wrong with noice.nvim and if it can be fixed
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -405,9 +388,7 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    config = function()
-      require "custom.configs.Folke.Noice"
-    end,
+    opts = folke.Noice,
   },
   -- {
   --   "nvim-telescope/telescope-frecency.nvim",
