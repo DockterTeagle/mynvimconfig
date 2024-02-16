@@ -1,6 +1,6 @@
 local overrides = require "custom.configs.overrides"
 local cmp = require "cmp"
-local folke = require "custom.configs.Folke.folke"
+local folke = require "custom.configs.folke"
 local plugins = {
   --begin Rocky linux suggestions:
   -- {
