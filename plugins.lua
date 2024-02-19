@@ -1,6 +1,5 @@
 local overrides = require "custom.configs.overrides"
 local cmp = require "cmp"
-local folke = require "custom.configs.folke"
 local plugins = {
   --begin Rocky linux suggestions:
   -- {
@@ -44,7 +43,7 @@ local plugins = {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = folke.todoComments,
+    opts = overrides.todoComments,
     -- config = function()
     -- require("core.utils").load_mappings "TodoComments"
     -- end,
@@ -388,8 +387,15 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    opts = folke.Noice,
+    opts = overrides.Noice,
   },
+  -- {
+  --   "smjonas/inc-rename.nvim",
+  --   cmd = "IncRename",
+  --   config = function()
+  --     require("inc_rename").setup()
+  --   end,
+  -- },
   -- {
   --   "nvim-telescope/telescope-frecency.nvim",
   -- },
