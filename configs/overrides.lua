@@ -1,29 +1,34 @@
 local M = {}
 M.mason = {
   ensure_installed = {
+    --formatters
     "black",
-    "clangd",
+    "stylua",
     "clang-format",
-    "codelldb",
-    "ruff",
-    "pyright",
-    "debugpy",
-    "vale",
-    "texlab",
     "bibtex-tidy",
-    "stylua",
-    "cpplint",
-    "lua-language-server",
-    "mypy",
-    "deno",
-    "marksman",
-    "cmake-language-server",
+    --end formatters
+    --LSPs
+    "pyright",
     "bash-language-server",
-    "bash-debug-adapter",
+    "clangd",
+    "cmake-language-server",
+    "deno",
+    "lua-language-server",
+    "marksman",
     "rust-analyzer",
-    "cmakelint",
+    "texlab",
     "vim-language-server",
-    "stylua",
+    --end LSPs
+    --Linters
+    "cmakelint",
+    "cpplint",
+    "mypy",
+    "ruff",
+    "vale",
+    --End Linters
+    --DAPs
+    "debugpy",
+    "codelldb",
   },
 }
 M.treesitter = {
