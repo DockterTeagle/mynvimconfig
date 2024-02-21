@@ -2,15 +2,6 @@ local overrides = require "custom.configs.overrides"
 local M = {
 
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    opts = overrides.Noice,
-  },
-  {
     "nvim-telescope/telescope.nvim",
     opts = overrides.telescope,
   },

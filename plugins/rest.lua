@@ -1,19 +1,6 @@
-local overrides = require "custom.configs.overrides"
 local cmp = require "cmp"
-local TelescopePlugins = require "custom.plugins.TelescopePlugins"
-local BasePlugins = {
-  {
-    "folke/neodev.nvim",
-  },
-  {
-    "folke/todo-comments.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = overrides.todoComments,
-    -- config = function()
-    -- require("core.utils").load_mappings "TodoComments"
-    -- end,
-  },
+local overrides = require "custom.configs.overrides"
+local M = {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -373,6 +360,4 @@ local BasePlugins = {
     end,
   },
 }
---note to self never install YouCompleteMe
-local plugins = vim.tbl_deep_extend("force", BasePlugins, TelescopePlugins)
-return plugins
+return M
