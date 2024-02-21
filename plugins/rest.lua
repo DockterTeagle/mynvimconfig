@@ -1,5 +1,6 @@
 local cmp = require "cmp"
 local overrides = require "custom.configs.overrides"
+local Folke = require "custom.plugins.FolkePlugins.folkePlugins"
 local M = {
   {
     "christoomey/vim-tmux-navigator",
@@ -11,11 +12,6 @@ local M = {
     config = function()
       require("pretty-fold").setup()
     end,
-  },
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    cmd = "Trouble",
   },
   -- {
   --   "jbyuki/one-small-step-for-vimkind",
@@ -359,5 +355,9 @@ local M = {
       require("core.utils").load_mappings "oil"
     end,
   },
+  {
+    Folke,
+  },
 }
+-- local J = vim.tbl_deep_extend("force", M, Folke)
 return M
