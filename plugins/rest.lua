@@ -1,53 +1,6 @@
-local overrides = require "custom.configs.overrides"
 local cmp = require "cmp"
-local plugins = {
-  --begin Rocky linux suggestions:
-  -- {
-  --   "toppair/peek.nvim",
-  --   build = "deno task --quiet build:fast",
-  --   opts = { theme = "dark", app = "browser" },
-  -- },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
-  --   ft = "markdown",
-  --   config = function()
-  --     require("core.utils").load_mappings "mdpreview"
-  --   end,
-  --   build = function()
-  --     vim.fn["mkdp#util#install"]()
-  --   end,
-  --   init = function()
-  --     vim.g.mkdp_theme = "dark"
-  --   end,
-  -- },
-  -- {
-  --   "charludo/projectmgr.nvim",
-  --   cmd = "ProjectMgr",
-  --   config = function()
-  --     require("core.utils").load_mappings "projects"
-  --   end,
-  --   opts = {
-  --     autogit = {
-  --       enabled = true,
-  --       command = "git pull --ff-only > .git/fastforward.log 2>&1",
-  --     },
-  --     session = { enabled = true, file = ".git/Session.vim" },
-  --   },
-  -- },
-  --end Rocky linux suggestions
-  {
-    "folke/neodev.nvim",
-  },
-  {
-    "folke/todo-comments.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = overrides.todoComments,
-    -- config = function()
-    -- require("core.utils").load_mappings "TodoComments"
-    -- end,
-  },
+local overrides = require "custom.configs.overrides"
+local M = {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -364,31 +317,6 @@ local plugins = {
     end,
   },
   --telescope extensions
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = overrides.telescope,
-  },
-  -- {
-  --   "nvim-telescope/telescope-media-files.nvim",
-  --   dependencies = { "nvim-telescope/telescope.nvim" },
-  -- },
-  {
-    "kdheepak/lazygit.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    cmd = "LazyGit",
-  },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-    opts = overrides.Noice,
-  },
   -- {
   --   "smjonas/inc-rename.nvim",
   --   cmd = "IncRename",
@@ -400,29 +328,9 @@ local plugins = {
   --   "nvim-telescope/telescope-frecency.nvim",
   -- },
   {
-    "debugloop/telescope-undo.nvim",
-  },
-  {
-    "nvim-telescope/telescope-bibtex.nvim",
-  },
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-  },
-  {
-    "nvim-telescope/telescope-dap.nvim",
-  },
-  {
-    "HUAHUAI23/telescope-dapzzzz",
-  },
-  {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   {
     "Zeioth/compiler.nvim",
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
@@ -452,5 +360,4 @@ local plugins = {
     end,
   },
 }
---note to self never install YouCompleteMe
-return plugins
+return M
