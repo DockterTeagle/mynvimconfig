@@ -1,7 +1,6 @@
 local cmp = require "cmp"
 local overrides = require "custom.configs.overrides"
-local Folke = require "custom.plugins.FolkePlugins.folkePlugins"
-local M = {
+return {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -13,11 +12,6 @@ local M = {
       require("pretty-fold").setup()
     end,
   },
-  -- {
-  --   "jbyuki/one-small-step-for-vimkind",
-  --   event = "VeryLazy",
-  -- },
-  -- TODO: Make this work as a DAP.
   {
     "lervag/vimtex",
     lazy = false,
@@ -35,32 +29,6 @@ local M = {
       }
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_imaps_enabled = 0
-    end,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    cmd = "DapContinue",
-    config = function()
-      require("nvim-dap-virtual-text").setup()
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    cmd = "DapContinue",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require "dap"
-      local dapui = require "dapui"
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
     end,
   },
   {
@@ -92,6 +60,7 @@ local M = {
   {
     "ludovicchabant/vim-gutentags",
     -- event = "InsertEnter",
+    event = "VeryLazy",
   },
   {
     "L3MON4D3/LuaSnip",
@@ -118,70 +87,6 @@ local M = {
         names = false,
       },
     },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    ft = { "c", "cpp", "rust" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
-    },
-    opts = {
-      handlers = {},
-    },
-  },
-  {
-    "mfussenegger/nvim-dap",
-    config = function()
-      require("core.utils").load_mappings "dap"
-      local dap = require "dap"
-      dap.configurations.sh = {
-        {
-          type = "bashdb",
-          request = "launch",
-          name = "Launch file",
-          showDebugOutput = true,
-          pathBashdb = vim.fn.stdpath "data" .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
-          pathBashdbLib = vim.fn.stdpath "data" .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
-          trace = true,
-          file = "${file}",
-          program = "${file}",
-          cwd = "${workspaceFolder}",
-          pathCat = "cat",
-          pathBash = "/bin/bash",
-          pathMkfifo = "mkfifo",
-          pathPkill = "pkill",
-          args = {},
-          env = {},
-          terminalKind = "integrated",
-        },
-      }
-      dap.configurations.lua = {
-        {
-          type = "nlua",
-          request = "attach",
-          name = "Attach to running Neovim instance",
-        },
-      }
-      dap.adapters.nlua = function(callback, config)
-        callback { type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }
-        --TODO: This is the error causing dap to not load for nvim-lua
-      end
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap-python",
-    ft = "python",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
-    },
-    config = function()
-      -- local path = "~/miniconda3/lib/python3.11/site-packages/debugpy"
-      local path = "~/.local/share/nvchad/mason/packages/debugpy/venv/bin/python"
-      require("dap-python").setup(path)
-      require("core.utils").load_mappings "dap_python"
-    end,
   },
   {
     "mfussenegger/nvim-lint",
@@ -285,49 +190,6 @@ local M = {
     end,
   },
   {
-    "ggandor/leap.nvim",
-    dependencies = {
-      "tpope/vim-repeat",
-    },
-    keys = {
-      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
-    },
-    config = function(_, opts)
-      local leap = require "leap"
-      for k, v in pairs(opts) do
-        leap.opts[k] = v
-      end
-      leap.add_default_mappings()
-      vim.keymap.del({ "x", "o" }, "x")
-      vim.keymap.del({ "x", "o" }, "X")
-    end,
-  },
-  {
-    "ggandor/leap-spooky.nvim",
-    dependencies = { "ggandor/leap.nvim" },
-    event = "VeryLazy",
-    config = function()
-      require("leap-spooky").setup()
-    end,
-  },
-  --telescope extensions
-  -- {
-  --   "smjonas/inc-rename.nvim",
-  --   cmd = "IncRename",
-  --   config = function()
-  --     require("inc_rename").setup()
-  --   end,
-  -- },
-  -- {
-  --   "nvim-telescope/telescope-frecency.nvim",
-  -- },
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
-  },
-  {
     "Zeioth/compiler.nvim",
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
     dependencies = {
@@ -346,18 +208,9 @@ local M = {
     },
     opts = {},
   },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    cmd = { "Oil" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    init = function()
-      require("core.utils").load_mappings "oil"
-    end,
-  },
-  {
-    Folke,
-  },
+  require "custom.plugins.FolkePlugins.folkePlugins",
+  require "custom.plugins.FileBrowsers.oil",
+  require "custom.plugins.FileBrowsers.nvim-treeMain",
+  require "custom.plugins.Telescope.TelescopePlugins",
+  require "custom.plugins.dap.nvim-dap",
 }
--- local J = vim.tbl_deep_extend("force", M, Folke)
-return M

@@ -1,9 +1,7 @@
-local overrides = require "custom.configs.overrides"
-local M = {
-
+return {
   {
     "nvim-telescope/telescope.nvim",
-    opts = overrides.telescope,
+    opts = require "custom.plugins.Telescope.TelescopeOptions",
   },
   -- {
   --   "nvim-telescope/telescope-media-files.nvim",
@@ -38,4 +36,3 @@ local M = {
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 }
-return M

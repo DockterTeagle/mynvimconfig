@@ -1,6 +1,6 @@
 local todoComments = require "custom.plugins.FolkePlugins.TodoComments.TodoCommentsMain"
 local noice = require "custom.plugins.FolkePlugins.noice.noiceMain"
-local M = {
+return {
   {
     "folke/neodev.nvim",
   },
@@ -8,4 +8,3 @@ local M = {
   todoComments,
   require "custom.plugins.FolkePlugins.trouble.troubleMain",
 }
-return M
