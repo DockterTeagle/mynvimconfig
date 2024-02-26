@@ -13,25 +13,6 @@ return {
     end,
   },
   {
-    "lervag/vimtex",
-    lazy = false,
-    init = function()
-      vim.g.vimtex_compiler_latexmk = {
-        options = {
-          "-lualatex",
-          "-shell-escape",
-          "-verbose",
-          "-file-line-error",
-          "-interaction=nonstopmode",
-          "-synctex=1",
-          -- "-recorder"
-        },
-      }
-      vim.g.vimtex_view_method = "zathura"
-      vim.g.vimtex_imaps_enabled = 0
-    end,
-  },
-  {
     "saecki/crates.nvim",
     ft = { "rust", "toml" },
     config = function(_, opts)
@@ -82,6 +63,7 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
+    enabled = false,
     opts = {
       user_default_options = {
         names = false,
@@ -89,6 +71,7 @@ return {
     },
   },
   {
+    --remider that linters happen on file open and on file write
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
     config = function()
@@ -189,28 +172,11 @@ return {
       require "custom.configs.lspconfig"
     end,
   },
-  {
-    "Zeioth/compiler.nvim",
-    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
-    dependencies = {
-      {
-        "stevearc/overseer.nvim",
-        cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
-        opts = {
-          task_list = {
-            direction = "bottom",
-            min_height = 25,
-            max_height = 25,
-            default_detail = 1,
-          },
-        },
-      },
-    },
-    opts = {},
-  },
   require "custom.plugins.FolkePlugins.folkePlugins",
   require "custom.plugins.FileBrowsers.oil",
   require "custom.plugins.FileBrowsers.nvim-treeMain",
   require "custom.plugins.Telescope.TelescopePlugins",
   require "custom.plugins.dap.nvim-dap",
+  require "custom.plugins.Compilers.VimTeX",
+  require "custom.plugins.Compilers.Compiler",
 }
