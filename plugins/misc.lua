@@ -1,77 +1,5 @@
-local cmp = require "cmp"
 local overrides = require "custom.configs.overrides"
 return {
-  {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
-  {
-    "anuvyklack/pretty-fold.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("pretty-fold").setup()
-    end,
-  },
-  {
-    "saecki/crates.nvim",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
-    ft = { "rust", "toml" },
-    config = function(_, opts)
-      local crates = require "crates"
-      crates.setup(opts)
-      require("cmp").setup.buffer {
-        sources = { { name = "crates" } },
-      }
-      require("core.utils").load_mappings "crates"
-      crates.show()
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      local M = require "plugins.configs.cmp"
-      M.completion.completeopt = "menu,menuone,noselect"
-      M.mapping["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = false,
-      }
-      table.insert(M.sources, { name = "crates" })
-      return M
-    end,
-  },
-  {
-    "ludovicchabant/vim-gutentags",
-    -- event = "InsertEnter",
-    event = "VeryLazy",
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    build = "make install_jsregexp",
-    dependencies = {},
-    init = function()
-      local ls = require "luasnip"
-      ls.config.set_config { --not the most elegant can probably make this a config part instead
-        history = true,
-        enable_autosnippets = true,
-        update_events = "TextChanged,TextChangedI",
-        store_selection_keys = "<Tab>",
-      }
-    end,
-  },
-  {
-    "rafamadriz/friendly-snippets",
-    enabled = false,
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    opts = {
-      user_default_options = {
-        names = false,
-      },
-    },
-  },
   {
     --remider that linters happen on file open and on file write
     "mfussenegger/nvim-lint",
@@ -135,16 +63,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
     opts = overrides.treesitter,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "folke/neodev.nvim",
-    },
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end,
   },
   require "custom.plugins.FolkePlugins.folkePlugins",
   require "custom.plugins.FileBrowsers.oil",

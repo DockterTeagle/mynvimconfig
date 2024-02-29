@@ -16,6 +16,22 @@ return {
     event = "User FilePost",
   },
   {
+    "saecki/crates.nvim",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    },
+    ft = { "rust", "toml" },
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      require("cmp").setup.buffer {
+        sources = { { name = "crates" } },
+      }
+      require("core.utils").load_mappings "crates"
+      crates.show()
+    end,
+  },
+  {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function()
