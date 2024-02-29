@@ -118,18 +118,18 @@ M.crates = {
     },
   },
 }
--- M.mdpreview = {
---   plugin = true,
---   n = {
---     ["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
---     ["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
---   },
--- }
--- M.projects = {
---   n = {
---     ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
---   },
--- }
+M.mdpreview = {
+  plugin = true,
+  n = {
+    ["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
+    ["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
+  },
+}
+M.projects = {
+  n = {
+    ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
+  },
+}
 M.lazy_git = {
   n = {
     ["<leader>lg"] = { "<cmd> LazyGit<CR>", "Load Lazy Git" },
