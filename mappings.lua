@@ -7,6 +7,7 @@ M.general = {
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
     ["<F6>"] = { "<cmd>CompilerOpen<CR>", "open the compiler" },
     ["<S-F6>"] = { "<cmd>CompilerToggleResults<CR>", "toggle results" },
+    ["<leader>ff"] = { "<cmd> Telescope file_browser<CR>", " open the telescope file browser" },
   },
 }
 M.dap = {
