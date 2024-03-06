@@ -1,6 +1,3 @@
-local current_path = os.getenv "PATH"
-local new_path = "/home/christopher/miniconda3/bin:" .. current_path
-vim.loop.os_setenv("PATH", new_path)
 -- local enable_providers = {
 --   "python3_provider",
 --   "node_provider",

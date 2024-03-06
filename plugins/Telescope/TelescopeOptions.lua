@@ -4,7 +4,6 @@ return {
     "noice",
     -- "frecency",
     "bibtex",
-    "file_browser",
     "lazygit",
     "dap",
     "i23",
