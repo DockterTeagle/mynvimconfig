@@ -3,10 +3,6 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = require "custom.plugins.Telescope.TelescopeOptions",
   },
-  -- {
-  --   "nvim-telescope/telescope-media-files.nvim",
-  --   dependencies = { "nvim-telescope/telescope.nvim" },
-  -- },
   {
     "kdheepak/lazygit.nvim",
     dependencies = {

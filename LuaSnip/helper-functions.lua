@@ -1,4 +1,3 @@
--- ~/.config/nvim/lua/luasnip-helper-funcs.lua
 local M = {}
 
 -- Be sure to explicitly define these LuaSnip node abbreviations!

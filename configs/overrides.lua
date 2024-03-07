@@ -18,6 +18,7 @@ M.mason = {
     "rust-analyzer",
     "texlab",
     "vim-language-server",
+    "asm-lsp",
     --end LSPs
     --Linters
     "cmakelint",
