@@ -1,4 +1,4 @@
-local overrides = require "custom.configs.overrides"
+local overrides = require "configs.overrides"
 return {
   {
     --remider that linters happen on file open and on file write
@@ -64,11 +64,11 @@ return {
     event = "VeryLazy",
     opts = overrides.treesitter,
   },
-  require "custom.plugins.FolkePlugins.folkePlugins",
-  require "custom.plugins.FileBrowsers.oil",
-  require "custom.plugins.FileBrowsers.nvim-treeMain",
-  require "custom.plugins.Telescope.TelescopePlugins",
-  require "custom.plugins.dap.nvim-dap",
-  require "custom.plugins.Compilers.VimTeX",
-  require "custom.plugins.Compilers.Compiler",
+  require "plugins.FolkePlugins.folkePlugins",
+  require "plugins.FileBrowsers.oil",
+  require "plugins.FileBrowsers.nvim-treeMain",
+  require "plugins.Telescope.TelescopePlugins",
+  require "plugins.dap.nvim-dap",
+  require "plugins.Compilers.VimTeX",
+  require "plugins.Compilers.Compiler",
 }

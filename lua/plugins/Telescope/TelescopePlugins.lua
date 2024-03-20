@@ -1,7 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    opts = require "custom.plugins.Telescope.TelescopeOptions",
+    opts = require "plugins.Telescope.TelescopeOptions",
   },
   {
     "kdheepak/lazygit.nvim",

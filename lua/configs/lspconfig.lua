@@ -13,9 +13,9 @@ require("neodev").setup {
     types = true,
   },
 }
-require("noice").setup()
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+-- require("noice").setup()
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local servers = { "clangd", "pyright", "texlab", "marksman", "cmake", "bashls", "denols", "vimls" }
 for _, lsp in ipairs(servers) do

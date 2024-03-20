@@ -39,7 +39,6 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("core.utils").load_mappings "dap"
       local dap = require "dap"
       dap.configurations.sh = {
         {
@@ -56,7 +55,6 @@ return {
           pathCat = "cat",
           pathBash = "/bin/bash",
           pathMkfifo = "mkfifo",
-          pathPkill = "pkill",
           args = {},
           env = {},
           terminalKind = "integrated",
@@ -86,7 +84,6 @@ return {
       -- local path = "~/miniconda3/lib/python3.11/site-packages/debugpy"
       local path = "~/.local/share/nvchad/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings "dap_python"
     end,
   },
   -- {

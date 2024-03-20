@@ -1,4 +1,4 @@
-local NoiceSettings = require "custom.plugins.FolkePlugins.noice.noiceSettings"
+local NoiceSettings = require "plugins.FolkePlugins.noice.noiceSettings"
 return {
   {
     "folke/noice.nvim",
