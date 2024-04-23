@@ -29,17 +29,6 @@ return {
 		end,
 	},
 	{
-		"jay-babu/mason-nvim-dap.nvim",
-		ft = { "c", "cpp", "rust" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"mfussenegger/nvim-dap",
-		},
-		opts = {
-			handlers = {},
-		},
-	},
-	{
 		"mfussenegger/nvim-dap",
 		config = function()
 			local dap = require("dap")

@@ -6,6 +6,7 @@ M.mason = {
 		"stylua",
 		"clang-format",
 		"bibtex-tidy",
+    "nixpkgs-fmt",
 		--end formatters
 		--LSPs
 		"pyright",
@@ -20,6 +21,7 @@ M.mason = {
 		"vim-language-server",
 		"asm-lsp",
 		"julia-lsp",
+    "nil",
 		--end LSPs
 		--Linters
 		"cmakelint",

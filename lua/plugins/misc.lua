@@ -56,10 +56,6 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason.nvim",
-		opts = overrides.mason,
-	},
-	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "VeryLazy",
 		opts = overrides.treesitter,
