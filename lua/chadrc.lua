@@ -3,6 +3,9 @@ local M = {}
 
 M.ui = {
 	theme = "catppuccin",
+	lsp = {
+		signature = false,
+	},
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },

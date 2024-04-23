@@ -36,13 +36,15 @@ return {
 						quote_style = "AutoPreferDouble",
 						call_parentheses = "None",
 					},
+					nixpkgs_format = {},
 				},
 				formatters_by_ft = {
 					lua = { "stylua" },
 					bib = { "bibtex-tidy" },
 					python = { "black" },
-					cpp = { "clang_format" },
+					cpp = { "clang-format" },
 					cmake = { "cmakelang" },
+					nix = { "nixpks-fmt" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
