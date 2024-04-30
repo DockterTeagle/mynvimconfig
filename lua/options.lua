@@ -16,3 +16,9 @@ for _, plugin in pairs(enable_providers) do
 end
 vim.g.python3_host_prog = "/home/christopher/miniconda3/bin/python"
 vim.g.jukit_mappings = 0
+-- vim.api.nvim_exec(
+-- 	[[
+--     autocmd FileType tex setlocal textwidth=80 formatoptionis+=w
+--    ]],
+-- 	false
+-- )

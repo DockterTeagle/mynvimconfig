@@ -62,6 +62,14 @@ return {
 		event = "VeryLazy",
 		opts = overrides.treesitter,
 	},
+	{
+		"junegunn/vim-easy-align",
+		lazy = false,
+	},
+	{
+		"andweeb/presence.nvim",
+		event = "VeryLazy",
+	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
 	require("plugins.FileBrowsers.nvim-treeMain"),

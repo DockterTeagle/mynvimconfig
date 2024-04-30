@@ -4,7 +4,7 @@ return {
 	init = function()
 		vim.g.vimtex_compiler_latexmk = {
 			options = {
-				-- "-lualatex",
+				"-xelatex",
 				"-shell-escape",
 				"-verbose",
 				"-file-line-error",
