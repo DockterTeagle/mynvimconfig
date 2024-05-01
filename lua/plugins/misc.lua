@@ -81,6 +81,15 @@ return {
 			-- Your setup opts here
 		},
 	},
+	{
+		"grapp-dev/nui-components.nvim",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+	},
+	{
+		"nvim-pack/nvim-spectre",
+	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
 	require("plugins.FileBrowsers.nvim-treeMain"),
