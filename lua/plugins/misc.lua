@@ -70,6 +70,17 @@ return {
 		"andweeb/presence.nvim",
 		event = "VeryLazy",
 	},
+	{
+		"hedyhli/outline.nvim",
+		lazy = true,
+		cmd = { "Outline", "OutlineOpen" },
+		keys = { -- Example mapping to toggle outline
+			{ "<leader>ou", "<cmd>Outline<CR>", desc = "Toggle outline" },
+		},
+		opts = {
+			-- Your setup opts here
+		},
+	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
 	require("plugins.FileBrowsers.nvim-treeMain"),
