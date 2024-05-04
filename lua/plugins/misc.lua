@@ -81,6 +81,16 @@ return {
 			-- Your setup opts here
 		},
 	},
+	-- {
+	-- 	"stevearc/aerial.nvim",
+	-- 	cmd = "AerialToggle",
+	-- 	opts = {},
+	-- 	-- Optional dependencies
+	-- 	dependencies = {
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- },
 	{
 		"grapp-dev/nui-components.nvim",
 		dependencies = {
