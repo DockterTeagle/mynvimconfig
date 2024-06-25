@@ -71,17 +71,17 @@ return {
 			end
 		end,
 	},
-	{
-		"mfussenegger/nvim-dap-python",
-		ft = "python",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
-		},
-		config = function()
-			-- local path = "~/miniconda3/lib/python3.11/site-packages/debugpy"
-			local path = "~/.local/share/nvchad/mason/packages/debugpy/venv/bin/python"
-			require("dap-python").setup(path)
-		end,
-	},
+	-- {
+	-- 	"mfussenegger/nvim-dap-python",
+	-- 	ft = "python",
+	-- 	dependencies = {
+	-- 		"mfussenegger/nvim-dap",
+	-- 		"rcarriga/nvim-dap-ui",
+	-- 	},
+	-- 	config = function()
+	-- 		-- local path = "~/miniconda3/lib/python3.11/site-packages/debugpy"
+	-- 		local path = "~/.local/share/nvchad/mason/packages/debugpy/venv/bin/python"
+	-- 		require("dap-python").setup(path)
+	-- 	end,
+	-- },
 }
