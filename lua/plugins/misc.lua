@@ -44,7 +44,7 @@ return {
 					python = { "black" },
 					cpp = { "clang-format" },
 					cmake = { "cmakelang" },
-					nix = { "nixpks-fmt" },
+					nix = { "nixpkgs_fmt" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
@@ -99,6 +99,23 @@ return {
 	},
 	{
 		"nvim-pack/nvim-spectre",
+	},
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("refactoring").setup()
+		end,
+	},
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("tiny-inline-diagnostic").setup()
+		end,
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
