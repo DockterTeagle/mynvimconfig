@@ -16,3 +16,17 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
+lspconfig.nil_ls.setup({
+	settings = {
+		["nil"] = {
+			nix = {
+				maxMemoryMB = 15000,
+				flake = {
+					autoArchive = true,
+					autoEvalInputs = true,
+					nixpkgsInputName = "nixpkgs",
+				},
+			},
+		},
+	},
+})

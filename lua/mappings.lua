@@ -9,7 +9,7 @@ map("i", "jk", "<ESC>")
 
 local mappings = {
 	n = {
-		["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
+		-- ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "window left" },
 		["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
 		["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
 		["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
@@ -112,7 +112,6 @@ local mappings = {
 		["<leader>lg"] = { "<cmd> LazyGit<CR>", "Load Lazy Git" },
 		["<leader>tqf"] = { "<cmd> TodoQuickFix<CR>", "Call TodoQuickFix" },
 		["<leader>tll"] = { "<cmd> TodoLocList<CR>" },
-		["<leader>ttr"] = { "<cmd> TodoTrouble<CR>" },
 		["<leader>tte"] = { "<cmd> TodoTelescope<CR>" },
 		["<leader>op"] = {
 			function()
@@ -149,3 +148,23 @@ vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search(
 	desc = "Search on current file",
 })
 --TODO: make the ui for spectre not trash
+vim.keymap.set("n", "]c", function()
+	if vim.wo.diff then
+		return "]c"
+	end
+	vim.schedule(function()
+		require("gitsigns").next_hunk()
+	end)
+	return "<Ignore>"
+end, { expr = true, desc = "Next git hunk" })
+
+vim.keymap.set("n", "[c", function()
+	if vim.wo.diff then
+		return "[c"
+	end
+	vim.schedule(function()
+		require("gitsigns").prev_hunk()
+	end)
+	return "<Ignore>"
+end, { expr = true, desc = "Previous git hunk" })
+vim.keymap.set("n", "<C-n>", "<cmd> Neotree toggle<CR>")

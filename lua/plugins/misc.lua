@@ -42,6 +42,7 @@ return {
 					lua = { "stylua" },
 					bib = { "bibtex-tidy" },
 					python = { "black" },
+					c = { "clang-format" },
 					cpp = { "clang-format" },
 					cmake = { "cmakelang" },
 					nix = { "nixpkgs_fmt" },
