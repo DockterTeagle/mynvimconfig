@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require("configs.lazy")
 local overrides = require("configs.overrides")
-vim.g.isNixOS = os.execute("test -e /etc/nixos")
+vim.g.isNixOS = os.execute("test -e /etc")
 if not vim.g.isNixOS then
 	require("lazy").setup({
 		{
