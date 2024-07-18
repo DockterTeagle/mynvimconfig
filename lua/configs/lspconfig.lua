@@ -9,7 +9,7 @@ local lspconfig = require("lspconfig")
 require("noice").setup()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-local servers = { "clangd", "pyright", "texlab", "marksman", "cmake", "bashls", "denols", "vimls", "julials", "nil_ls" }
+local servers = { "clangd", "pyright", "texlab", "marksman", "cmake", "bashls", "denols", "vimls", "julials", "nixd" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
@@ -26,6 +26,44 @@ lspconfig.nil_ls.setup({
 					autoEvalInputs = true,
 					nixpkgsInputName = "nixpkgs",
 				},
+			},
+		},
+	},
+})
+lspconfig.nixd.setup({
+	cmd = { "nixd" },
+	settings = {
+		nixd = {
+			nixpkgs = {
+				expr = 'import (builtins.getFlake "/home/cdockter/MyNixOS/").inputs.nixpkgs { }',
+			},
+			formatting = {
+				command = { "nixpkgs-fmt" },
+			},
+			options = {
+				nixos = {
+					expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.nixos.options',
+				},
+				home_manager = {
+					expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations."cdockter".options',
+				},
+			},
+		},
+	},
+})
+lspconfig.texlab.setup({
+	settings = {
+		texlab = {
+			build = {
+				useFileList = true,
+			},
+			chktex = {
+				onOpenAndSave = true,
+				onEdit = true,
+			},
+			latexFormatter = "latexindent",
+			experimental = {
+				followPackageLinks = true,
 			},
 		},
 	},
