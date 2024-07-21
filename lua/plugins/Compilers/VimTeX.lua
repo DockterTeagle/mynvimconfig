@@ -1,7 +1,7 @@
 return {
 	"lervag/vimtex",
 	lazy = false,
-	init = function()
+	config = function()
 		vim.g.vimtex_compiler_latexmk = {
 			options = {
 				"-xelatex",

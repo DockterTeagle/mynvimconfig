@@ -20,7 +20,9 @@ if not vim.g.isNixOS then
 			"NvChad/NvChad",
 			lazy = false,
 			branch = "v2.5",
+
 			import = "nvchad.plugins",
+
 			config = function()
 				require("options")
 			end,
@@ -50,6 +52,7 @@ elseif vim.g.isNixOS then
 			"NvChad/NvChad",
 			lazy = false,
 			branch = "v2.5",
+
 			import = "nvchad.plugins",
 			config = function()
 				require("options")
@@ -66,10 +69,8 @@ end
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
-
 require("nvchad.autocmds")
-
 vim.schedule(function()
 	require("mappings")
 end)
-require("NUIComponentsProjects.spectreImprovement")
+-- require("NUIComponentsProjects.spectreImprovement.main")

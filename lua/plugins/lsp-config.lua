@@ -6,4 +6,7 @@ return {
 			require("configs.lspconfig")
 		end,
 	},
+	{
+		"tamago324/nlsp-settings.nvim",
+	},
 }

@@ -6,5 +6,8 @@ M.ui = {
 	lsp = {
 		signature = false,
 	},
+	nvdash = {
+		load_on_startup = true,
+	},
 }
 return M

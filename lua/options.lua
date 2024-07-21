@@ -14,10 +14,3 @@ for _, plugin in pairs(enable_providers) do
 	vim.g["loaded_" .. plugin] = nil
 	vim.cmd("runtime " .. plugin)
 end
-vim.g.jukit_mappings = 0
--- vim.api.nvim_exec(
--- 	[[
---     autocmd FileType tex setlocal textwidth=80 formatoptionis+=w
---    ]],
--- 	false
--- )

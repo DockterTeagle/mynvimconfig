@@ -21,6 +21,10 @@ return {
 			})
 		end,
 	},
+	-- {
+	--   "tpope/vim-surround",
+	--
+	-- }
 	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
@@ -117,6 +121,13 @@ return {
 		config = function()
 			require("tiny-inline-diagnostic").setup()
 		end,
+	},
+	{
+		"smjonas/inc-rename.nvim",
+		config = function()
+			require("inc_rename").setup()
+		end,
+		cmd = "IncRename",
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
