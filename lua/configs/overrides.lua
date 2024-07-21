@@ -6,7 +6,7 @@ M.mason = {
 		"stylua",
 		"clang-format",
 		"bibtex-tidy",
-    "nixpkgs-fmt",
+		"nixpkgs-fmt",
 		--end formatters
 		--LSPs
 		"pyright",
@@ -21,7 +21,7 @@ M.mason = {
 		"vim-language-server",
 		"asm-lsp",
 		"julia-lsp",
-    "nil",
+		"nil",
 		--end LSPs
 		--Linters
 		"cmakelint",
@@ -33,23 +33,6 @@ M.mason = {
 		--DAPs
 		"debugpy",
 		"codelldb",
-	},
-}
-M.treesitter = {
-	ignore_install = { "tex" },
-	ensure_installed = {
-		"vim",
-		"lua",
-		"python",
-		"markdown",
-		"markdown_inline",
-		"bash",
-		"regex",
-		"vimdoc",
-		"gitignore",
-		"c",
-		"cpp",
-		"rust",
 	},
 }
 return M
