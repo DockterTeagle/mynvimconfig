@@ -79,9 +79,9 @@ return {
 			}
 			return opts
 		end,
-		init = function()
-			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-		end,
+		-- init = function()
+		-- 	vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+		-- end,
 	},
 
 	-- git stuff

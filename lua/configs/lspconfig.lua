@@ -9,8 +9,19 @@ require("noice").setup()
 local lspconfig = require("lspconfig")
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-local servers =
-	{ "clangd", "pyright", "texlab", "marksman", "cmake", "bashls", "denols", "vimls", "julials", "nixd", "jsonls" }
+local servers = {
+	"clangd",
+	"pyright",
+	"texlab",
+	"marksman",
+	"cmake",
+	"bashls",
+	"denols",
+	"vimls",
+	"julials",
+	"nixd",
+	"jsonls",
+}
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,

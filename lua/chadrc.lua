@@ -4,7 +4,7 @@ local M = {}
 M.ui = {
 	theme = "tokyonight",
 	lsp = {
-		signatures = true,
+		signatures = false,
 	},
 	nvdash = {
 		load_on_startup = true,

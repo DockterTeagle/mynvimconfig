@@ -192,12 +192,6 @@ local mappings = {
 			end,
 			"toggle Repl",
 		},
-		["<leader>dpr"] = {
-			function()
-				require("dap-python").test_method()
-			end,
-			"Open debugging with python and test",
-		},
 		["<leader><leader>s"] = {
 			function()
 				require("luasnip.loaders.from_lua").load({ paths = vim.g.lua_snippets_path })

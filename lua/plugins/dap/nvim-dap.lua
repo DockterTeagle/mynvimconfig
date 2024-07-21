@@ -32,11 +32,10 @@ return {
 		"mfussenegger/nvim-dap",
 		config = function()
 			local dap = require("dap")
-			dap.adapters.lldb = {
-				type = "executable",
-				command = "/home/cdockter/.nix-profile/bin/lldb-dap",
-				name = "lldb",
-			}
+			-- dap.adapters.code_lldb = {
+			-- 	type = "executable",
+			-- 	name = "code_lldb",
+			-- }
 			dap.configurations.sh = {
 				{
 					type = "bashdb",
