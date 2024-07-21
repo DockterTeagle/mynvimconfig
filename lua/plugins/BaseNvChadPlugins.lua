@@ -44,7 +44,6 @@ return {
 			dofile(vim.g.base46_cache .. "blankline")
 		end,
 	},
-	"nvim-lua/plenary.nvim",
 
 	-- formatting!
 	{
@@ -101,6 +100,7 @@ return {
 		event = "User FilePost",
 		config = function()
 			require("nvchad.configs.lspconfig").defaults()
+			require("configs.lspconfig")
 		end,
 	},
 	{

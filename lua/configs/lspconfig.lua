@@ -7,8 +7,8 @@ end
 --this was the command that fixed pyright being slow for me above
 require("noice").setup()
 local lspconfig = require("lspconfig")
-local on_attach = require("configs.lspdefaults").on_attach
-local capabilities = require("configs.lspdefaults").capabilities
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 local servers =
 	{ "clangd", "pyright", "texlab", "marksman", "cmake", "bashls", "denols", "vimls", "julials", "nixd", "jsonls" }
 for _, lsp in ipairs(servers) do
@@ -32,6 +32,13 @@ end
 -- 		},
 -- 	},
 -- })
+lspconfig.clangd.setup({
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+	},
+})
 lspconfig.nixd.setup({
 	cmd = { "nixd" },
 	settings = {
