@@ -1,5 +1,6 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabiliites()
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lsp_on_attach = require("configs.lspconfigDefaults")
+
 vim.g.rustaceanvim = {
 	tools = {
 		inlay_hints = {
@@ -8,7 +9,7 @@ vim.g.rustaceanvim = {
 	},
 	server = {
 		settings = {
-			on_attach = on_attach,
+			on_attach = lsp_on_attach,
 			capabilities = lsp_capabilities,
 			["rust-analyzer"] = {
 				cargo = {
@@ -20,9 +21,6 @@ vim.g.rustaceanvim = {
 					addCallParenthesis = true,
 					autoimport = { enable = true },
 				},
-				-- on_attach = on_attach,
-				-- capabilities = capabilities,
-				-- on_init = on_init,
 			},
 		},
 	},

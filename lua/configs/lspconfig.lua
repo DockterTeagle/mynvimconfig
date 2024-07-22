@@ -7,7 +7,7 @@ end
 --this was the command that fixed pyright being slow for me above
 require("noice").setup()
 local lspconfig = require("lspconfig")
-local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_attach = require("configs.lspconfigDefaults").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 local servers = {
 	"clangd",
@@ -21,12 +21,12 @@ local servers = {
 	"julials",
 	"nixd",
 	"jsonls",
+	"lua_ls",
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		-- on_init = on_init,
 	})
 end
 -- lspconfig.nil_ls.setup({
@@ -92,6 +92,25 @@ lspconfig.texlab.setup({
 		},
 	},
 })
+lspconfig.lua_ls.setup = {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					vim.fn.expand("$VIMRUNTIME/lua"),
+					vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+					vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
+					vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
+				},
+				maxPreload = 100000,
+				preloadFileSize = 10000,
+			},
+		},
+	},
+}
 -- vim.api.nvim_create_autocmd("BuffWritePost", {
 -- 	pattern = "*.nix",
 -- 	callback = function()
