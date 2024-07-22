@@ -1,21 +1,16 @@
 return {
 	{
 		"mrcjkb/rustaceanvim",
-		-- config = {
-		-- 	tools = {
-		-- 		inlay_hints = {
-		-- 			enable = true,
-		-- 		},
-		-- 	},
-		-- 	server = {
-		-- 		on_attach = function(client, bufnr) end,
-		-- 		settings = {
-		-- 			["rust-analyzer"] = {},
-		-- 		},
-		-- 	},
-		-- 	dap = {},
-		-- },
 		lazy = false,
+	},
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter",
+		},
 	},
 	{
 		"saecki/crates.nvim",
