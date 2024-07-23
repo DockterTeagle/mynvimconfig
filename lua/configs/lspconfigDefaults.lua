@@ -7,6 +7,7 @@ M.on_attach = function(client, bufnr)
 		return { buffer = bufnr, desc = "LSP " .. desc }
 	end
 
+	vim.lsp._changetracking.init(client, bufnr)
 	map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 	map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
 	map("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))

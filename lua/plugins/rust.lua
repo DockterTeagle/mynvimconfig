@@ -11,6 +11,11 @@ return {
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter",
 		},
+		opts = {
+			adapters = {
+				-- require("rustaceanvim.neotest"),
+			},
+		},
 	},
 	{
 		"saecki/crates.nvim",

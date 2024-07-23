@@ -1,6 +1,6 @@
-local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lsp_on_attach = require("configs.lspconfigDefaults")
-
+local lsp_capabilities = require("configs.lspconfigDefaults").capabilities
+local lsp_on_attach = require("configs.lspconfigDefaults").on_attach
+-- vim.keymap.set("n", "J", "<cmd>RustLsp joinLines<CR>", { desc = "better join Lines for rust", remap = true })
 vim.g.rustaceanvim = {
 	tools = {
 		inlay_hints = {
@@ -26,3 +26,6 @@ vim.g.rustaceanvim = {
 	},
 	dap = {},
 }
+vim.keymap.set("n", "<leader>rcu", function()
+	require("crates").upgrade_all_crates()
+end, { desc = "update crates" })

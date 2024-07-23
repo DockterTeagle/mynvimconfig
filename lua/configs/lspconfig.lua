@@ -5,10 +5,9 @@ if ok then
 	end
 end
 --this was the command that fixed pyright being slow for me above
-require("noice").setup()
 local lspconfig = require("lspconfig")
 local on_attach = require("configs.lspconfigDefaults").on_attach
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local capabilities = require("configs.lspconfigDefaults").capabilities
 local servers = {
 	"clangd",
 	"pyright",

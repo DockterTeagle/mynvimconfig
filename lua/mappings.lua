@@ -1,5 +1,5 @@
 -- add yours here
-
+local wk = require("which-key")
 local map = vim.keymap.set
 
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
@@ -198,12 +198,6 @@ local mappings = {
 			end,
 			"reload LuaSnip snippets",
 		},
-		["<leader>rcu"] = {
-			function()
-				require("crates").upgrade_all_crates()
-			end,
-			"update crates",
-		},
 		["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
 		["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
 		["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
@@ -267,3 +261,8 @@ map("n", "[c", function()
 end, { expr = true, desc = "Previous git hunk" })
 map("n", "<leader>rn", ":IncRename ", { desc = "rename the current thing" })
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, desc = "get lsp info" })
+wk.add({
+	{ "<leader>n", group = "Neo" },
+	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
+	{ "<leader>d", group = "debug" },
+})
