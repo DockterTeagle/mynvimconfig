@@ -108,6 +108,12 @@ return {
 			config = true,
 			-- event = "Enter git buffer"?
 		},
+		{
+			"numToStr/Comment.nvim",
+			opts = {
+				padding = true,
+			},
+		},
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
