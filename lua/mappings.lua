@@ -266,3 +266,8 @@ wk.add({
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
 	{ "<leader>d", group = "debug" },
 })
+map({ "n", "v" }, "<leader>y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
+map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard" })
+
+-- Delete to void register
+map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void register" })
