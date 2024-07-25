@@ -5,3 +5,4 @@ Based on `NvChad`
 2. remove all nvchad dependencies
 3. switch over to kickstart.nvim
 4. fix all nvim errors
+5. add all the documentation from kickstart

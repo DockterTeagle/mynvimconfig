@@ -30,9 +30,15 @@ return {
 		lazy = false,
 	},
 	{
-		"andweeb/presence.nvim",
+		"vyfor/cord.nvim",
+		build = "./build",
 		event = "VeryLazy",
+		opts = {},
 	},
+	-- {
+	-- 	"andweeb/presence.nvim",
+	-- 	event = "VeryLazy",
+	-- },
 	{
 		"hedyhli/outline.nvim",
 		lazy = true,

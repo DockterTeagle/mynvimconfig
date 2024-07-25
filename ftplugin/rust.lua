@@ -1,4 +1,5 @@
-local lsp_capabilities = require("configs.lspconfigDefaults").capabilities
+local lsp_capabilities = vim.lsp.protocol.make_client_capabilities()
+lsp_capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp_on_attach = require("configs.lspconfigDefaults").on_attach
 vim.g.rustaceanvim = {
 	tools = {
