@@ -6,8 +6,12 @@ M.on_attach = function(client, bufnr)
 	local function opts(desc)
 		return { buffer = bufnr, desc = "LSP " .. desc }
 	end
-
-	vim.lsp._changetracking.init(client, bufnr)
+	if client.server_capabilities.inlayHintProvider then
+		print("Inlay hints are supported")
+		vim.lsp.inlay_hint.enable(true)
+	else
+		print("not supported")
+	end
 	map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 	map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
 	map("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
