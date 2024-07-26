@@ -9,16 +9,13 @@ local lspconfig = require("lspconfig")
 local on_attach = require("configs.lspconfigDefaults").on_attach
 local capabilities = require("configs.lspconfigDefaults").capabilities
 local servers = {
-	"clangd",
 	"pyright",
-	"texlab",
 	"marksman",
 	"cmake",
 	"bashls",
 	"denols",
 	"vimls",
 	"julials",
-	"nixd",
 	"jsonls",
 	"lua_ls",
 }
@@ -43,6 +40,8 @@ end
 -- 	},
 -- })
 lspconfig.clangd.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -50,6 +49,8 @@ lspconfig.clangd.setup({
 	},
 })
 lspconfig.nixd.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 	cmd = { "nixd" },
 	settings = {
 		nixd = {
@@ -75,6 +76,8 @@ lspconfig.nixd.setup({
 	},
 })
 lspconfig.texlab.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		texlab = {
 			build = {
