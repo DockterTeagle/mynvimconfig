@@ -17,7 +17,6 @@ local servers = {
 	"vimls",
 	"julials",
 	"jsonls",
-	"lua_ls",
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -95,6 +94,8 @@ lspconfig.texlab.setup({
 	},
 })
 lspconfig.lua_ls.setup = {
+	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {

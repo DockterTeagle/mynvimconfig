@@ -7,10 +7,7 @@ M.on_attach = function(client, bufnr)
 		return { buffer = bufnr, desc = "LSP " .. desc }
 	end
 	if client.server_capabilities.inlayHintProvider then
-		print("Inlay hints are supported")
 		vim.lsp.inlay_hint.enable(true)
-	else
-		print("not supported")
 	end
 	map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 	map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
@@ -48,34 +45,5 @@ M.capabilities.textDocument.completion.completionItem = {
 		},
 	},
 }
-
-M.defaults = function()
-	dofile(vim.g.base46_cache .. "lsp")
-	require("nvchad.lsp").diagnostic_config()
-
-	require("lspconfig").lua_ls.setup({
-		on_attach = M.on_attach,
-		capabilities = M.capabilities,
-		on_init = M.on_init,
-
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					library = {
-						vim.fn.expand("$VIMRUNTIME/lua"),
-						vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
-						vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
-						vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
-					},
-					maxPreload = 100000,
-					preloadFileSize = 10000,
-				},
-			},
-		},
-	})
-end
 
 return M
