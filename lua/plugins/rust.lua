@@ -2,6 +2,7 @@ return {
 	{
 		"mrcjkb/rustaceanvim",
 		lazy = false,
+		version = "^5",
 	},
 	{
 		"nvim-neotest/neotest",

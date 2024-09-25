@@ -3,14 +3,12 @@ return {
 		"nvim-telescope/telescope.nvim",
 		opts = require("plugins.Telescope.TelescopeOptions"),
 	},
-	-- {
-	--   "kdheepak/lazygit.nvim",
-	--   dependencies = {
-	--     "nvim-telescope/telescope.nvim",
-	--     "nvim-lua/plenary.nvim",
-	--   },
-	--   cmd = "LazyGit",
-	-- },
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	},
 	{
 		"debugloop/telescope-undo.nvim",
 	},

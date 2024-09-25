@@ -26,7 +26,7 @@ M.on_attach = function(client, bufnr)
 	map("n", "gr", vim.lsp.buf.references, opts("Show references"))
 end
 
-M.capabilities = require("cmp_nvim_lsp").default_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 M.capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },

@@ -1,4 +1,4 @@
-local overrides = require("configs.overrides")
+local overrides = require("configs.overrides.treesitter")
 return {
 	{
 		--remider that linters happen on file open and on file write
@@ -35,31 +35,25 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
-	-- {
-	-- 	"andweeb/presence.nvim",
-	-- 	event = "VeryLazy",
-	-- },
 	{
-		"hedyhli/outline.nvim",
-		lazy = true,
-		cmd = { "Outline", "OutlineOpen" },
-		keys = { -- Example mapping to toggle outline
-			{ "<leader>ou", "<cmd>Outline<CR>", desc = "Toggle outline" },
+		"stevearc/aerial.nvim",
+		cmd = { "AerialToggle", "AerialOpen" },
+		keys = {
+			{
+				"<leader>ou",
+				"<cmd>AerialToggle!<CR>",
+				desc = "Toggle outline using aerial",
+			},
 		},
 		opts = {
-			-- Your setup opts here
+			filter_kind = false,
+		},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
-	-- {
-	-- 	"stevearc/aerial.nvim",
-	-- 	cmd = "AerialToggle",
-	-- 	opts = {},
-	-- 	-- Optional dependencies
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- },
 	{
 		"grapp-dev/nui-components.nvim",
 		dependencies = {
