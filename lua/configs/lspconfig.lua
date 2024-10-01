@@ -6,8 +6,8 @@ if ok then
 end
 --this was the command that fixed pyright being slow for me above
 local lspconfig = require("lspconfig")
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local on_attach = require("configs.lspconfigDefaults").on_attach
+local capabilities = require("configs.lspconfigDefaults").capabilities
 local servers = {
 	"pyright",
 	"marksman",
