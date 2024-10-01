@@ -7,3 +7,4 @@ Based on `NvChad`
 4. fix all nvim errors
 5. add all the documentation from kickstart
 6. nvim-colorizer does not work on nix files
+7. remove weird bar in config
