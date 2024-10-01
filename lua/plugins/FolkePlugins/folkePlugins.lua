@@ -1,5 +1,7 @@
-local todoComments = require("plugins.FolkePlugins.TodoComments.TodoCommentsMain")
-local noice = require("plugins.FolkePlugins.Noice.noiceMain")
+local noice = require("plugins.FolkePlugins.noiceMain")
+local todoComments = require("plugins.FolkePlugins.TodoCommentsMain")
+local trouble = require("plugins.FolkePlugins.troubleMain")
+local wk = require("plugins.FolkePlugins.which-key")
 return {
 	{
 		"folke/lazydev.nvim",
@@ -40,7 +42,7 @@ return {
 	},
 	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 	noice,
+	wk,
 	todoComments,
-	require("plugins.FolkePlugins.Trouble.troubleMain"),
-	require("plugins.FolkePlugins.Which-Key.which-key"),
+	trouble,
 }
