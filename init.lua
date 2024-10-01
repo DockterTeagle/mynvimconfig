@@ -18,9 +18,6 @@ require("lazy").setup({
 		lazy = false,
 		branch = "v2.5",
 		import = "nvchad.plugins",
-		config = function()
-			require("options")
-		end,
 	},
 	{
 		"williamboman/mason.nvim",
