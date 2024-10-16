@@ -1,7 +1,8 @@
 return {
 	"folke/trouble.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	event = "VeryLazy",
+	opts = {},
+	cmd = "Trouble",
 	keys = {
 		"<leader>tr",
 		"<cmd> Trouble diagnostics toggle<cr>",

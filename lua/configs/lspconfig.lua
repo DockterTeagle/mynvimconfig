@@ -17,6 +17,7 @@ local servers = {
 	"vimls",
 	"julials",
 	"jsonls",
+	"matlab_ls",
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({

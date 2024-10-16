@@ -82,16 +82,9 @@ return {
 		end,
 	},
 	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("tiny-inline-diagnostic").setup()
-		end,
-	},
-	{
 		"smjonas/inc-rename.nvim",
 		config = function()
-			require("inc_rename").setup()
+			require("inc_rename").setup({})
 		end,
 		cmd = "IncRename",
 	},
@@ -128,6 +121,5 @@ return {
 	require("plugins.FileBrowsers.nvim-treeMain"),
 	require("plugins.Telescope.TelescopePlugins"),
 	require("plugins.dap.nvim-dap"),
-	require("plugins.Compilers.VimTeX"),
 	require("plugins.Compilers.Compiler"),
 }
