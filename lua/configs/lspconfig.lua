@@ -9,7 +9,6 @@ local lspconfig = require("lspconfig")
 local on_attach = require("configs.lspconfigDefaults").on_attach
 local capabilities = require("configs.lspconfigDefaults").capabilities
 local servers = {
-	"pyright",
 	"marksman",
 	"cmake",
 	"bashls",
@@ -97,6 +96,43 @@ lspconfig.lua_ls.setup({
 				},
 				maxPreload = 100000,
 				preloadFileSize = 10000,
+			},
+		},
+	},
+})
+lspconfig.ruff.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	init_options = {
+		settings = {
+			logLevel = "debug",
+			codeAction = {
+				fixViolation = {
+					enable = true,
+				},
+			},
+			lint = {
+				preview = true,
+			},
+			format = {
+				preview = true,
+			},
+			disableRuleComment = {
+				enable = false,
+			},
+		},
+	},
+})
+lspconfig.pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		pyright = {
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				ignore = { "*" },
 			},
 		},
 	},
