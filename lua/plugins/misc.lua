@@ -19,9 +19,9 @@ return {
 				python = { "ruff", "mypy" },
 				cmake = { "cmakelint" },
 			}
-			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre" }, {
+			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()
-					local lint_status = pcall(require)
+					local lint_status = pcall(require, "lint")
 					if lint_status then
 						lint.try_lint()
 					end
@@ -38,11 +38,21 @@ return {
 		lazy = false,
 	},
 	{
-		"vyfor/cord.nvim",
-		build = "./build",
-		event = "VeryLazy",
-		opts = {},
+		"kiyoon/jupynium.nvim",
+		lazy = false,
+		-- build = "conda run --no-capture-output -n jupynium pip install .",
+		-- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
+		dependencies = {
+			"rcarriga/nvim-notify",
+			"stevearc/dressing.nvim",
+		},
 	},
+	-- {
+	-- 	"vyfor/cord.nvim",
+	-- 	build = "./build",
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- },
 	{
 		"stevearc/aerial.nvim",
 		cmd = { "AerialToggle", "AerialOpen" },
