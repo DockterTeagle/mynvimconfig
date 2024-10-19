@@ -12,6 +12,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter",
+			"mrcjkb/rustaceanvim",
 		},
 		opts = {
 			adapters = {

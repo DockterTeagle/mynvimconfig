@@ -105,7 +105,7 @@ lspconfig.ruff.setup({
 	capabilities = capabilities,
 	init_options = {
 		settings = {
-			logLevel = "debug",
+			configurationPreference = "filesystemFirst",
 			codeAction = {
 				fixViolation = {
 					enable = true,

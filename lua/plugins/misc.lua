@@ -126,6 +126,10 @@ return {
 			},
 		},
 	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = require("configs.overrides.treesitter"),
+	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
 	require("plugins.FileBrowsers.nvim-treeMain"),
