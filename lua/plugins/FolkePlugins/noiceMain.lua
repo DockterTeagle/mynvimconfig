@@ -2,14 +2,31 @@ return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
 	dependencies = {
-		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
+		{
+			"MunifTanjim/nui.nvim",
+			lazy = false,
+		},
+		{ "rcarriga/nvim-notify", lazy = false },
 	},
 	opts = {
 		popupmenu = {
 			enabled = true,
 		},
 		routes = {
+			{
+				filter = {
+					event = "msg_showmore",
+				},
+				opts = { skip = true },
+			},
+			{
+				filter = {
+					event = "msg_show",
+					kind = "",
+					find = "rust", -- Modify this based on patterns in your Rust popups
+				},
+				opts = { skip = true },
+			},
 			{
 				view = "notify",
 				filter = {

@@ -136,4 +136,5 @@ return {
 	require("plugins.Telescope.TelescopePlugins"),
 	require("plugins.dap.nvim-dap"),
 	require("plugins.Compilers.Compiler"),
+	require("plugins.FolkePlugins.flash"),
 }
