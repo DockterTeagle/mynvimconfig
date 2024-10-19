@@ -34,6 +34,9 @@ return {
 		-- 	})
 		-- 	crates.show()
 		-- end,
+		-- vim.keymap.set("n", "<leader>rcu", function()
+		-- 	require("crates").upgrade_all_crates()
+		-- end, { desc = "update crates" })
 	},
 	{
 		"rust-lang/rust.vim",

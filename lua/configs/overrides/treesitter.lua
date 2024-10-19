@@ -13,6 +13,8 @@ local options = {
 		"c",
 		"cpp",
 		"rust",
+		"nix",
+		"hyprlang",
 	},
 }
 return options

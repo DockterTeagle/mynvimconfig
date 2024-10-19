@@ -88,24 +88,24 @@ local mappings = {
 			end,
 			"reload LuaSnip snippets",
 		},
-		["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
-		["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
-		["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
+		-- ["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
+		-- ["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
+		-- ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
 		["<leader>lg"] = { "<cmd> LazyGit<CR>", "Load Lazy Git" },
 		["<leader>tqf"] = { "<cmd> TodoQuickFix<CR>", "Call TodoQuickFix" },
 		["<leader>tll"] = { "<cmd> TodoLocList<CR>" },
 		["<leader>tte"] = { "<cmd> TodoTelescope<CR>" },
-		["<leader>op"] = {
-			function()
-				local peek = require("peek")
-				if peek.is_open() then
-					peek.close()
-				else
-					peek.open()
-				end
-			end,
-			desc = "Peek (Markdown Preview)",
-		},
+		-- ["<leader>op"] = {
+		-- 	function()
+		-- 		local peek = require("peek")
+		-- 		if peek.is_open() then
+		-- 			peek.close()
+		-- 		else
+		-- 			peek.open()
+		-- 		end
+		-- 	end,
+		-- 	desc = "Peek (Markdown Preview)",
+		-- },
 		["-"] = {
 			"<cmd>Oil<CR>",
 			"openOil",

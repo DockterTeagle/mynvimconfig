@@ -27,27 +27,11 @@
           {
             devShells.default = pkgs.mkShell
               {
+
                 buildInputs = with pkgs;[
-                  rustacean.packages.${system}.codelldb
-                  libcxx
-                  valgrind
-                  gcc
-                  cmake
-                  rocmPackages.llvm.clang
-                  clang-tools
-                  codespell
-                  conan
-                  cppcheck
-                  doxygen
-                  gtest
-                  lcov
-                  vcpkg
-                  vcpkg-tool
+                  rustc
+                  clang
                 ];
-                shellHook = ''
-                  export CODELLDB_PATH=${rustacean.packages.${system}.codelldb}
-                  echo $CODELLDB_PATH
-                '';
               };
           };
       };
