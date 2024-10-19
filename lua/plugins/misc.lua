@@ -133,8 +133,6 @@ return {
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
 	require("plugins.FileBrowsers.nvim-treeMain"),
-	require("plugins.Telescope.TelescopePlugins"),
-	require("plugins.dap.nvim-dap"),
 	require("plugins.Compilers.Compiler"),
 	require("plugins.FolkePlugins.flash"),
 }

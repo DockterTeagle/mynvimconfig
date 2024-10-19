@@ -1,7 +1,24 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		opts = require("plugins.Telescope.TelescopeOptions"),
+		dependencies = {
+			"BurntSushi/ripgrep",
+			"nvim-lua/plenary.nvim",
+			"sharkdp/fd",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+		opts = {
+			extensions_list = {
+				"fzf",
+				"noice",
+				"frecency",
+				"bibtex",
+				"file_browser",
+				"dap",
+				"i23",
+			},
+		},
 	},
 	{
 		"nvim-telescope/telescope-frecency.nvim",
@@ -24,6 +41,9 @@ return {
 	},
 	{
 		"nvim-telescope/telescope-dap.nvim",
+		config = function()
+			require("telescope").load_extension("dap")
+		end,
 	},
 	{
 		"HUAHUAI23/telescope-dapzzzz",
