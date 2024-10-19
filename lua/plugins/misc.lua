@@ -133,6 +133,4 @@ return {
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.FileBrowsers.oil"),
 	require("plugins.FileBrowsers.nvim-treeMain"),
-	require("plugins.Compilers.Compiler"),
-	require("plugins.FolkePlugins.flash"),
 }

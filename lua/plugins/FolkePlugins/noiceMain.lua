@@ -8,6 +8,9 @@ return {
 		},
 		{ "rcarriga/nvim-notify", lazy = false },
 	},
+	-- config = function(_, opts)
+	-- 	require("telescope").load_extension("noice")
+	-- end,
 	opts = {
 		popupmenu = {
 			enabled = true,

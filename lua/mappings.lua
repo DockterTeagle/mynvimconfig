@@ -161,3 +161,6 @@ map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard
 
 -- Delete to void register
 map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void register" })
+map({ "n" }, "<leader>dlb", function()
+	require("telescope").extensions.dap.list_breakpoints({})
+end, { silent = true, desc = "List asll breakpoints" })

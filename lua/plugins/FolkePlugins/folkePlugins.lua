@@ -45,4 +45,5 @@ return {
 	wk,
 	todoComments,
 	trouble,
+	require("plugins.FolkePlugins.flash"),
 }
