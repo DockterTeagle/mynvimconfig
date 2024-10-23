@@ -14,7 +14,7 @@ local servers = {
 	"bashls",
 	"denols",
 	"vimls",
-	"julials",
+	-- "julials",
 	"jsonls",
 	"matlab_ls",
 }
