@@ -18,6 +18,8 @@ return {
 				-- markdown = { "vale" },
 				python = { "ruff", "mypy" },
 				cmake = { "cmakelint" },
+				-- lua = { "selene" },
+				tex = { "write-good" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()

@@ -44,17 +44,20 @@ lspconfig.nixd.setup({
 				expr = 'import (builtins.getFlake "/home/cdockter/MyNixOS/").inputs.nixpkgs { }',
 			},
 			formatting = {
-				command = { "nixpkgs-fmt" },
+				command = { "alejandra", "nixfmt" },
 			},
 			options = {
 				nixos = {
 					expr = '(builtins.getFlake "/home/cdockter/MyNixOS/").nixosConfigurations.nixos.options',
 				},
 				home_manager = {
-					expr = '(builtins.getFlake "/home/cdockter/MyNixOS").homeConfigurations."cdockter".options',
+					expr = '(builtins.getFlake "/home/cdockter/MyNixOS").homeConfigurations."cdockter".option',
 				},
 				flake_parts = {
 					expr = '(builtins.getFlake "/home/cdockter/MyNixOS").debug.options',
+				},
+				flake_parts2 = {
+					expr = '(builtins.getFlake "/home/cdockter/MyNixOS").currentSystem.options',
 				},
 			},
 		},

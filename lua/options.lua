@@ -9,6 +9,9 @@ local enable_providers = {
 	-- and so on
 }
 
+vim.g.markdown_fenced_languages = {
+	"ts=typescript",
+}
 for _, plugin in pairs(enable_providers) do
 	vim.g["loaded_" .. plugin] = nil
 	vim.cmd("runtime " .. plugin)

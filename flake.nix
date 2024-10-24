@@ -55,10 +55,10 @@
             #   };
             #   default = self'.overlays.neovim;
             # };
-            # packages = rec {
-            #   neovim = nvim;
-            #   default = neovim;
-            # };
+            packages = rec {
+              neovim = nvim;
+              default = neovim;
+            };
             devShells.default = pkgs.mkShell
               {
 
