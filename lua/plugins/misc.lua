@@ -19,7 +19,7 @@ return {
 				python = { "ruff", "mypy" },
 				cmake = { "cmakelint" },
 				-- lua = { "selene" },
-				tex = { "write-good" },
+				tex = { "write_good" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()

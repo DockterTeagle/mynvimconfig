@@ -17,6 +17,7 @@ local servers = {
 	-- "julials",
 	"jsonls",
 	"matlab_ls",
+	-- "nil_ls"
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -42,9 +43,6 @@ lspconfig.nixd.setup({
 			autowatch = true,
 			nixpkgs = {
 				expr = 'import (builtins.getFlake "/home/cdockter/MyNixOS/").inputs.nixpkgs { }',
-			},
-			formatting = {
-				command = { "alejandra", "nixfmt" },
 			},
 			options = {
 				nixos = {
@@ -75,7 +73,6 @@ lspconfig.texlab.setup({
 				onOpenAndSave = true,
 				onEdit = true,
 			},
-			latexFormatter = "latexindent",
 			experimental = {
 				followPackageLinks = true,
 			},
@@ -87,8 +84,11 @@ lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
-			diagnostics = {
-				globals = { "vim" },
+			runtime = {
+				version = "LuaJIT",
+			},
+			telemetry = {
+				enable = false,
 			},
 			workspace = {
 				library = {
@@ -134,9 +134,9 @@ lspconfig.pyright.setup({
 			disableOrganizeImports = true,
 		},
 		python = {
-			analysis = {
-				ignore = { "*" },
-			},
+			-- analysis = {
+			-- 	ignore = { "*" },
+			-- },
 		},
 	},
 })

@@ -12,6 +12,7 @@ return {
 				-- Or relative, which means they will be resolved from the plugin dir.
 				"lazy.nvim",
 				"rustaceanvim",
+				"nvchad",
 				-- Only load the lazyvim library when the `LazyVim` global is found
 				-- Load the wezterm types when the `wezterm` module is required
 				-- Needs `justinsgithub/wezterm-types` to be installed
