@@ -2,7 +2,6 @@
   description = "rustacean flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    rustacean.url = "github:mrcjkb/rustaceanvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
   outputs = inputs @ {
