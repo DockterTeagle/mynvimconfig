@@ -14,6 +14,7 @@
       ];
       perSystem = {pkgs, ...}: let
         runtimeDeps = with pkgs; [
+          lua
           gcc
           nixd
           clang
