@@ -8,9 +8,6 @@ return {
 		},
 		{ "rcarriga/nvim-notify", lazy = false },
 	},
-	-- config = function(_, opts)
-	-- 	require("telescope").load_extension("noice")
-	-- end,
 	opts = {
 		popupmenu = {
 			enabled = true,
@@ -47,7 +44,7 @@ return {
 				["cmp.entry.get_documentation"] = true,
 			},
 			signature = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 		presets = {

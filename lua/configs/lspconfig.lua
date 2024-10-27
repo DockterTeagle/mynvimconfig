@@ -17,7 +17,6 @@ local servers = {
 	-- "julials",
 	"jsonls",
 	"matlab_ls",
-	-- "nil_ls"
 }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -117,9 +116,9 @@ lspconfig.ruff.setup({
 			lint = {
 				preview = true,
 			},
-			format = {
-				preview = true,
-			},
+			-- format = {
+			-- 	preview = true,
+			-- },
 			disableRuleComment = {
 				enable = false,
 			},
@@ -134,9 +133,9 @@ lspconfig.pyright.setup({
 			disableOrganizeImports = true,
 		},
 		python = {
-			-- analysis = {
-			-- 	ignore = { "*" },
-			-- },
+			analysis = {
+				ignore = { "*" },
+			},
 		},
 	},
 })

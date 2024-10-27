@@ -14,12 +14,19 @@ return {
 		event = "VeryLazy",
 		config = function()
 			local lint = require("lint")
+			-- lint.linters.nixpkgs_fmt = {
+			-- 	cmd = "nixpkgs-fmt",
+			-- 	stdin = true,
+			-- 	append_fname = true,
+			-- }
 			lint.linters_by_ft = {
 				-- markdown = { "vale" },
-				python = { "ruff", "mypy" },
+				python = { "mypy" },
 				cmake = { "cmakelint" },
 				-- lua = { "selene" },
 				tex = { "write_good" },
+				-- nix = { "deadnix", "nixpkgs_fmt" },
+				nix = { "deadnix", "nix" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()
