@@ -36,7 +36,7 @@ local options = {
 		c = { "clang-format" },
 		cpp = { "clang-format" },
 		cmake = { "cmakelang" },
-		nix = { "alejandra", "injected" },
+		nix = { "nixfmt", "injected" },
 		["*"] = { "codespell" },
 		tex = { "latexindent" },
 	},
