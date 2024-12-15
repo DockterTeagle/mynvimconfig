@@ -41,20 +41,20 @@ lspconfig.nixd.setup({
 		nixd = {
 			autowatch = true,
 			nixpkgs = {
-				expr = 'import (builtins.getFlake "/home/cdockter/MyNixOS/").inputs.nixpkgs { }',
+				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS/").inputs.nixpkgs { }',
 			},
 			options = {
 				nixos = {
-					expr = '(builtins.getFlake "/home/cdockter/MyNixOS/").nixosConfigurations.nixos.options',
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS/").nixosConfigurations.nixos.options',
 				},
 				home_manager = {
-					expr = '(builtins.getFlake "/home/cdockter/MyNixOS").homeConfigurations."cdockter".option',
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS/").homeConfigurations."cdockter".options',
 				},
 				flake_parts = {
-					expr = '(builtins.getFlake "/home/cdockter/MyNixOS").debug.options',
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS").debug.options',
 				},
 				flake_parts2 = {
-					expr = '(builtins.getFlake "/home/cdockter/MyNixOS").currentSystem.options',
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS").currentSystem.options',
 				},
 			},
 		},
