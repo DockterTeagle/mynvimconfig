@@ -29,12 +29,12 @@ return {
 			require("telescope").load_extension("frecency")
 		end,
 	},
-	{
-		"debugloop/telescope-undo.nvim",
-		config = function()
-			require("telescope").load_extension("")
-		end,
-	},
+	-- {
+	-- 	"debugloop/telescope-undo.nvim",
+	-- 	config = function()
+	-- 		require("telescope").load_extension("")
+	-- 	end,
+	-- },
 	{
 		"nvim-telescope/telescope-bibtex.nvim",
 		config = function()

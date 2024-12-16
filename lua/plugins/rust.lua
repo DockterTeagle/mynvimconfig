@@ -2,23 +2,26 @@
 return {
 	{
 		"mrcjkb/rustaceanvim",
+		-- version = "^5",
 		lazy = false,
-		version = "^5",
 	},
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
+			"mrcjkb/rustaceanvim",
 			"nvim-neotest/nvim-nio",
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter",
-			"mrcjkb/rustaceanvim",
+			"nvim-treesitter/nvim-treesitter",
 		},
-		opts = {
-			adapters = {
-				-- require("rustaceanvim.neotest"),
-			},
-		},
+		config = function()
+			require("neotest").setup({
+				adapters = {
+					require("rustaceanvim.neotest"),
+					require("neotest-python"),
+				},
+			})
+		end,
 	},
 	{
 		"saecki/crates.nvim",
