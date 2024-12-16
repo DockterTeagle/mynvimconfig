@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    blink.url = "github:Saghen/blink.cmp";
   };
   outputs =
     inputs@{ flake-parts, ... }:
@@ -13,7 +14,7 @@
         "aarch64-darwin"
       ];
       perSystem =
-        { pkgs, ... }:
+        { pkgs, inputs', ... }:
         let
           runtimeDeps = with pkgs; [
             lua
@@ -50,7 +51,8 @@
             default = neovim;
           };
           devShells.default = pkgs.mkShell {
-            buildInputs = with pkgs; [
+            inputsFrom = [ inputs'.blink.devShells.default ];
+            packages = with pkgs; [
               lua5_4
               stylua
               selene
