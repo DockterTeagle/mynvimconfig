@@ -12,6 +12,7 @@ return {
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
 		dependencies = {
+			{ "folke/lazydev.nvim" },
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
@@ -45,10 +46,17 @@ return {
 			-- see the "default configuration" section below for full documentation on how to define
 			-- your own keymap.
 
+			completion = {
+				accept = {
+					auto_brackets = {
+						enabled = true,
+					},
+				},
+			},
 			keymap = {
-				["<Tab>"] = { "select_next", "snippet_forward" },
-				["<S-Tab>"] = { "select_prev", "snippet_backward" },
-				["<CR>"] = { "accept" },
+				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+				["<CR>"] = { "accept", "fallback" },
 				["<C-e>"] = { "hide" },
 				["<Up>"] = { "select_prev", "fallback" },
 				["<Down>"] = { "select_next", "fallback" },
@@ -81,9 +89,16 @@ return {
 			-- elsewhere in your config, without redefining it, via `opts_extend`
 			sources = {
 
-				default = { "lsp", "path", "luasnip", "buffer" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						fallbacks = { "lsp" },
+					},
+				},
+				default = { "lsp", "path", "luasnip", "buffer", "lazydev" },
 				-- optionally disable cmdline completions
-				cmdline = {},
+				-- cmdline = {},
 			},
 
 			-- experimental signature help support
