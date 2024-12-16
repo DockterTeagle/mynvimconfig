@@ -30,16 +30,6 @@ M.on_attach = function(client, bufnr)
 	map("n", "gr", vim.lsp.buf.references, opts("Show references"))
 end
 
-M.capabilities = require("cmp_nvim_lsp").default_capabilities()
+M.capabilities = require("blink.cmp").get_lsp_capabilities()
 
--- M.capabilities = function(client)
--- 	if client.name == "ruff" then
--- 		client.server_capabilities.hoverProvider = false
--- 	end
--- end
--- M.capabilities.textDocument = {
--- 	inlayHint = {
--- 		enable = true,
--- 	},
--- }
 return M
