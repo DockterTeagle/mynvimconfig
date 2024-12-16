@@ -1,6 +1,7 @@
 local lsp_on_attach = require("configs.lspconfigDefaults").on_attach
 vim.g.rustaceanvim = {
 	tools = {
+		test_executor = "background",
 		inlay_hints = {
 			enable = true,
 		},
