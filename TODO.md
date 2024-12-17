@@ -6,3 +6,4 @@
 - [ ] make tmux keys work in oil
 - [ ] get trouble config working
 - [ ] make luasnip not need to reload at the beginning
+- [ ] get cord to work with nix w/o needing to change to this repo every time

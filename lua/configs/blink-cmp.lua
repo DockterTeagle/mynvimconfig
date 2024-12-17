@@ -58,7 +58,7 @@ local M = {
 		},
 		default = { "lsp", "path", "luasnip", "buffer", "lazydev" },
 		-- optionally disable cmdline completions
-		-- cmdline = {},
+		cmdline = {},
 	},
 
 	-- experimental signature help support
