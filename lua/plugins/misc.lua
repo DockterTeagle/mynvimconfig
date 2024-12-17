@@ -278,9 +278,10 @@ return {
 				-- Only one of these is needed, not both.
 				"nvim-telescope/telescope.nvim", -- optional
 			},
-			cmd = "Neogit",
+			-- cmd = "Neogit",
+			lazy = false,
 			config = true,
-			-- event = "Enter git buffer"?
+			-- event = "User FilePost",
 		},
 		{
 			"numToStr/Comment.nvim",
