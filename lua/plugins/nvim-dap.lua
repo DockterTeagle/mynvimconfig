@@ -2,9 +2,7 @@ return {
 	{
 		"theHamsta/nvim-dap-virtual-text",
 		cmd = "DapContinue",
-		config = function()
-			require("nvim-dap-virtual-text").setup({})
-		end,
+		config = true,
 	},
 	{
 		"rcarriga/nvim-dap-ui",
