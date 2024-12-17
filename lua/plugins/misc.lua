@@ -214,7 +214,7 @@ return {
 		"vyfor/cord.nvim",
 		build = "./build",
 		event = "VeryLazy",
-		opts = {},
+		config = true,
 	},
 	{
 		"stevearc/aerial.nvim",
@@ -250,15 +250,11 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
-		config = function()
-			require("refactoring").setup()
-		end,
+		config = true,
 	},
 	{
 		"smjonas/inc-rename.nvim",
-		config = function()
-			require("inc_rename").setup({})
-		end,
+		config = true,
 		cmd = "IncRename",
 	},
 	{
