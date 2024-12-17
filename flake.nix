@@ -2,6 +2,7 @@
   description = "neovim config flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     flake-parts.url = "github:hercules-ci/flake-parts";
     blink.url = "github:Saghen/blink.cmp";
   };
@@ -14,7 +15,13 @@
         "aarch64-darwin"
       ];
       perSystem =
-        { pkgs, inputs', ... }:
+        {
+          pkgs,
+          inputs',
+          self',
+          system,
+          ...
+        }:
         let
           runtimeDeps = with pkgs; [
             lua
@@ -50,9 +57,21 @@
             neovim = nvim;
             default = neovim;
           };
+          formatter = pkgs.nixfmt-rfc-style;
+          checks = {
+            pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+              src = ./.;
+              hooks = {
+                nixfmt-rfc-style.enable = true;
+                stylua.enable = true;
+              };
+            };
+          };
           devShells.default = pkgs.mkShell {
+            inherit (self'.checks.pre-commit-check) shellHook;
             inputsFrom = [ inputs'.blink.devShells.default ];
             packages = with pkgs; [
+              self'.checks.pre-commit-check.enabledPackages
               lua5_4
               stylua
               selene
