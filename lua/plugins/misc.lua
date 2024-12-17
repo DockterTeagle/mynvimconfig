@@ -278,10 +278,8 @@ return {
 				-- Only one of these is needed, not both.
 				"nvim-telescope/telescope.nvim", -- optional
 			},
-			-- cmd = "Neogit",
-			lazy = false,
+			cmd = "Neogit",
 			config = true,
-			-- event = "User FilePost",
 		},
 		{
 			"numToStr/Comment.nvim",
