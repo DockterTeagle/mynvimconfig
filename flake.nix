@@ -76,7 +76,6 @@
               stylua
               selene
               lua-language-server
-              luajitPackages.luarocks-nix
               rustc
               clang
             ];
