@@ -8,6 +8,16 @@ return {
 		end,
 	},
 	{
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
+		opts = {
+			user_default_options = {
+				names = false,
+			},
+			virtualtext_inline = true,
+		},
+	},
+	{
 		"echasnovski/mini.icons",
 		opts = {
 			file = {
@@ -30,8 +40,41 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
+			on_highlights = function(hl, c)
+				local prompt = "#2d3149"
+				hl.TelescopeNormal = {
+					bg = c.bg_dark,
+					fg = c.fg_dark,
+				}
+				hl.TelescopeBorder = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopePromptNormal = {
+					bg = prompt,
+				}
+				hl.TelescopePromptBorder = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePromptTitle = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePreviewTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopeResultsTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+			end,
 			style = "night",
 			terminal_colors = true,
+			plugins = {
+				blink = true,
+			},
 		},
 	},
 	{
@@ -39,7 +82,7 @@ return {
 		event = "VeryLazy",
 		options = {
 			icons_enabled = true,
-			theme = "base16",
+			theme = "tokyonight",
 		},
 		dependencies = { "echasnovski/mini.icons" },
 		-- lint_progress = function()
@@ -214,6 +257,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = require("configs.overrides.treesitter"),
+		event = "VeryLazy",
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
 	require("plugins.oil"),
