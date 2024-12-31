@@ -43,9 +43,9 @@ return {
 					type = "bashdb",
 					request = "launch",
 					name = "Launch file",
-					pathBashdb = vim.fn.stdpath("data")
-						.. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
-					pathBashdbLib = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
+					-- pathBashdb = vim.fn.stdpath("data")
+					-- 	.. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
+					-- pathBashdbLib = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
 					trace = true,
 					file = "${file}",
 					program = "${file}",
