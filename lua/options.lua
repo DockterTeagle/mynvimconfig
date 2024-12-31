@@ -6,7 +6,6 @@ local g = vim.g
 o.laststatus = 3
 o.showmode = false
 
-o.clipboard = "unnamedplus"
 o.cursorline = true
 o.cursorlineopt = "number"
 
@@ -44,10 +43,6 @@ o.updatetime = 250
 opt.whichwrap:append("<>[]hl")
 
 -- disable some default providers
-g.loaded_node_provider = 0
-g.loaded_python3_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.fn.has("win32") ~= 0

@@ -3,9 +3,9 @@ return {
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		opts = require("configs.conform"),
-		-- init = function()
-		-- 	vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-		-- end,
+		init = function()
+			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+		end,
 	},
 	{
 		"echasnovski/mini.icons",
@@ -35,13 +35,6 @@ return {
 		},
 	},
 	-- {
-	-- lint_progress = function()
-	-- 	local linters = require("lint").get_running()
-	-- 	if #linters == 0 then
-	-- 		return "󰦕"
-	-- 	end
-	-- 	return "󱉶 " .. table.concat(linters, ", ")
-	-- end,
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
@@ -50,6 +43,13 @@ return {
 			theme = "base16",
 		},
 		dependencies = { "echasnovski/mini.icons" },
+		-- lint_progress = function()
+		-- 	local linters = require("lint").get_running()
+		-- 	if #linters == 0 then
+		-- 		return "󰦕"
+		-- 	end
+		-- 	return "󱉶 " .. table.concat(linters, ", ")
+		-- end,
 	},
 	{
 		"saghen/blink.cmp",
