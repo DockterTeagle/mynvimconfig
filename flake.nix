@@ -51,16 +51,6 @@
           );
         in
         {
-          # overlays = {
-          #   neovim = _:__prev: {
-          #     neovim = nvim;
-          #   };
-          #   default = self'.overlays.neovim;
-          # };
-          packages = rec {
-            neovim = nvim;
-            default = neovim;
-          };
           formatter = pkgs.nixfmt-rfc-style;
           checks = {
             pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
@@ -74,16 +64,65 @@
           devShells.default = pkgs.mkShell {
             shellHook =
               let
+                luarc = pkgs.mk-luarc-json {
+                  plugins = with pkgs.vimPlugins; [
+                    blink-cmp
+                    bufferline-nvim
+                    flash-nvim
+                    lazy-nvim
+                    lazydev-nvim
+                    lualine-nvim
+                    luasnip
+                    mini-icons
+                    "noice.nvim"
+                    "lua5.1-nui.nvim" # NUI
+                    "nvim-lint"
+                    "nvim-notify"
+                    "luajit2.1-rustaceanvim"
+                    "lua5.1-telescope.nvim"
+                    "todo-comments.nvim"
+                    "tokyonight.nvim"
+                    "vim-easy-align"
+                    "vim-tmux-navigator"
+                    "vimtex"
+                    "which-key.nvim"
+                    "aerial.nvim"
+                    "comment.nvim"
+                    "compiler.nvim"
+                    "conform.nvim"
+                    "crates.nvim"
+                    "diffview.nvim"
+                    "lua5.1-gitsigns.nvim"
+                    "FixCursorHold.nvim"
+                    "inc-rename.nvim"
+                    "indent-blankline.nvim"
+                    "luvit-meta"
+                    "nlsp-settings.nvim"
+                    "nvim-autopairs"
+                    "nvim-colorizer.lua"
+                    "nvim-dap"
+                    "nvim-dap-python"
+                    "nvim-dap-ui"
+                    "nvim-dap-virtual-text"
+                    "nvim-spectre"
+                    nvim-treesitter
+                    oil-nvim
+                    overseer-nvim
+                    "refactoring.nvim"
+                    "rust.vim"
+                    "telescope-dap.nvim"
+                    "telescope-frecency.nvim"
+                    "telescope-fzf-native.nvim"
+                    "vim-grammarous"
+                  ];
+                };
+
               in
-              # luarc = pkgs.mk-luarc-json {
-              #   plugins = with pkgs.vimPlugins; [ nvim-treesitter ];
-              # };
               # ln -fs ${luarc} .luarc.json
               # bash
               ''
                 ${self'.checks.pre-commit-check.shellHook}
               '';
-            # inherit (self'.checks.pre-commit-check) shellHook;
             inputsFrom = [ inputs'.blink.devShells.default ];
             packages = with pkgs; [
               self'.checks.pre-commit-check.enabledPackages
