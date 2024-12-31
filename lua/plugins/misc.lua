@@ -134,8 +134,6 @@ return {
 		-- If you use nix, you can build from source using latest nightly rust with:
 		build = "nix run .#build-plugin",
 
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
 		opts = require("configs.blink-cmp"),
 		-- allows extending the providers array elsewhere in your config
 		-- without having to redefine it

@@ -5,6 +5,8 @@ local M = {
 	-- see the "default configuration" section below for full documentation on how to define
 	-- your own keymap.
 
+	---@module 'blink.cmp'
+	---@type blink.cmp.Config
 	completion = {
 		accept = {
 			auto_brackets = {
