@@ -6,7 +6,13 @@ return {
 			"MunifTanjim/nui.nvim",
 			lazy = false,
 		},
-		{ "rcarriga/nvim-notify", lazy = false },
+		{
+			"rcarriga/nvim-notify",
+			lazy = false,
+			opts = {
+				background_colour = "#000000",
+			},
+		},
 	},
 	opts = {
 		popupmenu = {

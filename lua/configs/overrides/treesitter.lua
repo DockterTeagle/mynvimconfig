@@ -1,5 +1,5 @@
 local options = {
-	ignore_install = { "tex" },
+	ignore_install = { "tex", "latex" },
 	ensure_installed = {
 		"vim",
 		"lua",
@@ -12,9 +12,16 @@ local options = {
 		"gitignore",
 		"c",
 		"cpp",
+		"cmake",
 		"rust",
 		"nix",
 		"hyprlang",
+		"yaml",
+		"tmux",
+		"make",
+		"bibtex",
 	},
+	highlight = { enable = true, use_languagetree = true },
+	indent = { enable = true },
 }
 return options

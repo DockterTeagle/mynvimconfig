@@ -39,6 +39,7 @@ lspconfig.nixd.setup({
 	cmd = { "nixd" },
 	settings = {
 		nixd = {
+			-- semantictokens = true,
 			autowatch = true,
 			nixpkgs = {
 				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS/").inputs.nixpkgs { }',
@@ -98,6 +99,10 @@ lspconfig.lua_ls.setup({
 			},
 		},
 	},
+})
+lspconfig.hyprls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 lspconfig.ruff.setup({
 	on_attach = on_attach,

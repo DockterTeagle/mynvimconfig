@@ -4,11 +4,9 @@ return {
 		{
 			"echasnovski/mini.icons",
 		},
-		{
-			"nvim-tree/nvim-web-devicons",
-		},
 	},
 	cmd = "WhichKey",
+	config = true,
 	keys = {
 		"<leader>",
 		"<c-r>",
@@ -20,8 +18,4 @@ return {
 		"v",
 		"g",
 	},
-	config = function(_, opts)
-		dofile(vim.g.base46_cache .. "whichkey")
-		require("which-key").setup(opts)
-	end,
 }

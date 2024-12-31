@@ -8,6 +8,50 @@ return {
 		-- end,
 	},
 	{
+		"echasnovski/mini.icons",
+		opts = {
+			file = {
+				[".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
+				["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
+			},
+			filetype = {
+				dotenv = { glyph = "", hl = "MiniIconsYellow" },
+			},
+		},
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
+		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			style = "night",
+			terminal_colors = true,
+		},
+	},
+	-- {
+	-- lint_progress = function()
+	-- 	local linters = require("lint").get_running()
+	-- 	if #linters == 0 then
+	-- 		return "󰦕"
+	-- 	end
+	-- 	return "󱉶 " .. table.concat(linters, ", ")
+	-- end,
+	{
+		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
+		options = {
+			icons_enabled = true,
+			theme = "base16",
+		},
+		dependencies = { "echasnovski/mini.icons" },
+	},
+	{
 		"saghen/blink.cmp",
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
@@ -16,15 +60,18 @@ return {
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
+				event = "TextChangedI",
 				build = "make install_jsregexp",
-				init = function()
+				opts = {
+					history = true,
+					updateevents = "TextChanged,TextChangedI",
+					enable_autosnippets = true,
+					store_selection_keys = "<Tab>",
+				},
+				config = function()
 					local ls = require("luasnip")
-					ls.config.set_config({ --not the most elegant can probably make this a config part instead
-						history = true,
-						enable_autosnippets = true,
-						update_events = "TextChanged,TextChangedI",
-						store_selection_keys = "<Tab>",
-					})
+					local opts = require("configs.luasnip")
+					ls.config.set_config({ opts })
 				end,
 			},
 		},
@@ -47,14 +94,21 @@ return {
 		event = "VeryLazy",
 		config = function()
 			local lint = require("lint")
+			lint.linters.luacheck.args = {
+				-- "--config=./",
+			}
 			lint.linters_by_ft = {
 				-- markdown = { "vale" },
-				python = { "mypy", "ruff" },
+				python = { "dmypy", "ruff" },
 				cmake = { "cmakelint" },
 				-- lua = { "selene" },
 				tex = { "write_good" },
 				-- nix = { "deadnix", "nix" }, currently deadnix is just duplicating the nixd errors
 				nix = { "statix" },
+				cpp = { "cppcheck", "cpplint" },
+				git = { "gitlint" },
+				-- lua = { "luacheck", "luac" },
+				-- lua = { "luac" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()
@@ -86,7 +140,8 @@ return {
 	-- },
 	{
 		"vyfor/cord.nvim",
-		build = "./build",
+		branch = "client-server",
+		build = ":Cord fetch",
 		event = "VeryLazy",
 		config = true,
 	},
@@ -106,7 +161,7 @@ return {
 		-- Optional dependencies
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
+			"echasnovski/mini.icons",
 		},
 	},
 	{
@@ -162,6 +217,5 @@ return {
 		opts = require("configs.overrides.treesitter"),
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
-	require("plugins.FileBrowsers.oil"),
-	require("plugins.FileBrowsers.nvim-treeMain"),
+	require("plugins.oil"),
 }
