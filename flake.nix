@@ -74,7 +74,9 @@
           devShells.default = pkgs.mkShell {
             shellHook =
               let
-                luarc = pkgs.mk-luarc-json { plugins = with pkgs.vimPlugins; [ nvim-treesitter ]; };
+                luarc = pkgs.mk-luarc-json {
+                  plugins = with pkgs.vimPlugins; [ nvim-treesitter ];
+                };
               in
               # bash
               ''
@@ -92,7 +94,6 @@
               lua-language-server
               rustc
               clang
-              luarocks-nix
             ];
           };
         };
