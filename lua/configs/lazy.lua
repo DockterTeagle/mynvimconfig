@@ -1,15 +1,18 @@
 return {
 	defaults = { lazy = true },
-	install = { colorscheme = { "nvchad" } },
 
-	ui = {
-		icons = {
-			ft = "",
-			lazy = "󰂠 ",
-			loaded = "",
-			not_loaded = "",
-		},
+	checker = {
+		enabled = true,
+		notify = true,
 	},
+	-- ui = {
+	-- 	icons = {
+	-- 		ft = "",
+	-- 		lazy = "󰂠 ",
+	-- 		loaded = "",
+	-- 		not_loaded = "",
+	-- 	},
+	-- },
 
 	performance = {
 		rtp = {
