@@ -25,7 +25,7 @@
         let
           pkgs = import inputs.nixpkgs {
             inherit system;
-            overlays = [ inputs.gen-luarc.overlays.default ];
+            # overlays = [ inputs.gen-luarc.overlays.default ];
           };
           runtimeDeps = with pkgs; [
             lua
@@ -74,14 +74,14 @@
           devShells.default = pkgs.mkShell {
             shellHook =
               let
-                luarc = pkgs.mk-luarc-json {
-                  plugins = with pkgs.vimPlugins; [ nvim-treesitter ];
-                };
               in
+              # luarc = pkgs.mk-luarc-json {
+              #   plugins = with pkgs.vimPlugins; [ nvim-treesitter ];
+              # };
+              # ln -fs ${luarc} .luarc.json
               # bash
               ''
                 ${self'.checks.pre-commit-check.shellHook}
-                ln -fs ${luarc} .luarc.json
               '';
             # inherit (self'.checks.pre-commit-check) shellHook;
             inputsFrom = [ inputs'.blink.devShells.default ];
