@@ -19,7 +19,6 @@ map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
--- map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
 
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
@@ -27,17 +26,10 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic locli
 -- tabufline
 map("n", "<leader>b", "<cmd>new<CR>", { desc = "buffer new" })
 
--- map("n", "<tab>", function()
--- 	require("nvchad.tabufline").next()
--- end, { desc = "buffer goto next" })
+map("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "previous buffer" })
+map("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "previous buffer" })
 
--- map("n", "<S-tab>", function()
--- 	require("nvchad.tabufline").prev()
--- end, { desc = "buffer goto prev" })
-
--- map("n", "<leader>x", function()
--- 	require("nvchad.tabufline").close_buffer()
--- end, { desc = "buffer close" })
+map("n", "<leader>x", "<CMD>bd<CR>", { desc = "buffer close" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
@@ -230,7 +222,7 @@ map("n", "]c", function()
 		return "]c"
 	end
 	vim.schedule(function()
-		require("gitsigns").next_hunk()
+		require("gitsigns").nav_hunk("first")
 	end)
 	return "<Ignore>"
 end, { expr = true, desc = "Next git hunk" })
@@ -240,7 +232,7 @@ map("n", "[c", function()
 		return "[c"
 	end
 	vim.schedule(function()
-		require("gitsigns").prev_hunk()
+		require("gitsigns").nav_hunk("prev")
 	end)
 	return "<Ignore>"
 end, { expr = true, desc = "Previous git hunk" })
@@ -256,6 +248,7 @@ map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard
 
 -- Delete to void register
 map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void register" })
+
 map({ "n" }, "<leader>dlb", function()
 	require("telescope").extensions.dap.list_breakpoints({})
 end, { silent = true, desc = "List asll breakpoints" })
