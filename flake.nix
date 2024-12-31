@@ -99,7 +99,7 @@
               # bash
               ''
                 ${self'.checks.pre-commit-check.shellHook}
-                ln -fs ${luarc} .luarc.json
+                # ln -fs ${luarc} .luarc.json
               '';
             inputsFrom = [ inputs'.blink.devShells.default ];
             packages = with pkgs; [
