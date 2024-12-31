@@ -4,10 +4,10 @@ return {
 		dependencies = { "echasnovski/mini.icons" },
 		opts = {},
 		cmd = "Trouble",
-		keys = {
+		keys = { {
 			"<leader>tr",
-			"<cmd> Trouble diagnostics toggle<cr>",
+			"<cmd>Trouble diagnostics toggle<CR>",
 			desc = "diagnostics",
-		},
+		} },
 	},
 }
