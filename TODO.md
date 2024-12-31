@@ -7,3 +7,4 @@
 - [ ] get trouble config working
 - [ ] make luasnip not need to reload at the beginning
 - [ X ] get cord to work with nix w/o needing to change to this repo every time
+- [ ] bind gitsigns.nav_hunk('first','last')
