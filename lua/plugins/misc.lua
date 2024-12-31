@@ -34,7 +34,6 @@ return {
 			terminal_colors = true,
 		},
 	},
-	-- {
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",

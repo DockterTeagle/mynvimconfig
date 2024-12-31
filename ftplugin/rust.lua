@@ -1,4 +1,4 @@
-local lsp_on_attach = require("configs.lspconfigDefaults").on_attach
+local lsp_on_attach = require("configs.lsp.lspconfigDefaults").on_attach
 vim.g.rustaceanvim = {
 	tools = {
 		test_executor = "background",

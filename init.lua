@@ -13,7 +13,6 @@ require("lazy").setup({
 
 	{ import = "plugins" },
 }, lazy_config)
--- load theme
 require("options")
 vim.schedule(function()
 	require("mappings")
