@@ -27,28 +27,6 @@
             inherit system;
             overlays = [ inputs.gen-luarc.overlays.default ];
           };
-          runtimeDeps = with pkgs; [
-            lua
-            gcc
-            nixd
-            clang
-          ];
-          nvim = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped (
-            pkgs.neovimUtils.makeNeovimConfig {
-              customRc = ''
-                set runtimepath^=${./.}
-                source ${./.}/init.lua
-              '';
-            }
-            // {
-              wrapperArgs = [
-                "--prefix"
-                "PATH"
-                ":"
-                "${pkgs.lib.makeBinPath runtimeDeps}"
-              ];
-            }
-          );
         in
         {
           formatter = pkgs.nixfmt-rfc-style;
