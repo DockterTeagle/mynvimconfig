@@ -1,4 +1,4 @@
-local options = {
+return {
 	ignore_install = { "tex", "latex" },
 	ensure_installed = {
 		"vim",
@@ -24,4 +24,3 @@ local options = {
 	highlight = { enable = true, use_languagetree = true },
 	indent = { enable = true },
 }
-return options

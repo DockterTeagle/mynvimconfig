@@ -77,12 +77,25 @@ return {
 			},
 		},
 	},
+	{ "akinsho/toggleterm.nvim", version = "*", config = true, lazy = false },
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
-		options = {
+		-- event = "VeryLazy",
+		lazy = false,
+		opts = {
 			icons_enabled = true,
 			theme = "tokyonight",
+			globalstatus = true,
+			extensions = {
+				"aerial",
+				"trouble",
+				"toggleterm",
+				"quickfix",
+				"overseer",
+				"nvim-dap-ui",
+				"symbols-outline",
+				"lazy",
+			},
 		},
 		dependencies = { "echasnovski/mini.icons" },
 		-- lint_progress = function()
@@ -98,7 +111,6 @@ return {
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
 		dependencies = {
-			{ "folke/lazydev.nvim" },
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
@@ -256,7 +268,12 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		opts = require("configs.overrides.treesitter"),
+		config = function()
+			local configs = require("nvim-treesitter.configs")
+			local opts = require("configs.overrides.treesitter")
+			configs.setup(opts)
+		end,
+		build = ":TSUpdate",
 		event = "VeryLazy",
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
