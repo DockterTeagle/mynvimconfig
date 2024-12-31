@@ -8,6 +8,7 @@ return {
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 				-- Or relative, which means they will be resolved from the plugin dir.(not vim.uv.fs_stat(root_dir .. "/.luarc.json"))
 				"lazy.nvim",
+				{ "snacks.nvim", words = { "snacks" } },
 			},
 			enabled = function(root_dir)
 				return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
@@ -20,4 +21,5 @@ return {
 	require("plugins.FolkePlugins.noiceMain"),
 	require("plugins.FolkePlugins.troubleMain"),
 	require("plugins.FolkePlugins.which-key"),
+	require("plugins.FolkePlugins.snacks"),
 }

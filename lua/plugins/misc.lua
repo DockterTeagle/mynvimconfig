@@ -180,16 +180,6 @@ return {
 		"junegunn/vim-easy-align",
 		lazy = false,
 	},
-	-- {
-	-- 	"kiyoon/jupynium.nvim",
-	-- 	lazy = false,
-	-- 	-- build = "conda run --no-capture-output -n jupynium pip install .",
-	-- 	-- enabled = vim.fn.isdirectory(vim.fn.expand "~/miniconda3/envs/jupynium"),
-	-- 	dependencies = {
-	-- 		"rcarriga/nvim-notify",
-	-- 		"stevearc/dressing.nvim",
-	-- 	},
-	-- },
 	{
 		"vyfor/cord.nvim",
 		branch = "client-server",
