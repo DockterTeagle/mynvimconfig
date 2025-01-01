@@ -156,7 +156,7 @@ return {
 				-- lua = { "selene" },
 				tex = { "write_good" },
 				-- nix = { "deadnix", "nix" }, currently deadnix is just duplicating the nixd errors
-				nix = { "statix" },
+				-- nix = { "statix" },
 				cpp = { "cppcheck", "cpplint" },
 				git = { "gitlint" },
 				lua = { "luacheck", "luac" },

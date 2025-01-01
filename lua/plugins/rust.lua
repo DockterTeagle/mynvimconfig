@@ -17,8 +17,16 @@ return {
 		config = function()
 			require("neotest").setup({
 				adapters = {
+					-- require("neotest-plenary"),
 					require("rustaceanvim.neotest"),
-					require("neotest-python"),
+					-- require("neotest-vim-test")({
+					-- 	ignore_file_types = { "python", "vim", "lua" },
+					-- }),
+					-- require("neotest-python")({
+					-- 	dap = {
+					-- 		justMyCode = false,
+					-- 	},
+					-- }),
 				},
 			})
 		end,

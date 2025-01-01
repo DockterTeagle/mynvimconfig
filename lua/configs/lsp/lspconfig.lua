@@ -49,13 +49,13 @@ lspconfig.nixd.setup({
 					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS" ).nixosConfigurations.nixos.options',
 				},
 				home_manager = {
-					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").homeConfigurations."cdockter@nixos".options',
+					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").homeConfigurations."cdockter".options',
 				},
 				flake_parts = {
-					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").debug.options',
+					expr = 'import (builtins.getFlake "github:DockterTeagle/myNixOS").debug.options',
 				},
 				flake_parts2 = {
-					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").currentSystem.options',
+					expr = 'import (builtins.getFlake "github:DockterTeagle/myNixOS").currentSystem.options',
 				},
 			},
 		},
