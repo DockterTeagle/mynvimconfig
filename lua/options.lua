@@ -46,6 +46,8 @@ opt.whichwrap:append("<>[]hl")
 -- add binaries installed by mason.nvim to path
 vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/LuaSnip"
 
+vim.opt.laststatus = 3
+vim.opt.splitkeep = "screen"
 vim.g.markdown_fenced_languages = {
 	"ts=typescript",
 }

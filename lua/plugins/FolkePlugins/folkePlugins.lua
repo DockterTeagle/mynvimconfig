@@ -22,4 +22,5 @@ return {
 	require("plugins.FolkePlugins.troubleMain"),
 	require("plugins.FolkePlugins.which-key"),
 	require("plugins.FolkePlugins.snacks"),
+	require("plugins.FolkePlugins.edgy"),
 }
