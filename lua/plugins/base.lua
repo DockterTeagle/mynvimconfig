@@ -1,18 +1,5 @@
 return {
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		event = "User FilePost",
-		opts = {},
-		config = function(_, opts)
-			local hooks = require("ibl.hooks")
-			hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
-			require("ibl").setup(opts)
-		end,
-		---@module "ibl"
-		---@type ibl.config
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		event = "User FilePost",
 		opts = function()
