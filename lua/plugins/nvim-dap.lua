@@ -30,6 +30,9 @@ return {
 		"mfussenegger/nvim-dap",
 		config = function()
 			local dap = require("dap")
+			dap.adapters.nlua = function(callback, config)
+				callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }) --Tcausing dap to not load for nvim-lua
+			end
 			dap.adapters.codelldb = {
 				type = "server",
 				port = "${port}",
@@ -43,9 +46,6 @@ return {
 					type = "bashdb",
 					request = "launch",
 					name = "Launch file",
-					-- pathBashdb = vim.fn.stdpath("data")
-					-- 	.. "/mason/packages/bash-debug-adapter/extension/bashdb_dir/bashdb",
-					-- pathBashdbLib = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir",
 					trace = true,
 					file = "${file}",
 					program = "${file}",
@@ -65,9 +65,6 @@ return {
 					name = "Attach to running Neovim instance",
 				},
 			}
-			dap.adapters.nlua = function(callback, config)
-				callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }) --Tcausing dap to not load for nvim-lua
-			end
 			dap.configurations.cpp = {
 				{
 					name = "Launch file",
