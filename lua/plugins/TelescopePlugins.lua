@@ -22,23 +22,10 @@ return {
 			require("telescope").load_extension("frecency")
 		end,
 	},
-	-- {
-	-- 	"debugloop/telescope-undo.nvim",
-	-- 	config = function()
-	-- 		require("telescope").load_extension("")
-	-- 	end,
-	-- },
 	{
 		"nvim-telescope/telescope-bibtex.nvim",
 		config = function()
 			require("telescope").load_extension("bibtex")
-		end,
-	},
-	{
-		"nvim-telescope/telescope-dap.nvim",
-		cmd = { "DapContinue" },
-		config = function()
-			require("telescope").load_extension("dap")
 		end,
 	},
 	{
