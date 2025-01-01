@@ -43,11 +43,10 @@ opt.whichwrap:append("<>[]hl")
 
 -- disable some default providers
 
--- add binaries installed by mason.nvim to path
 vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/LuaSnip"
 
-vim.opt.laststatus = 3
-vim.opt.splitkeep = "screen"
+opt.laststatus = 3
+opt.splitkeep = "screen"
 vim.g.markdown_fenced_languages = {
 	"ts=typescript",
 }
