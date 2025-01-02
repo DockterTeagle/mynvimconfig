@@ -42,20 +42,20 @@ lspconfig.nixd.setup({
 			-- semantictokens = true,
 			autowatch = true,
 			nixpkgs = {
-				expr = 'import (builtins.getFlake "github:DockterTeagle/myNixOS").inputs.nixpkgs { }',
+				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS").inputs.nixpkgs { }',
 			},
 			options = {
-				nixos = {
-					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS" ).nixosConfigurations.nixos.options',
+				nixOptions = {
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS").nixosConfigurations.nixos.options',
 				},
 				home_manager = {
 					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").homeConfigurations."cdockter".options',
 				},
 				flake_parts = {
-					expr = 'import (builtins.getFlake "github:DockterTeagle/myNixOS").debug.options',
+					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").debug.options',
 				},
 				flake_parts2 = {
-					expr = 'import (builtins.getFlake "github:DockterTeagle/myNixOS").currentSystem.options',
+					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").currentSystem.options',
 				},
 			},
 		},
