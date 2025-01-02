@@ -2,11 +2,11 @@
   description = "neovim config flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    myNixOS.url = "github:DockterTeagle/myNixOS";
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     flake-parts.url = "github:hercules-ci/flake-parts";
     blink.url = "github:Saghen/blink.cmp";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
+    nixd.url = "github:nix-community/nixd";
   };
   outputs =
     inputs@{ flake-parts, ... }:
@@ -104,6 +104,7 @@
               '';
             packages = with pkgs; [
               self'.checks.pre-commit-check.enabledPackages
+              inputs'.nixd.packages.nixd
               lua5_4
               stylua
               selene
