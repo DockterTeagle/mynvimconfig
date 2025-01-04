@@ -31,6 +31,11 @@ lspconfig.clangd.setup({
 		"clangd",
 		"--background-index",
 		"--clang-tidy",
+		"--compile-commands-dir=" .. vim.fn.expand("${workspaceFolder}/build"),
+	},
+	env = {
+		LIBCXX_INCLUDE_PATH = os.getenv("LIBCXX_INCLUDE_PATH"),
+		LIBCXX_LIB_PATH = os.getenv("LIBCXX_LIB_PATH"),
 	},
 })
 lspconfig.nixd.setup({
