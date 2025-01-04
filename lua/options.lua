@@ -50,3 +50,5 @@ opt.splitkeep = "screen"
 vim.g.markdown_fenced_languages = {
 	"ts=typescript",
 }
+vim.env.CC = os.getenv("CC")
+vim.env.CXX = os.getenv("CXX")

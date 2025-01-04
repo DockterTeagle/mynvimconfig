@@ -28,6 +28,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
+		lazy = false,
 		config = function()
 			local dap = require("dap")
 			dap.adapters.nlua = function(callback, config)
