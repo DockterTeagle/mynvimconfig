@@ -213,7 +213,7 @@ map("n", "]c", function()
 		return "]c"
 	end
 	vim.schedule(function()
-		require("gitsigns").nav_hunk("first")
+		require("gitsigns").nav_hunk("next")
 	end)
 	return "<Ignore>"
 end, { expr = true, desc = "Next git hunk" })
