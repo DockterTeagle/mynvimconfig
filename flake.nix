@@ -43,58 +43,6 @@
           devShells.default = pkgs.mkShell {
             shellHook =
               # let
-              # luarc = pkgs.mk-luarc-json {
-              #   plugins = with pkgs.vimPlugins; [
-              #     blink-cmp
-              #     bufferline-nvim
-              #     flash-nvim
-              #     lazy-nvim
-              #     lazydev-nvim
-              #     lualine-nvim
-              #     luasnip
-              #     mini-icons
-              #     noice-nvim
-              #     nui-nvim
-              #     nvim-lint
-              #     nvim-notify
-              #     rustaceanvim
-              #     telescope-nvim
-              #     telescope-frecency-nvim
-              #     tokyonight-nvim
-              #     vim-easy-align
-              #     vim-tmux-navigator
-              #     vimtex
-              #     which-key-nvim
-              #     which-key-nvim
-              #     aerial-nvim
-              #     comment-nvim
-              #     compiler-nvim
-              #     conform-nvim
-              #     crates-nvim
-              #     diffview-nvim
-              #     gitsigns-nvim
-              #     FixCursorHold-nvim
-              #     inc-rename-nvim
-              #     indent-blankline-nvim
-              #     luvit-meta
-              #     nlsp-settings-nvim
-              #     nvim-autopairs
-              #     nvim-colorizer-lua
-              #     nvim-dap
-              #     nvim-dap-python
-              #     nvim-dap-ui
-              #     nvim-dap-virtual-text
-              #     nvim-spectre
-              #     nvim-treesitter
-              #     oil-nvim
-              #     overseer-nvim
-              #     refactoring-nvim
-              #     rust-vim
-              #     telescope-dap-nvim
-              #     telescope-fzf-native-nvim
-              #     vim-grammarous
-              #   ];
-              # };
               #
               # in
 
@@ -104,7 +52,7 @@
               '';
             packages = with pkgs; [
               self'.checks.pre-commit-check.enabledPackages
-              inputs'.nixd.packages.nixd
+              # inputs'.nixd.packages.nixd
               lua5_4
               stylua
               selene
