@@ -22,6 +22,7 @@ return {
 		"tmux",
 		"make",
 		"bibtex",
+		"fish",
 		"matlab",
 	},
 	highlight = { enable = true, use_languagetree = true },
