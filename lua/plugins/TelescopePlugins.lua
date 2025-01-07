@@ -10,7 +10,12 @@ return {
 			"echasnovski/mini.icons",
 		},
 		opts = function()
-			return require("configs.telescope")
+			require("configs.telescope")
+		end,
+		config = function(opts)
+			local telescope = require("telescope")
+			telescope.setup(opts)
+			telescope.load_extension("frecency")
 		end,
 	},
 	{
@@ -18,9 +23,9 @@ return {
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 		},
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
+		opts = {
+			default_workspace = "CWD",
+		},
 	},
 	{
 		"nvim-telescope/telescope-bibtex.nvim",
