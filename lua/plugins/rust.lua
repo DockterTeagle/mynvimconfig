@@ -1,8 +1,6 @@
--- local cmp = require("cmp")
 return {
 	{
 		"mrcjkb/rustaceanvim",
-		-- version = "^5",
 		lazy = false,
 	},
 	{

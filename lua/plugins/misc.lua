@@ -108,13 +108,14 @@ return {
 	},
 	{
 		"saghen/blink.cmp",
+
+		-- version = "*",
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
-				event = "TextChangedI",
 				build = "make install_jsregexp",
 				opts = {
 					history = true,
