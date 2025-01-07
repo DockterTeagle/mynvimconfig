@@ -10,6 +10,8 @@ return {
 		"regex",
 		"vimdoc",
 		"gitignore",
+		"gitattributes",
+		"gitcommit",
 		"c",
 		"cpp",
 		"cmake",
