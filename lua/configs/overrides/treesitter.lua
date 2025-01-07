@@ -20,6 +20,7 @@ return {
 		"tmux",
 		"make",
 		"bibtex",
+		"matlab",
 	},
 	highlight = { enable = true, use_languagetree = true },
 	indent = { enable = true },
