@@ -31,9 +31,9 @@ return {
 		lazy = false,
 		config = function()
 			local dap = require("dap")
-			dap.adapters.nlua = function(callback, config)
-				callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }) --Tcausing dap to not load for nvim-lua
-			end
+			-- dap.adapters.nlua = function(callback, config)
+			-- 	callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }) --Tcausing dap to not load for nvim-lua
+			-- end
 			dap.adapters.codelldb = {
 				type = "server",
 				port = "${port}",

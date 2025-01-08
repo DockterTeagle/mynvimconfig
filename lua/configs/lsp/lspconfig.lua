@@ -1,41 +1,56 @@
-local ok, wf = pcall(require, "vim.lsp._watchfiles")
-if ok then
-	wf._watchfunc = function()
-		return function() end
-	end
-end
 --this was the command that fixed pyright being slow for me above
 local lspconfig = require("lspconfig")
 local on_attach = require("configs.lsp.lspconfigDefaults").on_attach
 local capabilities = require("configs.lsp.lspconfigDefaults").capabilities
-local servers = {
-	"marksman",
-	"cmake",
-	"bashls",
-	"denols",
-	"vimls",
-	-- "julials",
-	"jsonls",
-	"matlab_ls",
-}
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-end
+-- local servers = {
+-- 	"marksman",
+-- 	"bashls",
+-- 	"denols",
+-- 	"vimls",
+-- 	-- "julials",
+-- 	"jsonls",
+-- 	"matlab_ls",
+-- 	"neocmake",
+-- }
+-- for _, lsp in ipairs(servers) do
+-- 	lspconfig[lsp].setup({
+-- 		on_attach = on_attach,
+-- 		capabilities = capabilities,
+-- 	})
+-- end
 lspconfig.clangd.setup({
+	keys = {
+		{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+	},
 	on_attach = on_attach,
-	capabilities = capabilities,
+	capabilities = { capabilities, offSetEncoding = { "utf-16" } },
+	root_dir = function(fname)
+		return require("lspconfig.util").root_pattern(
+			"Makefile",
+			"configure.ac",
+			"configure.in",
+			"config.h.in",
+			"meson.build",
+			"meson_options.txt",
+			"build.ninja"
+		)(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(fname) or require(
+			"lspconfig.util"
+		).find_git_ancestor(fname)
+	end,
 	cmd = {
 		"clangd",
 		"--background-index",
 		"--clang-tidy",
 		"--compile-commands-dir=" .. vim.fn.expand("${workspaceFolder}/build"),
+		"--header-insertion=iwyu",
+		"--completion-style=detailed",
+		"--function-arg-placeholders",
+		"--fallback-style=llvm",
 	},
-	env = {
-		LIBCXX_INCLUDE_PATH = os.getenv("LIBCXX_INCLUDE_PATH"),
-		LIBCXX_LIB_PATH = os.getenv("LIBCXX_LIB_PATH"),
+	init_options = {
+		usePlaceholders = true,
+		completeUnimported = true,
+		clangdFileStatus = true,
 	},
 })
 lspconfig.nixd.setup({
@@ -44,7 +59,7 @@ lspconfig.nixd.setup({
 	cmd = { "nixd" },
 	settings = {
 		nixd = {
-			-- semantictokens = true,
+			semantictokens = true,
 			autowatch = true,
 			nixpkgs = {
 				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS").inputs.nixpkgs { }',

@@ -11,10 +11,9 @@ return {
 		event = "VeryLazy",
 		opts = {
 			options = {
-      -- stylua: ignore
-      -- close_command = function(n) Snacks.bufdelete(n) end,
-      -- -- stylua: ignore
-      -- right_mouse_command = function(n) Snacks.bufdelete(n) end,
+				-- close_command = function(n) Snacks.bufdelete(n) end,
+				-- -- stylua: ignore
+				-- right_mouse_command = function(n) Snacks.bufdelete(n) end,
 				diagnostics = "nvim_lsp",
 				always_show_bufferline = true,
 				-- diagnostics_indicator = function(_, _, diag)

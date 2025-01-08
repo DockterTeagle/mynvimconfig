@@ -57,7 +57,7 @@
               selene
               lua54Packages.luacheck
               lua-language-server
-
+              codespell
             ];
           };
         };

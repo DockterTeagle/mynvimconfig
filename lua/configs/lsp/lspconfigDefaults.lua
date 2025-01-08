@@ -12,6 +12,10 @@ M.on_attach = function(client, bufnr)
 	if client.name == "ruff" then
 		client.server_capabilities.hoverProvider = false
 	end
+	if client.name == "clangd" then
+		require("clangd_extensions.inlay_hints").setup_autocmd()
+		require("clangd_extensions.inlay_hints").set_inlay_hints()
+	end
 	-- vim.lsp.set_log_level("debug")
 	map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 	map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
