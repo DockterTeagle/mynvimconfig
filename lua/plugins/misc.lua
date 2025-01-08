@@ -109,7 +109,7 @@ return {
 						function()
 							local linters = require("lint").get_running()
 							if #linters == 0 then
-								return "󰦕"
+								return ""
 							end
 							local linter_names = {}
 							for _, linter_id in ipairs(linters) do
