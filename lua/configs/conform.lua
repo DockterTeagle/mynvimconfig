@@ -37,7 +37,7 @@ local options = {
 		cpp = { "clang-format" },
 		cmake = { "cmake_format" },
 		nix = { "nixfmt", "injected" },
-		-- ["*"] = { "codespell" },
+		["*"] = { "codespell" },
 		tex = { "latexindent" },
 	},
 	format_on_save = {
