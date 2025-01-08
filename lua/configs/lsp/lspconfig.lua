@@ -2,22 +2,22 @@
 local lspconfig = require("lspconfig")
 local on_attach = require("configs.lsp.lspconfigDefaults").on_attach
 local capabilities = require("configs.lsp.lspconfigDefaults").capabilities
--- local servers = {
--- 	"marksman",
--- 	"bashls",
--- 	"denols",
--- 	"vimls",
--- 	-- "julials",
--- 	"jsonls",
--- 	"matlab_ls",
--- 	"neocmake",
--- }
--- for _, lsp in ipairs(servers) do
--- 	lspconfig[lsp].setup({
--- 		on_attach = on_attach,
--- 		capabilities = capabilities,
--- 	})
--- end
+local servers = {
+	"marksman",
+	"bashls",
+	"denols",
+	"vimls",
+	-- "julials",
+	"jsonls",
+	"matlab_ls",
+	"neocmake",
+}
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+end
 lspconfig.clangd.setup({
 	keys = {
 		{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
