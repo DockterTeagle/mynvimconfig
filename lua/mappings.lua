@@ -16,7 +16,7 @@ map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
 -- global lsp mappings
-map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+-- map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
 -- tabufline
 map("n", "<leader>b", "<cmd>new<CR>", { desc = "buffer new" })
@@ -195,19 +195,6 @@ for mode, maps in pairs(mappings) do
 		map(mode, key, val[1], { desc = val[2] })
 	end
 end
-map("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
-	desc = "Toggle Spectre",
-})
-map("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-	desc = "Search current word",
-})
-map("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-	desc = "Search current word",
-})
-map("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-	desc = "Search on current file",
-})
---TODO: make the ui for spectre not trash
 map("n", "]c", function()
 	if vim.wo.diff then
 		return "]c"
@@ -243,3 +230,10 @@ map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void 
 map({ "n" }, "<leader>dlb", function()
 	require("telescope").extensions.dap.list_breakpoints({})
 end, { silent = true, desc = "List asll breakpoints" })
+vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+
+vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")

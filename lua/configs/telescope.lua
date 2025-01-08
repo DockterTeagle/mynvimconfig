@@ -17,7 +17,7 @@ return {
 		},
 	},
 
-	extensions_list = { "fzf", "frecency" },
+	extensions_list = { "fzf", "frecency", "aerial" },
 	extensions = {
 		fzf = {
 			fuzzy = true, -- false will only do exact matching

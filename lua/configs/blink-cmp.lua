@@ -8,6 +8,14 @@ local M = {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	completion = {
+		documentation = { auto_show = true, auto_show_delay_ms = 500 },
+		menu = {
+			draw = {
+				treesitter = {
+					"lsp",
+				},
+			},
+		},
 		accept = {
 			auto_brackets = {
 				enabled = true,

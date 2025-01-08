@@ -13,6 +13,9 @@ return {
 				background_colour = "#000000",
 			},
 		},
+		{
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 	opts = {
 		popupmenu = {
@@ -38,6 +41,17 @@ return {
 				filter = {
 					event = "msg_showmode",
 				},
+			},
+			{
+				filter = {
+					event = "msg_show",
+					any = {
+						{ find = "%d+L, %d+B" },
+						{ find = "; after #%d+" },
+						{ find = "; before #%d+" },
+					},
+				},
+				view = "mini",
 			},
 		},
 		lsp = {

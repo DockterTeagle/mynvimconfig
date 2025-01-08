@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+require("globals")
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
@@ -10,13 +11,13 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require("configs.lazy")
 require("lazy").setup({
-
-	{ import = "plugins" },
+	import = "plugins",
 }, lazy_config)
 require("options")
 vim.schedule(function()
 	require("mappings")
 end)
 require("autocmds")
+
 -- require("NUIComponentsProjects.spectreImprovement.main")
 vim.cmd([[colorscheme tokyonight]])
