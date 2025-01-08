@@ -28,9 +28,6 @@ return {
 			default_workspace = "CWD",
 		},
 	},
-	-- {
-	-- 	"nvim-telescope/telescope-bibtex.nvim",
-	-- },
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
