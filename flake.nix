@@ -4,7 +4,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    blink.url = "github:Saghen/blink.cmp";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     nixd.url = "github:nix-community/nixd";
   };
@@ -58,6 +57,7 @@
               selene
               lua54Packages.luacheck
               lua-language-server
+
             ];
           };
         };
