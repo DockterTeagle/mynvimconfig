@@ -1,8 +1,8 @@
 return {
 	defaults = {
-		prompt_prefix = "   ",
-		selection_caret = " ",
-		entry_prefix = " ",
+		-- prompt_prefix = "   ",
+		-- selection_caret = " ",
+		-- entry_prefix = " ",
 		sorting_strategy = "ascending",
 		layout_config = {
 			horizontal = {
@@ -17,7 +17,7 @@ return {
 		},
 	},
 
-	extensions_list = { "themes", "terms" },
+	extensions_list = { "fzf", "frecency" },
 	extensions = {
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
