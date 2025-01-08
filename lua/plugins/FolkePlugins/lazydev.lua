@@ -6,9 +6,10 @@ return {
 			library = {
 				-- Library paths can be absolute
 				{ "neotest", words = { "neotest" } },
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				{ "luvit-meta", words = { "vim%.uv" } },
 				-- Or relative, which means they will be resolved from the plugin dir.(not vim.uv.fs_stat(root_dir .. "/.luarc.json"))
 				"lazy.nvim",
+				{ "lazydev.nvim", words = { "lazydev" } },
 				{ "snacks.nvim", words = { "snacks" } },
 			},
 			enabled = function(root_dir)
@@ -16,5 +17,5 @@ return {
 			end,
 		},
 	},
-	{ "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+	"Bilal2453/luvit-meta", -- optional `vim.uv` typings
 }
