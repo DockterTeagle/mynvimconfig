@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
+		cmd = { "Telescope" },
 		dependencies = {
 			"BurntSushi/ripgrep",
 			"nvim-lua/plenary.nvim",
@@ -10,37 +10,29 @@ return {
 			"echasnovski/mini.icons",
 		},
 		opts = function()
-			require("configs.telescope")
+			return require("configs.telescope")
 		end,
-		config = function(opts)
+		config = function(_, opts)
 			local telescope = require("telescope")
 			telescope.setup(opts)
-			telescope.load_extension("frecency")
+			for _, ext in ipairs(opts.extensions_list or {}) do
+				telescope.load_extension(ext)
+			end
 		end,
 	},
 	{
 		"nvim-telescope/telescope-frecency.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
+		lazy = false,
 		opts = {
+			---@type FrecencyOpts
 			default_workspace = "CWD",
 		},
 	},
-	{
-		"nvim-telescope/telescope-bibtex.nvim",
-		config = function()
-			require("telescope").load_extension("bibtex")
-		end,
-	},
+	-- {
+	-- 	"nvim-telescope/telescope-bibtex.nvim",
+	-- },
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
-		config = function()
-			require("telescope").load_extension("fzf")
-		end,
 	},
 }
