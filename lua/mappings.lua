@@ -41,7 +41,7 @@ map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
 
-map("n", "<leader>ff", "<cmd>Telescope frecency<cr>", { desc = "telescope find files" })
+map("n", "<leader>ff", "<cmd>Telescope find_files <cr>", { desc = "telescope find files" })
 map(
 	"n",
 	"<leader>fa",
