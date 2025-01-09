@@ -19,9 +19,6 @@ for _, lsp in ipairs(servers) do
 	})
 end
 lspconfig.clangd.setup({
-	keys = {
-		{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
-	},
 	on_attach = on_attach,
 	capabilities = { capabilities, offSetEncoding = { "utf-16" } },
 	root_dir = function(fname)
