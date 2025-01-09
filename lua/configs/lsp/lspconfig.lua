@@ -126,9 +126,9 @@ lspconfig.ruff.setup({
 	capabilities = capabilities,
 	init_options = {
 		settings = {
-			configurationPreference = "filesystemFirst",
-			codeAction = {
-				fixViolation = {
+			configurationpreference = "filesystemfirst",
+			codeaction = {
+				fixviolation = {
 					enable = true,
 				},
 			},
@@ -138,7 +138,7 @@ lspconfig.ruff.setup({
 			format = {
 				preview = true,
 			},
-			disableRuleComment = {
+			disablerulecomment = {
 				enable = false,
 			},
 		},
@@ -148,7 +148,7 @@ lspconfig.basedpyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
-		pyright = {
+		basedpyright = {
 			disableOrganizeImports = true,
 		},
 		python = {
