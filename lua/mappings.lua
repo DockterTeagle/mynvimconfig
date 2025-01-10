@@ -169,10 +169,10 @@ local mappings = {
 		-- ["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
 		-- ["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
 		-- ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
-		["<leader>lg"] = { "<cmd> LazyGit<CR>", "Load Lazy Git" },
-		["<leader>Tqf"] = { "<cmd> TodoQuickFix<CR>", "Call TodoQuickFix" },
+		["<leader>tTt"] = { "<cmd>Trouble todo toggle<CR>", desc = "Todo(Trouble)" },
 		["<leader>Tll"] = { "<cmd> TodoLocList<CR>" },
 		["<leader>Tte"] = { "<cmd> TodoTelescope<CR>" },
+
 		-- ["<leader>op"] = {
 		-- 	function()
 		-- 		local peek = require("peek")
