@@ -42,7 +42,7 @@ return {
 	},
 	{
 		"gbprod/yanky.nvim",
-		lazy = false,
+		event = "LazyFile",
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
@@ -515,7 +515,7 @@ return {
 			configs.setup(opts)
 		end,
 		build = ":TSUpdate",
-		event = "VeryLazy",
+		event = { "LazyFile", "VeryLazy" },
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
 }
