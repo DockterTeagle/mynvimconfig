@@ -1,21 +1,5 @@
 local LazyUtil = require("lazy.core.util")
 
----@class lazyvim.util: LazyUtilCore
----@field config LazyVimConfig
----@field ui lazyvim.util.ui
----@field lsp lazyvim.util.lsp
----@field root lazyvim.util.root
----@field terminal lazyvim.util.terminal
----@field format lazyvim.util.format
----@field plugin lazyvim.util.plugin
----@field extras lazyvim.util.extras
----@field inject lazyvim.util.inject
----@field news lazyvim.util.news
----@field json lazyvim.util.json
----@field lualine lazyvim.util.lualine
----@field mini lazyvim.util.mini
----@field pick lazyvim.util.pick
----@field cmp lazyvim.util.cmp
 local M = {}
 
 setmetatable(M, {
@@ -27,7 +11,7 @@ setmetatable(M, {
 			return M.deprecated[k]()
 		end
 		---@diagnostic disable-next-line: no-unknown
-		t[k] = require("lazyvim.util." .. k)
+		t[k] = require("util." .. k)
 		M.deprecated.decorate(k, t[k])
 		return t[k]
 	end,

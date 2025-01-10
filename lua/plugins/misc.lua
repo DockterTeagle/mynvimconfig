@@ -396,8 +396,14 @@ return {
 		config = true,
 	},
 	{
+		"nvim-telescope/telescope.nvim",
+		opts = function()
+			require("telescope").load_extension("aerial")
+		end,
+	},
+	{
 		"stevearc/aerial.nvim",
-		cmd = { "AerialToggle", "AerialOpen" },
+		event = "LazyFile",
 		keys = {
 			{
 				"<leader>ou",
@@ -475,7 +481,6 @@ return {
 	-- 				else
 	-- 					require("mini.diff").disable(0)
 	-- 				end
-	-- 				-- HACK: redraw to update the signs
 	-- 				vim.defer_fn(function()
 	-- 					vim.cmd([[redraw!]])
 	-- 				end, 200)
@@ -539,5 +544,5 @@ return {
 		build = ":TSUpdate",
 		event = { "LazyFile", "VeryLazy" },
 	},
-	require("plugins.FolkePlugins.folkePlugins"),
+	require("plugins.FolkePlugins"),
 }

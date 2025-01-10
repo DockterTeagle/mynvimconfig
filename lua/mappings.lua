@@ -195,31 +195,14 @@ for mode, maps in pairs(mappings) do
 		map(mode, key, val[1], { desc = val[2] })
 	end
 end
-map("n", "]c", function()
-	if vim.wo.diff then
-		return "]c"
-	end
-	vim.schedule(function()
-		require("gitsigns").nav_hunk("next")
-	end)
-	return "<Ignore>"
-end, { expr = true, desc = "Next git hunk" })
 
-map("n", "[c", function()
-	if vim.wo.diff then
-		return "[c"
-	end
-	vim.schedule(function()
-		require("gitsigns").nav_hunk("prev")
-	end)
-	return "<Ignore>"
-end, { expr = true, desc = "Previous git hunk" })
 map("n", "<leader>rn", ":IncRename ", { desc = "rename the current thing" })
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, desc = "get lsp info" })
 wk.add({
 	{ "<leader>n", group = "Neo" },
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
 	{ "<leader>d", group = "debug" },
+	{ "<leader>gh", group = "(g)it (h)unk" },
 })
 map({ "n", "v" }, "<leader>y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
 map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard" })
