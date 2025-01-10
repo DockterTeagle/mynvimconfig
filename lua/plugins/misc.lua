@@ -544,5 +544,4 @@ return {
 		build = ":TSUpdate",
 		event = { "LazyFile", "VeryLazy" },
 	},
-	require("plugins.FolkePlugins"),
 }
