@@ -39,6 +39,7 @@ local options = {
 		nix = { "nixfmt", "injected" },
 		["*"] = { "codespell" },
 		tex = { "latexindent" },
+		toml = { "taplo" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
