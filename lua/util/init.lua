@@ -1,4 +1,8 @@
-local LazyUtil = require("lazy.core.util")
+local LazyUtil = {
+	plugin,
+	extras,
+	inject,
+}
 
 local M = {}
 
@@ -12,7 +16,7 @@ setmetatable(M, {
 		end
 		---@diagnostic disable-next-line: no-unknown
 		t[k] = require("util." .. k)
-		M.deprecated.decorate(k, t[k])
+		--M.deprecated.decorate(k, t[k])
 		return t[k]
 	end,
 })
