@@ -28,7 +28,7 @@
   "neogen": { "branch": "main", "commit": "dd0301bfba1f83a3bc009b5430fce7aa3cee6941" },
   "neogit": { "branch": "master", "commit": "a1fc4e50fa494e04097cf2d02e86bcd7ac5760d6" },
   "neotest": { "branch": "master", "commit": "d66cf4e05a116957f0d3a7755a24291c7d1e1f72" },
-  "nlsp-settings.nvim": { "branch": "main", "commit": "98fc37f64c645a5e38b1d642e775e43604c6f7a2" },
+  "nlsp-settings.nvim": { "branch": "main", "commit": "09db939f1764fe74856f036268d378b7c025112a" },
   "noice.nvim": { "branch": "main", "commit": "eaed6cc9c06aa2013b5255349e4f26a6b17ab70f" },
   "nui-components.nvim": { "branch": "main", "commit": "caecfe2089e5ffbe99c2b0e0468da91990263a90" },
   "nui.nvim": { "branch": "main", "commit": "53e907ffe5eedebdca1cd503b00aa8692068ca46" },
