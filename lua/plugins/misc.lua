@@ -508,14 +508,14 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		version = false,
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 			local opts = require("configs.overrides.treesitter")
 			configs.setup(opts)
 		end,
 		build = ":TSUpdate",
-		-- event = "VeryLazy",
+		event = "VeryLazy",
 	},
 	require("plugins.FolkePlugins.folkePlugins"),
-	require("plugins.oil"),
 }
