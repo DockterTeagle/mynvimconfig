@@ -8,6 +8,7 @@ return {
 		untracked = { text = "▎" },
 	},
 	signs_staged = {
+		enable = true,
 		add = { text = "▎" },
 		change = { text = "▎" },
 		delete = { text = "" },
