@@ -1,4 +1,4 @@
-local lsp_on_attach = require("configs.lsp.lspconfigDefaults").on_attach
+local on_attach = require("configs.lsp.lspconfigDefaults").on_attach
 vim.g.rustaceanvim = {
 	tools = {
 		test_executor = "background",
@@ -7,7 +7,7 @@ vim.g.rustaceanvim = {
 		},
 	},
 	server = {
-		on_attach = lsp_on_attach,
+		on_attach = on_attach,
 		default_settings = {
 			["rust-analyzer"] = {
 				cargo = {
