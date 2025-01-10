@@ -2,7 +2,13 @@ return {
 	{
 		"folke/trouble.nvim",
 		dependencies = { "echasnovski/mini.icons" },
-		opts = {},
+		opts = {
+			modes = {
+				lsp = {
+					win = { position = "right" },
+				},
+			},
+		},
 		cmd = "Trouble",
 		keys = { {
 			"<leader>tr",
