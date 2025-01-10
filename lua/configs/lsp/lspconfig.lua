@@ -1,39 +1,8 @@
---this was the command that fixed pyright being slow for me above
-local lspconfig = require("lspconfig")
-local on_attach = require("configs.lsp.lspconfigDefaults").on_attach
-local capabilities = require("configs.lsp.lspconfigDefaults").capabilities
-local servers = {
-	"marksman",
-	"bashls",
-	"denols",
-	"vimls",
-	-- "julials",
-	"jsonls",
-	"matlab_ls",
-	"neocmake",
-}
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-end
-lspconfig.clangd.setup({
-	on_attach = on_attach,
-	capabilities = { capabilities, offSetEncoding = { "utf-16" } },
-	root_dir = function(fname)
-		return require("lspconfig.util").root_pattern(
-			"Makefile",
-			"configure.ac",
-			"configure.in",
-			"config.h.in",
-			"meson.build",
-			"meson_options.txt",
-			"build.ninja"
-		)(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(fname) or require(
-			"lspconfig.util"
-		).find_git_ancestor(fname)
-	end,
+local clangdOpts = {
+	keys = {
+		{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+	},
+	-- capabilities = { capabilities, offSetEncoding = { "utf-16" } },
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -49,14 +18,12 @@ lspconfig.clangd.setup({
 		completeUnimported = true,
 		clangdFileStatus = true,
 	},
-})
-lspconfig.nixd.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+}
+local nixdOpts = {
 	cmd = { "nixd" },
 	settings = {
 		nixd = {
-			semantictokens = true,
+			-- semantictokens = true,
 			autowatch = true,
 			nixpkgs = {
 				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS").inputs.nixpkgs { }',
@@ -77,10 +44,8 @@ lspconfig.nixd.setup({
 			},
 		},
 	},
-})
-lspconfig.texlab.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+}
+local texlabOpts = {
 	settings = {
 		texlab = {
 			build = {
@@ -95,10 +60,8 @@ lspconfig.texlab.setup({
 			},
 		},
 	},
-})
-lspconfig.lua_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+}
+local lualsOpts = {
 	settings = {
 		Lua = {
 			runtime = {
@@ -116,19 +79,13 @@ lspconfig.lua_ls.setup({
 			},
 		},
 	},
-})
-lspconfig.hyprls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-lspconfig.ruff.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+}
+local ruff_opts = {
 	init_options = {
 		settings = {
-			configurationpreference = "filesystemfirst",
-			codeaction = {
-				fixviolation = {
+			configurationPreference = "filesystemFirst",
+			codeAction = {
+				fixViolation = {
 					enable = true,
 				},
 			},
@@ -138,17 +95,15 @@ lspconfig.ruff.setup({
 			format = {
 				preview = true,
 			},
-			disablerulecomment = {
+			disableRuleComment = {
 				enable = false,
 			},
 		},
 	},
-})
-lspconfig.basedpyright.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+}
+local basedpyright_opts = {
 	settings = {
-		basedpyright = {
+		pyright = {
 			disableOrganizeImports = true,
 		},
 		python = {
@@ -157,4 +112,24 @@ lspconfig.basedpyright.setup({
 			},
 		},
 	},
-})
+}
+return {
+	servers = {
+		marksman = {},
+		bashls = {},
+		denols = {},
+		vimls = {},
+		-- "julials",
+		jsonls = {},
+		matlab_ls = {},
+		neocmake = {},
+		hyprls = {},
+		-- basedpyright = basedpyright_opts,
+		-- clangd = clangdOpts,
+		-- ruff = ruff_opts,
+		lua_ls = lualsOpts,
+		-- nixd = nixdOpts,
+		-- texlab = texlabOpts,
+	},
+	setup = {},
+}
