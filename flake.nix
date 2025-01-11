@@ -55,7 +55,7 @@
               lua5_4
               stylua
               selene
-              lua54Packages.luacheck
+              # lua54Packages.luacheck
               lua-language-server
               codespell
             ];

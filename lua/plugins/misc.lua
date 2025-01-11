@@ -368,7 +368,7 @@ return {
 				-- nix = { "statix" },
 				cpp = { "cppcheck", "cpplint" },
 				git = { "gitlint" },
-				lua = { "luacheck", "luac" },
+				-- lua = { "luacheck", "luac" },
 				-- lua = { "luac" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
