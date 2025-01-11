@@ -96,6 +96,12 @@ return {
 		cmd = "GrugFar",
 		keys = {
 			{
+				"<leader>R",
+				mode = "n",
+				silent = true,
+				ft = "grug-far",
+			},
+			{
 				"<leader>sr",
 				function()
 					local grug = require("grug-far")
@@ -543,5 +549,13 @@ return {
 		end,
 		build = ":TSUpdate",
 		event = { "LazyFile", "VeryLazy" },
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		opts = {},
+		dependencies = {
+			"kevinhwang91/promise-async",
+			"neovim/nvim-lspconfig",
+		},
 	},
 }

@@ -50,5 +50,7 @@ opt.splitkeep = "screen"
 vim.g.markdown_fenced_languages = {
 	"ts=typescript",
 }
-vim.env.CC = os.getenv("CC")
-vim.env.CXX = os.getenv("CXX")
+o.foldcolumn = "1"
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldenable = true
