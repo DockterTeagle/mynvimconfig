@@ -96,12 +96,6 @@ return {
 		cmd = "GrugFar",
 		keys = {
 			{
-				"<leader>R",
-				mode = "n",
-				silent = true,
-				ft = "grug-far",
-			},
-			{
 				"<leader>sr",
 				function()
 					local grug = require("grug-far")
