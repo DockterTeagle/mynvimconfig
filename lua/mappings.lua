@@ -197,7 +197,6 @@ for mode, maps in pairs(mappings) do
 end
 
 map("n", "<leader>rn", ":IncRename ", { desc = "rename the current thing" })
-map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, desc = "get lsp info" })
 wk.add({
 	{ "<leader>n", group = "Neo" },
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
@@ -226,3 +225,21 @@ end, { desc = "next Todo Comment" })
 map("n", "[t", function()
 	require("todo-comments").jump_prev()
 end, { desc = "Previous Todo Comment" })
+vim.keymap.set("n", "zR", function()
+	require("ufo").openAllFolds()
+end, { desc = "open All Folds(ufo)" })
+map("n", "zM", function()
+	require("ufo").closeAllFolds()
+end, { desc = "close all Folds(UFO)" })
+vim.keymap.set("n", "zr", function()
+	require("ufo").openFoldsExceptKinds()
+end, { desc = "open Folds Except Kinds" })
+vim.keymap.set("n", "zm", function()
+	require("ufo").closeFoldsWith()
+end, { desc = "closed all folds with simlair --FIXME:--" })
+vim.keymap.set("n", "K", function()
+	local winid = require("ufo").peekFoldedLinesUnderCursor()
+	if not winid then
+		vim.lsp.buf.hover()
+	end
+end, { desc = "super key for LSP and fold" })
