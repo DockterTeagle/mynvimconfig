@@ -359,9 +359,6 @@ return {
 		event = "VeryLazy",
 		config = function()
 			local lint = require("lint")
-			lint.linters.luacheck.args = {
-				-- "--config=./",
-			}
 			lint.linters_by_ft = {
 				-- markdown = { "vale" },
 				cmake = { "cmakelint" },
