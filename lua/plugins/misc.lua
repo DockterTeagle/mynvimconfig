@@ -382,10 +382,6 @@ return {
 		end,
 	},
 	{
-		"junegunn/vim-easy-align",
-		lazy = false,
-	},
-	{
 		"vyfor/cord.nvim",
 		branch = "client-server",
 		build = ":Cord fetch",
