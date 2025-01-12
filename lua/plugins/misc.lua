@@ -233,70 +233,6 @@ return {
 		opts = require("configs.lualine").lualine_opts(),
 		dependencies = { "echasnovski/mini.icons" },
 	},
-	-- {
-	-- 	function()
-	-- 		local icon = "" -- Icon to display when LSP is active
-	-- 		local clients = vim.lsp.get_clients({ bufnr = 0 }) -- Get LSP clients for the current buffer
-	-- 		if next(clients) == nil then
-	-- 			return "" -- No LSP active, return empty string
-	-- 		end
-	--
-	-- 		local names = {}
-	-- 		for _, client in ipairs(clients) do
-	-- 			table.insert(names, client.name)
-	-- 		end
-	-- 		return icon .. " " .. table.concat(names, ", ")
-	-- 	end,
-	-- 	icon = "", -- No need to set the icon again; it's part of the function
-	-- 	color = { fg = "#98be65", gui = "bold" }, -- Customize colors as needed
-	-- },
-	-- {
-	-- 	function()
-	-- 		local linters = require("lint").get_running()
-	-- 		if #linters == 0 then
-	-- 			return ""
-	-- 		end
-	-- 		local linter_names = {}
-	-- 		for _, linter_id in ipairs(linters) do
-	-- 			table.insert(linter_names, linter_id) -- Use linter_id directly or map to names
-	-- 		end
-	--
-	-- 		return "󱉶 " .. table.concat(linter_names, ", ")
-	-- 	end,
-	-- 	icon = "", -- No need to set the icon again; it's part of the function
-	-- 	color = { fg = "#98be65", gui = "bold" }, -- Customize colors as needed
-	-- },
-	-- {
-	-- 	"diagnostics",
-	-- 	symbols = {
-	-- 		error = icons.diagnostics.Error,
-	-- 		warn = icons.diagnostics.Warn,
-	-- 		info = icons.diagnostics.Info,
-	-- 		hint = icons.diagnostics.Hint,
-	-- 	},
-	-- },
-	-- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-	-- {
-	-- 	"aerial",
-	-- 	sep = " ", -- separator between symbols
-	-- 	sep_icon = "", -- separator between icon and symbol
-	--
-	-- 	-- The number of symbols to render top-down. In order to render only 'N' last
-	-- 	-- symbols, negative numbers may be supplied. For instance, 'depth = -1' can
-	-- 	-- be used in order to render only current symbol.
-	-- 	depth = 5,
-	--
-	-- 	-- When 'dense' mode is on, icons are not rendered near their symbols. Only
-	-- 	-- a single icon that represents the kind of current symbol is rendered at
-	-- 	-- the beginning of status line.
-	-- 	dense = false,
-	--
-	-- 	-- The separator to be used to separate symbols in dense mode.
-	-- 	dense_sep = ".",
-	--
-	-- 	-- Color the symbol icons.
-	-- 	colored = true,
-	-- },
 	--
 	{
 		"nvim-lualine/lualine.nvim",
@@ -387,53 +323,6 @@ return {
 		build = ":Cord fetch",
 		event = "VeryLazy",
 		config = true,
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		opts = function()
-			require("telescope").load_extension("aerial")
-		end,
-	},
-	{
-		"stevearc/aerial.nvim",
-		event = "LazyFile",
-		keys = {
-			{
-				"<leader>ou",
-				"<cmd>AerialToggle!<CR>",
-				desc = "Toggle outline using aerial",
-			},
-		},
-		opts = function()
-			local icons = vim.deepcopy(vim.g.icons)
-			icons.lua = { Package = icons.Control }
-			local opts = {
-				attach_mode = "global",
-				backends = { "lsp", "treesitter", "markdown", "man" },
-				show_guides = true,
-				layout = {
-					resize_to_content = false,
-					win_opts = {
-						winhl = "Normal:NormalFloat,FloatBorder:NormalFloat,SignColumn:SignColumnSB",
-						signcolumn = "yes",
-						statuscolumn = " ",
-					},
-				},
-				icons = icons,
-				-- filter_kind = filter_kind,
-				guides = {
-					mid_item = "├╴",
-					last_item = "└╴",
-					nested_top = "│ ",
-					whitespace = "  ",
-				},
-			}
-			return opts
-		end,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"echasnovski/mini.icons",
-		},
 	},
 	{
 		"grapp-dev/nui-components.nvim",
