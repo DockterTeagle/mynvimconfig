@@ -1,13 +1,23 @@
 return {
-	-- {
-	-- 	"nvimdev/lspsaga.nvim",
-	-- 	opts = {},
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter", -- optional
-	-- 		"nvim-tree/nvim-web-devicons", -- optional
-	-- 	},
-	-- 	event = "LspAttach",
-	-- },
+	{
+		"nvimdev/lspsaga.nvim",
+		opts = {
+			lightbulb = {
+				-- virtual_text = false,
+			},
+		},
+		config = function(_, opts)
+			require("lspsaga.util").icon_from_devicon = function(ft)
+				return require("mini.icons").get("filetype", ft)
+			end
+			require("lspsaga").setup(opts)
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"echasnovski/mini.icons",
+		},
+		event = "LspAttach",
+	},
 	{
 		"neovim/nvim-lspconfig",
 		-- ft = {},
