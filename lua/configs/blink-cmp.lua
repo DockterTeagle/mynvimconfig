@@ -55,7 +55,7 @@ local M = {
 				fallbacks = { "lsp" },
 			},
 		},
-		default = { "lsp", "path", "buffer", "lazydev" },
+		default = { "lsp", "path", "lazydev" },
 		-- optionally disable cmdline completions
 		cmdline = {},
 	},
