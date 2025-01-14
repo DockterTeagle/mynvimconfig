@@ -12,6 +12,7 @@ return {
 				"lazy.nvim",
 				{ "lazydev.nvim", words = { "lazydev" } },
 				{ "snacks.nvim", words = { "snacks" } },
+				{ "lspsaga.nvim", { words = "lspsaga" } },
 			},
 			enabled = function(root_dir)
 				return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
