@@ -1,7 +1,6 @@
 return {
 	{
 		"Civitasv/cmake-tools.nvim",
-		lazy = true,
 		init = function()
 			local loaded = false
 			local function check()
@@ -261,6 +260,7 @@ return {
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
 		dependencies = {
+			"mikavilpas/blink-ripgrep.nvim",
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
