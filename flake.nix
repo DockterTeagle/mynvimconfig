@@ -58,6 +58,8 @@
               # lua54Packages.luacheck
               lua-language-server
               codespell
+              marksman
+              ltex-ls-plus
             ];
           };
         };
