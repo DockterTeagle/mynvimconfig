@@ -4,8 +4,9 @@ return {
 		lazy = false,
 		config = function()
 			vim.g.vimtex_compiler_latexmk = {
+				executable = "latexmk",
+				_ = "luatex",
 				options = {
-					"-xelatex",
 					"-shell-escape",
 					"-verbose",
 					"-file-line-error",
@@ -16,6 +17,7 @@ return {
 			}
 			vim.g.vimtex_view_method = "zathura"
 			vim.g.vimtex_imaps_enabled = 0
+			vim.g.vimtex_compiler_latexmk.clean_flags = "-pdf -bibtex -f -xelatex"
 		end,
 	},
 }
