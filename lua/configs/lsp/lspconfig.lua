@@ -113,6 +113,18 @@ local basedpyright_opts = {
 		},
 	},
 }
+local ltexopts = {
+	settings = {
+		ltex = {
+			enabled = true,
+			additionalRules = {
+				enablePickyRules = true,
+			},
+			checkFrequency = "save",
+			language = "en-US",
+		},
+	},
+}
 return {
 	servers = {
 		marksman = {},
@@ -130,6 +142,7 @@ return {
 		lua_ls = lualsOpts,
 		nixd = nixdOpts,
 		texlab = texlabOpts,
+		ltex_plus = ltexopts,
 	},
 	setup = {},
 }

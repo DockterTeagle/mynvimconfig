@@ -18,8 +18,4 @@ return {
 			vim.g.vimtex_imaps_enabled = 0
 		end,
 	},
-	{
-		"rhysd/vim-grammarous",
-		ft = "tex",
-	},
 }
