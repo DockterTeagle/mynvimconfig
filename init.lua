@@ -20,5 +20,5 @@ require("options")
 vim.schedule(function()
 	require("mappings")
 end)
-
 vim.cmd([[colorscheme tokyonight]])
+require("luasnip.loaders.from_lua").lazy_load(vim.g.luasnippets_path)

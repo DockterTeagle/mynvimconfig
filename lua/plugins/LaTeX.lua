@@ -5,7 +5,6 @@ return {
 		config = function()
 			vim.g.vimtex_compiler_latexmk = {
 				executable = "latexmk",
-				_ = "luatex",
 				options = {
 					"-shell-escape",
 					"-verbose",
@@ -14,6 +13,9 @@ return {
 					"-synctex=1",
 					"-recorder",
 				},
+			}
+			vim.g.vimtex_compiler_latexmk_engines = {
+				_ = "-lualatex",
 			}
 			vim.g.vimtex_view_method = "zathura"
 			vim.g.vimtex_imaps_enabled = 0
