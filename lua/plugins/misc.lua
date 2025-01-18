@@ -263,18 +263,13 @@ return {
 			"mikavilpas/blink-ripgrep.nvim",
 			{
 				"L3MON4D3/LuaSnip",
+				lazy = false,
 				version = "v2.*",
 				build = "make install_jsregexp",
-				opts = {
-					history = true,
-					updateevents = "TextChanged,TextChangedI",
-					enable_autosnippets = true,
-					store_selection_keys = "<Tab>",
-				},
 				config = function()
 					local ls = require("luasnip")
 					local opts = require("configs.luasnip")
-					ls.config.set_config({ opts })
+					ls.config.set_config(opts)
 				end,
 			},
 		},
