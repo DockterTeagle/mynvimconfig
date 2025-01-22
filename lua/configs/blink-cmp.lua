@@ -73,7 +73,7 @@ local M = {
 				fallbacks = { "lsp" },
 			},
 		},
-		default = { "lsp", "path", "lazydev", "ripgrep" },
+		default = { "lsp", "path", "lazydev" },
 		-- optionally disable cmdline completions
 		cmdline = {},
 	},
