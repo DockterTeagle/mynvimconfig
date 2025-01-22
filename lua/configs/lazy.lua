@@ -3,7 +3,7 @@ return {
 
 	checker = {
 		enabled = true,
-		notify = true,
+		notify = false,
 	},
 	-- ui = {
 	-- 	icons = {
