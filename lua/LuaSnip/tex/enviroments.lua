@@ -4,14 +4,14 @@ return {
 		{
 			trig = "env",
 			snippetType = "autosnippet",
-			dscr = "An autotriggering snippet that starts a generic enviroment",
+			dscr = "An autotriggering snippet that starts a generic environment",
 		},
 		helpers.fmta(
 			[[\begin{<>}
       <>
       \end{<>}]],
 			{
-				helpers.i(1, "enviroment name"),
+				helpers.i(1, "environment name"),
 				helpers.i(2),
 				helpers.rep(1),
 			}
@@ -97,5 +97,14 @@ return {
 			}
 		),
 		{ condition = helpers.line_begin }
+	),
+	helpers.s(
+		{ trig = "([^%a])mm", wordTrig = false, regTrig = true },
+		helpers.fmta("<>$<>$", {
+			helpers.f(function(_, snip)
+				return snip.captures[1]
+			end),
+			helpers.d(1, helpers.tex_utils.get_visual),
+		})
 	),
 }

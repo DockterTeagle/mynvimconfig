@@ -13,7 +13,7 @@ return {
 		helpers.t("\\mu"),
 	}, { condition = helpers.tex_utils.in_mathzone }),
 	helpers.s(
-		{ trig = "ff" },
+		{ trig = "ff", snippetType = "autosnippet", dscr = "fraction" },
 		helpers.fmta("\\frac{<>}{<>}", {
 			helpers.i(1),
 			helpers.i(2),
