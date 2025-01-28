@@ -33,7 +33,7 @@ local nixdOpts = {
 					expr = '(builtins.getFlake "/home/cdockter/myNixOS").nixosConfigurations.nixos.options',
 				},
 				home_manager = {
-					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").homeConfigurations."cdockter".options',
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS").homeConfigurations."cdockter".options',
 				},
 				flake_parts = {
 					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").debug.options',
