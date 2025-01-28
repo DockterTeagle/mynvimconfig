@@ -71,9 +71,6 @@ local lualsOpts = {
 				enable = false,
 			},
 			workspace = {
-				library = {
-					vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
-				},
 				maxPreload = 100000,
 				preloadFileSize = 10000,
 			},
