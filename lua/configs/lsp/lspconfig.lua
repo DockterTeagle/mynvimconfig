@@ -36,10 +36,10 @@ local nixdOpts = {
 					expr = '(builtins.getFlake "/home/cdockter/myNixOS").homeConfigurations."cdockter".options',
 				},
 				flake_parts = {
-					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").debug.options',
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS").debug.options',
 				},
 				flake_parts2 = {
-					expr = '(builtins.getFlake "github:DockterTeagle/myNixOS").currentSystem.options',
+					expr = '(builtins.getFlake "/home/cdockter/myNixOS").currentSystem.options',
 				},
 			},
 		},
