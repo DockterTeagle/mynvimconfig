@@ -74,8 +74,6 @@ local mappings = {
 		["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right" },
 		["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down" },
 		["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up" },
-		["<F6>"] = { "<cmd>CompilerOpen<CR>", "open the compiler" },
-		["<S-F6>"] = { "<cmd>CompilerToggleResults<CR>", "toggle results" },
 		["<leader>dtb"] = {
 			function()
 				require("dap").toggle_breakpoint()
