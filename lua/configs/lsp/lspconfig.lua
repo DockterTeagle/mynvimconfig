@@ -2,7 +2,7 @@ local clangdOpts = {
 	keys = {
 		{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
 	},
-	-- capabilities = { capabilities, offSetEncoding = { "utf-16" } },
+	capabilities = { offSetEncoding = { "utf-16" } },
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -142,6 +142,7 @@ return {
 		nixd = nixdOpts,
 		texlab = texlabOpts,
 		ltex_plus = ltexopts,
+		zls = {},
 	},
 	setup = {},
 }
