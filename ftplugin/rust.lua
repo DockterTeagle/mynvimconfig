@@ -13,6 +13,28 @@ vim.g.rustaceanvim = {
 				cargo = {
 					allFeatures = true,
 					autoreload = true,
+					loadOutDirsFromCheck = true,
+					buildScripts = {
+						enable = true,
+					},
+				},
+				checkOnSave = true,
+				diagnostics = {
+					enable = true,
+				},
+				procMacro = { enable = true },
+				files = {
+					excludeDirs = {
+						".direnv",
+						".git",
+						".github",
+						".gitlab",
+						"bin",
+						"node_modules",
+						"target",
+						"venv",
+						".venv",
+					},
 				},
 				completion = {
 					addCallArgumentSnippets = true,
