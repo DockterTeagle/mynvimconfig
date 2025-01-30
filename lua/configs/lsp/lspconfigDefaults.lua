@@ -13,10 +13,10 @@ M.on_attach = function(client, bufnr)
 		if client.name == "ruff" then
 			client.server_capabilities.hoverProvider = false
 		end
-		if client.name == "clangd" then
-			require("clangd_extensions.inlay_hints").setup_autocmd()
-			require("clangd_extensions.inlay_hints").set_inlay_hints()
-		end
+		-- if client.name == "clangd" then
+		-- 	require("clangd_extensions.inlay_hints").setup_autocmd()
+		-- 	require("clangd_extensions.inlay_hints").set_inlay_hints()
+		-- end
 		-- vim.lsp.set_log_level("debug")
 		map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 		map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
@@ -29,7 +29,7 @@ M.on_attach = function(client, bufnr)
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts("List workspace folders"))
 
-		map("n", "<leader>D", vim.lsp.buf.type_definition, opts("Go to type definition"))
+		-- map("n", "<leader>D", vim.lsp.buf.type_definition, opts("Go to type definition"))
 
 		map({ "n", "v" }, "<leader>ca", "<CMD>Lspsaga code_action<CR>", opts("Code action(LSP Saga)"))
 		map("n", "gr", vim.lsp.buf.references, opts("Show references"))
