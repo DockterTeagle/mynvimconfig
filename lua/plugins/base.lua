@@ -1,7 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "LazyFile",
+		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		opts = function()
 			return require("configs.gitsigns")
 		end,

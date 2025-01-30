@@ -22,7 +22,7 @@ return {
 		"neovim/nvim-lspconfig",
 		-- ft = {},
 		-- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-		event = "LazyFile",
+		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		dependencies = {
 			"tamago324/nlsp-settings.nvim",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
