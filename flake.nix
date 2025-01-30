@@ -20,15 +20,14 @@
           inputs',
           self',
           system,
+          pkgs,
           ...
         }:
-        let
-          pkgs = import inputs.nixpkgs {
+        {
+          _module.args.pkgs = import inputs.nixpkgs {
             inherit system;
             overlays = [ inputs.gen-luarc.overlays.default ];
           };
-        in
-        {
           formatter = pkgs.nixfmt-rfc-style;
           checks = {
             pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
