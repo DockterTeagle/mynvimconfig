@@ -136,7 +136,6 @@ return {
 						},
 						"^().*()$",
 					},
-					-- g = LazyVim.mini.ai_buffer, -- buffer
 					u = ai.gen_spec.function_call(), -- u for "Usage"
 					U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
 				},
@@ -144,11 +143,6 @@ return {
 		end,
 		config = function(_, opts)
 			require("mini.ai").setup(opts)
-			-- LazyVim.on_load("which-key.nvim", function()
-			-- 	vim.schedule(function()
-			-- 		LazyVim.mini.ai_whichkey(opts)
-			-- 	end)
-			-- end)
 		end,
 	},
 	{
@@ -274,8 +268,6 @@ return {
 			},
 		},
 
-		-- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-		-- If you use nix, you can build from source using latest nightly rust with:
 		build = "nix run .#build-plugin",
 
 		opts = require("configs.blink-cmp"),
@@ -294,7 +286,7 @@ return {
 				-- markdown = { "vale" },
 				cmake = { "cmakelint" },
 				-- lua = { "selene" },
-				tex = { "write_good" },
+				-- tex = { "write_good" },
 				-- nix = { "deadnix", "nix" }, currently deadnix is just duplicating the nixd errors
 				-- nix = { "statix" },
 				cpp = { "cppcheck", "cpplint" },
@@ -314,8 +306,7 @@ return {
 	},
 	{
 		"vyfor/cord.nvim",
-		branch = "client-server",
-		build = ":Cord fetch",
+		build = ":Cord update",
 		event = "VeryLazy",
 		config = true,
 	},
