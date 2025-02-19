@@ -5,7 +5,7 @@ return {
 		opts = {
 			library = {
 				-- Library paths can be absolute
-				{ "LazyVim", words = { "LazyVim" } },
+				{ "rustaceanvim", words = { "rustaceanvim" } },
 				{ "neotest", words = { "neotest" } },
 				{ "luvit-meta", words = { "vim%.uv" } },
 				-- Or relative, which means they will be resolved from the plugin dir.(not vim.uv.fs_stat(root_dir .. "/.luarc.json"))
