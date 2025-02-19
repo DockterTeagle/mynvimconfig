@@ -24,6 +24,7 @@ local options = {
 					rust = "rs",
 					teal = "tl",
 					typescript = "ts",
+					yaml = "yaml",
 				},
 			},
 		},
@@ -40,6 +41,7 @@ local options = {
 		["*"] = { "codespell" },
 		tex = { "latexindent" },
 		toml = { "taplo" },
+		yaml = { "yq" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
