@@ -51,7 +51,6 @@
             packages = with pkgs; [
               self'.checks.pre-commit-check.enabledPackages
               inputs'.nixd.packages.nixd
-              lua5_4
               stylua
               selene
               # lua54Packages.luacheck
