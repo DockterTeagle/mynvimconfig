@@ -1,6 +1,9 @@
 return {
 	defaults = { lazy = true },
 
+	rocks = {
+		enabled = false,
+	},
 	checker = {
 		enabled = true,
 		notify = false,
