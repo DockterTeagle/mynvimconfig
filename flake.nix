@@ -25,8 +25,24 @@
           pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
+              #git
+              # annex.enable = true;
+              check-merge-conflicts.enable = true;
+              detect-private-keys.enable = true;
+              commitizen.enable = true;
+              convco.enable = true;
+              forbid-new-submodules.enable = true;
+              #nix
               alejandra.enable = true;
+              flake-checker.enable = true;
+              statix.enable = true;
+              deadnix.enable = true;
+              #lua
               stylua.enable = true;
+              #markdown
+              markdownlint.enable = true;
+              mdl.enable = true;
+              mdsh.enable = true;
             };
           };
         };
@@ -42,13 +58,10 @@
           packages = with pkgs; [
             self'.checks.pre-commit-check.enabledPackages
             inputs'.nixd.packages.nixd
-            stylua
-            selene
             lua-language-server
             codespell
             marksman
             ltex-ls-plus
-            alejandra
           ];
         };
       };
