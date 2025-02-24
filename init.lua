@@ -10,10 +10,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local lazy_config = require("configs.lazy")
 require("lazy").setup({
 	import = "plugins",
-}, lazy_config)
+}, require("configs.lazy"))
 require("options")
 vim.schedule(function()
 	require("mappings")
