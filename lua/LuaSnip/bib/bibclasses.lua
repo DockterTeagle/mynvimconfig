@@ -24,7 +24,7 @@ return {
 		-- { condition = helpers.line_begin }
 	),
 	helpers.s(
-		{ trig = ";boook", snippetType = "snippet", dscr = "The book class from biblatex" },
+		{ trig = ";book", snippetType = "snippet", dscr = "The book class from biblatex" },
 		helpers.fmta(
 			[[
         @book{<>,
