@@ -50,6 +50,7 @@ return {
 	},
 	{
 		"danymat/neogen",
+		lazy = false, --TODO: change me to be more lazy if needed
 		opts = {
 			snippet_engine = "luasnip",
 		},
@@ -284,10 +285,11 @@ return {
 				-- markdown = { "vale" },
 				cmake = { "cmakelint" },
 				-- lua = { "selene" },
-				-- tex = { "write_good" },
+				tex = { "lacheck" },
 				-- nix = { "deadnix", "nix" }, currently deadnix is just duplicating the nixd errors
-				-- nix = { "statix" },
+				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
+				python = { "dmypy" },
 				git = { "gitlint" },
 				-- lua = { "luacheck", "luac" },
 				-- lua = { "luac" },

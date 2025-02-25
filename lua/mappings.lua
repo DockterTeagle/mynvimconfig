@@ -180,6 +180,7 @@ wk.add({
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
 	{ "<leader>d", group = "debug" },
 	{ "<leader>gh", group = "(g)it (h)unk" },
+	{ "<leader>nG", group = "(n)eo(G)en" },
 })
 map({ "n", "v" }, "<leader>y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
 map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard" })
@@ -221,3 +222,14 @@ vim.keymap.set("n", "K", function()
 		vim.lsp.buf.hover()
 	end
 end, { desc = "super key for LSP and fold" })
+vim.keymap.set("n", "<leader>nGf", function()
+	require("neogen").generate()
+end, { noremap = true, silent = true, desc = "(N)eo(G)en(f)unction" })
+vim.keymap.set("n", "<leader>nGc", function()
+	require("neogen").generate({
+		type = "class",
+	})
+end, { noremap = true, silent = true, desc = "(n)eo(G)en (c)lass" })
+vim.keymap.set("n", "<leader>nGF", function()
+	require("neogen").generate({ type = "file" })
+end, { noremap = true, silent = true, desc = "(n)eo(G)en(F)ile" })
