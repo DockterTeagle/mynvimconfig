@@ -42,6 +42,7 @@ local options = {
 		tex = { "latexindent" },
 		toml = { "taplo" },
 		yaml = { "yq" },
+		markdown = { "markdownlint-cli2" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
