@@ -23,8 +23,9 @@ local nixdOpts = {
 	cmd = { "nixd" },
 	settings = {
 		nixd = {
-			-- semantictokens = true,
+			semantictokens = true,
 			autowatch = true,
+			formatting = { command = { "alejandra" } },
 			nixpkgs = {
 				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS").inputs.nixpkgs { }',
 			},
@@ -64,6 +65,11 @@ local texlabOpts = {
 local lualsOpts = {
 	settings = {
 		Lua = {
+			checkFrequency = "save",
+			codelens = {
+				enable = true,
+				properties = { enable = true },
+			},
 			runtime = {
 				version = "LuaJIT",
 			},
