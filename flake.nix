@@ -41,7 +41,6 @@
               stylua.enable = true;
               #markdown
               markdownlint.enable = true;
-              mdl.enable = true;
               mdsh.enable = true;
             };
           };
@@ -63,6 +62,7 @@
             marksman
             ltex-ls-plus
             commitlint
+            markdownlint-cli2
           ];
         };
       };
