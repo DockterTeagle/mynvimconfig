@@ -43,8 +43,6 @@ opt.whichwrap:append("<>[]hl")
 
 -- disable some default providers
 
-vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/LuaSnip"
-
 opt.laststatus = 3
 opt.splitkeep = "screen"
 vim.g.markdown_fenced_languages = {
