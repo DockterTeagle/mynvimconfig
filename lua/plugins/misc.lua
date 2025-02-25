@@ -50,7 +50,7 @@ return {
 	},
 	{
 		"danymat/neogen",
-		lazy = false, --TODO: change me to be more lazy if needed
+		lazy = false,
 		opts = {
 			snippet_engine = "luasnip",
 		},

@@ -215,7 +215,7 @@ vim.keymap.set("n", "zr", function()
 end, { desc = "open Folds Except Kinds" })
 vim.keymap.set("n", "zm", function()
 	require("ufo").closeFoldsWith()
-end, { desc = "closed all folds with simlair --FIXME:--" })
+end, { desc = "closed all folds with simlair properties " })
 vim.keymap.set("n", "K", function()
 	local winid = require("ufo").peekFoldedLinesUnderCursor()
 	if not winid then
