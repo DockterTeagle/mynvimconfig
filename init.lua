@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
 require("globals")
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -10,10 +8,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require("options")
 require("lazy").setup({
 	import = "plugins",
 }, require("configs.lazy"))
-require("options")
 vim.schedule(function()
 	require("mappings")
 end)
