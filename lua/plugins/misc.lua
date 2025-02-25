@@ -41,11 +41,12 @@ return {
 	},
 	{
 		"gbprod/yanky.nvim",
+		dependencies = {
+			{ "kkharji/sqlite.lua" },
+		},
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
+			ring = { storage = "sqlite" },
 		},
 	},
 	{
@@ -148,7 +149,7 @@ return {
 	},
 	{
 		"echasnovski/mini.pairs",
-		version = "*",
+		-- version = "*",
 		opts = {
 			modes = { insert = true, command = true, terminal = false },
 			-- skip autopair when next character is one of these
@@ -290,7 +291,7 @@ return {
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
 				python = { "dmypy" },
-				git = { "gitlint" },
+				gitcommit = { "commitlint", "gitlint" },
 				-- lua = { "luacheck", "luac" },
 				-- lua = { "luac" },
 			}
