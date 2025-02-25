@@ -283,17 +283,15 @@ return {
 		config = function()
 			local lint = require("lint")
 			lint.linters_by_ft = {
-				-- markdown = { "vale" },
 				cmake = { "cmakelint" },
-				-- lua = { "selene" },
 				tex = { "lacheck" },
-				-- nix = { "deadnix", "nix" }, currently deadnix is just duplicating the nixd errors
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
 				python = { "dmypy" },
 				gitcommit = { "commitlint" },
-				-- lua = { "luacheck", "luac" },
-				-- lua = { "luac" },
+				fish = { "fish" },
+				systemd = { "systemd-analyze", "systemdlint" },
+				markdown = { "markdownlint" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()
