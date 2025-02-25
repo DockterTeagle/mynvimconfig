@@ -63,7 +63,6 @@
             marksman
             ltex-ls-plus
             commitlint
-            gitlint
           ];
         };
       };

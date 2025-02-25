@@ -291,7 +291,7 @@ return {
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
 				python = { "dmypy" },
-				gitcommit = { "commitlint", "gitlint" },
+				gitcommit = { "commitlint" },
 				-- lua = { "luacheck", "luac" },
 				-- lua = { "luac" },
 			}
