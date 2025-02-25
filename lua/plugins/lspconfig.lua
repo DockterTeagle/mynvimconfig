@@ -35,7 +35,6 @@ return {
 				local config = vim.tbl_deep_extend("force", server_config, {
 					capabilities = require("blink.cmp").get_lsp_capabilities(server_config.capabilities),
 				})
-				print(vim.inspect(config))
 				lspconfig[server].setup(config)
 			end
 		end,
