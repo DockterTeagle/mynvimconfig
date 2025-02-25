@@ -191,6 +191,7 @@ map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void 
 map({ "n" }, "<leader>dlb", function()
 	require("telescope").extensions.dap.list_breakpoints({})
 end, { silent = true, desc = "List asll breakpoints" })
+vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
 vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
 vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
 vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
