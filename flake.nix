@@ -26,7 +26,6 @@
             src = ./.;
             hooks = {
               #git
-              # annex.enable = true;
               check-merge-conflicts.enable = true;
               detect-private-keys.enable = true;
               commitizen.enable = true;
