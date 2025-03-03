@@ -20,11 +20,12 @@ local clangdOpts = {
 	},
 }
 local nixdOpts = {
-	cmd = { "nixd" },
+	cmd = {
+		"nixd",
+		-- "--semantic-tokens=true"
+	},
 	settings = {
 		nixd = {
-			semantictokens = true,
-			autowatch = true,
 			formatting = { command = { "alejandra" } },
 			nixpkgs = {
 				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS").inputs.nixpkgs { }',
@@ -34,13 +35,22 @@ local nixdOpts = {
 					expr = '(builtins.getFlake "/home/cdockter/myNixOS").nixosConfigurations.nixos.options',
 				},
 				home_manager = {
-					expr = '(builtins.getFlake "/home/cdockter/myNixOS").homeConfigurations."cdockter".options',
+					expr = string.format(
+						'(builtins.getFlake "%s").homeConfigurations."cdockter".options',
+						vim.fn.getcwd() ~= "" and vim.fn.getcwd() or "/home/cdockter/myNixOS"
+					),
 				},
 				flake_parts = {
-					expr = '(builtins.getFlake "/home/cdockter/myNixOS").debug.options',
+					expr = string.format(
+						'(builtins.getFlake "%s").debug.options',
+						vim.fn.getcwd() ~= "" and vim.fn.getcwd() or "/home/cdockter/myNixOS"
+					),
 				},
-				flake_parts2 = {
-					expr = '(builtins.getFlake "/home/cdockter/myNixOS").currentSystem.options',
+				perSystem = {
+					expr = string.format(
+						'(builtins.getFlake "%s").currentSystem.options',
+						vim.fn.getcwd() ~= "" and vim.fn.getcwd() or "/home/cdockter/myNixOS"
+					),
 				},
 			},
 		},
