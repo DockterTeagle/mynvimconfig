@@ -2,12 +2,26 @@
   description = "neovim config flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixd.url = "github:nix-community/nixd";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    devenv.url = "github:cachix/devenv";
   };
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = with inputs; [
+        git-hooks-nix.flakeModule
+        devenv.flakeModule
+        treefmt-nix.flakeModule
+      ];
       systems = [
         "x86_64-linux"
         "x86_64-darwin"
@@ -16,53 +30,14 @@
       perSystem = {
         inputs',
         self',
-        system,
         pkgs,
+        config,
         ...
       }: {
-        formatter = pkgs.alejandra;
-        checks = {
-          pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              #git
-              check-merge-conflicts.enable = true;
-              detect-private-keys.enable = true;
-              commitizen.enable = true;
-              convco.enable = true;
-              forbid-new-submodules.enable = true;
-              #nix
-              alejandra.enable = true;
-              flake-checker.enable = true;
-              statix.enable = true;
-              deadnix.enable = true;
-              #lua
-              stylua.enable = true;
-              #markdown
-              markdownlint.enable = true;
-              mdsh.enable = true;
-            };
-          };
-        };
-        devShells.default = pkgs.mkShell {
-          shellHook =
-            # let
-            #
-            # in
-            # bash
-            ''
-              ${self'.checks.pre-commit-check.shellHook}
-            '';
-          packages = with pkgs; [
-            self'.checks.pre-commit-check.enabledPackages
-            inputs'.nixd.packages.nixd
-            lua-language-server
-            codespell
-            marksman
-            ltex-ls-plus
-            commitlint
-            markdownlint-cli2
-          ];
+        treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self' pkgs;};
+        devenv = import ./flakeModules/devenv.nix {
+          inherit self' inputs' pkgs;
+          inherit (config) treefmt;
         };
       };
     };

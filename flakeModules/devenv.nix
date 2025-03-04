@@ -1,0 +1,60 @@
+{
+  inputs',
+  pkgs,
+  treefmt,
+  ...
+}: {
+  shells = {
+    default = {
+      cachix = {
+        enable = true;
+        pull = ["pre-commit-hooks"];
+      };
+      packages = with pkgs; [
+        inputs'.nixd.packages.nixd
+        lua-language-server
+        codespell
+        marksman
+        ltex-ls-plus
+        commitlint
+        markdownlint-cli2
+      ];
+      git-hooks = {
+        enabledPackages = with pkgs; [
+          markdownlint-cli2
+          markdownlint-cli
+          mdsh
+          commitizen
+          statix
+          deadnix
+          lua-language-server
+          flake-checker
+          gitleaks
+          trufflehog
+          convco
+          treefmt.build.wrapper
+          inputs'.alejandra.packages.default
+          stylua
+        ];
+        hooks = {
+          #git
+          check-merge-conflicts.enable = true;
+          detect-private-keys.enable = true;
+          commitizen.enable = true;
+          convco.enable = true;
+          forbid-new-submodules.enable = true;
+          #nix
+          alejandra.enable = true;
+          flake-checker.enable = true;
+          statix.enable = true;
+          deadnix.enable = true;
+          #lua
+          stylua.enable = true;
+          #markdown
+          markdownlint.enable = true;
+          mdsh.enable = true;
+        };
+      };
+    };
+  };
+}
