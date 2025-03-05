@@ -1,3 +1,4 @@
+require("harpoon"):setup()
 vim.api.nvim_create_autocmd("User", {
 	pattern = "VimtexEventCompileFailed",
 	callback = function()

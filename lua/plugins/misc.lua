@@ -286,7 +286,7 @@ return {
 				cmake = { "cmakelint" },
 				tex = {
 					"lacheck",
-					-- "languagetool"
+					"chktex",
 				},
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
@@ -437,5 +437,13 @@ return {
 			-- 	port = 5600,
 			-- },
 		},
+	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"xzbdmw/colorful-menu.nvim",
 	},
 }
