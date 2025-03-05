@@ -2,7 +2,6 @@
   description = "neovim config flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    git-hooks-nix.url = "github:cachix/git-hooks.nix";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixd.url = "github:nix-community/nixd";
     treefmt-nix = {
@@ -18,7 +17,6 @@
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = with inputs; [
-        git-hooks-nix.flakeModule
         devenv.flakeModule
         treefmt-nix.flakeModule
       ];

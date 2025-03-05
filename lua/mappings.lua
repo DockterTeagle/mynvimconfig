@@ -21,7 +21,9 @@ map("n", "<leader>b", "<cmd>new<CR>", { desc = "buffer new" })
 map("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "previous buffer" })
 map("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "previous buffer" })
 
-map("n", "<leader>x", "<CMD>bd<CR>", { desc = "buffer close" })
+map("n", "<leader>x", function()
+	require("snacks").bufdelete.delete()
+end, { desc = "buffer close" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
@@ -234,3 +236,13 @@ end, { noremap = true, silent = true, desc = "(n)eo(G)en (c)lass" })
 vim.keymap.set("n", "<leader>nGF", function()
 	require("neogen").generate({ type = "file" })
 end, { noremap = true, silent = true, desc = "(n)eo(G)en(F)ile" })
+vim.keymap.set("n", "<leader>tqt", "<cmd>Trouble qflist toggle<CR>", { desc = "Toggle qflist with trouble" })
+vim.keymap.set(
+	"n",
+	"<leader>tdt",
+	"<CMD>Trouble diagnostics toggle<CR>",
+	{ desc = "toggle diagnostics through trouble" }
+)
+map("n", "<leader>Re", function()
+	require("refactoring").refactor("Extract Function")
+end)

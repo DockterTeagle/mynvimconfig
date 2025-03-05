@@ -18,6 +18,7 @@
         ltex-ls-plus
         commitlint
         markdownlint-cli2
+        deno
       ];
       git-hooks = {
         enabledPackages = with pkgs; [
@@ -27,7 +28,6 @@
           commitizen
           statix
           deadnix
-          lua-language-server
           flake-checker
           gitleaks
           trufflehog
@@ -44,7 +44,6 @@
           convco.enable = true;
           forbid-new-submodules.enable = true;
           #nix
-          alejandra.enable = true;
           flake-checker.enable = true;
           statix.enable = true;
           deadnix.enable = true;
@@ -53,6 +52,10 @@
           #markdown
           markdownlint.enable = true;
           mdsh.enable = true;
+          treefmt = {
+            enable = true;
+            package = treefmt.build.wrapper;
+          };
         };
       };
     };

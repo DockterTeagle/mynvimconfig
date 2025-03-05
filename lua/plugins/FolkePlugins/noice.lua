@@ -21,6 +21,7 @@ return {
 		popupmenu = {
 			enabled = true,
 		},
+		-- notify = { view = "noice" },
 		routes = {
 			{
 				filter = {
@@ -57,6 +58,10 @@ return {
 		lsp = {
 			hover = {
 				enabled = true,
+			},
+			-- progress = { enabled = false },
+			messages = {
+				enabled = false,
 			},
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,

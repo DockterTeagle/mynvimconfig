@@ -10,6 +10,7 @@
       package = inputs'.alejandra.packages.default;
     };
     stylua.enable = true;
+    # typos.enable = true;
   };
   build = {
     check = self';

@@ -2,6 +2,8 @@ local opt = vim.opt
 local o = vim.o
 
 -------------------------------------- options ------------------------------------------
+o.conceallevel = 2
+o.concealcursor = "nc"
 o.laststatus = 3
 o.showmode = false
 
@@ -45,9 +47,6 @@ opt.whichwrap:append("<>[]hl")
 
 opt.laststatus = 3
 opt.splitkeep = "screen"
-vim.g.markdown_fenced_languages = {
-	"ts=typescript",
-}
 o.foldcolumn = "1"
 o.foldlevel = 99
 o.foldlevelstart = 99

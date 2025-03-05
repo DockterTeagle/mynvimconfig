@@ -22,7 +22,6 @@ local clangdOpts = {
 local nixdOpts = {
 	cmd = {
 		"nixd",
-		-- "--semantic-tokens=true"
 	},
 	settings = {
 		nixd = {
@@ -59,6 +58,9 @@ local nixdOpts = {
 local texlabOpts = {
 	settings = {
 		texlab = {
+			forwardSearch = {
+				executable = "zathura",
+			},
 			build = {
 				useFileList = true,
 			},
@@ -129,11 +131,13 @@ local basedpyright_opts = {
 local ltexopts = {
 	settings = {
 		ltex = {
+			-- statusBarItem = true,
 			clearDiagnosticsWhenClosingFile = false,
 			completionEnabled = true,
 			enabled = true,
 			additionalRules = {
 				enablePickyRules = true,
+				motherTongue = "en-US",
 			},
 			checkFrequency = "save",
 			language = "en-US",

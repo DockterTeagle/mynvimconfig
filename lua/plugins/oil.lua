@@ -47,7 +47,7 @@ return {
 	{
 		"mikavilpas/yazi.nvim",
 		event = "VeryLazy",
-		dependencies = { "folke/snacks.nvim", lazy = true },
+		dependencies = { "folke/snacks.nvim" },
 		keys = {
 			-- 👇 in this section, choose your own keymappings!
 			{
@@ -71,10 +71,13 @@ return {
 		---@type YaziConfig | {}
 		opts = {
 			-- if you want to open yazi instead of netrw, see below for more info
-			open_for_directories = false,
+			open_for_directories = true,
 			keymaps = {
 				show_help = "<f1>",
 			},
 		},
+		init = function()
+			vim.g.loaded_netrwPlugin = 1
+		end,
 	},
 }

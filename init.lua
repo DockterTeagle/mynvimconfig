@@ -15,4 +15,5 @@ require("lazy").setup({
 vim.schedule(function()
 	require("mappings")
 end)
+require("autocmds")
 vim.cmd([[colorscheme tokyonight]])

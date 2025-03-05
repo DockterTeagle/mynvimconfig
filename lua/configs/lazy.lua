@@ -6,7 +6,7 @@ return {
 	},
 	checker = {
 		enabled = true,
-		notify = false,
+		notify = true,
 	},
 	-- ui = {
 	-- 	icons = {
