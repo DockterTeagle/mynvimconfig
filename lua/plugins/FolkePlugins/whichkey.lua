@@ -6,7 +6,7 @@ return {
 		},
 	},
 	cmd = "WhichKey",
-	config = true,
+	opts = { preset = "modern" },
 	keys = {
 		"<leader>",
 		"<c-r>",

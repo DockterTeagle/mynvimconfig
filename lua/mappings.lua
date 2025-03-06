@@ -195,14 +195,14 @@ map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void 
 map({ "n" }, "<leader>dlb", function()
 	require("telescope").extensions.dap.list_breakpoints({})
 end, { silent = true, desc = "List asll breakpoints" })
-vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
-vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
-vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-
-vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
-vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+-- vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
+-- vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+-- vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+-- vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+-- vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+--
+-- vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+-- vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
 map("n", "]t", function()
 	require("todo-comments").jump_next()
 end, { desc = "next Todo Comment" })
@@ -248,3 +248,10 @@ vim.keymap.set(
 map("n", "<leader>Re", function()
 	require("refactoring").refactor("Extract Function")
 end)
+map("n", "<leader>tcs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+map(
+	"n",
+	"<leader>tcl",
+	"<CMD>Trouble lsp toggle focus=false win.position=right<cr>",
+	{ desc = "LSP Definitions(Trouble)" }
+)
