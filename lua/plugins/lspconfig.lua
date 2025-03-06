@@ -23,7 +23,6 @@ return {
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		dependencies = {
 			"saghen/blink.cmp",
-			"tamago324/nlsp-settings.nvim",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
 		},
 		opts = function()
