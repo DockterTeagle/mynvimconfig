@@ -9,6 +9,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("options")
+_G.LazyVim = require("util")
 require("lazy").setup({
 	import = "plugins",
 }, require("configs.lazy"))
