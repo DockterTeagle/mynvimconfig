@@ -31,7 +31,9 @@ M.on_attach = function(client, bufnr)
 
 		-- map("n", "<leader>D", vim.lsp.buf.type_definition, opts("Go to type definition"))
 
-		map({ "n", "v" }, "<leader>ca", "<CMD>Lspsaga code_action<CR>", opts("Code action(LSP Saga)"))
+		map({ "n", "v" }, "<leader>ca", function()
+			vim.lsp.buf.code_action()
+		end, opts("Code action"))
 		map("n", "gr", vim.lsp.buf.references, opts("Show references"))
 	end
 end

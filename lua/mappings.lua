@@ -176,7 +176,7 @@ for mode, maps in pairs(mappings) do
 	end
 end
 
-map("n", "<leader>rn", "<CMD>Lspsaga rename<CR>", { desc = "rename the current thing" })
+map("n", "<leader>rn", "<CMD>IncRename<CR>", { desc = "rename the current thing" })
 wk.add({
 	{ "<leader>n", group = "Neo" },
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
