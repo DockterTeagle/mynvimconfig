@@ -5,7 +5,16 @@ return {
 		opts = {
 			auto_close = true,
 			modes = {
-				-- quickfix = { auto_open = true },
+				test = {
+					mode = "diagnostics",
+					preview = {
+						type = "split",
+						relative = "win",
+						position = "right",
+						size = 0.3,
+					},
+				},
+				quickfix = { auto_close = true },
 				lsp = {
 					win = { position = "right" },
 				},
