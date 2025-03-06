@@ -10,4 +10,19 @@ function M.opts(name)
 	local Plugin = require("lazy.core.plugin")
 	return Plugin.values(plugin, "opts", false)
 end
+function M.is_loaded(name)
+	local Config = require("lazy.core.config")
+	return Config.plugins[name] and Config.plugins[name]._.loaded
+end
+function M.dedup(list)
+	local ret = {}
+	local seen = {}
+	for _, v in ipairs(list) do
+		if not seen[v] then
+			table.insert(ret, v)
+			seen[v] = true
+		end
+	end
+	return ret
+end
 return M
