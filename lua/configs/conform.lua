@@ -33,7 +33,7 @@ local options = {
 		lua = { "stylua" },
 		bib = { "bibtex-tidy" },
 		rust = { "rustfmt", lsp_format = "fallback" },
-		python = { "ruff_organize_imports", "ruff_format", "ruff_fix" },
+		python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 		c = { "clang-format" },
 		cpp = { "clang-format" },
 		cmake = { "cmake_format" },
