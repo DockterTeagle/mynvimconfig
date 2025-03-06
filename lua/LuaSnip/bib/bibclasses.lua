@@ -1,8 +1,17 @@
-local helpers = require("LuaSnip.helper-functions")
+local ls = require("luasnip")
+local s = ls.snippet
+local sn = ls.snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local d = ls.dynamic_node
+local fmta = require("luasnip.extras.fmt").fmta
+local rep = require("luasnip.extras").rep
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
 return {
-	helpers.s(
+	s(
 		{ trig = ";art", snippetType = "snippet", dscr = "the article class from biblatex" },
-		helpers.fmta(
+		fmta(
 			[[
         @article{ <>,
           author = {<>},
@@ -13,19 +22,19 @@ return {
         },
       ]],
 			{
-				helpers.i(1),
-				helpers.i(2),
-				helpers.i(3),
-				helpers.i(4),
-				helpers.i(5),
-				helpers.i(6),
+				i(1),
+				i(2),
+				i(3),
+				i(4),
+				i(5),
+				i(6),
 			}
 		) --,
-		-- { condition = helpers.line_begin }
+		-- { condition = line_begin }
 	),
-	helpers.s(
+	s(
 		{ trig = ";book", snippetType = "snippet", dscr = "The book class from biblatex" },
-		helpers.fmta(
+		fmta(
 			[[
         @book{<>,
           author = {<>},
@@ -34,12 +43,12 @@ return {
         },
       ]],
 			{
-				helpers.i(1),
-				helpers.i(2),
-				helpers.i(3),
-				helpers.i(4),
+				i(1),
+				i(2),
+				i(3),
+				i(4),
 			}
 		)
-		-- { condition = helpers.tex_utils.line_begin }
+		-- { condition = tex_utils.line_begin }
 	),
 }

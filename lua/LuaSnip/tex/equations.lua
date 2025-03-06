@@ -1,4 +1,15 @@
-local helpers = require("LuaSnip.helper-functions")
+local ls = require("luasnip")
+local s = ls.snippet
+local sn = ls.snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local d = ls.dynamic_node
+local fmt = require("luasnip.extras.fmt").fmt
+local fmta = require("luasnip.extras.fmt").fmta
+local rep = require("luasnip.extras").rep
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
+tex_utils = require("LuaSnip.helper-functions").tex_utils
 --    `0  ->  '\emptyset'                    vimtex#imaps#wrap_math
 --  `2  ->  '\sqrt'                        vimtex#imaps#wrap_math
 --  `6  ->  '\partial'                     vimtex#imaps#wrap_math
@@ -68,24 +79,24 @@ local helpers = require("LuaSnip.helper-functions")
 -- `vq  ->  '\vartheta'                    vimtex#imaps#wrap_math
 -- `vr  ->  '\varrho'                      vimtex#imaps#wrap_math
 return {
-	helpers.s({ trig = ";a", snippetType = "autosnippet" }, {
-		helpers.t("\\alpha"),
-	}, { condition = helpers.tex_utils.in_mathzone }),
-	helpers.s({ trig = ";b", snippetType = "autosnippet" }, {
-		helpers.t("\\beta"),
-	}, { condition = helpers.tex_utils.in_mathzone }),
-	helpers.s({ trig = ";g", snippetType = "autosnippet" }, {
-		helpers.t("\\gamma"),
-	}, { condition = helpers.tex_utils.in_mathzone }),
-	helpers.s({ trig = ";m", snippetType = "autosnippet" }, {
-		helpers.t("\\mu"),
-	}, { condition = helpers.tex_utils.in_mathzone }),
-	helpers.s(
+	s({ trig = ";a", snippetType = "autosnippet" }, {
+		t("\\alpha"),
+	}, { condition = tex_utils.in_mathzone }),
+	s({ trig = ";b", snippetType = "autosnippet" }, {
+		t("\\beta"),
+	}, { condition = tex_utils.in_mathzone }),
+	s({ trig = ";g", snippetType = "autosnippet" }, {
+		t("\\gamma"),
+	}, { condition = tex_utils.in_mathzone }),
+	s({ trig = ";m", snippetType = "autosnippet" }, {
+		t("\\mu"),
+	}, { condition = tex_utils.in_mathzone }),
+	s(
 		{ trig = "ff", snippetType = "autosnippet", dscr = "fraction" },
-		helpers.fmta("\\frac{<>}{<>}", {
-			helpers.i(1),
-			helpers.i(2),
+		fmta("\\frac{<>}{<>}", {
+			i(1),
+			i(2),
 		}),
-		{ condition = helpers.tex_utils.in_mathzone } -- `condition` option passed in the snippet `opts` table
+		{ condition = tex_utils.in_mathzone } -- `condition` option passed in the snippet `opts` table
 	),
 }

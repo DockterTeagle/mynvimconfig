@@ -1,110 +1,121 @@
-local helpers = require("LuaSnip.helper-functions")
+local ls = require("luasnip")
+local s = ls.snippet
+local sn = ls.snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local d = ls.dynamic_node
+local fmt = require("luasnip.extras.fmt").fmt
+local fmta = require("luasnip.extras.fmt").fmta
+local rep = require("luasnip.extras").rep
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
+local tex_utils = require("LuaSnip.helper-functions").tex_utils
 return {
-	helpers.s(
+	s(
 		{
 			trig = "env",
 			snippetType = "autosnippet",
 			dscr = "An autotriggering snippet that starts a generic environment",
 		},
-		helpers.fmta(
+		fmta(
 			[[\begin{<>}
       <>
       \end{<>}]],
 			{
-				helpers.i(1, "environment name"),
-				helpers.i(2),
-				helpers.rep(1),
+				i(1, "environment name"),
+				i(2),
+				rep(1),
 			}
 		),
-		{ condition = helpers.line_begin }
+		{ condition = line_begin }
 	),
-	helpers.s(
+	s(
 		{ trig = "item", snippetType = "autosnippet", dscr = "An autotriggering snippet that starts an itemize list" },
-		helpers.fmta(
+		fmta(
 			[[
         \begin{itemize}
           \item <>
         \end{itemize}
       ]],
 			{
-				helpers.i(1, "item"),
+				i(1, "item"),
 			}
 		),
-		{ condition = helpers.line_begin }
+		{ condition = line_begin }
 	),
-	helpers.s(
+	s(
 		{ trig = "enum", snippetType = "autosnippet" },
-		helpers.fmta(
+		fmta(
 			[[
         \begin{enumerate}
           \item <>
         \end{enumerate}
       ]],
 			{
-				helpers.i(1, "item"),
+				i(1, "item"),
 			}
 		),
-		{ condition = helpers.line_begin }
+		{ condition = line_begin }
 	),
-	helpers.s(
+	s(
 		{ trig = "h1", snippetType = "autosnippet" },
-		helpers.fmta(
+		fmta(
 			[[
         \section{<>}
       ]],
 			{
-				helpers.i(1, "sectionName"),
+				i(1, "sectionName"),
 			}
 		),
-		{ condition = helpers.line_begin }
+		{ condition = line_begin }
 	),
 
-	helpers.s(
+	s(
 		{ trig = "h2", snippetType = "autosnippet" },
-		helpers.fmta(
+		fmta(
 			[[
         \subsection{<>}
       ]],
 			{
-				helpers.i(1, "sectionName"),
+				i(1, "sectionName"),
 			}
 		),
-		{ condition = helpers.line_begin }
+		{ condition = line_begin }
 	),
 
-	helpers.s(
+	s(
 		{ trig = "h3", snippetType = "autosnippet" },
-		helpers.fmta(
+		fmta(
 			[[
         \subsubsection{<>}
       ]],
 			{
-				helpers.i(1, "sectionName"),
+				i(1, "sectionName"),
 			}
 		),
-		{ condition = helpers.line_begin }
+		{ condition = line_begin }
 	),
-	helpers.s(
+	s(
 		{ trig = "eq", snippetType = "autosnippet" },
-		helpers.fmta(
+		fmta(
 			[[
         \begin{equation}
         <>
         \end{equation}
       ]],
 			{
-				helpers.i(1, "equation to enter"),
+				i(1, "equation to enter"),
 			}
 		),
-		{ condition = helpers.line_begin }
+		{ condition = line_begin }
 	),
-	helpers.s(
+	s(
 		{ trig = "([^%a])mm", wordTrig = false, regTrig = true },
-		helpers.fmta("<>$<>$", {
-			helpers.f(function(_, snip)
+		fmta("<>$<>$", {
+			f(function(_, snip)
 				return snip.captures[1]
 			end),
-			helpers.d(1, helpers.tex_utils.get_visual),
+			d(1, tex_utils.get_visual),
 		})
 	),
 }
