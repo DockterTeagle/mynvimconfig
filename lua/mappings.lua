@@ -183,6 +183,8 @@ wk.add({
 	{ "<leader>d", group = "debug" },
 	{ "<leader>gh", group = "(g)it (h)unk" },
 	{ "<leader>nG", group = "(n)eo(G)en" },
+	{ "<leader>t", group = "trouble" },
+	{ "<leader>T", group = "TODO" },
 })
 map({ "n", "v" }, "<leader>y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
 map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard" })
