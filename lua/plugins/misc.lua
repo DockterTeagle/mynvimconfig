@@ -79,7 +79,8 @@ return {
 	},
 	{
 		"danymat/neogen",
-		lazy = false,
+		cmd = "Neogen",
+
 		opts = {
 			snippet_engine = "luasnip",
 		},
@@ -88,6 +89,22 @@ return {
 	},
 	{
 		"echasnovski/mini.surround",
+		keys = function(_, keys)
+			local opts = LazyVim.opts("mini.surround")
+			local mappings = {
+				{ opts.mappings.add, desc = "Add Surrounding", mode = { "n", "v" } },
+				{ opts.mappings.delete, desc = "Delete Surrounding" },
+				{ opts.mappings.find, desc = "Find Right Surrounding" },
+				{ opts.mappings.find_left, desc = "Find Left Surrounding" },
+				{ opts.mappings.highlight, desc = "Highlight Surrounding" },
+				{ opts.mappings.replace, desc = "Replace Surrounding" },
+				{ opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+			}
+			mappings = vim.tbl_filter(function(m)
+				return m[1] and #m[1] > 0
+			end, mappings)
+			return vim.list_extend(mappings, keys)
+		end,
 		opts = {
 			mappings = {
 				add = "gsa", -- Add surrounding in Normal and Visual modes
@@ -259,6 +276,21 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = function(_, opts)
+			-- local trouble = require("trouble")
+			-- local symbols = trouble.statusline({
+			-- 	mode = "lsp_document_symbols",
+			-- 	groups = {},
+			-- 	title = false,
+			-- 	filter = { range = true },
+			-- 	format = "{kind_icon}{symbol.name:Normal}",
+			-- 	-- The following line is needed to fix the background color
+			-- 	-- Set it to the lualine section you want to use
+			-- 	hl_group = "lualine_c_normal",
+			-- })
+			-- table.insert(opts.sections.lualine_c, {
+			-- 	symbols.get,
+			-- 	cond = symbols.has,
+			-- })
 			local x = opts.sections.lualine_x
 			for _, comp in ipairs(x) do
 				if comp[1] == "diff" then
@@ -314,7 +346,6 @@ return {
 				cmake = { "cmakelint" },
 				tex = {
 					"lacheck",
-					"chktex",
 				},
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
@@ -473,5 +504,50 @@ return {
 	},
 	{
 		"xzbdmw/colorful-menu.nvim",
+	},
+	{
+		"stevearc/aerial.nvim",
+		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		--TODO: Integrate rest of lazyvim on this
+		opts = function()
+			local icons = vim.deepcopy(vim.g.icons)
+			icons.lua = { Package = icons.Control }
+			local opts = {
+				attach_mode = "global",
+				backends = { "lsp", "treesitter", "markdown", "man" },
+				show_guides = true,
+				layout = {
+					resize_to_content = false,
+					win_opts = {
+						winhl = "Normal:NormalFloat,FloatBorder:NormalFloat,SignColumn:SignColumnSB",
+						signcolumn = "yes",
+						statuscolumn = " ",
+					},
+				},
+				icons = icons,
+				-- filter_kind = filter_kind,
+				guides = {
+					mid_item = "├╴",
+					last_item = "└╴",
+					nested_top = "│ ",
+					whitespace = "  ",
+				},
+			}
+			return opts
+		end,
+		keys = {
+			{
+				"<leader>ou",
+				"<cmd>AerialToggle<CR>",
+				desc = "Aerial Toggle",
+			},
+		},
+	},
+	{
+		"chrisgrieser/nvim-scissors",
+		dependencies = "nvim-telescope/telescope.nvim",
+		opts = {
+			snippetDir = vim.g.luasnippets_path,
+		},
 	},
 }
