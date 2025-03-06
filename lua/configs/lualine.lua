@@ -59,22 +59,22 @@ M.lualine_opts = function()
 					icon = "", -- No need to set the icon again; it's part of the function
 					color = { fg = "#98be65", gui = "bold" }, -- Customize colors as needed
 				},
-				{
-					function()
-						local linters = require("lint").get_running()
-						if #linters == 0 then
-							return ""
-						end
-						local linter_names = {}
-						for _, linter_id in ipairs(linters) do
-							table.insert(linter_names, linter_id) -- Use linter_id directly or map to names
-						end
-
-						return "󱉶 " .. table.concat(linter_names, ", ")
-					end,
-					icon = "", -- No need to set the icon again; it's part of the function
-					color = { fg = "#98be65", gui = "bold" }, -- Customize colors as needed
-				},
+				-- {
+				-- 	function()
+				-- 		local linters = require("lint").get_running()
+				-- 		if #linters == 0 then
+				-- 			return ""
+				-- 		end
+				-- 		local linter_names = {}
+				-- 		for _, linter_id in ipairs(linters) do
+				-- 			table.insert(linter_names, linter_id) -- Use linter_id directly or map to names
+				-- 		end
+				--
+				-- 		return "󱉶 " .. table.concat(linter_names, ", ")
+				-- 	end,
+				-- 	icon = "", -- No need to set the icon again; it's part of the function
+				-- 	color = { fg = "#98be65", gui = "bold" }, -- Customize colors as needed
+				-- },
 				{
 					"diagnostics",
 					symbols = {
