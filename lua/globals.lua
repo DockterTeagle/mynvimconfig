@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
+vim.g.deprecation_warnings = false
+vim.g.markdown_recomended_style = 0
 vim.g.icons = {
 	misc = {
 		dots = "󰇘",
@@ -69,3 +71,38 @@ vim.g.icons = {
 	},
 }
 vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/LuaSnip"
+vim.g.kind_filter = {
+	default = {
+		"Class",
+		"Constructor",
+		"Enum",
+		"Field",
+		"Function",
+		"Interface",
+		"Method",
+		"Module",
+		"Namespace",
+		"Package",
+		"Property",
+		"Struct",
+		"Trait",
+	},
+	markdown = false,
+	help = false,
+	-- you can specify a different filter for each filetype
+	lua = {
+		"Class",
+		"Constructor",
+		"Enum",
+		"Field",
+		"Function",
+		"Interface",
+		"Method",
+		"Module",
+		"Namespace",
+		-- "Package", -- remove package since luals uses it for control flow structures
+		"Property",
+		"Struct",
+		"Trait",
+	},
+}

@@ -4,7 +4,6 @@ return {
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
-				-- Library paths can be absolute
 				{ "rustaceanvim", words = { "rustaceanvim" } },
 				{ "neotest", words = { "neotest" } },
 				{ "luvit-meta", words = { "vim%.uv" } },

@@ -1,13 +1,12 @@
 local clangdOpts = {
 	keys = {
-		{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+		{ "<localleader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
 	},
 	capabilities = { offSetEncoding = { "utf-16" } },
 	cmd = {
 		"clangd",
 		"--background-index",
 		"--clang-tidy",
-		"--compile-commands-dir=" .. vim.fn.expand("${workspaceFolder}/build"),
 		"--header-insertion=iwyu",
 		"--completion-style=detailed",
 		"--function-arg-placeholders",
@@ -133,13 +132,12 @@ local ltexopts = {
 		ltex = {
 			-- statusBarItem = true,
 			clearDiagnosticsWhenClosingFile = false,
-			completionEnabled = true,
 			enabled = true,
 			additionalRules = {
 				enablePickyRules = true,
 				motherTongue = "en-US",
 			},
-			checkFrequency = "save",
+			-- checkFrequency = "save",
 			language = "en-US",
 		},
 	},
@@ -163,6 +161,13 @@ return {
 		texlab = texlabOpts,
 		ltex_plus = ltexopts,
 		zls = {},
+		bacon_ls = { enabled = diagnostics == "bacon-ls" },
 	},
-	setup = {},
+	setup = {
+		clangd = function(_, opts)
+			local clangd_ext_opts = LazyVim.opts("clangd_extensions.nvim")
+			require("clangd_extensions").setup(vim.tbl_deep_extend("force", clangd_ext_opts or {}, { server = opts }))
+			return false
+		end,
+	},
 }

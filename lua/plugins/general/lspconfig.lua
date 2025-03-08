@@ -1,23 +1,4 @@
 return {
-	-- {
-	-- 	"nvimdev/lspsaga.nvim",
-	-- 	opts = {
-	-- 		lightbulb = {
-	-- 			-- virtual_text = false,
-	-- 		},
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("lspsaga.util").icon_from_devicon = function(ft)
-	-- 			return require("mini.icons").get("filetype", ft)
-	-- 		end
-	-- 		require("lspsaga").setup(opts)
-	-- 	end,
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter", -- optional
-	-- 		"echasnovski/mini.icons",
-	-- 	},
-	-- 	event = "LspAttach",
-	-- },
 	{
 		"kosayoda/nvim-lightbulb",
 		event = "LspAttach",
@@ -32,7 +13,6 @@ return {
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		dependencies = {
 			"saghen/blink.cmp",
-			-- { "antosha417/nvim-lsp-file-operations", config = true },
 		},
 		opts = function()
 			return require("configs.lsp.lspconfig")

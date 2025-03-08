@@ -58,12 +58,23 @@ return {
 			quickfile = { enabled = true },
 			scope = { enabled = true },
 			scratch = { enabled = true },
-			statuscolumn = { enabled = true },
 			scroll = { enabled = true },
 			toggle = { enabled = true },
 			terminal = { enabled = true },
 			win = { enabled = true },
 			words = { enabled = true },
+			statuscolumn = {
+				enabled = true,
+				folds = {
+					git_hl = true,
+					open = true,
+				},
+			},
 		},
+		config = function(_, opts)
+			local notify = vim.notify
+			require("snacks").setup(opts)
+			vim.notify = notify
+		end,
 	},
 }

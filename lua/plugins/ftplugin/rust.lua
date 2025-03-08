@@ -29,21 +29,12 @@ return {
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
-		config = function()
-			require("neotest").setup({
-				adapters = {
-					-- require("neotest-plenary"),
-					require("rustaceanvim.neotest"),
-					-- require("neotest-vim-test")({
-					-- 	ignore_file_types = { "python", "vim", "lua" },
-					-- }),
-					-- require("neotest-python")({
-					-- 	dap = {
-					-- 		justMyCode = false,
-					-- 	},
-					-- }),
-				},
-			})
+		opts = function()
+			return require("configs.neotest").opts
 		end,
+		config = function()
+			return require("configs.neotest").config
+		end,
+		keys = {},
 	},
 }

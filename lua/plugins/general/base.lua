@@ -15,10 +15,14 @@ return {
 		event = "VeryLazy",
 		opts = {
 			options = {
-				-- close_command = function(n) Snacks.bufdelete(n) end,
-				-- right_mouse_command = function(n) Snacks.bufdelete(n) end,
+				close_command = function(n)
+					Snacks.bufdelete(n)
+				end,
+				right_mouse_command = function(n)
+					Snacks.bufdelete(n)
+				end,
 				diagnostics = "nvim_lsp",
-				always_show_bufferline = true,
+				always_show_bufferline = false,
 				offsets = {
 					{
 						filetype = "neo-tree",

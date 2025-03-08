@@ -1,4 +1,3 @@
--- add yours here
 local wk = require("which-key")
 local map = vim.keymap.set
 -- map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
@@ -12,8 +11,6 @@ map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
-
--- global lsp mappings
 
 -- tabufline
 map("n", "<leader>b", "<cmd>new<CR>", { desc = "buffer new" })
@@ -39,28 +36,6 @@ map("n", "<leader>ff", "<cmd>Telescope find_files <cr>", { desc = "telescope fin
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
-
--- new terminals
--- map("n", "<leader>h", function()
--- 	require("nvchad.term").new({ pos = "sp" })
--- end, { desc = "terminal new horizontal term" })
-
--- map("n", "<leader>v", function()
--- 	require("nvchad.term").new({ pos = "vsp" })
--- end, { desc = "terminal new vertical term" })
-
--- toggleable
--- map({ "n", "t" }, "<A-v>", function()
--- 	require("nvchad.term").toggle({ pos = "vsp", id = "vtoggleTerm" })
--- end, { desc = "terminal toggleable vertical term" })
-
--- map({ "n", "t" }, "<A-h>", function()
--- 	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm" })
--- end, { desc = "terminal toggleable horizontal term" })
-
--- map({ "n", "t" }, "<A-i>", function()
--- 	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
--- end, { desc = "terminal toggle floating term" })
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
@@ -176,7 +151,9 @@ for mode, maps in pairs(mappings) do
 	end
 end
 
-map("n", "<leader>rn", "<CMD>IncRename<CR>", { desc = "rename the current thing" })
+map("n", "<leader>rn", function()
+	return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true, desc = "rename the current thing" })
 wk.add({
 	{ "<leader>n", group = "Neo" },
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
@@ -195,14 +172,6 @@ map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void 
 map({ "n" }, "<leader>dlb", function()
 	require("telescope").extensions.dap.list_breakpoints({})
 end, { silent = true, desc = "List asll breakpoints" })
--- vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
--- vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
--- vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
--- vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
--- vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
---
--- vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
--- vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
 map("n", "]t", function()
 	require("todo-comments").jump_next()
 end, { desc = "next Todo Comment" })
@@ -255,3 +224,11 @@ map(
 	"<CMD>Trouble lsp toggle focus=false win.position=right<cr>",
 	{ desc = "LSP Definitions(Trouble)" }
 )
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grr")
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })

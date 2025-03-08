@@ -124,6 +124,12 @@ return {
 				[".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
 				["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
 			},
+			directory = {
+				pictures = {
+					glyph = "󰉏",
+					hl = "MiniIconsOrange",
+				},
+			},
 			filetype = {
 				dotenv = { glyph = "", hl = "MiniIconsYellow" },
 			},
@@ -217,6 +223,7 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		priority = 1000,
+		lazy = false,
 		opts = {
 			on_highlights = function(hl, c)
 				local prompt = "#2d3149"
@@ -376,6 +383,7 @@ return {
 	},
 	{
 		"numToStr/Comment.nvim",
+		event = "VeryLazy",
 		opts = {
 			padding = true,
 		},
@@ -432,6 +440,12 @@ return {
 		opts = function()
 			local icons = vim.deepcopy(vim.g.icons)
 			icons.lua = { Package = icons.Control }
+			local filter_kind = false
+			if vim.g.kind_filter then
+				filter_kind = assert(vim.deepcopy(vim.g.kind_filter))
+				filter_kind._ = filter_kind.default
+				filter_kind.default = nil
+			end
 			local opts = {
 				attach_mode = "global",
 				backends = { "lsp", "treesitter", "markdown", "man" },
@@ -445,7 +459,7 @@ return {
 					},
 				},
 				icons = icons,
-				-- filter_kind = filter_kind,
+				filter_kind = filter_kind,
 				guides = {
 					mid_item = "├╴",
 					last_item = "└╴",

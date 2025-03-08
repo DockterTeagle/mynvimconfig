@@ -2,8 +2,8 @@ local opt = vim.opt
 local o = vim.o
 
 -------------------------------------- options ------------------------------------------
-o.conceallevel = 2
-o.concealcursor = "nc"
+-- o.conceallevel = 2
+-- o.concealcursor = "nc"
 o.laststatus = 3
 o.showmode = false
 
@@ -12,6 +12,8 @@ o.cursorlineopt = "number"
 
 -- Indenting
 o.expandtab = true
+opt.shiftround = true
+opt.termguicolors = true
 o.shiftwidth = 2
 o.smartindent = true
 o.tabstop = 2
@@ -49,5 +51,12 @@ opt.laststatus = 3
 opt.splitkeep = "screen"
 o.foldcolumn = "1"
 o.foldlevel = 99
-o.foldlevelstart = 99
+-- o.foldlevelstart = 99
+opt.inccommand = "split"
 o.foldenable = true
+-- opt.statuscolumn = [[!v:lua.require'snacks.statuscolumn'.get()]]
+opt.completeopt = "menu,menuone,noselect"
+opt.smoothscroll = true
+opt.fillchars = { foldopen = "", foldclose = "", fold = " ", foldsep = " ", diff = "╱", eob = " " }
+-- opt.foldexpr = "v:lua.LazyVim.ui.foldexpr()"
+-- opt.foldmethod = "expr"
