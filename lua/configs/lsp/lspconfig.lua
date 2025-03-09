@@ -26,16 +26,22 @@ local nixdOpts = {
 		nixd = {
 			formatting = { command = { "alejandra" } },
 			nixpkgs = {
-				expr = 'import (builtins.getFlake "/home/cdockter/myNixOS").inputs.nixpkgs { }',
+				expr = string.format(
+					'(builtins.getFlake "%s").inputs.nixpkgs {}',
+					vim.fn.getcwd() ~= "" and vim.fn.getcwd() or "/home/cdockter/myNixOS"
+				),
 			},
 			options = {
 				nixOptions = {
-					expr = '(builtins.getFlake "/home/cdockter/myNixOS").nixosConfigurations.nixos.options',
+					expr = string.format(
+						'(builtins.getFlake "%s").nixosConfigurations.nixos.options',
+						vim.fn.getcwd() ~= "" and vim.fn.getcwd()
+					),
 				},
 				home_manager = {
 					expr = string.format(
 						'(builtins.getFlake "%s").homeConfigurations."cdockter".options',
-						vim.fn.getcwd() ~= "" and vim.fn.getcwd() or "/home/cdockter/myNixOS"
+						vim.fn.getcwd() ~= "" and vim.fn.getcwd()
 					),
 				},
 				flake_parts = {

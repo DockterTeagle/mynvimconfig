@@ -96,17 +96,4 @@ return {
 			}
 		end,
 	},
-	{
-		"mfussenegger/nvim-dap-python",
-		ft = "python",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
-		},
-		config = function()
-			local dap = require("dap-python")
-			dap.setup("python")
-			dap.test_runner = "pytest"
-		end,
-	},
 }

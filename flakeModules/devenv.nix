@@ -17,8 +17,9 @@
         marksman
         ltex-ls-plus
         commitlint
-        markdownlint-cli2
         deno
+        nodePackages_latest.prettier
+        github-markdown-toc-go
       ];
       git-hooks = {
         enabledPackages = with pkgs; [

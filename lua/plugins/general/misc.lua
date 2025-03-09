@@ -213,6 +213,9 @@ return {
 			-- better deal with markdown code blocks
 			markdown = true,
 		},
+		config = function(_, opts)
+			LazyVim.mini.pairs(opts)
+		end,
 		event = "VeryLazy",
 	},
 	{
@@ -224,6 +227,9 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		lazy = false,
+		init = function()
+			vim.cmd([[colorscheme tokyonight]])
+		end,
 		opts = {
 			on_highlights = function(hl, c)
 				local prompt = "#2d3149"
