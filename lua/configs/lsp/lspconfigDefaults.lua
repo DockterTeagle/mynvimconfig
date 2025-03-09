@@ -17,7 +17,6 @@ M.on_attach = function(client, bufnr)
 		-- 	require("clangd_extensions.inlay_hints").setup_autocmd()
 		-- 	require("clangd_extensions.inlay_hints").set_inlay_hints()
 		-- end
-		-- vim.lsp.set_log_level("debug")
 		map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 		map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
 		map("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
