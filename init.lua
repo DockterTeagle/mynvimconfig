@@ -8,13 +8,16 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require("options")
 _G.LazyVim = require("util")
 require("lazy").setup({
-	LazyVim.load_all(vim.fn.stdpath("config") .. "/lua/plugins", "plugins"),
+	{ import = "plugins.general" },
+	{ import = "plugins.FolkePlugins" },
+	{ import = "plugins.ftplugin" },
 }, require("configs.lazy"))
 vim.schedule(function()
 	require("mappings")
 end)
-require("options")
-require("autocmds")
-vim.cmd([[colorscheme tokyonight]])
+vim.schedule(function()
+	require("autocmds")
+end)
