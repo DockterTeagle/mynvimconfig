@@ -5,7 +5,7 @@ setmetatable(M, {
 		if LazyUtil[k] then
 			return LazyUtil[k]
 		end
-		t[k] = require("lazyvim.util." .. k)
+		t[k] = require("util." .. k)
 		return t[k]
 	end,
 })
