@@ -42,9 +42,9 @@ local M = {
 			},
 		},
 		accept = {
-			auto_brackets = {
-				enabled = true,
-			},
+			-- auto_brackets = {
+			-- 	enabled = true,
+			-- },
 		},
 	},
 	keymap = {
