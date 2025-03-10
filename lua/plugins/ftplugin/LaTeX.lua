@@ -1,5 +1,22 @@
 return {
 	{
+		"barreiroleo/ltex_extra.nvim",
+		branch = "dev",
+		ft = { "markdown", "tex" },
+		opts = {
+			---@type string[]
+			-- See https://valentjn.github.io/ltex/supported-languages.html#natural-languages
+			load_langs = { "en-US" },
+			---@type "none" | "fatal" | "error" | "warn" | "info" | "debug" | "trace"
+			log_level = "none",
+			---@type string File's path to load.
+			-- The setup will normalice it running vim.fs.normalize(path).
+			-- e.g. subfolder in project root or cwd: ".ltex"
+			-- e.g. cross project settings:  vim.fn.expand("~") .. "/.local/share/ltex"
+			path = ".ltex",
+		},
+	},
+	{
 		"lervag/vimtex",
 		lazy = false,
 		config = function()
@@ -44,5 +61,46 @@ return {
 			}
 			vim.g.vimtex_view_method = "zathura"
 		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				texlab = {
+					settings = {
+						ltex_plus = {
+							settings = {
+								ltex = {
+									-- statusBarItem = true,
+									clearDiagnosticsWhenClosingFile = false,
+									enabled = true,
+									additionalRules = {
+										enablePickyRules = true,
+										motherTongue = "en-US",
+									},
+									-- checkFrequency = "save",
+									language = "en-US",
+								},
+							},
+							texlab = {
+								forwardSearch = {
+									executable = "zathura",
+								},
+								build = {
+									useFileList = true,
+								},
+								chktex = {
+									onOpenAndSave = true,
+									onEdit = true,
+								},
+								experimental = {
+									followPackageLinks = true,
+								},
+							},
+						},
+					},
+				},
+			},
+		},
 	},
 }

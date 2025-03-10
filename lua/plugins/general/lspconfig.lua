@@ -1,3 +1,18 @@
+local ltexopts = {
+	settings = {
+		ltex = {
+			-- statusBarItem = true,
+			clearDiagnosticsWhenClosingFile = false,
+			enabled = true,
+			additionalRules = {
+				enablePickyRules = true,
+				motherTongue = "en-US",
+			},
+			-- checkFrequency = "save",
+			language = "en-US",
+		},
+	},
+}
 return {
 	{
 		"kosayoda/nvim-lightbulb",
@@ -14,9 +29,22 @@ return {
 		dependencies = {
 			"saghen/blink.cmp",
 		},
-		opts = function()
-			return require("configs.lsp.lspconfig")
-		end,
+		opts = {
+			servers = {
+				marksman = {},
+				bashls = {},
+				denols = {},
+				vimls = {},
+				-- "julials",
+				jsonls = {},
+				matlab_ls = {},
+				neocmake = {},
+				ltex_plus = ltexopts,
+				hyprls = {},
+				zls = {},
+				bacon_ls = { enabled = diagnostics == "bacon-ls" },
+			},
+		},
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
 			for server, server_config in pairs(opts.servers) do

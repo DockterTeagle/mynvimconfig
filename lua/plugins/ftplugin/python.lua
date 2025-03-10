@@ -7,22 +7,54 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
+				basedpyright = {
+					settings = {
+						pyright = {
+							disableOrganizeImports = true,
+						},
+						python = {
+							analysis = {
+								ignore = { "*" },
+							},
+						},
+					},
+				},
 				ruff = {
 					cmd_env = { RUFF_TRACE = "messages" },
 					init_options = {
-						-- settings = {
-						-- 	logLevel = "error",
-						-- },
+						settings = {
+							logLevel = "error",
+							configurationPreference = "filesystemFirst",
+							codeAction = {
+								fixViolation = {
+									enable = true,
+								},
+							},
+							lint = {
+								preview = true,
+							},
+							format = {
+								preview = true,
+							},
+							disableRuleComment = {
+								enable = false,
+							},
+						},
 					},
 				},
 			},
+			-- FIXME: need to fix this and make it work
+			--
 			-- setup = {
-			-- 	[ruff] = function()
-			-- 		LazyVim.lsp.on_attach(function(client, _)
-			-- 			-- Disable hover in favor of Pyright
-			-- 			client.server_capabilities.hoverProvider = false
-			-- 		end, ruff)
+			-- 	ruff = function(client)
+			-- 		client.server_capabilities.hoverProvider = false
 			-- 	end,
+			-- 	-- [ruff] = function()
+			-- 	-- 	LazyVim.lsp.on_attach(function(client, _)
+			-- 	-- 		-- Disable hover in favor of Pyright
+			-- 	-- 		client.server_capabilities.hoverProvider = false
+			-- 	-- 	end, ruff)
+			-- 	-- end,
 			-- },
 		},
 	},

@@ -13,10 +13,6 @@ M.on_attach = function(client, bufnr)
 		if client.name == "ruff" then
 			client.server_capabilities.hoverProvider = false
 		end
-		-- if client.name == "clangd" then
-		-- 	require("clangd_extensions.inlay_hints").setup_autocmd()
-		-- 	require("clangd_extensions.inlay_hints").set_inlay_hints()
-		-- end
 		map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 		map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
 		map("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
@@ -27,8 +23,6 @@ M.on_attach = function(client, bufnr)
 		-- map("n", "<leader>wl", function()
 		-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		-- end, opts("List workspace folders"))
-
-		-- map("n", "<leader>D", vim.lsp.buf.type_definition, opts("Go to type definition"))
 
 		map({ "n", "v" }, "<leader>ca", function()
 			vim.lsp.buf.code_action()
