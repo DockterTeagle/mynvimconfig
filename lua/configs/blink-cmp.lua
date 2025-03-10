@@ -78,11 +78,16 @@ local M = {
 	-- default list of enabled providers defined so that you can extend it
 	-- elsewhere in your config, without redefining it, via `opts_extend`
 	sources = {
-
 		providers = {
-			ripgrep = {
-				name = "Ripgrep",
-				module = "blink-ripgrep",
+			conventional_commits = {
+				name = "Conventional Commits",
+				module = "blink-cmp-conventional-commits",
+				enabled = function()
+					return vim.bo.filetype == "gitcommit"
+				end,
+				---@module 'blink-cmp-conventional-commits'
+				---@type blink-cmp-conventional-commits.Options
+				opts = {}, -- none so far
 			},
 			lazydev = {
 				name = "LazyDev",
@@ -95,7 +100,7 @@ local M = {
 				},
 			},
 		},
-		default = { "snippets", "lsp", "path", "lazydev" },
+		default = { "snippets", "lsp", "path", "lazydev", "conventional_commits" },
 		-- optionally disable cmdline completions
 	},
 	cmdline = { enabled = false },
