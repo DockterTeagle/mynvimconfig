@@ -1,5 +1,10 @@
 return {
 	{
+		"folke/ts-comments.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+	{
 		"folke/persistence.nvim",
 		event = "BufReadPre",
 		opts = {},
