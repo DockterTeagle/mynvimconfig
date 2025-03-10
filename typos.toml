@@ -1,0 +1,8 @@
+[default]
+extend-ignore-re = [
+  ".*<Leader>.*$",
+  ".*<leader>.*",
+  ".*<localleader>.*$",
+]
+[default.extend-words]
+noice = "noice"
