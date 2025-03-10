@@ -79,6 +79,8 @@ local M = {
 	-- elsewhere in your config, without redefining it, via `opts_extend`
 	sources = {
 		providers = {
+			dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+
 			conventional_commits = {
 				name = "Conventional Commits",
 				module = "blink-cmp-conventional-commits",
@@ -100,7 +102,12 @@ local M = {
 				},
 			},
 		},
-		default = { "snippets", "lsp", "path", "lazydev", "conventional_commits" },
+		default = { "snippets", "lsp", "path", "conventional_commits" },
+		per_filetype = {
+			sql = { "snippets", "dadbod", "buffer" },
+			lua = { "snippets", "lsp", "lazydev", "path" },
+			gitcommit = { "snippets", "path", "conventional_commits", "lsp" },
+		},
 		-- optionally disable cmdline completions
 	},
 	cmdline = { enabled = false },

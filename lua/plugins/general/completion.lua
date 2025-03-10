@@ -1,12 +1,31 @@
 return {
-
 	{
 		"saghen/blink.cmp",
 
 		lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
 		dependencies = {
-			"mikavilpas/blink-ripgrep.nvim",
+			{ "disrupted/blink-cmp-conventional-commits" },
+			{
+				"xzbdmw/colorful-menu.nvim",
+			},
+			{
+				"kristijanhusak/vim-dadbod-completion",
+				dependencies = {
+					"tpope/vim-dadbod",
+					{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+				},
+				cmd = {
+					"DBUI",
+					"DBUIToggle",
+					"DBUIAddConnection",
+					"DBUIFindBuffer",
+				},
+				init = function()
+					-- Your DBUI configuration
+					vim.g.db_ui_use_nerd_fonts = 1
+				end,
+			},
 			{
 				"L3MON4D3/LuaSnip",
 				lazy = false,
@@ -37,14 +56,12 @@ return {
 		-- Uncomment next line if you want to follow only stable versions
 		-- version = "*"
 	},
+	-- snippet editing
 	{
 		"chrisgrieser/nvim-scissors",
 		dependencies = "nvim-telescope/telescope.nvim",
 		opts = {
 			snippetDir = vim.g.luasnippets_path,
 		},
-	},
-	{
-		"xzbdmw/colorful-menu.nvim",
 	},
 }
