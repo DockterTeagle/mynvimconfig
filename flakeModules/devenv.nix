@@ -19,7 +19,7 @@
         commitlint
         deno
         nodePackages_latest.prettier
-        github-markdown-toc-go
+        typos
       ];
       git-hooks = {
         enabledPackages = with pkgs; [

@@ -10,7 +10,10 @@
       package = inputs'.alejandra.packages.default;
     };
     stylua.enable = true;
-    # typos.enable = true;
+    typos = {
+      enable = true;
+      configFile = ".typos.toml";
+    };
   };
   build = {
     check = self';
