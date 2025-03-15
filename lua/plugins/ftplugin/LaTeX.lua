@@ -66,37 +66,36 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
+				ltex_plus = {
+					settings = {
+						ltex = {
+							-- statusBarItem = true,
+							clearDiagnosticsWhenClosingFile = false,
+							enabled = true,
+							additionalRules = {
+								enablePickyRules = true,
+								motherTongue = "en-US",
+							},
+							-- checkFrequency = "save",
+							language = "en-US",
+						},
+					},
+				},
 				texlab = {
 					settings = {
-						ltex_plus = {
-							settings = {
-								ltex = {
-									-- statusBarItem = true,
-									clearDiagnosticsWhenClosingFile = false,
-									enabled = true,
-									additionalRules = {
-										enablePickyRules = true,
-										motherTongue = "en-US",
-									},
-									-- checkFrequency = "save",
-									language = "en-US",
-								},
-							},
-							texlab = {
-								forwardSearch = {
-									executable = "zathura",
-								},
-								build = {
-									useFileList = true,
-								},
-								chktex = {
-									onOpenAndSave = true,
-									onEdit = true,
-								},
-								experimental = {
-									followPackageLinks = true,
-								},
-							},
+
+						forwardSearch = {
+							executable = "zathura",
+						},
+						build = {
+							useFileList = true,
+						},
+						chktex = {
+							onOpenAndSave = true,
+							onEdit = true,
+						},
+						experimental = {
+							followPackageLinks = true,
 						},
 					},
 				},

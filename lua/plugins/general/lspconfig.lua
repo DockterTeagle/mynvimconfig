@@ -1,19 +1,11 @@
-local ltexopts = {
-	settings = {
-		ltex = {
-			-- statusBarItem = true,
-			clearDiagnosticsWhenClosingFile = false,
-			enabled = true,
-			additionalRules = {
-				enablePickyRules = true,
-				motherTongue = "en-US",
-			},
-			-- checkFrequency = "save",
-			language = "en-US",
-		},
-	},
-}
 return {
+	{
+		"lewis6991/hover.nvim",
+		event = "LspAttach",
+		config = function()
+			require("hover.providers.lsp")
+		end,
+	},
 	{
 		"kosayoda/nvim-lightbulb",
 		event = "LspAttach",
@@ -35,11 +27,9 @@ return {
 				bashls = {},
 				denols = {},
 				vimls = {},
-				-- "julials",
 				jsonls = {},
 				matlab_ls = {},
 				neocmake = {},
-				ltex_plus = ltexopts,
 				hyprls = {},
 				zls = {},
 				bacon_ls = { enabled = diagnostics == "bacon-ls" },

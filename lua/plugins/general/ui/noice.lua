@@ -55,9 +55,22 @@ return {
 				view = "mini",
 			},
 		},
+		views = {
+			hover = {
+				border = { style = "rounded" },
+			},
+			win_options = {
+				wrap = true,
+				linebreak = true,
+				conceallevel = 2, -- Hides `**` and `_` in Markdown, makes it look cleaner
+				concealcursor = "n", -- Conceal formatting when not editing
+			},
+		},
 		lsp = {
 			hover = {
 				enabled = true,
+				silent = false,
+				view = "hover",
 			},
 			-- progress = { enabled = false },
 			messages = {
@@ -70,6 +83,9 @@ return {
 			},
 			signature = {
 				enabled = true,
+				auto_open = {
+					enabled = true,
+				},
 			},
 		},
 		presets = {

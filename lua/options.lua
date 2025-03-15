@@ -2,8 +2,8 @@ local opt = vim.opt
 local o = vim.o
 
 -------------------------------------- options ------------------------------------------
--- o.conceallevel = 2
--- o.concealcursor = "nc"
+o.conceallevel = 2
+o.concealcursor = "nc"
 o.laststatus = 3
 o.showmode = false
 
@@ -54,7 +54,7 @@ o.foldlevel = 99
 -- o.foldlevelstart = 99
 opt.inccommand = "split"
 o.foldenable = true
--- opt.statuscolumn = [[!v:lua.require'snacks.statuscolumn'.get()]]
+opt.statuscolumn = [[!v:lua.require'snacks.statuscolumn'.get()]]
 opt.completeopt = "menu,menuone,noselect"
 opt.smoothscroll = true
 opt.fillchars = { foldopen = "", foldclose = "", fold = " ", foldsep = " ", diff = "╱", eob = " " }

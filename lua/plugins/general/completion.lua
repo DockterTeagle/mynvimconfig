@@ -1,30 +1,36 @@
 return {
 	{
+		"kristijanhusak/vim-dadbod-ui",
+		dependencies = {
+			"tpope/vim-dadbod",
+			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+		},
+		cmd = {
+			"DBUI",
+			"DBUIToggle",
+			"DBUIAddConnection",
+			"DBUIFindBuffer",
+		},
+		init = function()
+			-- Your DBUI configuration
+			vim.g.db_ui_use_nerd_fonts = 1
+		end,
+	},
+	{
 		"saghen/blink.cmp",
 
 		lazy = false, -- lazy loading handled internally
-		-- optional: provides snippets for the snippet source
 		dependencies = {
 			{ "disrupted/blink-cmp-conventional-commits" },
 			{
 				"xzbdmw/colorful-menu.nvim",
 			},
 			{
-				"kristijanhusak/vim-dadbod-completion",
-				dependencies = {
-					"tpope/vim-dadbod",
-					{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
-				},
-				cmd = {
-					"DBUI",
-					"DBUIToggle",
-					"DBUIAddConnection",
-					"DBUIFindBuffer",
-				},
-				init = function()
-					-- Your DBUI configuration
-					vim.g.db_ui_use_nerd_fonts = 1
-				end,
+				"MahanRahmati/blink-nerdfont.nvim",
+			},
+			{
+				"Kaiser-Yang/blink-cmp-git",
+				dependencies = { "nvim-lua/plenary.nvim" },
 			},
 			{
 				"L3MON4D3/LuaSnip",

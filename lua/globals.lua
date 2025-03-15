@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.g.deprecation_warnings = false
-vim.g.markdown_recomended_style = 0
+vim.g.markdown_recommended_style = 0
 vim.g.snacks_animate = true
 vim.g.icons = {
 	misc = {

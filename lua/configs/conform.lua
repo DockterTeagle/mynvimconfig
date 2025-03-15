@@ -17,7 +17,7 @@ local options = {
 					elixir = "exs",
 					javascript = "js",
 					julia = "jl",
-					latex = "tex",
+					-- latex = "tex",
 					markdown = "md",
 					python = "py",
 					ruby = "rb",
@@ -43,6 +43,7 @@ local options = {
 		toml = { "taplo" },
 		yaml = { "yq" },
 		markdown = { "markdownlint-cli2" },
+		nu = { "nufmt" },
 	},
 	format_on_save = {
 		timeout_ms = 500,

@@ -22,7 +22,6 @@ return {
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 		opts = {
 			highlight = { timer = 150 },
-			ring = { storage = "sqlite" },
 		},
 		keys = {
 			{
@@ -124,26 +123,6 @@ return {
 		cmd = "IncRename",
 	},
 	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			{
-				"sindrets/diffview.nvim",
-				cmd = {
-					"DiffviewOpen",
-					"DiffviewToggleFiles",
-					"DiffviewFocusFiles",
-					"DiffviewRefresh",
-				},
-			},
-
-			-- Only one of these is needed, not both.
-			"nvim-telescope/telescope.nvim", -- optional
-		},
-		cmd = "Neogit",
-		config = true,
-	},
-	{
 		"numToStr/Comment.nvim",
 		event = "VeryLazy",
 		opts = {
@@ -218,5 +197,9 @@ return {
 				desc = "Aerial Toggle",
 			},
 		},
+	},
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
 	},
 }

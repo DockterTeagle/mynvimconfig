@@ -80,7 +80,9 @@ local mappings = {
 			"Step out of function",
 		},
 		["<leader>dc"] = {
-			"<cmd> DapContinue <CR>",
+			function()
+				require("dap").continue()
+			end,
 			"Start or continue the debugger",
 		},
 		["<leader>dus"] = {
@@ -224,10 +226,10 @@ map(
 	"<CMD>Trouble lsp toggle focus=false win.position=right<cr>",
 	{ desc = "LSP Definitions(Trouble)" }
 )
-vim.keymap.del("n", "gra")
-vim.keymap.del("n", "gri")
-vim.keymap.del("n", "grn")
-vim.keymap.del("n", "grr")
+-- vim.keymap.del("n", "gra")
+-- vim.keymap.del("n", "gri")
+-- vim.keymap.del("n", "grn")
+-- vim.keymap.del("n", "grr")
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })

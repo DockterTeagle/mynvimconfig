@@ -12,7 +12,6 @@ require("options")
 _G.LazyVim = require("util")
 require("lazy").setup({
 	{ import = "plugins.general" },
-	{ import = "plugins.FolkePlugins" },
 	{ import = "plugins.ftplugin" },
 }, require("configs.lazy"))
 vim.schedule(function()
