@@ -16,7 +16,6 @@
         codespell
         marksman
         ltex-ls-plus
-        commitlint
         deno
         nodePackages_latest.prettier
         typos
