@@ -20,31 +20,31 @@ return {
 			end,
 		},
 	},
-	-- {
-	-- 	"neovim/nvim-lspconfig",
-	-- 	opts = {
-	-- 		servers = {
-	-- 			lua_ls = {
-	-- 				settings = {
-	-- 					Lua = {
-	-- 						codelens = {
-	-- 							enable = true,
-	-- 							properties = { enable = true },
-	-- 						},
-	-- 						runtime = {
-	-- 							version = "LuaJIT",
-	-- 						},
-	-- 						telemetry = {
-	-- 							enable = false,
-	-- 						},
-	-- 						workspace = {
-	-- 							maxPreload = 100000,
-	-- 							preloadFileSize = 10000,
-	-- 						},
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				lua_ls = {
+					settings = {
+						Lua = {
+							codelens = {
+								enable = true,
+								properties = { enable = true },
+							},
+							runtime = {
+								version = "LuaJIT",
+							},
+							telemetry = {
+								enable = false,
+							},
+							workspace = {
+								maxPreload = 100000,
+								preloadFileSize = 10000,
+							},
+						},
+					},
+				},
+			},
+		},
+	},
 }
