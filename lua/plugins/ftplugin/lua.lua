@@ -11,7 +11,6 @@ return {
 				{ "neotest", words = { "neotest" } },
 				{ "luvit-meta", words = { "vim%.uv" } },
 				"lazy.nvim",
-				{ "neovim/nvim-lspconfig", words = { "server", "nvim-lspconfig" } },
 				{ "lazydev.nvim", words = { "lazydev" } },
 				{ "snacks.nvim", words = { "snacks" } },
 				{ "lspsaga.nvim", { words = "lspsaga" } },
@@ -21,31 +20,31 @@ return {
 			end,
 		},
 	},
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				lua_ls = {
-					settings = {
-						Lua = {
-							codelens = {
-								enable = true,
-								properties = { enable = true },
-							},
-							runtime = {
-								version = "LuaJIT",
-							},
-							telemetry = {
-								enable = false,
-							},
-							workspace = {
-								maxPreload = 100000,
-								preloadFileSize = 10000,
-							},
-						},
-					},
-				},
-			},
-		},
-	},
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	opts = {
+	-- 		servers = {
+	-- 			lua_ls = {
+	-- 				settings = {
+	-- 					Lua = {
+	-- 						codelens = {
+	-- 							enable = true,
+	-- 							properties = { enable = true },
+	-- 						},
+	-- 						runtime = {
+	-- 							version = "LuaJIT",
+	-- 						},
+	-- 						telemetry = {
+	-- 							enable = false,
+	-- 						},
+	-- 						workspace = {
+	-- 							maxPreload = 100000,
+	-- 							preloadFileSize = 10000,
+	-- 						},
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 }
