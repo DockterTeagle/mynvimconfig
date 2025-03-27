@@ -39,4 +39,16 @@ return {
 		cmd = "Neogit",
 		config = true,
 	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = {
+				"gitignore",
+				"gitattributes",
+				"gitcommit",
+				"git_config",
+				"git_rebase",
+			},
+		},
+	},
 }
