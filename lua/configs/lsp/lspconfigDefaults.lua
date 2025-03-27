@@ -7,7 +7,7 @@ M.on_attach = function(client, bufnr)
 		local function opts(desc)
 			return { buffer = bufnr, desc = "LSP " .. desc }
 		end
-		if client.supports_method("textDocument/inlayHint") then
+		if client:supports_method("textDocument/inlayHint") then
 			vim.lsp.inlay_hint.enable(true)
 		end
 		if client.name == "ruff" then
