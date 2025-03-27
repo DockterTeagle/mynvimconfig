@@ -10,6 +10,7 @@
       package = inputs'.alejandra.packages.default;
     };
     stylua.enable = true;
+    mdformat.enable = true;
     typos = {
       enable = true;
       configFile = ".typos.toml";

@@ -42,7 +42,7 @@ local options = {
 		tex = { "tex-fmt" },
 		toml = { "taplo" },
 		yaml = { "yq" },
-		markdown = { "markdownlint-cli2" },
+		markdown = { "markdownlint-cli2", "mdformat" },
 		nu = { "nufmt" },
 	},
 	format_on_save = {
