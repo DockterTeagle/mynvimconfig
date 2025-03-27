@@ -11,3 +11,5 @@
 - \[ \] make this incoherent mess of a config better (especially misc.lua)
 
 - \[ \] use more nix (maybe make a separate nix folder?)
+
+- \[ \] migrate to Nvim 0.11
