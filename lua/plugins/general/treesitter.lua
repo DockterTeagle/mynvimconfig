@@ -2,14 +2,13 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
-		config = function(_, opts)
-			if type(opts.ensure_installed) == "table" then
-				opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
-			end
-			require("nvim-treesitter.configs").setup(opts)
-		end,
 		opts = function()
 			return require("configs.overrides.treesitter")
+		end,
+		opts_extend = { "ensure_installed" },
+		config = function(_, opts)
+			local configs = require("nvim-treesitter.configs")
+			configs.setup(opts)
 		end,
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre", "VeryLazy" },
