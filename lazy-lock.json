@@ -11,7 +11,7 @@
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "db28f29be928d18cbfb86fbfb9f83f584f658feb" },
   "cmake-tools.nvim": { "branch": "master", "commit": "a5d5bf0a93bb96085502334a5036fc054ad9cf33" },
-  "colorful-menu.nvim": { "branch": "master", "commit": "91621b22c334812e5bbf0c8f82fc03869279acfe" },
+  "colorful-menu.nvim": { "branch": "master", "commit": "ca06b2ea7e6d7b3b1705f9b001ca4aa8af414846" },
   "conform.nvim": { "branch": "master", "commit": "f9ef25a7ef00267b7d13bfc00b0dea22d78702d5" },
   "cord.nvim": { "branch": "master", "commit": "4972c1fb564e85771398b31ac65c23b2cb6fe973" },
   "crates.nvim": { "branch": "main", "commit": "fd2bbca7aa588f24ffc3517831934b4c4a9588e9" },
