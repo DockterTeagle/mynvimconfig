@@ -24,6 +24,7 @@
         enabledPackages = with pkgs; [
           markdownlint-cli2
           markdownlint-cli
+          mdformat
           mdsh
           commitizen
           statix

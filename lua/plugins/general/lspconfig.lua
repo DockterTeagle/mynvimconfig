@@ -1,20 +1,13 @@
 return {
-	{
-		"lewis6991/hover.nvim",
-		event = "LspAttach",
-		config = function()
-			require("hover.providers.lsp")
-		end,
-	},
-	{
-		"kosayoda/nvim-lightbulb",
-		event = "LspAttach",
-		opts = {
-			autocmd = {
-				enabled = true,
-			},
-		},
-	},
+	-- {
+	-- 	"kosayoda/nvim-lightbulb",
+	-- 	event = "LspAttach",
+	-- 	opts = {
+	-- 		autocmd = {
+	-- 			enabled = true,
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
@@ -22,18 +15,7 @@ return {
 			"saghen/blink.cmp",
 		},
 		opts = {
-			servers = {
-				marksman = {},
-				bashls = {},
-				denols = {},
-				vimls = {},
-				jsonls = {},
-				matlab_ls = {},
-				neocmake = {},
-				hyprls = {},
-				zls = {},
-				bacon_ls = { enabled = diagnostics == "bacon-ls" },
-			},
+			servers = {},
 		},
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")

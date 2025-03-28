@@ -62,44 +62,4 @@ return {
 			vim.g.vimtex_view_method = "zathura"
 		end,
 	},
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				ltex_plus = {
-					settings = {
-						ltex = {
-							-- statusBarItem = true,
-							clearDiagnosticsWhenClosingFile = false,
-							enabled = true,
-							additionalRules = {
-								enablePickyRules = true,
-								motherTongue = "en-US",
-							},
-							-- checkFrequency = "save",
-							language = "en-US",
-						},
-					},
-				},
-				texlab = {
-					settings = {
-
-						forwardSearch = {
-							executable = "zathura",
-						},
-						build = {
-							useFileList = true,
-						},
-						chktex = {
-							onOpenAndSave = true,
-							onEdit = true,
-						},
-						experimental = {
-							followPackageLinks = true,
-						},
-					},
-				},
-			},
-		},
-	},
 }
