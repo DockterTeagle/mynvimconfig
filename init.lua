@@ -8,6 +8,23 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.lsp.enable({
+	"clangd",
+	"luals",
+	"nixd",
+	-- "ruff",
+	-- "basedpyright",
+	-- "baconls",
+	-- "bashls",
+	-- "deno",
+	-- "hyprls",
+	"ltexplus",
+	"marksman",
+	-- "matlabls",
+	-- "neocmake",
+	-- "texlab",
+	-- "zls",
+})
 require("options")
 _G.LazyVim = require("util")
 require("lazy").setup({

@@ -13,3 +13,5 @@
 - \[ \] use more nix (maybe make a separate nix folder?)
 
 - \[ \] migrate to Nvim 0.11
+
+- \[ \]get all the LazyDev nicities

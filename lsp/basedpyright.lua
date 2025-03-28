@@ -1,13 +1,12 @@
-
--- 			basedpyright = {
--- 				settings = {
--- 					pyright = {
--- 						disableOrganizeImports = true,
--- 					},
--- 					python = {
--- 						analysis = {
--- 							ignore = { "*" },
--- 						},
--- 					},
--- 				},
--- 			},
+return {
+	settings = {
+		pyright = {
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				ignore = { "*" },
+			},
+		},
+	},
+}
