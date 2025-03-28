@@ -3,7 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
 		opts = function()
-			return require("configs.overrides.treesitter")
+			return require("configs.treesitter")
 		end,
 		opts_extend = { "ensure_installed" },
 		config = function(_, opts)
