@@ -134,7 +134,6 @@ return {
 		opts = {},
 		dependencies = {
 			"kevinhwang91/promise-async",
-			"neovim/nvim-lspconfig",
 		},
 	},
 	{

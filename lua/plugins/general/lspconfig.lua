@@ -15,18 +15,7 @@ return {
 			"saghen/blink.cmp",
 		},
 		opts = {
-			servers = {
-				bacon_ls = { enabled = diagnostics == "bacon-ls" },
-				bashls = {},
-				denols = {},
-				hyprls = {},
-				jsonls = {},
-				marksman = {},
-				matlab_ls = {},
-				neocmake = {},
-				vimls = {},
-				zls = {},
-			},
+			servers = {},
 		},
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
