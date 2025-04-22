@@ -1,35 +1,32 @@
-
--- 			ruff = {
--- 				cmd_env = { RUFF_TRACE = "messages" },
--- 				init_options = {
--- 					settings = {
--- 						logLevel = "error",
--- 						configurationPreference = "filesystemFirst",
--- 						codeAction = {
--- 							fixViolation = {
--- 								enable = true,
--- 							},
--- 						},
--- 						lint = {
--- 							preview = true,
--- 						},
--- 						format = {
--- 							preview = true,
--- 						},
--- 						disableRuleComment = {
--- 							enable = false,
--- 						},
--- 					},
--- 				},
--- 			},
--- 		-- 	ruff = function(client)
--- 		-- 		client.server_capabilities.hoverProvider = false
--- 		-- 	end,
--- 		-- setup = {
--- 		-- 	-- [ruff] = function()
--- 		-- 	-- 	LazyVim.lsp.on_attach(function(client, _)
--- 		-- 	-- 		-- Disable hover in favor of Pyright
--- 		-- 	-- 		client.server_capabilities.hoverProvider = false
--- 		-- 	-- 	end, ruff)
--- 		-- 	-- end,
--- 		-- },
+return {
+	cmd = { "ruff", "server" },
+	root_markers = {
+		"pyproject.toml",
+		"setup.py",
+		"setup.cfg",
+		"requirements.txt",
+		"Pipfile",
+		"pyrightconfig.json",
+		".git",
+	},
+	filetypes = { "python" },
+	settings = {
+		ruff = {
+			configurationPreference = "filesystemFirst",
+			codeAction = {
+				fixViolation = {
+					enable = true,
+				},
+			},
+			lint = {
+				preview = true,
+			},
+			format = {
+				preview = true,
+			},
+			disableRuleComment = {
+				enable = false,
+			},
+		},
+	},
+}

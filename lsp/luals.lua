@@ -11,8 +11,6 @@ return {
 		"selene.yml",
 		".git",
 	},
-	on_attach = require("configs.lsp.lspconfigDefaults").on_attach(),
-	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	settings = {
 		Lua = {
 			codelens = {

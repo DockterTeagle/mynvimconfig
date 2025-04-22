@@ -1,12 +1,12 @@
 return {
+	root_markers = { "flake.nix" },
 	cmd = {
 		"nixd",
 	},
 	filetypes = { "nix" },
-	on_attach = require("configs.lsp.lspconfigDefaults").on_attach(),
-	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	settings = {
 		nixd = {
+			inlay_hints = true,
 			formatting = { command = { "alejandra" } },
 			nixpkgs = {
 				expr = string.format(

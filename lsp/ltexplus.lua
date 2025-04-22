@@ -21,8 +21,6 @@ return {
 		"typst",
 		"xhtml",
 	},
-	capabilities = require("blink.cmp").get_lsp_capabilities(),
-	on_attach = require("configs.lsp.lspconfigDefaults").on_attach(),
 	settings = {
 		ltex = {
 			-- statusBarItem = true,
