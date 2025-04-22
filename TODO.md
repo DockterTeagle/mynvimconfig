@@ -15,3 +15,9 @@
 - \[ \] migrate to Nvim 0.11
 
 - \[ \]get all the LazyDev nicities
+
+- \[ \] finish all the configs
+
+- \[ \] get commitizen working, and also lazydev working
+
+- \[ \] improve performance
