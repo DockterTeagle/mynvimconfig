@@ -15,4 +15,4 @@
 - \[ \] get commitizen working, and also lazydev working
 
 - \[ \] improve performance
-- \[ \] switch to snacks picker
+- \[ \] finish todo-commentsluasnip
