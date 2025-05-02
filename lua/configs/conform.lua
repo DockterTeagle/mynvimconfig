@@ -1,13 +1,5 @@
 local options = {
 	formatters = {
-		stylua = {
-			column_width = 120,
-			line_endings = "Unix",
-			indent_type = "Spaces",
-			indent_width = 2,
-			quote_style = "AutoPreferDouble",
-			call_parentheses = "None",
-		},
 		injected = {
 			options = {
 				ignore_errors = true,
@@ -42,7 +34,7 @@ local options = {
 		tex = { "tex-fmt" },
 		toml = { "taplo" },
 		yaml = { "yq" },
-		markdown = { "markdownlint-cli2", "mdformat" },
+		markdown = { "dprint" },
 		nu = { "nufmt" },
 	},
 	format_on_save = {

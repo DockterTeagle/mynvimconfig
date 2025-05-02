@@ -33,6 +33,7 @@
           gitleaks
           trufflehog
           convco
+          dprint
           treefmt.build.wrapper
           inputs'.alejandra.packages.default
           stylua
