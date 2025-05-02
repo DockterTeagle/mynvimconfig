@@ -69,7 +69,7 @@ vim.g.icons = {
 		Variable = "󰀫 ",
 	},
 }
-vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/LuaSnip"
+vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/LuaSnip"
 vim.g.kind_filter = {
 	default = {
 		"Class",
