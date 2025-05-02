@@ -40,6 +40,7 @@ return {
 					},
 				},
 			},
+			picker = { enabled = true },
 			animate = { enabled = true },
 			bigfile = { enabled = true },
 			bufdelete = { enabled = true },
