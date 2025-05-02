@@ -157,6 +157,7 @@ map("n", "<leader>rn", function()
 	return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true, desc = "rename the current thing" })
 wk.add({
+	{ "<leader>f", group = "find" },
 	{ "<leader>n", group = "Neo" },
 	{ "<leader>ng", "<cmd>Neogit<CR>", desc = "Open neogit", mode = "n" },
 	{ "<leader>d", group = "debug" },
