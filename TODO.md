@@ -1,11 +1,5 @@
 # TODO
 
-<!--toc:start-->
-
-- [TODO](#todo)
-
-<!--toc:end-->
-
 - \[ \] make tmux keys work in oil
 
 - \[ \] make this incoherent mess of a config better (especially misc.lua)
@@ -21,3 +15,4 @@
 - \[ \] get commitizen working, and also lazydev working
 
 - \[ \] improve performance
+- \[ \] switch to snacks picker
