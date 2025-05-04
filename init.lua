@@ -26,7 +26,7 @@ vim.lsp.config["*"] = {
 }
 vim.lsp.enable({
 	"clangd",
-	"luals",
+	"lua_ls",
 	"nixd",
 	"ruff",
 	"basedpyright",

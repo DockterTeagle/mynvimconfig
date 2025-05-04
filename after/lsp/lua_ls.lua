@@ -25,9 +25,9 @@ return {
 			},
 			workspace = {
 				checkThirdParty = false,
-				library = {
-					vim.env.VIMRUNTIME,
-				},
+				-- library = {
+				-- 	vim.env.VIMRUNTIME,
+				-- },
 				maxPreload = 100000,
 				preloadFileSize = 10000,
 			},
