@@ -19,7 +19,7 @@ return {
 	{
 		"saghen/blink.cmp",
 
-		lazy = false, -- lazy loading handled internally
+		event = "InsertEnter",
 		dependencies = {
 			{ "disrupted/blink-cmp-conventional-commits" },
 			{
@@ -34,8 +34,7 @@ return {
 			},
 			{
 				"L3MON4D3/LuaSnip",
-				lazy = false,
-				version = "v2.*",
+				-- lazy = false,
 				build = "make install_jsregexp",
 				config = function()
 					local ls = require("luasnip")
