@@ -62,12 +62,4 @@ return {
 		-- Uncomment next line if you want to follow only stable versions
 		-- version = "*"
 	},
-	-- snippet editing
-	{
-		"chrisgrieser/nvim-scissors",
-		dependencies = "nvim-telescope/telescope.nvim",
-		opts = {
-			snippetDir = vim.g.luasnippets_path,
-		},
-	},
 }
