@@ -16,7 +16,7 @@ return {
 	},
 	{
 		"pwntester/octo.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "echasnovski/mini.icons" },
+		dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim", "echasnovski/mini.icons" },
 		opts = {},
 	},
 	{
@@ -34,7 +34,7 @@ return {
 			},
 
 			-- Only one of these is needed, not both.
-			"nvim-telescope/telescope.nvim", -- optional
+			"folke/snacks.nvim",
 		},
 		cmd = "Neogit",
 		config = true,

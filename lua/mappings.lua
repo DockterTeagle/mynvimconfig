@@ -26,12 +26,6 @@ end, { desc = "buffer close" })
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
--- telescope
--- map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
--- map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
--- map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
--- map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
--- map("n", "<leader>ff", "<cmd>Telescope find_files <cr>", { desc = "telescope find files" })
 map("n", "<leader>ff", function()
 	Snacks.picker.files()
 end, { desc = "find files using snacks" })
@@ -133,7 +127,6 @@ local mappings = {
 		-- ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
 		["<leader>tTt"] = { "<cmd>Trouble todo toggle<CR>", desc = "Todo(Trouble)" },
 		["<leader>Tll"] = { "<cmd> TodoLocList<CR>" },
-		["<leader>Tte"] = { "<cmd> TodoTelescope<CR>" },
 
 		-- ["<leader>op"] = {
 		-- 	function()
@@ -177,9 +170,6 @@ map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard
 -- Delete to void register
 map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void register" })
 
-map({ "n" }, "<leader>dlb", function()
-	require("telescope").extensions.dap.list_breakpoints({})
-end, { silent = true, desc = "List asll breakpoints" })
 map("n", "]t", function()
 	require("todo-comments").jump_next()
 end, { desc = "next Todo Comment" })
