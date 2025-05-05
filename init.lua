@@ -1,5 +1,4 @@
 require("globals")
--- bootstrap lazy and all plugins
 local map = vim.keymap.set
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
@@ -33,6 +32,7 @@ vim.lsp.enable({
 	"ltexplus",
 	"marksman",
 	"neocmake",
+	"taplo",
 	"texlab",
 })
 vim.api.nvim_create_autocmd("LspAttach", {

@@ -24,14 +24,14 @@ return {
 			highlight = { timer = 150 },
 		},
 		keys = {
-			{
-				"<leader>p",
-				function()
-					require("telescope").extensions.yank_history.yank_history()
-				end,
-				mode = { "n", "x" },
-				desc = "open Yank History",
-			},
+			-- {
+			-- 	"<leader>p",
+			-- 	function()
+			-- 		require("telescope").extensions.yank_history.yank_history()
+			-- 	end,
+			-- 	mode = { "n", "x" },
+			-- 	desc = "open Yank History",
+			-- },
 			{ "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank Text" },
 			{ "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put Text After Cursor" },
 			{ "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put Text Before Cursor" },

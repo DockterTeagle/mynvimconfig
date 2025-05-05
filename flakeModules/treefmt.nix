@@ -18,6 +18,7 @@
       };
       typos = {
         enable = true;
+        sort = true;
         configFile = ".typos.toml";
       };
     };

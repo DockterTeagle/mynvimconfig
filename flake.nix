@@ -27,18 +27,5 @@
         "aarch64-darwin"
       ];
       perSystem = {imports = [./flakeModules];};
-      # perSystem = {
-      #   inputs',
-      #   self',
-      #   pkgs,
-      #   config,
-      #   ...
-      # }: {
-      #   treefmt = import ./flakeModules/treefmt.nix {inherit inputs' self' pkgs;};
-      #   devenv = import ./flakeModules/devenv.nix {
-      #     inherit self' inputs' pkgs;
-      #     inherit (config) treefmt;
-      #   };
-      # };
     };
 }

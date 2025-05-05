@@ -6,6 +6,7 @@ return {
 	{
 		"mfussenegger/nvim-dap-python",
 		ft = "python",
+		cmd = { "DapContinue" },
 		dependencies = {
 			"mfussenegger/nvim-dap",
 			"rcarriga/nvim-dap-ui",

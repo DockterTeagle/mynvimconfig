@@ -14,3 +14,5 @@
 
 - \[ \] improve performance
 - \[ \] finish todo-commentsluasnip
+- \[ \] for nixd make it not break whenever not provided home-manager options
+- \[ \] somehow get rid of .typos.toml

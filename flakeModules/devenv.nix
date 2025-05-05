@@ -17,26 +17,13 @@ in {
       codespell
       marksman
       ltex-ls-plus
-      deno
-      nodePackages_latest.prettier
       typos
     ];
     git-hooks = {
       enabledPackages = with pkgs; [
-        markdownlint-cli2
-        markdownlint-cli
-        mdformat
         mdsh
-        commitizen
         statix
         deadnix
-        flake-checker
-        gitleaks
-        trufflehog
-        convco
-        dprint
-        treefmt.build.wrapper
-        inputs'.alejandra.packages.default
         stylua
       ];
       hooks = {
