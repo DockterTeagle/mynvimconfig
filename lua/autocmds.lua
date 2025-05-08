@@ -1,6 +1,12 @@
 local function augroup(name)
 	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
+-- TODO: get the trouble to open correctly
+--
+-- local function maybe_open_trouble()
+--   local has_any = false
+--   for _,buf in ipairs(vim.api.nvim_list_bufs())
+-- end
 
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -170,3 +176,19 @@ vim.api.nvim_create_autocmd("User", {
 -- 		})
 -- 	end,
 -- })
+--auto open  trouble on error
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+	callback = function(args)
+		local diagnostics = vim.diagnostic.get(args.buf)
+		local trouble = require("trouble")
+		if #diagnostics > 0 then
+			if not trouble.is_open() then
+				trouble.open("diagnostics", { focus = false })
+			end
+			-- else
+			-- 	if trouble.is_open() then
+			-- 		trouble.close()
+			-- 	end
+		end
+	end,
+})
