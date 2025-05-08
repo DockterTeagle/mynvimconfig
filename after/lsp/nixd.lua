@@ -22,11 +22,11 @@ return {
 					),
 				},
 				home_manager = {
-					expr = 'builtins.getFlake"/home/cdockter/myNixOS".homeConfigurations."cdockter".options',
-					-- expr = string.format(
-					-- 	'(builtins.getFlake "%s").homeConfigurations."cdockter".options',
-					-- 	vim.fn.getcwd() ~= "" and vim.fn.getcwd() or "/home/cdockter/myNixOS"
-					-- ),
+					-- expr = 'builtins.getFlake"/home/cdockter/myNixOS".homeConfigurations."cdockter".options',
+					expr = string.format(
+						'(builtins.getFlake "%s").homeConfigurations."cdockter".options',
+						vim.fn.getcwd() ~= "" and vim.fn.getcwd() or "/home/cdockter/myNixOS"
+					),
 				},
 				flake_parts = {
 					expr = string.format(
