@@ -1,5 +1,12 @@
+---@module "conform"
+---@type conform.setupOpts
 local options = {
 	formatters = {
+		treefmt = {
+			inherit = false,
+			command = "treefmt",
+			args = { "--stdin", "$FILENAME" },
+		},
 		injected = {
 			options = {
 				ignore_errors = true,
@@ -30,7 +37,7 @@ local options = {
 		cpp = { "clang-format" },
 		cmake = { "cmake_format" },
 		nix = { "alejandra", "injected" },
-		["*"] = { "codespell", "typos" },
+		["*"] = { "treefmt", "codespell", "typos" },
 		tex = { "tex-fmt" },
 		toml = { "taplo" },
 		yaml = { "yq" },
