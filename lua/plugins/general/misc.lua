@@ -154,50 +154,6 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
-		"stevearc/aerial.nvim",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-		--TODO: Integrate rest of lazyvim on this
-		opts = function()
-			local icons = vim.deepcopy(vim.g.icons)
-			icons.lua = { Package = icons.Control }
-			local filter_kind = false
-			if vim.g.kind_filter then
-				filter_kind = assert(vim.deepcopy(vim.g.kind_filter))
-				filter_kind._ = filter_kind.default
-				filter_kind.default = nil
-			end
-			local opts = {
-				attach_mode = "global",
-				backends = { "lsp", "treesitter", "markdown", "man" },
-				show_guides = true,
-				layout = {
-					resize_to_content = false,
-					win_opts = {
-						winhl = "Normal:NormalFloat,FloatBorder:NormalFloat,SignColumn:SignColumnSB",
-						signcolumn = "yes",
-						statuscolumn = " ",
-					},
-				},
-				icons = icons,
-				filter_kind = filter_kind,
-				guides = {
-					mid_item = "├╴",
-					last_item = "└╴",
-					nested_top = "│ ",
-					whitespace = "  ",
-				},
-			}
-			return opts
-		end,
-		keys = {
-			{
-				"<leader>ou",
-				"<cmd>AerialToggle<CR>",
-				desc = "Aerial Toggle",
-			},
-		},
-	},
-	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},

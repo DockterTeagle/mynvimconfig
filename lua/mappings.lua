@@ -215,13 +215,10 @@ vim.keymap.set(
 map("n", "<leader>Re", function()
 	require("refactoring").refactor("Extract Function")
 end)
-map("n", "<leader>tcs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
-map(
-	"n",
-	"<leader>tcl",
-	"<CMD>Trouble lsp toggle focus=false win.position=right<cr>",
-	{ desc = "LSP Definitions(Trouble)" }
-)
+map("n", "<leader>ou", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+map("n", "<leader>tll", "<CMD>Trouble loclist toggle<CR>", { desc = "toggle loc list with trouble" })
+
+map("n", "<leader>tLd", "<cmd>Trouble lsp toggle focus=false <cr>", { desc = "LSP Definitions(Trouble)" })
 -- vim.keymap.del("n", "gra")
 -- vim.keymap.del("n", "gri")
 -- vim.keymap.del("n", "grn")
