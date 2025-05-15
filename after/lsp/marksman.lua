@@ -1,3 +1,4 @@
+---@type vim.lsp.ClientConfig
 return {
 	cmd = { "marksman" },
 	filetypes = { "markdown", "markdown.mdx" },

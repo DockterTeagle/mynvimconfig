@@ -1,5 +1,5 @@
+---@type vim.lsp.ClientConfig
 return {
-	capabilities = { offSetEncoding = { "utf-16" } },
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -10,6 +10,7 @@ return {
 		"--fallback-style=llvm",
 	},
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+	capabilities = { offSetEncoding = { "utf-16" } },
 	root_markers = {
 		".clangd",
 		".clang-tidy",

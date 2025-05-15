@@ -1,4 +1,6 @@
 --TODO: ROOT_DIR
+---
+---@type vim.lsp.ClientConfig
 return {
 	cmd = { "ltex-ls-plus" },
 	filetypes = {

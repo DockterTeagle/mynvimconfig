@@ -1,13 +1,10 @@
+---@type vim.lsp.ClientConfig
 return {
 	cmd = { "texlab" },
 	filetypes = { "tex", "plaintex", "bib" },
 	settings = {
-
 		forwardSearch = {
 			executable = "zathura",
-		},
-		build = {
-			useFileList = true,
 		},
 		chktex = {
 			onOpenAndSave = true,
@@ -15,8 +12,8 @@ return {
 		},
 		experimental = {
 			followPackageLinks = true,
+			-- mathEnvironments = true,
+			-- enumeEnvironments = true,
 		},
 	},
 }
--- texlab = {
--- },

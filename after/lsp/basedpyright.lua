@@ -1,3 +1,4 @@
+---@type vim.lsp.ClientConfig
 return {
 	cmd = { "basedpyright-langserver", "--stdio" },
 	root_markers = {

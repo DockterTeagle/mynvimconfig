@@ -1,3 +1,4 @@
+---@type vim.lsp.ClientConfig
 return {
 	cmd = { "taplo", "lsp", "stdio" },
 	filetypes = { "toml" },
