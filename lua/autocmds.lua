@@ -177,18 +177,18 @@ vim.api.nvim_create_autocmd("User", {
 -- 	end,
 -- })
 --auto open  trouble on error
-vim.api.nvim_create_autocmd("DiagnosticChanged", {
-	callback = function(args)
-		local diagnostics = vim.diagnostic.get(args.buf)
-		local trouble = require("trouble")
-		if #diagnostics > 0 then
-			if not trouble.is_open() then
-				trouble.open("diagnostics", { focus = false })
-			end
-			-- else
-			-- 	if trouble.is_open() then
-			-- 		trouble.close()
-			-- 	end
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("DiagnosticChanged", {
+-- 	callback = function(args)
+-- 		local diagnostics = vim.diagnostic.get(args.buf)
+-- 		local trouble = require("trouble")
+-- 		if #diagnostics > 0 then
+-- 			if not trouble.is_open() then
+-- 				trouble.open("diagnostics", { focus = false })
+-- 			end
+-- 			-- else
+-- 			-- 	if trouble.is_open() then
+-- 			-- 		trouble.close()
+-- 			-- 	end
+-- 		end
+-- 	end,
+-- })
