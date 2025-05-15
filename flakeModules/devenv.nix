@@ -18,13 +18,12 @@ in {
       marksman
       ltex-ls-plus
       typos
+      treefmt.build.wrapper
     ];
     git-hooks = {
       enabledPackages = with pkgs; [
         mdsh
         statix
-        deadnix
-        stylua
       ];
       hooks = {
         #git

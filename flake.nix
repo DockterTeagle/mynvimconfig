@@ -26,6 +26,6 @@
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-      perSystem = {imports = [./flakeModules];};
+      perSystem.imports = [./flakeModules];
     };
 }
