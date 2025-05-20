@@ -1,18 +1,26 @@
 # TODO
 
-- \[ \] make tmux keys work in oil
+- [ ] make tmux keys work in oil
 
-- \[ \] make this incoherent mess of a config better (especially misc.lua)
+- [ ] make this incoherent mess of a config better (especially misc.lua)
 
-- \[ \] use more nix (maybe make a separate nix folder?)
+- [ ] use more nix (maybe make a separate nix folder?)
 
-- \[ \] migrate to Nvim 0.11
+- [ ] finish all the configs
 
-- \[ \] finish all the configs
+- [ ] improve performance
 
-- \[ \] get commitizen working
+- [ ] finish todo-comments luasnip
 
-- \[ \] improve performance
-- \[ \] finish todo-commentsluasnip
-- \[ \] for nixd make it not break whenever not provided home-manager options
-- \[ \] somehow get rid of .typos.toml
+- [ ] for nixd make it not break whenever not provided home-manager options
+
+- [ ] somehow get rid of .typos.toml
+
+- [ ] consider a separate lock folder
+
+- [ ] make VimTex TOC use trouble somehow
+
+- [ ] ts-autotag and also ts-context/commentstring
+
+- [ ] make yazi.nvim use system yazi somehow; that is, make it so that the "-"
+  bind doesnt open another yazi
