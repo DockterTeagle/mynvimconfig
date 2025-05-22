@@ -3,9 +3,7 @@
   pkgs,
   config,
   ...
-}: let
-  inherit (config) treefmt;
-in {
+}: {
   devenv.shells.default = {
     cachix = {
       enable = true;
@@ -14,11 +12,9 @@ in {
     packages = with pkgs; [
       inputs'.nixd.packages.nixd
       lua-language-server
-      codespell
-      marksman
+      markdownlint-cli2
       ltex-ls-plus
-      typos
-      treefmt.build.wrapper
+      config.treefmt.build.wrapper
     ];
     git-hooks = {
       enabledPackages = with pkgs; [
@@ -43,7 +39,7 @@ in {
         mdsh.enable = true;
         treefmt = {
           enable = true;
-          package = treefmt.build.wrapper;
+          package = config.treefmt.build.wrapper;
         };
       };
     };
