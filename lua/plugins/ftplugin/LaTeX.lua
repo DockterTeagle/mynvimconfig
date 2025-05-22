@@ -30,6 +30,7 @@ return {
 			vim.g.vimtex_compiler_latexmk = {
 				executable = "latexmk",
 				aux_dir = "latexbuild",
+				out_dir = "result",
 				options = {
 					"-shell-escape",
 					"-verbose",

@@ -1,8 +1,6 @@
 return {
 	ensure_installed = {
 		"vim",
-		"lua",
-		"luadoc",
 		"luap",
 		"python",
 		"markdown",
@@ -15,7 +13,6 @@ return {
 		"yaml",
 		"tmux",
 		"make",
-		"bibtex",
 		"fish",
 		"toml",
 		"matlab",
@@ -24,8 +21,14 @@ return {
 		"query",
 		"json",
 		"jsonc",
+		"html",
+		"typst",
 	},
-	highlight = { enable = true, disable = { "latex" }, use_languagetree = true },
+	highlight = {
+		enable = true,
+		disable = { "latex", "bibtex" },
+		use_languagetree = true,
+	},
 	indent = { enable = true },
 	incremental_selection = {
 		enable = true,
