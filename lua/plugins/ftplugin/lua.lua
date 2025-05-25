@@ -12,21 +12,12 @@ return {
 				{ "luvit-meta", words = { "vim%.uv" } },
 				"lazy.nvim",
 				{ "lazydev.nvim", words = { "lazydev" } },
-				{ "snacks.nvim", words = { "snacks" } },
+				{ "snacks.nvim", words = { "Snacks" } },
 				{ "lspsaga.nvim", { words = "lspsaga" } },
 			},
 			enabled = function(root_dir)
 				return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
 			end,
-		},
-	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			ensure_installed = {
-				"lua",
-				"luadoc",
-			},
 		},
 	},
 }

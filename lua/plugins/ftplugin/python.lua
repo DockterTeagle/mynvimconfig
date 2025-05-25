@@ -1,9 +1,5 @@
 return {
 	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = { ensure_installed = { "ninja", "rst" } },
-	},
-	{
 		"mfussenegger/nvim-dap-python",
 		ft = "python",
 		cmd = { "DapContinue" },
