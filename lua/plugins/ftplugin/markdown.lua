@@ -1,43 +1,4 @@
 return {
-	{
-		"mfussenegger/nvim-lint",
-		opts = {
-			linters_by_ft = {
-				markdown = { "markdownlint-cli2" },
-			},
-		},
-	},
-	-- {
-	-- 	"stevearc/conform.nvim",
-	-- 	opts = {
-	-- 		formatters = {
-	--
-	-- ["markdown-toc"] = {
-	-- 	condition = function(_, ctx)
-	-- 		for _, line in ipairs(vim.api.nvim_buf_get_lines(ctx.buf, 0, -1, false)) do
-	-- 			if line:find("<!%-%- toc %-%->") then
-	-- 				return true
-	-- 			end
-	-- 		end
-	-- 	end,
-	-- },
-	-- ["markdownlint-cli2"] = {
-	-- 	condition = function(_, ctx)
-	-- 		local diag = vim.tbl_filter(function(d)
-	-- 			return d.source == "markdownlint"
-	-- 		end, vim.diagnostic.get(ctx.buf))
-	-- 		return #diag > 0
-	-- 	end,
-	-- },
-	-- 		},
-	-- 		formatters_by_ft = {
-	-- 			-- ["markdown"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
-	-- 			-- ["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
-	-- 			["markdown"] = { "prettier", "markdownlint-cli2" },
-	-- 			["markdown.mdx"] = { "prettier", "markdownlint-cli2" },
-	-- 		},
-	-- 	},
-	-- },
 
 	{
 		"OXY2DEV/markview.nvim",
@@ -45,13 +6,38 @@ return {
 		branch = "dev",
 		opts = {
 			icon_provider = "mini",
+			preview = {
+				filetypes = {
+					"markdown",
+					"rmd",
+					"quarto",
+					-- "tex",
+					"rmd",
+					"typst",
+				},
+			},
 			latex = {
-				enable = true,
+				enable = false,
 			},
 		},
 		-- dependencies = {
 		-- 	"saghen/blink.cmp",
 		-- },
+	},
+	{
+		"jmbuhr/otter.nvim",
+		ft = {
+			"markdown",
+			"nix",
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {
+			-- verbose = {
+			-- 	no_code_found = true,
+			-- },
+		},
 	},
 	{
 		"obsidian-nvim/obsidian.nvim",
@@ -64,7 +50,6 @@ return {
 			"nvim-lua/plenary.nvim",
 			"folke/snacks.nvim",
 			-- see above for full list of optional dependencies ☝️
-			"saghen/blink.cmp",
 			"nvim-treesitter/nvim-treesitter",
 			"OXY2DEV/markview.nvim",
 		},
@@ -74,6 +59,7 @@ return {
 			picker = {
 				name = "snacks.pick",
 			},
+			use_advanced_uri = true,
 			completion = {
 				nvim_cmp = false,
 				blink = true,
