@@ -13,7 +13,6 @@ return {
 	settings = {
 		nixd = {
 			inlay_hints = true,
-			formatting = { command = { "alejandra" } },
 			nixpkgs = {
 				expr = string.format(
 					'(builtins.getFlake "%s").inputs.nixpkgs {}',
