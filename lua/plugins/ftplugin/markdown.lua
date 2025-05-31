@@ -66,6 +66,9 @@ return {
 			-- 		title = title:gsub("[^A-Za-z0-9_]", "")
 			-- 	end
 			-- end,
+			open = {
+				use_advanced_uri = true,
+			},
 			daily_notes = {
 				folder = "notes/dailies",
 			},
@@ -146,7 +149,6 @@ return {
 			picker = {
 				name = "snacks.pick",
 			},
-			use_advanced_uri = true,
 			completion = {
 				nvim_cmp = false,
 				blink = true,
