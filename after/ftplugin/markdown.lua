@@ -1,1 +1,2 @@
-vim.lsp.enable({ "ltexplus", "markdown_oxide" })
+vim.lsp.enable({ "markdown_oxide", "ltexplus" })
+vim.treesitter.start()

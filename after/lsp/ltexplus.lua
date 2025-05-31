@@ -15,14 +15,6 @@ end
 return {
 	cmd = { "ltex-ls-plus" },
 	get_language_id = get_language_id,
-	capabilities = {
-		textDocument = {
-			foldingRange = {
-				dynamicRegistration = false,
-				lineFoldingOnly = false,
-			},
-		},
-	},
 	filetypes = {
 		"bib",
 		"context",
@@ -66,13 +58,12 @@ return {
 				"typst",
 				"xhtml",
 			},
-			-- statusBarItem = true,
 			clearDiagnosticsWhenClosingFile = false,
 			additionalRules = {
 				enablePickyRules = true,
 				motherTongue = "en-US",
 			},
-			-- checkFrequency = "save",
+			checkFrequency = "save",
 			language = "en-US",
 		},
 	},

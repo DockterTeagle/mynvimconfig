@@ -1,11 +1,10 @@
 return {
 	{
-		"kosayoda/nvim-lightbulb",
+		"nvimdev/lspsaga.nvim",
 		event = "LspAttach",
-		opts = {
-			autocmd = {
-				enabled = true,
-			},
+		opts = {},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
 		},
 	},
 }

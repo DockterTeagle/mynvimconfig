@@ -10,16 +10,13 @@ M.on_attach = function(client, bufnr)
 		if client.name == "ruff" then
 			client.server_capabilities.hoverProvider = false
 		end
+		map("n", "gd", function()
+			Snacks.picker.lsp_definitions()
+		end)
 		map("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
 		map("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
 		map("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
-		map("n", "<leader>sh", vim.lsp.buf.signature_help, opts("Show signature help"))
-		-- map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts("Add workspace folder"))
-		-- map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts("Remove workspace folder"))
-
-		-- map("n", "<leader>wl", function()
-		-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		-- end, opts("List workspace folders"))
+		-- map("n", "<leader>sh", vim.lsp.buf.signature_help, opts("Show signature help"))
 
 		map({ "n", "v" }, "<leader>ca", function()
 			vim.lsp.buf.code_action()

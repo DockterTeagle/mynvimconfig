@@ -31,7 +31,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
-		lazy = false,
+		cmd = { "DapContinue" },
 		config = function()
 			local dap = require("dap")
 			vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })

@@ -16,7 +16,7 @@ return {
 	},
 	{
 		"pwntester/octo.nvim",
-		event = "VeryLazy",
+		-- event = "VeryLazy",
 		dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim", "echasnovski/mini.icons" },
 		opts = { picker = "snacks" },
 	},

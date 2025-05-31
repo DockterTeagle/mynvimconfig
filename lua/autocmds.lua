@@ -89,24 +89,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- make it easier to close man-files when opened inline
-vim.api.nvim_create_autocmd("FileType", {
-	group = augroup("man_unlisted"),
-	pattern = { "man" },
-	callback = function(event)
-		vim.bo[event.buf].buflisted = false
-	end,
-})
-
--- Fix conceallevel for json files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	group = augroup("json_conceal"),
-	pattern = { "json", "jsonc", "json5" },
-	callback = function()
-		vim.opt_local.conceallevel = 0
-	end,
-})
-
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	group = augroup("auto_create_dir"),
@@ -125,70 +107,3 @@ vim.api.nvim_create_autocmd("User", {
 		vim.cmd([[Trouble qflist open]])
 	end,
 })
-vim.api.nvim_create_autocmd("User", {
-	pattern = "OilActionsPost",
-	callback = function(event)
-		if event.data.actions.type == "move" then
-			Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
-		end
-	end,
-})
----@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
--- local progress = vim.defaulttable()
--- vim.api.nvim_create_autocmd("LspProgress", {
--- 	---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
--- 	callback = function(ev)
--- 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
--- 		local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
--- 		if not client or type(value) ~= "table" then
--- 			return
--- 		end
--- 		local p = progress[client.id]
---
--- 		for i = 1, #p + 1 do
--- 			if i == #p + 1 or p[i].token == ev.data.params.token then
--- 				p[i] = {
--- 					token = ev.data.params.token,
--- 					msg = ("[%3d%%] %s%s"):format(
--- 						value.kind == "end" and 100 or value.percentage or 100,
--- 						value.title or "",
--- 						value.message and (" **%s**"):format(value.message) or ""
--- 					),
--- 					done = value.kind == "end",
--- 				}
--- 				break
--- 			end
--- 		end
---
--- 		local msg = {} ---@type string[]
--- 		progress[client.id] = vim.tbl_filter(function(v)
--- 			return table.insert(msg, v.msg) or not v.done
--- 		end, p)
---
--- 		local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
--- 		vim.notify(table.concat(msg, "\n"), "info", {
--- 			id = "lsp_progress",
--- 			title = client.name,
--- 			opts = function(notif)
--- 				notif.icon = #progress[client.id] == 0 and " "
--- 					or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
--- 			end,
--- 		})
--- 	end,
--- })
---auto open  trouble on error
--- vim.api.nvim_create_autocmd("DiagnosticChanged", {
--- 	callback = function(args)
--- 		local diagnostics = vim.diagnostic.get(args.buf)
--- 		local trouble = require("trouble")
--- 		if #diagnostics > 0 then
--- 			if not trouble.is_open() then
--- 				trouble.open("diagnostics", { focus = false })
--- 			end
--- 			-- else
--- 			-- 	if trouble.is_open() then
--- 			-- 		trouble.close()
--- 			-- 	end
--- 		end
--- 	end,
--- })

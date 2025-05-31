@@ -1,4 +1,6 @@
 local wk = require("which-key")
+local harpoon = require("harpoon")
+harpoon:setup()
 local map = vim.keymap.set
 -- map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
@@ -26,8 +28,11 @@ end, { desc = "buffer close" })
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
+map("n", "<leader>fm", function()
+	Snacks.picker.marks()
+end, { desc = "find marks" })
 map("n", "<leader>ff", function()
-	Snacks.picker.files()
+	Snacks.picker.smart()
 end, { desc = "find files using snacks" })
 map("n", "<leader>fw", function()
 	Snacks.picker.grep()
@@ -139,10 +144,6 @@ local mappings = {
 		-- 	end,
 		-- 	desc = "Peek (Markdown Preview)",
 		-- },
-		["-"] = {
-			"<cmd>Oil<CR>",
-			"openOil",
-		},
 	},
 }
 for mode, maps in pairs(mappings) do
@@ -163,12 +164,14 @@ wk.add({
 	{ "<leader>nG", group = "(n)eo(G)en" },
 	{ "<leader>t", group = "trouble" },
 	{ "<leader>T", group = "TODO" },
+	{ "\\", group = "Core" },
 })
-map({ "n", "v" }, "<leader>y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
-map("n", "<leader>Y", [["+Y]], { silent = true, desc = "Copy to system clipboard" })
+-- Basic command macros
+map({ "n", "v" }, "\\y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
+map("n", "\\Y", [["+Y]], { silent = true, desc = "Copy to system clipboard" })
 
 -- Delete to void register
-map({ "n", "v" }, "<leader>D", [["_d]], { silent = true, desc = "Delete to void register" })
+map({ "n", "v" }, "\\D", [["_d]], { silent = true, desc = "Delete to void register" })
 
 map("n", "]t", function()
 	require("todo-comments").jump_next()
@@ -227,3 +230,7 @@ map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+map("n", "-", "<CMD>Yazi<CR>")
+vim.keymap.set("n", '"', function()
+	Snacks.picker.registers()
+end)

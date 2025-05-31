@@ -91,6 +91,13 @@ local M = {
 				---@type blink-cmp-conventional-commits.Options
 				opts = {}, -- none so far
 			},
+			-- obsidian = {
+			-- 	name = "Obsidian",
+			-- 	module = "obsidian.completion.plugin_initializers.blink",
+			-- 	enabled = function()
+			-- 		return LazyVim.is_loaded("obsidian")
+			-- 	end,
+			-- },
 			git = {
 				module = "blink-cmp-git",
 				name = "Git",
@@ -117,6 +124,7 @@ local M = {
 			sql = { "snippets", "lsp", "path", "dadbod", "buffer" },
 			lua = { "snippets", "lsp", "path", "lazydev" },
 			gitcommit = { "snippets", "lsp", "path", "conventional_commits" },
+			-- markdown = { "git", "snippets", "lsp", "path", "obsidian" },
 		},
 		-- optionally disable cmdline completions
 	},

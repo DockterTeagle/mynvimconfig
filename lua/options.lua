@@ -58,5 +58,5 @@ opt.statuscolumn = [[!v:lua.require'snacks.statuscolumn'.get()]]
 opt.completeopt = "menu,menuone,noselect"
 opt.smoothscroll = true
 opt.fillchars = { foldopen = "", foldclose = "", fold = " ", foldsep = " ", diff = "╱", eob = " " }
--- opt.foldexpr = "v:lua.LazyVim.ui.foldexpr()"
--- opt.foldmethod = "expr"
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"

@@ -6,6 +6,10 @@ return {
 		---@type snacks.Config
 		opts = {
 			styles = {
+				image = {
+					focusable = true,
+					backdrop = true,
+				},
 				input = {
 					-- backdrop = {
 					--
@@ -50,6 +54,9 @@ return {
 			gitbrowse = { enabled = true },
 			indent = { enabled = true },
 			input = { enabled = true },
+			image = { enabled = true, math = {
+				enabled = true,
+			} },
 			notifier = { enabled = true },
 			notify = { enabled = true },
 			profiler = { enabled = true },

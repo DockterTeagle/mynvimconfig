@@ -119,5 +119,5 @@ for _, v in ipairs(todo_snippet_specs) do
 	-- NOTE: 3rd argument accepts nil
 	table.insert(todo_comment_snippets, todo_snippet(v[1], v[2], v[3]))
 end
-ls.add_snippets("all", todo_comment_snippets, { type = "snippets", key = "todo_comments" })
+-- ls.add_snippets("all", todo_comment_snippets, { type = "snippets", key = "todo_comments" })
 -- return { todo_comment_snippets }

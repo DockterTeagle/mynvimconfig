@@ -2,6 +2,7 @@ return {
 	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
+		cmd = "ConformInfo",
 		opts = require("configs.conform"),
 		init = function()
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
@@ -37,8 +38,8 @@ return {
 			{ "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put Text Before Cursor" },
 			{ "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" }, desc = "Put Text After Selection" },
 			{ "gP", "<Plug>(YankyGPutBefore)", mode = { "n", "x" }, desc = "Put Text Before Selection" },
-			{ "[y", "<Plug>(YankyCycleForward)", desc = "Cycle Forward Through Yank History" },
-			{ "]y", "<Plug>(YankyCycleBackward)", desc = "Cycle Backward Through Yank History" },
+			{ "]y", "<Plug>(YankyCycleForward)", desc = "Cycle Forward Through Yank History" },
+			{ "[y", "<Plug>(YankyCycleBackward)", desc = "Cycle Backward Through Yank History" },
 			{ "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
 			{ "[p", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
 			{ "]P", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
@@ -84,14 +85,12 @@ return {
 			local lint = require("lint")
 			lint.linters_by_ft = {
 				cmake = { "cmakelint" },
-				tex = {
-					"lacheck",
-				},
 				nix = { "statix", "nix" },
 				cpp = { "cppcheck", "cpplint" },
 				python = { "dmypy" },
 				fish = { "fish" },
 				systemd = { "systemd-analyze", "systemdlint" },
+				markdown = { "markdownlint-cli2", "vale" },
 			}
 			vim.api.nvim_create_autocmd({ "InsertLeave", "BufEnter", "BufWritePre", "BufWritePost" }, {
 				callback = function()
@@ -131,24 +130,13 @@ return {
 	},
 	{
 		"kevinhwang91/nvim-ufo",
-		event = "VeryLazy",
+		event = "LspAttach",
 		opts = {},
 		dependencies = {
 			"kevinhwang91/promise-async",
 		},
 	},
-	-- {
-	-- 	"lowitea/aw-watcher.nvim",
-	-- 	event = "VeryLazy",
-	-- 	opts = { -- required, but can be empty table: {}
-	-- 		-- add any options here
-	-- 		-- for example:
-	-- 		-- aw_server = {
-	-- 		-- 	host = "127.0.0.1",
-	-- 		-- 	port = 5600,
-	-- 		-- },
-	-- 	},
-	-- },
+	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",

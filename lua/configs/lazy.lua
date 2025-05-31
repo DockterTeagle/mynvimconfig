@@ -5,8 +5,8 @@ return {
 		enabled = false,
 	},
 	checker = {
-		enabled = true,
-		notify = true,
+		enabled = false,
+		-- notify = true,
 	},
 	performance = {
 		rtp = {

@@ -22,6 +22,7 @@ M.lualine_opts = function()
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
 			lualine_x = {
+				"g:obsidian",
 				{
 					"diff",
 					symbols = {

@@ -9,14 +9,19 @@ local options = {
 		},
 		injected = {
 			options = {
-				ignore_errors = true,
+				lang_to_formatters = {},
+				ignore_errors = false,
+				lang_to_ft = {
+					bash = "sh",
+				},
 				lang_to_ext = {
 					bash = "sh",
 					c_sharp = "cs",
 					elixir = "exs",
 					javascript = "js",
 					julia = "jl",
-					-- latex = "tex",
+					latex = "tex",
+					plaintex = "tex",
 					markdown = "md",
 					python = "py",
 					ruby = "rb",
@@ -37,11 +42,11 @@ local options = {
 		cpp = { "clang-format" },
 		cmake = { "cmake_format" },
 		nix = { "alejandra", "injected" },
-		["*"] = { "treefmt", "codespell", "typos" },
+		markdown = { "injected" },
+		["*"] = { "treefmt" },
 		tex = { "tex-fmt" },
 		toml = { "taplo" },
 		yaml = { "yq" },
-		markdown = { "dprint" },
 		nu = { "nufmt" },
 	},
 	format_on_save = {

@@ -47,6 +47,7 @@ return {
 			terminal_colors = true,
 			plugins = {
 				blink = true,
+				neogit = true,
 			},
 		},
 	},
