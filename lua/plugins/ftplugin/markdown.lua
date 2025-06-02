@@ -3,7 +3,6 @@ return {
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false,
-		branch = "dev",
 		opts = {
 			icon_provider = "mini",
 			preview = {
