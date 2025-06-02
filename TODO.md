@@ -10,6 +10,8 @@
 
 - [ ] for nixd make it not break whenever not provided home-manager options
 
+- [ ] also make nixd only look at root_dir for the above
+
 - [ ] consider a separate lock folder
 
 - [ ] make VimTex TOC use trouble somehow

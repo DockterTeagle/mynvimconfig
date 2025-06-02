@@ -19,9 +19,9 @@ return {
 				enable = false,
 			},
 		},
-		dependencies = {
-			"saghen/blink.cmp",
-		},
+		-- dependencies = {
+		-- 	"saghen/blink.cmp",
+		-- },
 	},
 	{
 		"jmbuhr/otter.nvim",
