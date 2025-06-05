@@ -44,5 +44,4 @@ vim.g.rustaceanvim = {
 			},
 		},
 	},
-	dap = {},
 }

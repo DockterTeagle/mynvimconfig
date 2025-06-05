@@ -22,3 +22,8 @@
   bind doesnt open another yazi
 
 - [ ] make it so that snacks.image doesnt render inline image
+
+- [ ] consider the following:
+
+  1. that the tag bindings are mostly redundant
+  1. how to jump to next diagnostic severity(like \[H jumpts to next hint?)

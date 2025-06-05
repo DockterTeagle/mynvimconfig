@@ -10,7 +10,12 @@ return {
 		"--fallback-style=llvm",
 	},
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-	capabilities = { offSetEncoding = { "utf-16" } },
+	capabilities = {
+		textDocument = {
+			completion = { editsNearCursor = true },
+		},
+		offSetEncoding = { "utf-8", "utf-16" },
+	},
 	root_markers = {
 		".clangd",
 		".clang-tidy",

@@ -143,6 +143,17 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
+		"m4xshen/hardtime.nvim",
+		lazy = false,
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {
+			disabled_filetypes = {
+				lazy = false,
+				["dapui"] = false,
+			},
+		},
+	},
+	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},

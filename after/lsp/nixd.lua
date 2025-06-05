@@ -1,11 +1,6 @@
 ---@type vim.lsp.ClientConfig
----@type vim.lsp.Config
 return {
-	-- root_dir = function(bufnr, on_dir)
-	-- 	local fname = vim.api.nvim_buf_get_name(bufnr)
-	-- 	on_dir(util.root_pattern("flake.nix"))
-	-- end,
-	root_markers = { "flake.nix" },
+	root_markers = { "flake.nix", ".git" },
 	cmd = {
 		"nixd",
 	},
