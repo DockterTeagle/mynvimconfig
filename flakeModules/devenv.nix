@@ -14,7 +14,6 @@
       lua-language-server
       markdownlint-cli2
       vale
-      marksman
       markdown-oxide
       ltex-ls-plus
       config.treefmt.build.wrapper
