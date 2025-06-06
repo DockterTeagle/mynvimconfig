@@ -9,11 +9,6 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
-
 -- tabufline
 map("n", "<leader>b", "<cmd>new<CR>", { desc = "buffer new" })
 
@@ -127,23 +122,7 @@ local mappings = {
 			end,
 			"toggle Repl",
 		},
-		-- ["<leader>mp"] = { "<cmd> MarkdownPreview<CR>", "Open Preview" },
-		-- ["<leader>mc"] = { "<cmd> MarkdownPreviewStop<CR>", "Close Preview" },
-		-- ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Projects" },
 		["<leader>tTt"] = { "<cmd>Trouble todo toggle<CR>", desc = "Todo(Trouble)" },
-		["<leader>Tll"] = { "<cmd> TodoLocList<CR>" },
-
-		-- ["<leader>op"] = {
-		-- 	function()
-		-- 		local peek = require("peek")
-		-- 		if peek.is_open() then
-		-- 			peek.close()
-		-- 		else
-		-- 			peek.open()
-		-- 		end
-		-- 	end,
-		-- 	desc = "Peek (Markdown Preview)",
-		-- },
 	},
 }
 for mode, maps in pairs(mappings) do
@@ -163,8 +142,11 @@ wk.add({
 	{ "<leader>gh", group = "(g)it (h)unk" },
 	{ "<leader>nG", group = "(n)eo(G)en" },
 	{ "<leader>t", group = "trouble" },
-	{ "<leader>T", group = "TODO" },
 	{ "\\", group = "Core" },
+	{ "<leader>l", group = "lsp" },
+	{ "<leader>ls", group = "signature" },
+	{ "<leader>lc", group = "code" },
+	{ "<leader>w", group = "which" },
 })
 -- Basic command macros
 map({ "n", "v" }, "\\y", [["+y]], { silent = true, desc = "Copy to System Clipboard" })
@@ -215,13 +197,9 @@ vim.keymap.set(
 	"<CMD>Trouble diagnostics toggle<CR>",
 	{ desc = "toggle diagnostics through trouble" }
 )
-map("n", "<leader>Re", function()
-	require("refactoring").refactor("Extract Function")
-end)
 map("n", "<leader>ou", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
 map("n", "<leader>tll", "<CMD>Trouble loclist toggle<CR>", { desc = "toggle loc list with trouble" })
 
-map("n", "<leader>tLd", "<cmd>Trouble lsp toggle focus=false <cr>", { desc = "LSP Definitions(Trouble)" })
 vim.keymap.del("n", "gra")
 vim.keymap.del("n", "gri")
 vim.keymap.del("n", "grn")
