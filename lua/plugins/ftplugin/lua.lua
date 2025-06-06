@@ -1,17 +1,11 @@
 return {
 	{
-		"Bilal2453/luvit-meta", -- optional `vim.uv` typings
-	},
-	{
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
 				{ "rustaceanvim", words = { "rustaceanvim" } },
 				{ "neotest", words = { "neotest" } },
-				{ "luvit-meta", words = { "vim%.uv" } },
-				"lazy.nvim",
-				{ "lazydev.nvim", words = { "lazydev" } },
 				{ "snacks.nvim", words = { "Snacks" } },
 				{ "lspsaga.nvim", { words = "lspsaga" } },
 			},
