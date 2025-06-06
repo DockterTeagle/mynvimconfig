@@ -8,16 +8,7 @@ return {
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 		end,
 	},
-	{
-		"catgoose/nvim-colorizer.lua",
-		event = "BufReadPre",
-		opts = {
-			user_default_options = {
-				names = false,
-			},
-			virtualtext_inline = true,
-		},
-	},
+
 	{
 		"gbprod/yanky.nvim",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
@@ -106,14 +97,6 @@ return {
 		"vyfor/cord.nvim",
 		build = ":Cord update",
 		event = "VeryLazy",
-		config = true,
-	},
-	{
-		"ThePrimeagen/refactoring.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
 		config = true,
 	},
 	{
