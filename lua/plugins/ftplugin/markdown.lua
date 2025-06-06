@@ -1,5 +1,6 @@
+---@module "lazy"
+---@type LazySpec
 return {
-
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false,
@@ -16,9 +17,6 @@ return {
 				},
 			},
 		},
-		dependencies = {
-			"saghen/blink.cmp",
-		},
 	},
 	{
 		"jmbuhr/otter.nvim",
@@ -30,9 +28,9 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {
-			-- verbose = {
-			-- 	no_code_found = true,
-			-- },
+			verbose = {
+				no_code_found = true,
+			},
 		},
 	},
 	{
@@ -49,19 +47,59 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"OXY2DEV/markview.nvim",
 		},
+		keys = {
+			{
+				"gf",
+				function()
+					require("obsidian").util.gf_passthrough()
+				end,
+				desc = "Goto Obsidian file",
+				noremap = false,
+				expr = true,
+				buffer = true,
+			},
+			{
+				"<leader>ch",
+				function()
+					require("obsidian").util.toggle_checkbox()
+				end,
+				desc = "Toggle Checkbox",
+				buffer = true,
+			},
+			{
+				"<CR>",
+				function()
+					require("obsidian").util.smart_action()
+				end,
+				desc = "Obsidian Smart Action",
+				buffer = true,
+				expr = true,
+			},
+			{
+				"<leader>ff",
+				function()
+					vim.cmd([[Obsidian search]])
+				end,
+				desc = "search with obsidian",
+			},
+			{
+				"<leader>ft",
+				function()
+					vim.cmd([[Obsidian tags]])
+				end,
+				desc = "Find Tags with obsidian",
+			},
+			{
+				"<leader>fF",
+				function()
+					vim.cmd([[Obsdidian quick_switch]])
+				end,
+			},
+		},
 		---@module 'obsidian'
 		---@type obsidian.config.ClientOpts
 		opts = {
 			notes_subdir = "notes",
-			-- note_id_func = function(title)
-			-- 	local suffix = ""
-			-- 	if title == nil then
-			-- 		title = tostring(os.date("%Y-%m-%d"))
-			-- 	else
-			-- 		title = title:gsub(" ", "_")
-			-- 		title = title:gsub("[^A-Za-z0-9_]", "")
-			-- 	end
-			-- end,
 			open = {
 				use_advanced_uri = true,
 			},
@@ -70,15 +108,14 @@ return {
 			},
 			templates = {
 				folder = "templates",
-				date_format = "%Y-%m-%d",
-				time_format = "%H:%M",
+				date_format = "%Y-%m-%dT%H:%M",
 				-- A map for custom variables, the key should be the variable and the value a function
 				substitutions = {
 					created = function()
-						return os.date("%Y-%m-%d")
+						return os.date("%Y-%m-%dT%H:%M")
 					end,
 					updated = function()
-						return os.date("%Y-%m-%d")
+						return os.date("%Y-%m-%dT%H:%M")
 					end,
 					id = function()
 						-- get full path of current buffer
@@ -102,46 +139,13 @@ return {
 						out[k] = v
 					end
 				end
+				if not out["created"] then
+					out["created"] = os.date("%Y-%m-%dT%H:%M")
+				end
 
+				out["updated"] = os.date("%Y-%m-%dT%H:%M")
 				return out
 			end,
-			mappings = {
-				["gf"] = {
-					action = function()
-						return require("obsidian").util.gf_passthrough()
-					end,
-					opts = { noremap = false, expr = true, buffer = true },
-				},
-				-- Toggle check-boxes.
-				["<leader>ch"] = {
-					action = function()
-						return require("obsidian").util.toggle_checkbox()
-					end,
-					opts = { buffer = true },
-				},
-				-- Smart action depending on context: follow link, show notes with tag, toggle checkbox, or toggle heading fold
-				["<cr>"] = {
-					action = function()
-						return require("obsidian").util.smart_action()
-					end,
-					opts = { buffer = true, expr = true },
-				},
-				["<leader>ff"] = {
-					action = function()
-						return vim.cmd([[Obsidian search]])
-					end,
-				},
-				["<leader>ft"] = {
-					action = function()
-						return vim.cmd([[Obsidian tags]])
-					end,
-				},
-				["<leader>fF"] = {
-					action = function()
-						return vim.cmd([[Obsidian quick_switch]])
-					end,
-				},
-			},
 			picker = {
 				name = "snacks.pick",
 			},

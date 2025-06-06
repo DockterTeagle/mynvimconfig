@@ -6,14 +6,6 @@ M.lualine_opts = function()
 		options = {
 			theme = "auto",
 			globalstatus = vim.o.laststatus == 3,
-			disabled_filetypes = {
-				statusline = {
-					"dashboard",
-					"alpha",
-					"ministarter",
-					"snacks_dashboard",
-				},
-			},
 		},
 		icons_enabled = true,
 		theme = "tokyonight",
@@ -22,7 +14,6 @@ M.lualine_opts = function()
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
 			lualine_x = {
-				"g:obsidian",
 				{
 					"diff",
 					symbols = {
@@ -43,39 +34,6 @@ M.lualine_opts = function()
 				},
 			},
 			lualine_c = {
-				{
-					function()
-						local icon = "" -- Icon to display when LSP is active
-						local clients = vim.lsp.get_clients({ bufnr = 0 }) -- Get LSP clients for the current buffer
-						if next(clients) == nil then
-							return "" -- No LSP active, return empty string
-						end
-
-						local names = {}
-						for _, client in ipairs(clients) do
-							table.insert(names, client.name)
-						end
-						return icon .. " " .. table.concat(names, ", ")
-					end,
-					icon = "", -- No need to set the icon again; it's part of the function
-					color = { fg = "#98be65", gui = "bold" }, -- Customize colors as needed
-				},
-				-- {
-				-- 	function()
-				-- 		local linters = require("lint").get_running()
-				-- 		if #linters == 0 then
-				-- 			return ""
-				-- 		end
-				-- 		local linter_names = {}
-				-- 		for _, linter_id in ipairs(linters) do
-				-- 			table.insert(linter_names, linter_id) -- Use linter_id directly or map to names
-				-- 		end
-				--
-				-- 		return "󱉶 " .. table.concat(linter_names, ", ")
-				-- 	end,
-				-- 	icon = "", -- No need to set the icon again; it's part of the function
-				-- 	color = { fg = "#98be65", gui = "bold" }, -- Customize colors as needed
-				-- },
 				{
 					"diagnostics",
 					symbols = {

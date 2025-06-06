@@ -3,14 +3,6 @@ return {
 		"jinzhongjia/LspUI.nvim",
 		branch = "main",
 		opts = {},
-		cmd = "LspUI",
+		event = "LspAttach",
 	},
-	-- {
-	-- 	"nvimdev/lspsaga.nvim",
-	-- 	event = "LspAttach",
-	-- 	opts = {},
-	-- 	dependencies = {
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 	},
-	-- },
 }

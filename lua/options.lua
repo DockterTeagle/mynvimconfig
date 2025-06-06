@@ -9,6 +9,7 @@ o.showmode = false
 
 o.cursorline = true
 o.cursorlineopt = "number"
+opt.list = true
 
 -- Indenting
 o.expandtab = true
@@ -35,7 +36,7 @@ opt.shortmess:append("sI")
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
-o.timeoutlen = 400
+o.timeoutlen = 300
 o.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
@@ -45,11 +46,9 @@ o.updatetime = 50
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append("<>[]hl")
 
--- disable some default providers
-
 opt.laststatus = 3
 opt.splitkeep = "screen"
-o.foldcolumn = "1"
+o.foldcolumn = "auto"
 o.foldlevel = 99
 o.foldlevelstart = 99
 opt.inccommand = "split"
@@ -57,6 +56,7 @@ o.foldenable = true
 opt.statuscolumn = [[!v:lua.require'snacks.statuscolumn'.get()]]
 opt.completeopt = "menu,menuone,noselect"
 opt.smoothscroll = true
+opt.linebreak = true
 opt.fillchars = { foldopen = "", foldclose = "", fold = " ", foldsep = " ", diff = "╱", eob = " " }
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"

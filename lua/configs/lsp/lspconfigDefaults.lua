@@ -12,8 +12,8 @@ M.on_attach = function(client, bufnr)
 	map("n", "gD", function()
 		Snacks.picker.lsp_declarations()
 	end, opts("Go to declaration"))
-	map("n", "<leader>sh", vim.lsp.buf.signature_help, opts("Show signature help"))
-	map({ "n", "v" }, "<leader>ca", function()
+	map("n", "<leader>lsh", vim.lsp.buf.signature_help, opts("Show signature help"))
+	map({ "n", "v" }, "<leader>lca", function()
 		vim.lsp.buf.code_action()
 	end, opts("Code action"))
 	map("n", "gd", function()
@@ -35,7 +35,7 @@ M.on_attach = function(client, bufnr)
 				max = vim.diagnostic.severity.ERROR,
 			},
 		})
-	end)
+	end, opts("prev diagnostic"))
 	map("n", "]d", function()
 		vim.diagnostic.goto_next({
 			severity = {
@@ -43,7 +43,7 @@ M.on_attach = function(client, bufnr)
 				max = vim.diagnostic.severity.ERROR,
 			},
 		})
-	end)
+	end, opts("next diagnostic"))
 	if client:supports_method("textDocument/inlayHint") then
 		vim.lsp.inlay_hint.enable(true)
 	end

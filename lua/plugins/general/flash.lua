@@ -1,7 +1,17 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
-	opts = {},
+	---@type Flash.Config
+	opts = {
+		modes = {
+			search = { enabled = true },
+			char = {
+				jump_labels = true,
+			},
+		},
+	},
 	keys = {
 		{
 			"s",

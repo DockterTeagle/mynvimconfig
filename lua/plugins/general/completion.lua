@@ -28,9 +28,6 @@ return {
 				"xzbdmw/colorful-menu.nvim",
 			},
 			{
-				"MahanRahmati/blink-nerdfont.nvim",
-			},
-			{
 				"Kaiser-Yang/blink-cmp-git",
 				dependencies = { "nvim-lua/plenary.nvim" },
 			},
