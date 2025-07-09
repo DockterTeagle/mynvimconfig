@@ -17,6 +17,7 @@
       markdown-oxide
       ltex-ls-plus
       config.treefmt.build.wrapper
+      clang
     ];
     git-hooks = {
       enabledPackages = with pkgs; [

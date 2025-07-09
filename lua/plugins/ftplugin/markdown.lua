@@ -5,6 +5,9 @@ return {
 		"OXY2DEV/markview.nvim",
 		lazy = false,
 		opts = {
+			experimental = {
+				check_rtp_message = false,
+			},
 			icon_provider = "mini",
 			preview = {
 				filetypes = {
@@ -92,7 +95,7 @@ return {
 			{
 				"<leader>fF",
 				function()
-					vim.cmd([[Obsdidian quick_switch]])
+					vim.cmd([[Obsidian quick_switch]])
 				end,
 			},
 		},

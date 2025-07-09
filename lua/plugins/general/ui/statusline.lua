@@ -1,12 +1,5 @@
 return {
 	{
-		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-		opts = function()
-			return require("configs.gitsigns")
-		end,
-	},
-	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		init = function()

@@ -24,3 +24,7 @@
 - [ ] make it so that snacks.image doesnt render inline image
 
 - [ ] make lualine more dynamic and smol
+
+- [ ] make treesitter more nix freindly(currently requires clang to be installed)
+
+- [ ] make markview load correctly
